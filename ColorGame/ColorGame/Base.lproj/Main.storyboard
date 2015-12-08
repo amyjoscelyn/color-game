@@ -1,0 +1,456 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="CJZ-L7-Ptk">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+    </dependencies>
+    <scenes>
+        <!--Game-->
+        <scene sceneID="Gjf-fz-Qra">
+            <objects>
+                <viewController id="bfI-jO-KW3" customClass="AMYColorGameViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4L0-Sh-je7"/>
+                        <viewControllerLayoutGuide type="bottom" id="C2F-pW-Xl4"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="VaB-0U-rCy">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AyX-R3-6om">
+                                <rect key="frame" x="110" y="75" width="100" height="100"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x0k-rs-ia8">
+                                        <rect key="frame" x="4" y="35" width="92" height="30"/>
+                                        <animations/>
+                                        <state key="normal" title="  New Color!  "/>
+                                        <connections>
+                                            <action selector="refreshGameButtonTapped:" destination="bfI-jO-KW3" eventType="touchUpInside" id="sCZ-pK-iIz"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="n8I-0U-xGT"/>
+                                    <constraint firstAttribute="width" secondItem="AyX-R3-6om" secondAttribute="height" multiplier="1:1" id="zuJ-4S-PPd"/>
+                                </constraints>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="uEp-DN-qqI">
+                                <rect key="frame" x="0.0" y="230" width="320" height="284"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="WP4-ck-pD8">
+                                        <rect key="frame" x="45" y="0.0" width="230" height="56"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X7u-5E-61L">
+                                                <rect key="frame" x="0.0" y="13" width="95" height="30"/>
+                                                <animations/>
+                                                <color key="backgroundColor" red="0.3921568627" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <state key="normal" title="   Less Red!   ">
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="10"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="makeBackgroundLessRedButtonTapped:" destination="bfI-jO-KW3" eventType="touchUpInside" id="qll-tG-3o5"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4OT-vB-jwZ">
+                                                <rect key="frame" x="135" y="13" width="95" height="30"/>
+                                                <animations/>
+                                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <state key="normal" title="   More Red!   ">
+                                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="10"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="makeBackgroundMoreRedButtonTapped:" destination="bfI-jO-KW3" eventType="touchUpInside" id="qeo-1H-sh0"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <animations/>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="FrY-OP-qBZ">
+                                        <rect key="frame" x="31" y="76" width="258" height="56"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gSY-Ni-5b2">
+                                                <rect key="frame" x="0.0" y="13" width="109" height="30"/>
+                                                <animations/>
+                                                <color key="backgroundColor" red="0.0" green="0.3921568627" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <state key="normal" title="   Less Green!   ">
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="10"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="makeBackgroundLessGreenButtonTapped:" destination="bfI-jO-KW3" eventType="touchUpInside" id="IqT-Rd-rIy"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jpx-32-FIb">
+                                                <rect key="frame" x="149" y="13" width="109" height="30"/>
+                                                <animations/>
+                                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <state key="normal" title="   More Green!   ">
+                                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="10"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="makeBackgroundMoreGreenButtonTapped:" destination="bfI-jO-KW3" eventType="touchUpInside" id="X2K-LO-ybK"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <animations/>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="egT-vX-zXN">
+                                        <rect key="frame" x="42" y="152" width="236" height="56"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JXE-90-X61">
+                                                <rect key="frame" x="0.0" y="13" width="98" height="30"/>
+                                                <animations/>
+                                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
+                                                <state key="normal" title="   Less Blue!   ">
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="10"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="makeBackgroundLessBlueButtonTapped:" destination="bfI-jO-KW3" eventType="touchUpInside" id="Ung-ff-Qsp"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TbM-Ca-7JX">
+                                                <rect key="frame" x="138" y="13" width="98" height="30"/>
+                                                <animations/>
+                                                <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <state key="normal" title="   More Blue!   ">
+                                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="10"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="makeBackgroundMoreBlueButtonTapped:" destination="bfI-jO-KW3" eventType="touchUpInside" id="jPa-Sh-wNu"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <animations/>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="1W8-xJ-eTc">
+                                        <rect key="frame" x="63" y="228" width="194" height="56"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vpc-1c-v1y">
+                                                <rect key="frame" x="0.0" y="13" width="77" height="30"/>
+                                                <animations/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <state key="normal" title="   Lighter!   ">
+                                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="10"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="addAlphaToBackgroundButtonTapped:" destination="bfI-jO-KW3" eventType="touchUpInside" id="CdL-F4-qdz"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rRN-Ac-MVK">
+                                                <rect key="frame" x="117" y="13" width="77" height="30"/>
+                                                <animations/>
+                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                <state key="normal" title="   Darker!   ">
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="10"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="takeAwayAlphaFromBackgroundButtonTapped:" destination="bfI-jO-KW3" eventType="touchUpInside" id="QxD-Ec-POh"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <animations/>
+                                    </stackView>
+                                </subviews>
+                                <animations/>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="j5K-2p-Pno" userLabel="RGBA Goal Value Stack">
+                                <rect key="frame" x="24" y="75" width="17" height="100"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="R:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4EA-4D-vnK">
+                                        <rect key="frame" x="0.0" y="0.0" width="17" height="25"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="G:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZVG-GC-1iJ">
+                                        <rect key="frame" x="0.0" y="25" width="17" height="25"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="B:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7QA-q3-piI">
+                                        <rect key="frame" x="0.0" y="50" width="17" height="25"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="alL-hr-dXa">
+                                        <rect key="frame" x="0.0" y="75" width="17" height="25"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <animations/>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="dGj-ID-7VQ" userLabel="RGBA Background Value Stack">
+                                <rect key="frame" x="279" y="75" width="17" height="100"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="R:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s56-c7-s0L">
+                                        <rect key="frame" x="0.0" y="0.0" width="17" height="25"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="G:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PLk-k2-1i7">
+                                        <rect key="frame" x="0.0" y="25" width="17" height="25"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="B:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ka1-ch-akd">
+                                        <rect key="frame" x="0.0" y="50" width="17" height="25"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uUA-vL-cIz">
+                                        <rect key="frame" x="0.0" y="75" width="17" height="25"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <animations/>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eTj-sc-lHG">
+                                <rect key="frame" x="264" y="188" width="46" height="30"/>
+                                <animations/>
+                                <state key="normal" title="⚪️"/>
+                                <connections>
+                                    <action selector="hideFeatureButtonTapped:" destination="bfI-jO-KW3" eventType="touchUpInside" id="zbh-KH-gkh"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7OY-QF-70h">
+                                <rect key="frame" x="131.5" y="518" width="58" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Go Back"/>
+                                <connections>
+                                    <action selector="dismissModalButtonTapped:" destination="bfI-jO-KW3" eventType="touchUpInside" id="xG4-an-ekW"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="LUM-M0-OVe">
+                                <rect key="frame" x="93" y="24" width="134" height="45"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Score: %lu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C5c-sc-5Z8">
+                                        <rect key="frame" x="8" y="0.0" width="119" height="21"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Target Score: %lu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7bo-CO-HC3">
+                                        <rect key="frame" x="0.0" y="25" width="134" height="21"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <animations/>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Match the Color!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vtL-cI-ESf">
+                                <rect key="frame" x="96" y="192" width="128" height="20.5"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="j5K-2p-Pno" firstAttribute="leading" secondItem="VaB-0U-rCy" secondAttribute="leadingMargin" constant="8" id="2pt-kW-esJ"/>
+                            <constraint firstItem="uEp-DN-qqI" firstAttribute="centerX" secondItem="VaB-0U-rCy" secondAttribute="centerX" id="4eK-md-yMi"/>
+                            <constraint firstItem="7OY-QF-70h" firstAttribute="top" secondItem="uEp-DN-qqI" secondAttribute="bottom" constant="4" id="6c7-Rx-YPz"/>
+                            <constraint firstItem="uEp-DN-qqI" firstAttribute="height" secondItem="VaB-0U-rCy" secondAttribute="height" multiplier="0.5" id="EEV-66-DE7"/>
+                            <constraint firstItem="dGj-ID-7VQ" firstAttribute="top" secondItem="AyX-R3-6om" secondAttribute="top" id="LC6-DP-wTF"/>
+                            <constraint firstItem="j5K-2p-Pno" firstAttribute="top" secondItem="AyX-R3-6om" secondAttribute="top" id="NBs-aQ-Sfh"/>
+                            <constraint firstItem="AyX-R3-6om" firstAttribute="centerX" secondItem="VaB-0U-rCy" secondAttribute="centerX" id="YBZ-FF-zYe"/>
+                            <constraint firstItem="dGj-ID-7VQ" firstAttribute="height" secondItem="AyX-R3-6om" secondAttribute="height" id="ZPU-9n-Qq1"/>
+                            <constraint firstItem="dGj-ID-7VQ" firstAttribute="trailing" secondItem="VaB-0U-rCy" secondAttribute="trailingMargin" constant="-8" id="b8E-mm-48f"/>
+                            <constraint firstItem="vtL-cI-ESf" firstAttribute="centerX" secondItem="AyX-R3-6om" secondAttribute="centerX" id="fjN-Sc-PxY"/>
+                            <constraint firstItem="j5K-2p-Pno" firstAttribute="height" secondItem="AyX-R3-6om" secondAttribute="height" id="hRH-xS-Xb6"/>
+                            <constraint firstItem="7OY-QF-70h" firstAttribute="centerX" secondItem="uEp-DN-qqI" secondAttribute="centerX" id="iqf-fI-Tn3"/>
+                            <constraint firstItem="AyX-R3-6om" firstAttribute="top" secondItem="4L0-Sh-je7" secondAttribute="bottom" constant="55" id="mPA-ma-44K"/>
+                            <constraint firstItem="LUM-M0-OVe" firstAttribute="top" secondItem="4L0-Sh-je7" secondAttribute="bottom" constant="4" id="mRY-Yh-4I1"/>
+                            <constraint firstItem="uEp-DN-qqI" firstAttribute="width" secondItem="VaB-0U-rCy" secondAttribute="width" id="pIy-zp-PnY"/>
+                            <constraint firstItem="vtL-cI-ESf" firstAttribute="top" secondItem="AyX-R3-6om" secondAttribute="bottom" constant="17" id="pyd-jv-7o7"/>
+                            <constraint firstItem="uEp-DN-qqI" firstAttribute="top" secondItem="4L0-Sh-je7" secondAttribute="bottom" constant="210" id="vjo-DS-D4w"/>
+                            <constraint firstItem="LUM-M0-OVe" firstAttribute="centerX" secondItem="VaB-0U-rCy" secondAttribute="centerX" id="xgD-3K-gCk"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Game" id="N6U-o5-bIM"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="alphaBackgroundValueLabel" destination="uUA-vL-cIz" id="jge-5Q-0qV"/>
+                        <outlet property="alphaGoalValueLabel" destination="alL-hr-dXa" id="vcy-8r-v3t"/>
+                        <outlet property="blueBackgroundValueLabel" destination="ka1-ch-akd" id="QhC-Iw-HXd"/>
+                        <outlet property="blueGoalValueLabel" destination="7QA-q3-piI" id="NMj-2f-HEa"/>
+                        <outlet property="colorGoalView" destination="AyX-R3-6om" id="s2j-cj-jYY"/>
+                        <outlet property="dismissModalButton" destination="7OY-QF-70h" id="INO-Nz-kQ5"/>
+                        <outlet property="gameLabel" destination="vtL-cI-ESf" id="hMo-hv-jc7"/>
+                        <outlet property="greenBackgroundValueLabel" destination="PLk-k2-1i7" id="D3W-us-El1"/>
+                        <outlet property="greenGoalValueLabel" destination="ZVG-GC-1iJ" id="ibL-qq-6a2"/>
+                        <outlet property="hideFeatureButton" destination="eTj-sc-lHG" id="XR6-CM-ffX"/>
+                        <outlet property="lessAlphaButton" destination="rRN-Ac-MVK" id="qYD-0N-LqD"/>
+                        <outlet property="lessBlueButton" destination="JXE-90-X61" id="C8v-kt-TqW"/>
+                        <outlet property="lessGreenButton" destination="gSY-Ni-5b2" id="3Wh-OA-Ttx"/>
+                        <outlet property="lessRedButton" destination="X7u-5E-61L" id="kDt-T5-zye"/>
+                        <outlet property="moreAlphaButton" destination="Vpc-1c-v1y" id="3AY-g2-nSI"/>
+                        <outlet property="moreBlueButton" destination="TbM-Ca-7JX" id="KYu-2h-7l1"/>
+                        <outlet property="moreGreenButton" destination="Jpx-32-FIb" id="Zk6-8v-VPB"/>
+                        <outlet property="moreRedButton" destination="4OT-vB-jwZ" id="59X-XU-bcz"/>
+                        <outlet property="playerScoreLabel" destination="C5c-sc-5Z8" id="805-iy-NwV"/>
+                        <outlet property="redBackgroundValueLabel" destination="s56-c7-s0L" id="DnW-oT-WxG"/>
+                        <outlet property="redGoalValueLabel" destination="4EA-4D-vnK" id="6wD-20-Xau"/>
+                        <outlet property="refreshGameButton" destination="x0k-rs-ia8" id="ihc-dv-xcv"/>
+                        <outlet property="targetScoreLabel" destination="7bo-CO-HC3" id="FpT-X6-8I0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sE7-vC-Jtw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="649" y="2162"/>
+        </scene>
+        <!--Game-->
+        <scene sceneID="gNk-qn-fey">
+            <objects>
+                <viewController id="CJZ-L7-Ptk" customClass="AMYGameDifficultyViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ztS-z6-dfT"/>
+                        <viewControllerLayoutGuide type="bottom" id="jop-OZ-7ih"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="oQN-TW-9f6">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="kaG-Ku-Oah">
+                                <rect key="frame" x="110" y="112" width="100" height="345"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JbE-2J-pLD">
+                                        <rect key="frame" x="0.0" y="0.0" width="100" height="45"/>
+                                        <animations/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="45" id="cF3-iZ-W17"/>
+                                        </constraints>
+                                        <state key="normal" title="Very Easy"/>
+                                        <connections>
+                                            <segue destination="bfI-jO-KW3" kind="presentation" id="yv3-1p-Won"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pzh-cV-W1I">
+                                        <rect key="frame" x="0.0" y="75" width="100" height="45"/>
+                                        <animations/>
+                                        <state key="normal" title="Easy"/>
+                                        <connections>
+                                            <segue destination="bfI-jO-KW3" kind="presentation" id="75k-4C-c3S"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0iI-sN-xnY">
+                                        <rect key="frame" x="0.0" y="150" width="100" height="45"/>
+                                        <animations/>
+                                        <state key="normal" title="Medium"/>
+                                        <connections>
+                                            <segue destination="bfI-jO-KW3" kind="presentation" id="Gy9-C9-0dv"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gXT-Nj-o6D">
+                                        <rect key="frame" x="0.0" y="225" width="100" height="45"/>
+                                        <animations/>
+                                        <state key="normal" title="Hard"/>
+                                        <connections>
+                                            <segue destination="bfI-jO-KW3" kind="presentation" id="OFN-16-wIQ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P8y-vD-6Fc">
+                                        <rect key="frame" x="0.0" y="300" width="100" height="45"/>
+                                        <animations/>
+                                        <state key="normal" title="Master"/>
+                                        <connections>
+                                            <segue destination="bfI-jO-KW3" kind="presentation" id="NBx-Oc-n2d"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="bGp-wK-QIM"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Nji-fL-qFL">
+                                <rect key="frame" x="64.5" y="47.5" width="191" height="48.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Match the Color!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="suy-7D-aqk">
+                                        <rect key="frame" x="0.0" y="0.0" width="191" height="29"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose difficulty:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Pj-jB-AyO">
+                                        <rect key="frame" x="32" y="29" width="127.5" height="19.5"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <animations/>
+                            </stackView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="kaG-Ku-Oah" firstAttribute="top" secondItem="Nji-fL-qFL" secondAttribute="bottom" constant="16" id="Bw3-wF-sj8"/>
+                            <constraint firstItem="Nji-fL-qFL" firstAttribute="centerX" secondItem="kaG-Ku-Oah" secondAttribute="centerX" id="IO7-E3-I3S"/>
+                            <constraint firstItem="kaG-Ku-Oah" firstAttribute="centerX" secondItem="oQN-TW-9f6" secondAttribute="centerX" id="f4z-Sh-F65"/>
+                            <constraint firstItem="kaG-Ku-Oah" firstAttribute="centerY" secondItem="oQN-TW-9f6" secondAttribute="centerY" id="ydj-r4-1Kp"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Game" id="YX2-6z-I8U"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YXC-eG-HUz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="649" y="1428"/>
+        </scene>
+    </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="yv3-1p-Won"/>
+    </inferredMetricsTieBreakers>
+</document>
