@@ -16,6 +16,6 @@
 @property (nonatomic, strong) NSArray *hardColors;
 @property (nonatomic, strong) NSArray *masterColors;
 
-+ (void)setColorArrays;
++ (NSArray *)setColorArrays;
 
 @end

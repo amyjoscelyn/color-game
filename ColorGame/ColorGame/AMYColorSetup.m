@@ -11,7 +11,7 @@
 
 @implementation AMYColorSetup
 
-+ (void)setColorArrays
++ (NSArray *)setColorArrays
 {
     UIColor *red = [UIColor redColor];       // 1|0|0|1
     UIColor *yellow = [UIColor yellowColor];    // 1|1|0|1
@@ -24,7 +24,7 @@
     UIColor *royalGreen = [UIColor colorWithRed:0 green:.5 blue:0 alpha:1];
     UIColor *royalBlue = [UIColor colorWithRed:0 green:0 blue:.5 alpha:1];
     
-    self.veryEasyColors = @[ red, royalRed, yellow, green, royalGreen, cyan, blue, royalBlue, magenta, white ]; //WHITE IS NOT WORKING CORRECTLY
+    NSArray *veryEasyColors = @[ red, royalRed, yellow, green, royalGreen, cyan, blue, royalBlue, magenta, white ]; //WHITE IS NOT WORKING CORRECTLY
     
     UIColor *hotPink = [UIColor colorWithRed:1 green:0 blue:.5 alpha:1];
     UIColor *coral = [UIColor colorWithRed:1 green:.5 blue:.5 alpha:1];
@@ -43,7 +43,7 @@
     UIColor *fuschia = [UIColor colorWithRed:1 green:.5 blue:1 alpha:1];
     UIColor *gray = [UIColor grayColor];        // 5|5|5|1
     
-    self.easyColors = @[ hotPink, coral, orange, paleYellow, softGreen, seaGreen, weedGreen, limeGreen, brightGreen, skyBlue, mildBlue, periwinkle, brightPurple, purple, fuschia, gray ];
+    NSArray *easyColors = @[ hotPink, coral, orange, paleYellow, softGreen, seaGreen, weedGreen, limeGreen, brightGreen, skyBlue, mildBlue, periwinkle, brightPurple, purple, fuschia, gray ];
     
     UIColor *brown  = [UIColor brownColor]; // 6|4|2|1
     UIColor *dustyRose = [UIColor colorWithRed:.6 green:0 blue:.2 alpha:1];
@@ -51,17 +51,20 @@
     UIColor *darkBlue = [UIColor colorWithRed:0 green:.2 blue:.4 alpha:1];
     UIColor *coralRose = [UIColor colorWithRed:1 green:0 blue:.25 alpha:1];
     
-    self.mediumColors = @[ brown, dustyRose, vividGreen, darkBlue, coralRose ];
+    NSArray *mediumColors = @[ brown, dustyRose, vividGreen, darkBlue, coralRose ];
     
     UIColor *springGreen = [UIColor colorWithRed:.45 green:.75 blue:.5 alpha:1];
     UIColor *darkRed = [UIColor colorWithRed:.5 green:0 blue:.1 alpha:1];
     
-    self.hardColors = @[ springGreen, darkRed ];
+    NSArray *hardColors = @[ springGreen, darkRed ];
     
     UIColor *lightGray = [UIColor lightGrayColor];  // 667|667|667|1
     UIColor *darkGray = [UIColor darkGrayColor];    // 333|333|333|1
     
-    self.masterColors = @[ lightGray, darkGray ];
+    NSArray *masterColors = @[ lightGray, darkGray ];
+    
+    NSArray *arrayOfArrays = @[ veryEasyColors, easyColors, mediumColors, hardColors, masterColors ];
+    return arrayOfArrays;
 }
 
 @end

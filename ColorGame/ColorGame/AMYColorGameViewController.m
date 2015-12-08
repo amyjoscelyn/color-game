@@ -81,57 +81,15 @@
 
 - (void)setGoalColors
 {
-    [AMYColorSetup setColorArrays];
-    //    UIColor *red    = [UIColor redColor];       // 1|0|0|1
-    //    UIColor *yellow = [UIColor yellowColor];    // 1|1|0|1
-    //    UIColor *green  = [UIColor greenColor];     // 0|1|0|1
-    //    UIColor *cyan = [UIColor cyanColor];        // 0|1|1|1
-    //    UIColor *blue   = [UIColor blueColor];      // 0|0|1|1
-    //    UIColor *magenta = [UIColor magentaColor];  // 1|0|1|1
+    NSArray *arrayOfColorArrays = [AMYColorSetup setColorArrays];
+    
+    self.veryEasyColors = arrayOfColorArrays[0];
+    self.easyColors = arrayOfColorArrays[1];
+    self.mediumColors = arrayOfColorArrays[2];
+    self.hardColors = arrayOfColorArrays[3];
+    self.masterColors = arrayOfColorArrays[4];
+    
     UIColor *white  = [UIColor whiteColor];     // 1|1|1|1
-    //    UIColor *royalRed = [UIColor colorWithRed:.5 green:0 blue:0 alpha:1];
-    //    UIColor *royalGreen = [UIColor colorWithRed:0 green:.5 blue:0 alpha:1];
-    //    UIColor *royalBlue = [UIColor colorWithRed:0 green:0 blue:.5 alpha:1];
-    //
-    //    self.veryEasyColors = @[ red, royalRed, yellow, green, royalGreen, cyan, blue, royalBlue, magenta, white ]; //WHITE IS NOT WORKING CORRECTLY
-    //
-    //    UIColor *hotPink = [UIColor colorWithRed:1 green:0 blue:.5 alpha:1];
-    //    UIColor *coral = [UIColor colorWithRed:1 green:.5 blue:.5 alpha:1];
-    //    UIColor *orange = [UIColor orangeColor];    // 1|5|0|1
-    //    UIColor *paleYellow = [UIColor colorWithRed:1 green:1 blue:.5 alpha:1];
-    //    UIColor *softGreen = [UIColor colorWithRed:.5 green:1 blue:.5 alpha:1];
-    //    UIColor *seaGreen = [UIColor colorWithRed:0 green:.5 blue:.5 alpha:1];
-    //    UIColor *weedGreen = [UIColor colorWithRed:.5 green:.5 blue:0 alpha:1];
-    //    UIColor *limeGreen = [UIColor colorWithRed:.5 green:1 blue:0 alpha:1];
-    //    UIColor *brightGreen = [UIColor colorWithRed:0 green:1 blue:.5 alpha:1];
-    //    UIColor *skyBlue = [UIColor colorWithRed:.5 green:1 blue:1 alpha:1];
-    //    UIColor *mildBlue = [UIColor colorWithRed:0 green:.5 blue:1 alpha:1];
-    //    UIColor *periwinkle = [UIColor colorWithRed:.5 green:.5 blue:1 alpha:1];
-    //    UIColor *brightPurple = [UIColor colorWithRed:.5 green:0 blue:1 alpha:1];
-    //    UIColor *purple = [UIColor purpleColor];    // 5|0|5|1
-    //    UIColor *fuschia = [UIColor colorWithRed:1 green:.5 blue:1 alpha:1];
-    //    UIColor *gray = [UIColor grayColor];        // 5|5|5|1
-    //
-    //    self.easyColors = @[ hotPink, coral, orange, paleYellow, softGreen, seaGreen, weedGreen, limeGreen, brightGreen, skyBlue, mildBlue, periwinkle, brightPurple, purple, fuschia, gray ];
-    //
-    //    UIColor *brown  = [UIColor brownColor]; // 6|4|2|1
-    //    UIColor *dustyRose = [UIColor colorWithRed:.6 green:0 blue:.2 alpha:1];
-    //    UIColor *vividGreen = [UIColor colorWithRed:.5 green:.75 blue:0 alpha:1];
-    //    UIColor *darkBlue = [UIColor colorWithRed:0 green:.2 blue:.4 alpha:1];
-    //    UIColor *coralRose = [UIColor colorWithRed:1 green:0 blue:.25 alpha:1];
-    //
-    //    self.mediumColors = @[ brown, dustyRose, vividGreen, darkBlue, coralRose ];
-    //
-    //    UIColor *springGreen = [UIColor colorWithRed:.45 green:.75 blue:.5 alpha:1];
-    //    UIColor *darkRed = [UIColor colorWithRed:.5 green:0 blue:.1 alpha:1];
-    //
-    //    self.hardColors = @[ springGreen, darkRed ];
-    //
-    //    UIColor *lightGray = [UIColor lightGrayColor];  // 667|667|667|1
-    //    UIColor *darkGray = [UIColor darkGrayColor];    // 333|333|333|1
-    //
-    //    self.masterColors = @[ lightGray, darkGray ];
-    //
     self.currentColor = white;
 }
 
@@ -462,6 +420,7 @@
     CGColorRef color1 = [self.colorGoalView.backgroundColor CGColor];
     CGColorRef color2 = [self.view.backgroundColor CGColor];
     
+    //the chunk of code below might be able to become a method in a new class: `- (BOOL)compareBackgroundColor:(UIColor *)color1 withGoal:(UIColor *)color2;`, with YES being COLORS MATCH and NO being THEY DON'T.
     if (CGColorGetColorSpace(color1) == CGColorGetColorSpace(color2))
     {
         NSUInteger componentsNumber = CGColorGetNumberOfComponents(color1);
@@ -573,8 +532,6 @@
  disable difficulties that are 'coming soon!' so I don't need to focus on them yet
  
  more advanced stuff/issues:
- 
- set up a tap counter to get score
  check out how it looks on other devices
  set up options for difficulty and hiding fields.  an options screen?
  randomize starter color--that can be another option (instead of default black background)
@@ -587,9 +544,9 @@
  Make cool background for difficulty selection screen
  Make those buttons look nice
  Make everything look nice
+ maybe the very easiest level should have an increment of .25, easy with .1, and then so on and on
  
- port this to a new project
- set it up with multiple classes so it's not all on the VC
+ set this project up with multiple classes so it's not all on the VC--IS THIS POSSIBLE?
  */
 
 /*
@@ -633,6 +590,14 @@
  plus everything                     (extreme)
  
  SHOULD THE VERY-EASIEST LEVEL BE SET BECAUSE VALUES ARE ONLY 1, OR SHOULD IT BE ONLY ONE COLOR IS CLICKED ON?  THAT WOULD ALLOW .5 AND 1, AND SAVE MIXING COLORS TO EASY
+ 
+ Maaaaaayyyybe the difficulty levels shouldn't be so cut and dry: maybe there can be an easy mode, where it still levels up, but the increment stays pretty high--.25--but you mix more and more of the colors together within those increments (0, .25, .5, .75, 1 are the only possible values)
+    There can be a medium mode, which is more about mixing colors straightaway, now that you understand how the colors interact with each other.  This the increment value can change as you "level up", so it starts off at .1 and then goes to .05, meaning only .# values are possible at the start, and then .## values that are divisible by 5 by the end. //THIS MIGHT NEED TO BE SPLIT INTO TWO LEVELS, ONE FOR JUST .1, AND ONE FOR JUST .05
+    The highest level can be the challenging setting, where you have a choice of your increment, from 1 all the way to .01.  This should be a slider, with set amounts--like it paginates to those values--and the amount listed above the slider so you're well aware of what you're incrementing by.  The colors start off easy here as well, to get you used to changing the increment yourself, so I can basically reuse the colors from the earlier settings, although I'll probably smush all of the colors from the easy one into the first difficulty level, then from the medium ones into the next few, and then a brand new amount of colors with .## values of ANY number.
+    THESE SHOULD ALL BE CALLED COMPLEXITY SETTINGS, or COMPLEXITY LEVELS or something.  Complexity mode?
+    There can ALSO be a zen mode!!!  This doesn't score and doesn't give you a goal, but you're able to play around and make colors just to see what it can do.
+ 
+ You can make any setting or mode or whatever zen by hiding your score/target score.  Those options are exclusively togglable, since you might only want to hide the target but keep your own score.
  */
 
 @end
