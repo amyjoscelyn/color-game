@@ -8,6 +8,41 @@
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
+        <!--App View Controller-->
+        <scene sceneID="ZQK-Y4-wUX">
+            <objects>
+                <viewController id="C7K-Ck-FOb" customClass="AMYAppViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jwm-98-HL8"/>
+                        <viewControllerLayoutGuide type="bottom" id="nul-ee-mYs"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="uhu-Eo-FC6">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RiH-rA-NQY">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <animations/>
+                            </containerView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="RiH-rA-NQY" firstAttribute="width" secondItem="uhu-Eo-FC6" secondAttribute="width" id="Pbr-TI-b85"/>
+                            <constraint firstItem="RiH-rA-NQY" firstAttribute="height" secondItem="uhu-Eo-FC6" secondAttribute="height" id="dbx-aL-qRP"/>
+                            <constraint firstItem="RiH-rA-NQY" firstAttribute="centerY" secondItem="uhu-Eo-FC6" secondAttribute="centerY" id="jpy-p6-48Z"/>
+                            <constraint firstItem="RiH-rA-NQY" firstAttribute="centerX" secondItem="uhu-Eo-FC6" secondAttribute="centerX" id="w08-RL-jp9"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="containerView" destination="RiH-rA-NQY" id="gvo-ui-EHn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ebe-X1-mXk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1112" y="2099"/>
+        </scene>
         <!--Game-->
         <scene sceneID="Gjf-fz-Qra">
             <objects>
@@ -346,7 +381,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sE7-vC-Jtw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1461" y="2270"/>
+            <point key="canvasLocation" x="1461" y="2758"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="bnf-pb-lkF">
@@ -452,7 +487,7 @@
         <!--Game-->
         <scene sceneID="gNk-qn-fey">
             <objects>
-                <viewController id="CJZ-L7-Ptk" customClass="AMYGameDifficultyViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DifficultyViewController" id="CJZ-L7-Ptk" customClass="AMYGameDifficultyViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ztS-z6-dfT"/>
                         <viewControllerLayoutGuide type="bottom" id="jop-OZ-7ih"/>
@@ -569,6 +604,31 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Xv-7r-kzT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="420" y="1428"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="dJf-4r-rb0">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AAk-4G-vzP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="ZenViewController" id="8GX-E2-Nsh" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5Cc-Lv-3pH">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Zen!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xLG-Tp-T6a">
+                                <rect key="frame" x="146" y="180" width="35" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="992" y="2753"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
