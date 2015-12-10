@@ -8,8 +8,11 @@
 
 #import "AMYGameDifficultyViewController.h"
 #import "AMYColorGameViewController.h"
+#import "AMYSharedDataStore.h"
 
 @interface AMYGameDifficultyViewController () <AMYColorGameViewControllerDelegate>
+
+@property (strong, nonatomic) AMYSharedDataStore *store;
 
 @end
 
@@ -33,22 +36,27 @@
     if ([sender.titleLabel.text isEqualToString:@"Very Easy"])
     {
         difficulty = @"very easy";
+        self.store.difficulty = 0;
     }
     else if ([sender.titleLabel.text isEqualToString:@"Easy"])
     {
         difficulty = @"easy";
+        self.store.difficulty = 1;
     }
     else if ([sender.titleLabel.text isEqualToString:@"Medium"])
     {
         difficulty = @"medium";
+        self.store.difficulty = 2;
     }
     else if ([sender.titleLabel.text isEqualToString:@"Hard"])
     {
         difficulty = @"hard";
+        self.store.difficulty = 3;
     }
     else
     {
         difficulty = @"master";
+        self.store.difficulty = 4;
     }
     AMYColorGameViewController *gameDVC = segue.destinationViewController;
     gameDVC.difficulty = difficulty;

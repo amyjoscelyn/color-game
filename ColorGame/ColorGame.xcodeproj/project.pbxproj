@@ -18,7 +18,8 @@
 		3D41551F1C179818009B2EBA /* AMYGameDifficultyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D41551D1C179818009B2EBA /* AMYGameDifficultyViewController.m */; };
 		3D4155221C179971009B2EBA /* AMYColorSetup.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4155211C179971009B2EBA /* AMYColorSetup.m */; };
 		3D990A081C1883FA000A775D /* AMYAppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D990A071C1883FA000A775D /* AMYAppViewController.m */; };
-		3D990A0B1C188637000A775D /* AMYConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D990A0A1C188637000A775D /* AMYConstants.m */; };
+		3D990A0E1C18B664000A775D /* AMYSharedDataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D990A0D1C18B664000A775D /* AMYSharedDataStore.m */; };
+		3D990A111C18B943000A775D /* AMYGameModeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D990A101C18B943000A775D /* AMYGameModeViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,8 +62,10 @@
 		3D4155211C179971009B2EBA /* AMYColorSetup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMYColorSetup.m; sourceTree = "<group>"; };
 		3D990A061C1883FA000A775D /* AMYAppViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMYAppViewController.h; sourceTree = "<group>"; };
 		3D990A071C1883FA000A775D /* AMYAppViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMYAppViewController.m; sourceTree = "<group>"; };
-		3D990A091C188637000A775D /* AMYConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMYConstants.h; sourceTree = "<group>"; };
-		3D990A0A1C188637000A775D /* AMYConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMYConstants.m; sourceTree = "<group>"; };
+		3D990A0C1C18B664000A775D /* AMYSharedDataStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMYSharedDataStore.h; sourceTree = "<group>"; };
+		3D990A0D1C18B664000A775D /* AMYSharedDataStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMYSharedDataStore.m; sourceTree = "<group>"; };
+		3D990A0F1C18B943000A775D /* AMYGameModeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMYGameModeViewController.h; sourceTree = "<group>"; };
+		3D990A101C18B943000A775D /* AMYGameModeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMYGameModeViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,11 +120,13 @@
 				3D4154EB1C1797CA009B2EBA /* AppDelegate.m */,
 				3D4155201C179971009B2EBA /* AMYColorSetup.h */,
 				3D4155211C179971009B2EBA /* AMYColorSetup.m */,
-				3D990A091C188637000A775D /* AMYConstants.h */,
-				3D990A0A1C188637000A775D /* AMYConstants.m */,
+				3D990A0C1C18B664000A775D /* AMYSharedDataStore.h */,
+				3D990A0D1C18B664000A775D /* AMYSharedDataStore.m */,
 				3D4154F01C1797CA009B2EBA /* Main.storyboard */,
 				3D990A061C1883FA000A775D /* AMYAppViewController.h */,
 				3D990A071C1883FA000A775D /* AMYAppViewController.m */,
+				3D990A0F1C18B943000A775D /* AMYGameModeViewController.h */,
+				3D990A101C18B943000A775D /* AMYGameModeViewController.m */,
 				3D41551A1C179818009B2EBA /* AMYColorGameViewController.h */,
 				3D41551B1C179818009B2EBA /* AMYColorGameViewController.m */,
 				3D41551C1C179818009B2EBA /* AMYGameDifficultyViewController.h */,
@@ -294,9 +299,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D990A081C1883FA000A775D /* AMYAppViewController.m in Sources */,
+				3D990A0E1C18B664000A775D /* AMYSharedDataStore.m in Sources */,
 				3D4154EC1C1797CA009B2EBA /* AppDelegate.m in Sources */,
+				3D990A111C18B943000A775D /* AMYGameModeViewController.m in Sources */,
 				3D41551F1C179818009B2EBA /* AMYGameDifficultyViewController.m in Sources */,
-				3D990A0B1C188637000A775D /* AMYConstants.m in Sources */,
 				3D41551E1C179818009B2EBA /* AMYColorGameViewController.m in Sources */,
 				3D4154E91C1797CA009B2EBA /* main.m in Sources */,
 				3D4155221C179971009B2EBA /* AMYColorSetup.m in Sources */,

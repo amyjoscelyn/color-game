@@ -7,10 +7,13 @@
 //
 
 #import "AMYAppViewController.h"
+#import "AMYSharedDataStore.h"
 
 @interface AMYAppViewController ()
 
 @property (weak, nonatomic) IBOutlet UIView *containerView;
+
+@property (strong, nonatomic) AMYSharedDataStore *store;
 
 @end
 
@@ -20,14 +23,7 @@
 {
     [super viewDidLoad];
     
-    if (<#condition#>) {
-        <#statements#>
-    }
-    
-    /*
-     If mode is SIMPLE-COMPLEX, show difficulty screen
-     If mode is ZEN, show zen screen
-     */
+    NSLog(@"Mode: %@,\nDifficulty: %@", self.store.mode, self.store.difficulty);
 }
 
 -(void)setEmbeddedViewController:(UIViewController *)controller
