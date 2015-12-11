@@ -27,20 +27,32 @@
     UIColor *darkBlue = [UIColor colorWithRed:0 green:0 blue:.5 alpha:1];                               // 00|00|50|1.
     
     //Double Value Colors
+    //just 1.
     UIColor *yellow = [UIColor yellowColor];    // 1.|1.|00|1.
     UIColor *cyan = [UIColor cyanColor];        // 00|1.|1.|1.
     UIColor *magenta = [UIColor magentaColor];  // 1.|00|1.|1.
     
+    //just 50
     UIColor *purple = [UIColor purpleColor];    // 50|00|50|1.
     UIColor *teal = [UIColor colorWithRed:0 green:.5 blue:.5 alpha:1];                               // 00|50|50|1.
     UIColor *weedGreen = [UIColor colorWithRed:.5 green:.5 blue:0 alpha:1];                               // 50|50|00|1.
-    
+   
+    //50 and 1.
     UIColor *pink = [UIColor colorWithRed:1 green:0 blue:.5 alpha:1];                               // 1.|00|50|1.
     UIColor *orange = [UIColor orangeColor];    // 1.|50|00|1.
     UIColor *limeGreen = [UIColor colorWithRed:.5 green:1 blue:0 alpha:1];                               // 50|1.|00|1.
     UIColor *brightGreen = [UIColor colorWithRed:0 green:1 blue:.5 alpha:1];                             // 00|1.|50|1.
     UIColor *mildBlue = [UIColor colorWithRed:0 green:.5 blue:1 alpha:1];                               // 00|50|1.|1.
     UIColor *brightPurple = [UIColor colorWithRed:.5 green:0 blue:1 alpha:1];                        // 50|00|1.|1.
+    
+    //25 and 1
+    UIColor *coralRose = [UIColor colorWithRed:1 green:0 blue:.25 alpha:1];                               // 1.|00|25|1.
+   
+    //50 and 75
+    UIColor *vividGreen = [UIColor colorWithRed:.5 green:.75 blue:0 alpha:1];                        // 50|75|00|1.
+    
+    UIColor *dustyRose = [UIColor colorWithRed:.6 green:0 blue:.2 alpha:1];                               // 60|00|20|1.
+    UIColor *darkTeal = [UIColor colorWithRed:0 green:.2 blue:.4 alpha:1];                               // 00|20|40|1.
     
     //Triple Value Colors
     UIColor *coral = [UIColor colorWithRed:1 green:.5 blue:.5 alpha:1];                               // 1.|50|50|1.
@@ -49,11 +61,26 @@
     UIColor *skyBlue = [UIColor colorWithRed:.5 green:1 blue:1 alpha:1];                               // 50|1.|1.|1.
     UIColor *periwinkle = [UIColor colorWithRed:.5 green:.5 blue:1 alpha:1];                             // 50|50|1.|1.
     UIColor *fuschia = [UIColor colorWithRed:1 green:.5 blue:1 alpha:1];                               // 1.|50|1.|1.
+    
+    
+    
+    // 00|00|00|1.
+    
+    
+    
+    
+    UIColor *brown  = [UIColor brownColor];     // 60|40|20|1.
+    UIColor *springGreen = [UIColor colorWithRed:.45 green:.75 blue:.5 alpha:1];       // 45|75|50|1.
+    UIColor *lightGray = [UIColor lightGrayColor];  // 667|667|667|1       // 00|00|00|1.
+    UIColor *darkGray = [UIColor darkGrayColor];    // 333|333|333|1       // 00|00|00|1.
+    
+    //all same values
+    
     /*
-        UIColor *gray = [UIColor grayColor];    // 50|50|50|1.
-        UIColor *white  = [UIColor whiteColor]; // 1.|1.|1.|1.
-    WHITE IS NOT WORKING CORRECTLY, NEITHER IS GRAY.  I think something about how similar black and gray and white are--with no red/blue/green to be offset by, affects the algorithm
-    */
+     UIColor *gray = [UIColor grayColor];    // 50|50|50|1.
+     UIColor *white  = [UIColor whiteColor]; // 1.|1.|1.|1.
+     WHITE IS NOT WORKING CORRECTLY, NEITHER IS GRAY.  I think something about how similar black and gray and white are--with no red/blue/green to be offset by, affects the algorithm
+     */
     
     NSMutableArray *veryEasyColors = [[NSMutableArray alloc] init];
     NSMutableArray *easyColors = [[NSMutableArray alloc] init];
@@ -93,25 +120,6 @@
         hardColors = [ @[  ] mutableCopy];
         masterColors = [ @[  ] mutableCopy];
     }
-    
-    
-    UIColor *brown  = [UIColor brownColor]; // 6|4|2|1
-    UIColor *dustyRose = [UIColor colorWithRed:.6 green:0 blue:.2 alpha:1];         // 00|00|00|1.
-    UIColor *vividGreen = [UIColor colorWithRed:.5 green:.75 blue:0 alpha:1];       // 00|00|00|1.
-    UIColor *darkTeal = [UIColor colorWithRed:0 green:.2 blue:.4 alpha:1];       // 00|00|00|1.
-    UIColor *coralRose = [UIColor colorWithRed:1 green:0 blue:.25 alpha:1];       // 00|00|00|1.
-    
-//    mediumColors = [ @[ brown, dustyRose, vividGreen, darkTeal, coralRose ]  mutableCopy];       // 00|00|00|1.
-    
-    UIColor *springGreen = [UIColor colorWithRed:.45 green:.75 blue:.5 alpha:1];       // 00|00|00|1.
-    UIColor *darkRose = [UIColor colorWithRed:.5 green:0 blue:.1 alpha:1];       // 00|00|00|1.
-    
-//    hardColors = [ @[ springGreen, darkRose ] mutableCopy];
-    
-    UIColor *lightGray = [UIColor lightGrayColor];  // 667|667|667|1       // 00|00|00|1.
-    UIColor *darkGray = [UIColor darkGrayColor];    // 333|333|333|1       // 00|00|00|1.
-    
-//    masterColors = [ @[ lightGray, darkGray ] mutableCopy];
     
     NSArray *arrayOfArrays = @[ veryEasyColors, easyColors, mediumColors, hardColors, masterColors ];
     return arrayOfArrays;
