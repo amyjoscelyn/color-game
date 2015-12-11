@@ -75,10 +75,46 @@
     [super viewDidLoad];
     self.store = [AMYSharedDataStore sharedDataStore];
     [self setGoalColors];
+    
+    //set up mode
+    if (self.store.mode == 0) //simple
+    {
+        [self hideAlpha];
+        self.multiplier = 0.25;
+    }
+    else if (self.store.mode == 1) //basic
+    {
+        [self hideAlpha];
+        self.multiplier = 0.1;
+    }
+    else if (self.store.mode == 2) //moderate
+    {
+        [self hideAlpha];
+        self.multiplier = 0.05;
+    }
+    else
+    {
+        self.multiplier = 0.01;
+    }
+    
+    
+    
+    
+    
+    
     [self chooseGoalColor];
     
     self.colorGoalView.layer.cornerRadius = self.colorGoalView.frame.size.height/2;
     self.colorGoalView.clipsToBounds = YES;
+}
+
+- (void)hideAlpha
+{
+    self.lessAlphaButton.hidden = YES;
+    self.moreAlphaButton.hidden = YES;
+    self.alphaGoalValueLabel.hidden = YES;
+    self.alphaBackgroundValueLabel.hidden = YES;
+    self.alphaFloat = 1;
 }
 
 - (void)setGoalColors
@@ -154,10 +190,10 @@
                 blue: &blue
                alpha: &alpha ];
     
-    self.redGoalValueLabel.text = [NSString stringWithFormat:@"R: %.3f", red];
-    self.greenGoalValueLabel.text = [NSString stringWithFormat:@"G: %.3f", green];
-    self.blueGoalValueLabel.text = [NSString stringWithFormat:@"B: %.3f", blue];
-    self.alphaGoalValueLabel.text = [NSString stringWithFormat:@"A: %.3f", alpha];
+    self.redGoalValueLabel.text = [NSString stringWithFormat:@"R: %.2f", red];
+    self.greenGoalValueLabel.text = [NSString stringWithFormat:@"G: %.2f", green];
+    self.blueGoalValueLabel.text = [NSString stringWithFormat:@"B: %.2f", blue];
+    self.alphaGoalValueLabel.text = [NSString stringWithFormat:@"A: %.2f", alpha];
     
     NSUInteger targetScore = (red + green + blue) * 10;
     // this is a really rudimentary score algorithm.  It works only when the increment is .1
@@ -198,33 +234,32 @@
 
 - (void)setUpView
 {
-    if (self.store.difficulty == 0 || self.store.difficulty == 1)
-    {
-        self.multiplier = 0.1;
-        self.alphaFloat = 1; //i should probably just hide the alpha buttons
-    }
-    else if (self.store.difficulty == 2)
-    {
-        self.multiplier = 0.05;
-        self.alphaFloat = 1;
-    }
-    else if (self.store.difficulty == 3)
-    {
-        self.multiplier = 0.05;
-        self.alphaFloat = 0.5;
-    }
-    else
-    {
-        self.multiplier = 0.01;
-        self.alphaFloat = 0;
-    }
+//    if (self.store.difficulty == 0 || self.store.difficulty == 1)
+//    {
+//        self.multiplier = 0.25;
+//        self.alphaFloat = 1; //i should probably just hide the alpha buttons
+//    }
+//    else if (self.store.difficulty == 2)
+//    {
+//        self.multiplier = 0.05;
+//        self.alphaFloat = 1;
+//    }
+//    else if (self.store.difficulty == 3)
+//    {
+//        self.multiplier = 0.05;
+//        self.alphaFloat = 0.5;
+//    }
+//    else
+//    {
+//        self.multiplier = 0.01;
+//        self.alphaFloat = 0;
+//    }
     
-    CGFloat x = 1 / self.multiplier; //does this change based on difficulty?
+    CGFloat x = 1 / self.multiplier;
     
     self.colorWithRedFloat = 0.0;
     self.colorWithGreenFloat = 0.0;
     self.colorWithBlueFloat = 0.0;
-    //    self.alphaFloat = 0.5; //this should probably be 1 for easy
     
     self.numberOfTimesRedButtonTapped = self.colorWithRedFloat;
     self.numberOfTimesGreenButtonTapped = self.colorWithGreenFloat;
@@ -259,10 +294,10 @@
                                 green: &greenBG
                                  blue: &blueBG
                                 alpha: &alphaBG];
-    self.redBackgroundValueLabel.text = [NSString stringWithFormat:@"R: %.3f", redBG];
-    self.greenBackgroundValueLabel.text = [NSString stringWithFormat:@"G: %.3f", greenBG];
-    self.blueBackgroundValueLabel.text = [NSString stringWithFormat:@"B: %.3f", blueBG];
-    self.alphaBackgroundValueLabel.text = [NSString stringWithFormat:@"A: %.3f", alphaBG];
+    self.redBackgroundValueLabel.text = [NSString stringWithFormat:@"R: %.2f", redBG];
+    self.greenBackgroundValueLabel.text = [NSString stringWithFormat:@"G: %.2f", greenBG];
+    self.blueBackgroundValueLabel.text = [NSString stringWithFormat:@"B: %.2f", blueBG];
+    self.alphaBackgroundValueLabel.text = [NSString stringWithFormat:@"A: %.2f", alphaBG];
     
     self.playerScoreLabel.text = [NSString stringWithFormat:@"Your Score: %lu", self.totalButtonTaps];
 }
@@ -275,13 +310,10 @@
         return;
     }
     self.numberOfTimesRedButtonTapped++;
-    
-    self.colorWithRedFloat = self.numberOfTimesRedButtonTapped * self.multiplier;
-    
     self.lessRedButton.enabled = YES;
     
-    //    NSLog(@"Tapped Red: %lu, %.2f", self.numberOfTimesRedButtonTapped, self.colorWithRedFloat);
-    
+    self.colorWithRedFloat = self.numberOfTimesRedButtonTapped * self.multiplier;
+
     [self postButtonActions];
 }
 
@@ -293,12 +325,9 @@
         return;
     }
     self.numberOfTimesRedButtonTapped--;
-    
-    self.colorWithRedFloat = self.numberOfTimesRedButtonTapped * self.multiplier;
-    
     self.moreRedButton.enabled = YES;
     
-    //    NSLog(@"Tapped Red: %lu, %.2f", self.numberOfTimesRedButtonTapped,self.colorWithRedFloat);
+    self.colorWithRedFloat = self.numberOfTimesRedButtonTapped * self.multiplier;
     
     [self postButtonActions];
 }
@@ -311,12 +340,9 @@
         return;
     }
     self.numberOfTimesGreenButtonTapped++;
-    
-    self.colorWithGreenFloat = self.numberOfTimesGreenButtonTapped * self.multiplier;
-    
     self.lessGreenButton.enabled = YES;
     
-    //    NSLog(@"Tapped Green: %lu, %.2f", self.numberOfTimesGreenButtonTapped, self.colorWithGreenFloat);
+    self.colorWithGreenFloat = self.numberOfTimesGreenButtonTapped * self.multiplier;
     
     [self postButtonActions];
 }
@@ -329,12 +355,9 @@
         return;
     }
     self.numberOfTimesGreenButtonTapped--;
-    
-    self.colorWithGreenFloat = self.numberOfTimesGreenButtonTapped * self.multiplier;
-    
     self.moreGreenButton.enabled = YES;
     
-    //    NSLog(@"Tapped Green: %lu, %.2f", self.numberOfTimesGreenButtonTapped, self.colorWithGreenFloat);
+    self.colorWithGreenFloat = self.numberOfTimesGreenButtonTapped * self.multiplier;
     
     [self postButtonActions];
 }
@@ -347,12 +370,9 @@
         return;
     }
     self.numberOfTimesBlueButtonTapped++;
-    
-    self.colorWithBlueFloat = self.numberOfTimesBlueButtonTapped * self.multiplier;
-    
     self.lessBlueButton.enabled = YES;
     
-    //    NSLog(@"Tapped Blue: %lu, %.2f", self.numberOfTimesBlueButtonTapped, self.colorWithBlueFloat);
+    self.colorWithBlueFloat = self.numberOfTimesBlueButtonTapped * self.multiplier;
     
     [self postButtonActions];
 }
@@ -365,12 +385,9 @@
         return;
     }
     self.numberOfTimesBlueButtonTapped--;
-    
-    self.colorWithBlueFloat = self.numberOfTimesBlueButtonTapped * self.multiplier;
-    
     self.moreBlueButton.enabled = YES;
     
-    //    NSLog(@"Tapped Blue: %lu, %.2f", self.numberOfTimesBlueButtonTapped, self.colorWithBlueFloat);
+    self.colorWithBlueFloat = self.numberOfTimesBlueButtonTapped * self.multiplier;
     
     [self postButtonActions];
 }
@@ -383,12 +400,9 @@
         return;
     }
     self.numberOfTimesAlphaButtonTapped++;
-    
-    self.alphaFloat = self.numberOfTimesAlphaButtonTapped * self.multiplier;
-    
     self.lessAlphaButton.enabled = YES;
     
-    //    NSLog(@"Tapped Alpha: %lu, %.2f", self.numberOfTimesAlphaButtonTapped, self.alphaFloat);
+    self.alphaFloat = self.numberOfTimesAlphaButtonTapped * self.multiplier;
     
     [self postButtonActions];
 }
@@ -401,12 +415,9 @@
         return;
     }
     self.numberOfTimesAlphaButtonTapped--;
-    
-    self.alphaFloat = self.numberOfTimesAlphaButtonTapped * self.multiplier;
-    
     self.moreAlphaButton.enabled = YES;
     
-    //    NSLog(@"Tapped Alpha: %lu, %.2f", self.numberOfTimesAlphaButtonTapped, self.alphaFloat);
+    self.alphaFloat = self.numberOfTimesAlphaButtonTapped * self.multiplier;
     
     [self postButtonActions];
 }
@@ -479,7 +490,6 @@
         [self.hideFeatureButton setTitle:@"🔘" forState:UIControlStateNormal];
     }
     else if ([self.hideFeatureButton.titleLabel.text isEqualToString:@"🔘"])
-        //this doesn't register often yet
     {
         self.redGoalValueLabel.hidden = YES;
         self.greenGoalValueLabel.hidden = YES;
@@ -488,7 +498,7 @@
         
         [self.hideFeatureButton setTitle:@"⚫️" forState:UIControlStateNormal];
     }
-    else
+    else //I need to make sure alpha is no longer hidden only for the modes that show alpha.  otherwise, it stays hidden!
     {
         self.redBackgroundValueLabel.hidden = NO;
         self.greenBackgroundValueLabel.hidden = NO;
@@ -509,40 +519,18 @@
 }
 
 /*
- What I would like to do in here is give the user a color, and they have to try and match it with the background.  They have eight buttons, for RGBA values up and down, and through that they can make all of the colors they are randomly given.
- 
- There should be a bunch of difficulties--easy, medium, and hard at the least.  In easy, the colors should be very basic (red, blue, yellow), and the incremental values of RGBA should be like ten or so, to lessen the amount of options to create those colors.  Alpha should not be touched.
- 
- In medium, the increment should go down to five, and the colors become a little more intermediary.  Alpha should be basic--on the level of 25, 50, 75, 0, and 100.
- 
- In hard, the increment should be 2 or something, and the colors much harder.  Alpha should be more difficult too.
- 
- There can actually be a super hard option.  Maybe easy should be increment 15, medium 10, hard 5, and super hard 1.  Super hard should also take alpha into extreme account.
- 
- Throughout it all, the user should have a few options: whether to hide or to show the RGBA value of the goal color, whether to show the values of the current color, and if the colors should be named or just shown (through the colors).  I don't know.  It should be fun.
- 
- A different array of goal colors would be supplied based on each difficulty.
- 
- Oooh!!  It should keep track of how many taps you've used to find that color--that should be your score!  (That can be another option to show or hide; do you want to see your score or do it zen?  Do you want to know what the par is--the absolute fewest amount of taps it could take?  Or do you want that hidden too, and learn for yourself how low you can go?)
- */
-
-/*
  Things I want to implement:
  round out the stacks so they look prettier... can stacks be rounded?
- add label for color name, so if RGBA values aren't shown the target color name can still be ??????
- set which options can be hidden
- set up values for each difficulty (increment, alpha starting value)
  disable difficulties that are 'coming soon!' so I don't need to focus on them yet
  
  more advanced stuff/issues:
  check out how it looks on other devices
  set up options for difficulty and hiding fields.  an options screen?
- randomize starter color--that can be another option (instead of default black background)
+ randomize starter color--that can be another option (instead of default black background), maybe for a crRaaAAazY level!
  a slider to control increment value for higher levels
  possible multiple views, one for each difficulty, so that I can customize the appearance and spacing for what's pertinent on each
  fill arrays with colors!
  take away alpha button for easy and medium colors
- five difficulties: very easy and easy have no alpha, medium has .25 increment alpha, hard has .1, and master has .05
  I can add an even more zen mode, where there is no target and you just press the buttons to make colors
  Make cool background for difficulty selection screen
  Make those buttons look nice
@@ -556,7 +544,7 @@
  things to hide:
  current background values
  goal color values
- target score
+ target score (for those who want to see for themselves how low the number can go)
  your score
  "clean look"--all unnecessary labels, all text (buttons should say nothing on them, just "")
  
@@ -566,34 +554,11 @@
  start "light"--with white instead of black
  
  if I don't have the alpha buttons, then I don't need the labels saying what the alpha is supposed to be, either
+ 
+ when I do have alpha, it should be an increment of .25, so that it can only be .25, .5, .75, 1.  Maybe one day I can make an EXTREME mode that has alpha of harder values.
  */
 
 /*
- v. easy: 15 taps or less par (.1 ea/tap)
- colors should only have values of 1
- easy: 25? taps or less (.05 ea/t with options of .1?)
- colors may have values of 1 or .5
- medium: 40? (.05/t w/ opt?)
- colors may have above values as well as .25, .75
- plus .2, .4, .6, .8
- hard: 60? (.02/ w/op of 0.5 and .1)
- values as above plus .1, .3, .7, .9, and all .05s
- master: 100? (.01 w/3op)
- colors may be any value (I feel like there should be another intermediary level
- */
-
-/*
- All levels by values allowed:
- simple: values equiv only to 1      (simple)
- values equiv to 1 or .5             ()
- values equiv to .25, .5, .75, or 1  ()
- values above plus .2, .4, .6, .8    (challenging)
- above plus .1, .3, .7, .9           ()
- plus all .05s                       (difficult)
- plus everything                     (extreme)
- 
- SHOULD THE VERY-EASIEST LEVEL BE SET BECAUSE VALUES ARE ONLY 1, OR SHOULD IT BE ONLY ONE COLOR IS CLICKED ON?  THAT WOULD ALLOW .5 AND 1, AND SAVE MIXING COLORS TO EASY
- 
  Maaaaaayyyybe the difficulty levels shouldn't be so cut and dry: maybe there can be an easy mode, where it still levels up, but the increment stays pretty high--.25--but you mix more and more of the colors together within those increments (0, .25, .5, .75, 1 are the only possible values)
     There can be a medium mode, which is more about mixing colors straightaway, now that you understand how the colors interact with each other.  This the increment value can change as you "level up", so it starts off at .1 and then goes to .05, meaning only .# values are possible at the start, and then .## values that are divisible by 5 by the end. //THIS MIGHT NEED TO BE SPLIT INTO TWO LEVELS, ONE FOR JUST .1, AND ONE FOR JUST .05
     The highest level can be the challenging setting, where you have a choice of your increment, from 1 all the way to .01.  This should be a slider, with set amounts--like it paginates to those values--and the amount listed above the slider so you're well aware of what you're incrementing by.  The colors start off easy here as well, to get you used to changing the increment yourself, so I can basically reuse the colors from the earlier settings, although I'll probably smush all of the colors from the easy one into the first difficulty level, then from the medium ones into the next few, and then a brand new amount of colors with .## values of ANY number.
