@@ -7,6 +7,7 @@
 //
 
 #import "AMYGameModeViewController.h"
+#import "AMYAppViewController.h"
 #import "AMYSharedDataStore.h"
 
 @interface AMYGameModeViewController ()
@@ -22,6 +23,33 @@
     [super viewDidLoad];
     
     self.store = [[AMYSharedDataStore alloc] init];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(UIButton *)sender
+{    
+    self.store = [AMYSharedDataStore sharedDataStore];
+    
+    if ([sender.titleLabel.text isEqualToString:@"Simple"])
+    {
+        self.store.mode = 0;
+    }
+    else if ([sender.titleLabel.text isEqualToString:@"Basic"])
+    {
+        self.store.mode = 1;
+    }
+    else if ([sender.titleLabel.text isEqualToString:@"Moderate"])
+    {
+        self.store.mode = 2;
+    }
+    else if ([sender.titleLabel.text isEqualToString:@"Challenging"])
+    {
+        self.store.mode = 3;
+    }
+    else
+    {
+        self.store.mode = 4;
+    }
+    NSLog(@"mode chosen: %lu", self.store.mode);
 }
 
 @end

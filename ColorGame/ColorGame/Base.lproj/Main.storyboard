@@ -383,10 +383,10 @@
             </objects>
             <point key="canvasLocation" x="1461" y="2758"/>
         </scene>
-        <!--View Controller-->
+        <!--Game Mode View Controller-->
         <scene sceneID="bnf-pb-lkF">
             <objects>
-                <viewController id="SHY-TW-nAZ" sceneMemberID="viewController">
+                <viewController id="SHY-TW-nAZ" customClass="AMYGameModeViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="TFn-xn-ynZ"/>
                         <viewControllerLayoutGuide type="bottom" id="HXR-8a-pvn"/>
@@ -426,7 +426,7 @@
                                         </constraints>
                                         <state key="normal" title="Simple"/>
                                         <connections>
-                                            <segue destination="CJZ-L7-Ptk" kind="show" id="HZ2-G0-bub"/>
+                                            <segue destination="C7K-Ck-FOb" kind="show" id="6gF-jW-9CJ"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ohf-Oy-iA6">
@@ -434,7 +434,7 @@
                                         <animations/>
                                         <state key="normal" title="Basic"/>
                                         <connections>
-                                            <segue destination="CJZ-L7-Ptk" kind="show" id="Ilu-PQ-zmB"/>
+                                            <segue destination="C7K-Ck-FOb" kind="show" id="GOq-16-kjf"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hz0-Ib-DXg">
@@ -442,7 +442,7 @@
                                         <animations/>
                                         <state key="normal" title="Moderate"/>
                                         <connections>
-                                            <segue destination="CJZ-L7-Ptk" kind="show" id="Bhu-Lt-otx"/>
+                                            <segue destination="C7K-Ck-FOb" kind="show" id="1Oe-PU-GBv"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hgZ-Nv-ijP">
@@ -450,7 +450,7 @@
                                         <animations/>
                                         <state key="normal" title="Challenging"/>
                                         <connections>
-                                            <segue destination="CJZ-L7-Ptk" kind="show" id="5Oq-L5-tpT"/>
+                                            <segue destination="C7K-Ck-FOb" kind="show" id="BWa-Vv-UCu"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="seh-GZ-qwy">
@@ -458,7 +458,7 @@
                                         <animations/>
                                         <state key="normal" title="Zen"/>
                                         <connections>
-                                            <segue destination="CJZ-L7-Ptk" kind="show" id="Pg8-pG-YYf"/>
+                                            <segue destination="C7K-Ck-FOb" kind="show" id="NFv-ak-RWs"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -636,7 +636,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="BWa-Vv-UCu"/>
         <segue reference="yv3-1p-Won"/>
-        <segue reference="Pg8-pG-YYf"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -26,9 +26,30 @@
     self.store = [AMYSharedDataStore sharedDataStore];
     
     NSLog(@"Mode: %lu,\nDifficulty: %lu", self.store.mode, self.store.difficulty);
+    
+    if (self.store.mode < 4)
+    {
+        [self showDifficultyOptions];
+    }
+    else
+    {
+        [self showZenGame];
+    }
 }
 
--(void)setEmbeddedViewController:(UIViewController *)controller
+- (void)showDifficultyOptions
+{
+    UIViewController *difficultyVC = [self.storyboard instantiateViewControllerWithIdentifier:@"DifficultyViewController"];
+    [self setEmbeddedViewController:difficultyVC];
+}
+
+- (void)showZenGame
+{
+    UIViewController *zenVC = [self.storyboard instantiateViewControllerWithIdentifier:@"ZenViewController"];
+    [self setEmbeddedViewController:zenVC];
+}
+
+- (void)setEmbeddedViewController:(UIViewController *)controller
 {
     if([self.childViewControllers containsObject:controller])
     {
