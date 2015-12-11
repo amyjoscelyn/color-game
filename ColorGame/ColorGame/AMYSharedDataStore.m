@@ -15,7 +15,9 @@
     self = [super init];
     if (self)
     {
-        //should I use this to set the default mode and difficulty, or not bother?
+        _mode = 0;
+        _difficulty = 0;
+        NSLog(@"setting the mode and difficulty!\n Mode: %lu, diff: %lu", self.mode, self.difficulty);
     }
     return self;
 }

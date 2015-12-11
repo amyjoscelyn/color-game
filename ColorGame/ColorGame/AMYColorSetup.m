@@ -24,7 +24,7 @@
     UIColor *royalGreen = [UIColor colorWithRed:0 green:.5 blue:0 alpha:1];
     UIColor *royalBlue = [UIColor colorWithRed:0 green:0 blue:.5 alpha:1];
     
-    NSArray *veryEasyColors = @[ red, royalRed, yellow, green, royalGreen, cyan, blue, royalBlue, magenta, white ]; //WHITE IS NOT WORKING CORRECTLY
+    NSArray *veryEasyColors = @[ red, royalRed, yellow, green, royalGreen, cyan, blue, royalBlue, magenta, white ]; //WHITE IS NOT WORKING CORRECTLY, NEITHER IS GRAY.  I think something about how similar black and gray and white are--with no red/blue/green to be offset by, affects the algorithm
     
     UIColor *hotPink = [UIColor colorWithRed:1 green:0 blue:.5 alpha:1];
     UIColor *coral = [UIColor colorWithRed:1 green:.5 blue:.5 alpha:1];

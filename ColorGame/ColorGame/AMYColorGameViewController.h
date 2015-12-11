@@ -17,7 +17,6 @@
 
 @interface AMYColorGameViewController : UIViewController
 
-@property (nonatomic, strong) NSString *difficulty;
 @property (nonatomic, weak) id<AMYColorGameViewControllerDelegate> delegate;
 
 @end

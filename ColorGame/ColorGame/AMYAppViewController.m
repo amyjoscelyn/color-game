@@ -23,7 +23,9 @@
 {
     [super viewDidLoad];
     
-    NSLog(@"Mode: %@,\nDifficulty: %@", self.store.mode, self.store.difficulty);
+    self.store = [AMYSharedDataStore sharedDataStore];
+    
+    NSLog(@"Mode: %lu,\nDifficulty: %lu", self.store.mode, self.store.difficulty);
 }
 
 -(void)setEmbeddedViewController:(UIViewController *)controller
@@ -52,6 +54,10 @@
     
     [self addChildViewController:controller];
     [self.containerView addSubview:controller.view];
+    [self.containerView.topAnchor constraintEqualToAnchor:controller.view.topAnchor].active = YES;
+    [self.containerView.bottomAnchor constraintEqualToAnchor:controller.view.bottomAnchor].active = YES;
+    [self.containerView.leadingAnchor constraintEqualToAnchor:controller.view.leadingAnchor].active = YES;
+    [self.containerView.trailingAnchor constraintEqualToAnchor:controller.view.trailingAnchor].active = YES;
     //constrain container.view to super view--all the way to edges!
     [controller didMoveToParentViewController:self];
 }

@@ -7,6 +7,7 @@
 //
 
 #import "AMYColorGameViewController.h"
+#import "AMYSharedDataStore.h"
 #import "AMYColorSetup.h"
 
 @interface AMYColorGameViewController ()
@@ -54,7 +55,7 @@
 @property (nonatomic) CGFloat multiplier;
 
 @property (nonatomic, strong) UIColor *currentColor;
-@property (nonatomic, strong) NSString *currentDifficulty;
+@property (nonatomic) NSUInteger currentDifficulty;
 @property (nonatomic) NSUInteger totalButtonTaps;
 
 @property (nonatomic, strong) NSArray *veryEasyColors;
@@ -63,6 +64,8 @@
 @property (nonatomic, strong) NSArray *hardColors;
 @property (nonatomic, strong) NSArray *masterColors;
 
+@property (nonatomic, strong) AMYSharedDataStore *store;
+
 @end
 
 @implementation AMYColorGameViewController
@@ -70,8 +73,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    //    NSLog(@"difficulty: %@", self.difficulty);
-    
+    self.store = [AMYSharedDataStore sharedDataStore];
     [self setGoalColors];
     [self chooseGoalColor];
     
@@ -97,19 +99,19 @@
 {
     NSMutableArray *colorsArray = [[NSMutableArray alloc] init];
     
-    if ([self.difficulty isEqualToString:@"very easy"])
+    if (self.store.difficulty == 0)
     {
         colorsArray = [self.veryEasyColors mutableCopy];
     }
-    else if ([self.difficulty isEqualToString:@"easy"])
+    else if (self.store.difficulty == 1)
     {
         colorsArray = [self.easyColors mutableCopy];
     }
-    else if ([self.difficulty isEqualToString:@"medium"])
+    else if (self.store.difficulty == 2)
     {
         colorsArray = [self.mediumColors mutableCopy];
     }
-    else if ([self.difficulty isEqualToString:@"hard"])
+    else if (self.store.difficulty == 3)
     {
         colorsArray = [self.hardColors mutableCopy];
     }
@@ -125,7 +127,8 @@
     }
     while (colorsArray[i] == self.currentColor);
     
-    self.currentDifficulty = self.difficulty;
+    NSLog(@"difficulty in store: %lu", self.store.difficulty);
+    self.currentDifficulty = self.store.difficulty;
     [self setUpGameWithGoalColor:colorsArray[i]];
 }
 
@@ -195,17 +198,17 @@
 
 - (void)setUpView
 {
-    if ([self.difficulty isEqualToString:@"very easy"] || [self.difficulty isEqualToString:@"easy"])
+    if (self.store.difficulty == 0 || self.store.difficulty == 1)
     {
         self.multiplier = 0.1;
         self.alphaFloat = 1; //i should probably just hide the alpha buttons
     }
-    else if ([self.difficulty isEqualToString:@"medium"])
+    else if (self.store.difficulty == 2)
     {
         self.multiplier = 0.05;
         self.alphaFloat = 1;
     }
-    else if ([self.difficulty isEqualToString:@"hard"])
+    else if (self.store.difficulty == 3)
     {
         self.multiplier = 0.05;
         self.alphaFloat = 0.5;

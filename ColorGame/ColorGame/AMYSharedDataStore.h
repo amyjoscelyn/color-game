@@ -10,8 +10,8 @@
 
 @interface AMYSharedDataStore : NSObject
 
-@property (nonatomic, strong) NSUInteger mode;
-@property (nonatomic, strong) NSUInteger difficulty;
+@property (nonatomic) NSUInteger mode;
+@property (nonatomic) NSUInteger difficulty;
 
 + (instancetype)sharedDataStore;
 
