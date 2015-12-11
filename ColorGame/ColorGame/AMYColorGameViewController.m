@@ -119,7 +119,7 @@
 
 - (void)setGoalColors
 {
-    NSArray *arrayOfColorArrays = [AMYColorSetup setColorArrays];
+    NSArray *arrayOfColorArrays = [AMYColorSetup setColorArraysWithMode:self.store.mode];
     
     self.veryEasyColors = arrayOfColorArrays[0];
     self.easyColors = arrayOfColorArrays[1];
@@ -195,6 +195,7 @@
     self.blueGoalValueLabel.text = [NSString stringWithFormat:@"B: %.2f", blue];
     self.alphaGoalValueLabel.text = [NSString stringWithFormat:@"A: %.2f", alpha];
     
+    //SCORE NO LONGER ACCURATE
     NSUInteger targetScore = (red + green + blue) * 10;
     // this is a really rudimentary score algorithm.  It works only when the increment is .1
     // ideally this algorithm would have access to the multiplier to plug in instead of the magic number

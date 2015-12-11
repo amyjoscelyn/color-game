@@ -7,6 +7,13 @@
 //
 
 #import "AMYGameSetup.h"
+#import "AMYSharedDataStore.h"
+
+@interface AMYGameSetup ()
+
+@property (nonatomic, strong) AMYSharedDataStore *store;
+
+@end
 
 @implementation AMYGameSetup
 
