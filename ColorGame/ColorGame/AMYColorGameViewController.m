@@ -196,10 +196,8 @@
     self.alphaGoalValueLabel.text = [NSString stringWithFormat:@"A: %.2f", alpha];
     
     //SCORE NO LONGER ACCURATE
-    NSUInteger targetScore = (red + green + blue) * 10;
-    // this is a really rudimentary score algorithm.  It works only when the increment is .1
-    // ideally this algorithm would have access to the multiplier to plug in instead of the magic number
-    // but once there are options of switching between multiple increments, the score gets a lot harder to calculate
+    NSUInteger targetScore = (red + green + blue) * (1/self.multiplier);
+    // once there are options of switching between multiple increments, the score gets a lot harder to calculate
     // I would hate to have to figure them out for every single color and plug them in based on that color :(
     self.targetScoreLabel.text = [NSString stringWithFormat:@"Target Score: %lu", targetScore];
     
@@ -235,27 +233,6 @@
 
 - (void)setUpView
 {
-//    if (self.store.difficulty == 0 || self.store.difficulty == 1)
-//    {
-//        self.multiplier = 0.25;
-//        self.alphaFloat = 1; //i should probably just hide the alpha buttons
-//    }
-//    else if (self.store.difficulty == 2)
-//    {
-//        self.multiplier = 0.05;
-//        self.alphaFloat = 1;
-//    }
-//    else if (self.store.difficulty == 3)
-//    {
-//        self.multiplier = 0.05;
-//        self.alphaFloat = 0.5;
-//    }
-//    else
-//    {
-//        self.multiplier = 0.01;
-//        self.alphaFloat = 0;
-//    }
-    
     CGFloat x = 1 / self.multiplier;
     
     self.colorWithRedFloat = 0.0;
@@ -430,30 +407,51 @@
     [self hasWon:([self winningConditions])];
 }
 
-- (BOOL)winningConditions //this is no longer quite accurate!!!
+- (BOOL)winningConditions
 {
-    CGColorRef color1 = [self.colorGoalView.backgroundColor CGColor];
-    CGColorRef color2 = [self.view.backgroundColor CGColor];
+//    CGColorRef color1 = [self.colorGoalView.backgroundColor CGColor];
+//    CGColorRef color2 = [self.view.backgroundColor CGColor];
     
-    //the chunk of code below might be able to become a method in a new class: `- (BOOL)compareBackgroundColor:(UIColor *)color1 withGoal:(UIColor *)color2;`, with YES being COLORS MATCH and NO being THEY DON'T.
-    if (CGColorGetColorSpace(color1) == CGColorGetColorSpace(color2))
+//    //the chunk of code below might be able to become a method in a new class: `- (BOOL)compareBackgroundColor:(UIColor *)color1 withGoal:(UIColor *)color2;`, with YES being COLORS MATCH and NO being THEY DON'T.
+    
+//    if (CGColorGetColorSpace(color1) == CGColorGetColorSpace(color2))
+//    {
+//        NSUInteger componentsNumber = CGColorGetNumberOfComponents(color1);
+//        CGFloat tolerance = 0.0001;
+//        
+//        const CGFloat *components1 = CGColorGetComponents(color1);
+//        const CGFloat *components2 = CGColorGetComponents(color2);
+//        
+//        for (NSUInteger i = 0; i < componentsNumber; i++)
+//        {
+//            CGFloat quotient = components1[i] / components2[i];
+//            if ((fabs(quotient) - 1) > tolerance)
+//            {
+//                return NO;
+//            }
+//        }
+//    }
+    CGFloat red1, green1, blue1, alpha1;
+    
+    [self.view.backgroundColor getRed: &red1
+                                green: &green1
+                                 blue: &blue1
+                                alpha: &alpha1];
+    
+    CGFloat red2, green2, blue2, alpha2;
+    
+    [self.colorGoalView.backgroundColor getRed: &red2
+                                         green: &green2
+                                          blue: &blue2
+                                         alpha: &alpha2];
+    if (red1 == red2 && green1 == green2 && blue1 == blue2 && alpha1 == alpha2)
     {
-        NSUInteger componentsNumber = CGColorGetNumberOfComponents(color1);
-        CGFloat tolerance = 0.0001;
-        
-        const CGFloat *components1 = CGColorGetComponents(color1);
-        const CGFloat *components2 = CGColorGetComponents(color2);
-        
-        for (NSUInteger i = 0; i < componentsNumber; i++)
-        {
-            CGFloat quotient = components1[i] / components2[i];
-            if ((fabs(quotient) - 1) > tolerance)
-            {
-                return NO;
-            }
-        }
+        return YES;
     }
-    return YES;
+    else
+    {
+        return NO;
+    }
 }
 
 - (void)hasWon:(BOOL)boolean
