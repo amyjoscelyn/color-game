@@ -430,7 +430,7 @@
     [self hasWon:([self winningConditions])];
 }
 
-- (BOOL)winningConditions
+- (BOOL)winningConditions //this is no longer quite accurate!!!
 {
     CGColorRef color1 = [self.colorGoalView.backgroundColor CGColor];
     CGColorRef color2 = [self.view.backgroundColor CGColor];

@@ -307,14 +307,14 @@
                                         <rect key="frame" x="7" y="0.0" width="119" height="21"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Target Score: %lu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7bo-CO-HC3">
                                         <rect key="frame" x="0.0" y="25" width="134" height="21"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -402,14 +402,14 @@
                                         <rect key="frame" x="0.0" y="0.0" width="191" height="29"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose mode:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aWY-6F-h2z">
                                         <rect key="frame" x="43" y="29" width="105.5" height="19.5"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -555,14 +555,14 @@
                                         <rect key="frame" x="0.0" y="0.0" width="191" height="29"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose difficulty:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Pj-jB-AyO">
                                         <rect key="frame" x="32" y="29" width="127.5" height="19.5"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -605,10 +605,10 @@
             </objects>
             <point key="canvasLocation" x="420" y="1428"/>
         </scene>
-        <!--View Controller-->
+        <!--Zen View Controller-->
         <scene sceneID="dJf-4r-rb0">
             <objects>
-                <viewController storyboardIdentifier="ZenViewController" id="8GX-E2-Nsh" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ZenViewController" id="8GX-E2-Nsh" customClass="AMYZenViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="1Aa-8d-8o7"/>
                         <viewControllerLayoutGuide type="bottom" id="7wp-l1-kJH"/>
@@ -617,18 +617,231 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Zen!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xLG-Tp-T6a">
-                                <rect key="frame" x="146" y="180" width="35" height="21"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="QAQ-OU-4tB">
+                                <rect key="frame" x="32" y="164" width="256" height="341"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="uNF-em-oyJ">
+                                        <rect key="frame" x="13" y="0.0" width="230" height="71"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Alw-Lx-rEX">
+                                                <rect key="frame" x="0.0" y="20" width="95" height="30"/>
+                                                <animations/>
+                                                <color key="backgroundColor" red="0.3921568627" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <state key="normal" title="   Less Red!   ">
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="10"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="makeBackgroundLessRedButtonTapped:" destination="8GX-E2-Nsh" eventType="touchUpInside" id="HOR-Jd-cbe"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mSO-n1-EMr">
+                                                <rect key="frame" x="135" y="20" width="95" height="30"/>
+                                                <animations/>
+                                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <state key="normal" title="   More Red!   ">
+                                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="10"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="makeBackgroundMoreRedButtonTapped:" destination="8GX-E2-Nsh" eventType="touchUpInside" id="Wno-Jb-n5R"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <animations/>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="o8e-1F-ZOL">
+                                        <rect key="frame" x="0.0" y="91" width="256" height="70"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I3z-KE-Osi">
+                                                <rect key="frame" x="0.0" y="21" width="108" height="30"/>
+                                                <animations/>
+                                                <color key="backgroundColor" red="0.0" green="0.3921568627" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <state key="normal" title="   Less Green!   ">
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="10"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="makeBackgroundLessGreenButtonTapped:" destination="8GX-E2-Nsh" eventType="touchUpInside" id="X4k-yE-HOR"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hg6-77-Q6T">
+                                                <rect key="frame" x="148" y="21" width="108" height="30"/>
+                                                <animations/>
+                                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <state key="normal" title="   More Green!   ">
+                                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="10"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="makeBackgroundMoreGreenButtonTapped:" destination="8GX-E2-Nsh" eventType="touchUpInside" id="WZQ-89-5l2"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <animations/>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="M8d-5v-NDu">
+                                        <rect key="frame" x="10" y="181" width="236" height="71"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zdw-V5-VsD">
+                                                <rect key="frame" x="0.0" y="20" width="98" height="30"/>
+                                                <animations/>
+                                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
+                                                <state key="normal" title="   Less Blue!   ">
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="10"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="makeBackgroundLessBlueButtonTapped:" destination="8GX-E2-Nsh" eventType="touchUpInside" id="zvm-4O-jwV"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="er5-IW-Gl1">
+                                                <rect key="frame" x="138" y="20" width="98" height="30"/>
+                                                <animations/>
+                                                <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <state key="normal" title="   More Blue!   ">
+                                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="10"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="makeBackgroundMoreBlueButtonTapped:" destination="8GX-E2-Nsh" eventType="touchUpInside" id="DSE-Al-Svb"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <animations/>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="pbC-Ay-giw">
+                                        <rect key="frame" x="31" y="271" width="194" height="70"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dKU-Md-uyJ">
+                                                <rect key="frame" x="0.0" y="20" width="77" height="30"/>
+                                                <animations/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <state key="normal" title="   Lighter!   ">
+                                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="10"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="addAlphaToBackgroundButtonTapped:" destination="8GX-E2-Nsh" eventType="touchUpInside" id="8Ad-1N-b1G"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="izz-16-44f">
+                                                <rect key="frame" x="117" y="20" width="77" height="30"/>
+                                                <animations/>
+                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                <state key="normal" title="   Darker!   ">
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="10"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="takeAwayAlphaFromBackgroundButtonTapped:" destination="8GX-E2-Nsh" eventType="touchUpInside" id="t1h-b9-w0y"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <animations/>
+                                    </stackView>
+                                </subviews>
                                 <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hxP-pL-NzP">
+                                <rect key="frame" x="268" y="28" width="30" height="30"/>
+                                <animations/>
+                                <state key="normal" title="⚪️"/>
+                                <connections>
+                                    <action selector="hideFeatureButtonTapped:" destination="8GX-E2-Nsh" eventType="touchUpInside" id="8E9-m9-8Md"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="cNX-Ns-cvh" userLabel="RGBA Background Value Stack">
+                                <rect key="frame" x="24" y="40" width="17" height="82"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="R:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="661-cN-CeH">
+                                        <rect key="frame" x="0.0" y="0.0" width="17" height="21"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="G:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q4y-Nt-9aj">
+                                        <rect key="frame" x="0.0" y="21" width="17" height="21"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="B:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DjS-eO-2KN">
+                                        <rect key="frame" x="0.0" y="41" width="17" height="21"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XlC-3y-ZCC">
+                                        <rect key="frame" x="0.0" y="62" width="17" height="21"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <animations/>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QTB-K1-Cps">
+                                <rect key="frame" x="268" y="92" width="30" height="30"/>
+                                <animations/>
+                                <state key="normal" title="🔄"/>
+                                <connections>
+                                    <action selector="refreshViewButtonTapped:" destination="8GX-E2-Nsh" eventType="touchUpInside" id="8Bu-xA-thR"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="QAQ-OU-4tB" firstAttribute="centerY" secondItem="5Cc-Lv-3pH" secondAttribute="centerY" constant="50" id="0Ww-D1-ZTp"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="hxP-pL-NzP" secondAttribute="trailing" constant="6" id="33Z-b4-4kq"/>
+                            <constraint firstItem="QTB-K1-Cps" firstAttribute="bottom" secondItem="XlC-3y-ZCC" secondAttribute="bottom" id="3qR-Ii-Hgx"/>
+                            <constraint firstItem="hxP-pL-NzP" firstAttribute="top" secondItem="1Aa-8d-8o7" secondAttribute="bottom" constant="8" id="6nx-Wh-L3w"/>
+                            <constraint firstItem="QTB-K1-Cps" firstAttribute="trailing" secondItem="hxP-pL-NzP" secondAttribute="trailing" id="L7Q-PW-nfE"/>
+                            <constraint firstItem="QAQ-OU-4tB" firstAttribute="height" secondItem="5Cc-Lv-3pH" secondAttribute="height" multiplier="0.6" id="XnB-gh-M5b"/>
+                            <constraint firstItem="cNX-Ns-cvh" firstAttribute="top" secondItem="1Aa-8d-8o7" secondAttribute="bottom" constant="20" id="Zab-37-Ffe"/>
+                            <constraint firstItem="QAQ-OU-4tB" firstAttribute="centerX" secondItem="5Cc-Lv-3pH" secondAttribute="centerX" id="bYt-hQ-uxa"/>
+                            <constraint firstItem="cNX-Ns-cvh" firstAttribute="leading" secondItem="5Cc-Lv-3pH" secondAttribute="leadingMargin" constant="8" id="dnl-qj-grX"/>
+                            <constraint firstItem="QAQ-OU-4tB" firstAttribute="width" secondItem="5Cc-Lv-3pH" secondAttribute="width" multiplier="0.8" id="sIj-Le-AHR"/>
+                        </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="alphaBackgroundValueLabel" destination="XlC-3y-ZCC" id="CST-UN-brw"/>
+                        <outlet property="blueBackgroundValueLabel" destination="DjS-eO-2KN" id="OCA-CK-1hn"/>
+                        <outlet property="greenBackgroundValueLabel" destination="q4y-Nt-9aj" id="L4y-9e-pfB"/>
+                        <outlet property="hideFeatureButton" destination="hxP-pL-NzP" id="v1a-cu-U9D"/>
+                        <outlet property="lessAlphaButton" destination="izz-16-44f" id="oDU-cp-qZP"/>
+                        <outlet property="lessBlueButton" destination="zdw-V5-VsD" id="ZLv-Bh-vST"/>
+                        <outlet property="lessGreenButton" destination="I3z-KE-Osi" id="jKZ-Wb-uOj"/>
+                        <outlet property="lessRedButton" destination="Alw-Lx-rEX" id="Fxa-2F-HyG"/>
+                        <outlet property="moreAlphaButton" destination="dKU-Md-uyJ" id="6BA-Q1-A6d"/>
+                        <outlet property="moreBlueButton" destination="er5-IW-Gl1" id="tbA-H4-EgT"/>
+                        <outlet property="moreGreenButton" destination="hg6-77-Q6T" id="p5G-G7-FSD"/>
+                        <outlet property="moreRedButton" destination="mSO-n1-EMr" id="qW2-Q4-wmN"/>
+                        <outlet property="redBackgroundValueLabel" destination="661-cN-CeH" id="W8J-37-73o"/>
+                        <outlet property="refreshViewButton" destination="QTB-K1-Cps" id="f1r-ma-WoJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AAk-4G-vzP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
