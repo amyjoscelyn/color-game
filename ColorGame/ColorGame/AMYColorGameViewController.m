@@ -92,13 +92,10 @@
         [self hideAlpha];
         self.multiplier = 0.05;
     }
-    else    //hard
+    else                            //hard
     {
         self.multiplier = 0.01;
     }
-    
-    
-    
     [self chooseGoalColor];
     
     self.colorGoalView.layer.cornerRadius = self.colorGoalView.frame.size.height/2;
@@ -194,14 +191,26 @@
     
     NSUInteger targetScore = (red + green + blue) * (1/self.multiplier);
     // once there are options of switching between multiple increments, the score gets a lot harder to calculate
-    // I would hate to have to figure them out for every single color and plug them in based on that color :(
+    // I would hate to have to figure them out for every single color, optimized, and plug them in based on that color :(
+    // unless I can make an algorithm based on comparable division:
+    /*
+     if (value > .25)
+     {  divide it by .25
+        collect the remainder
+     }
+     if (remainder > .1)
+        divide by .1, collect r
+     and so on, adding the dividens together to get the score
+     }
+     */
     self.targetScoreLabel.text = [NSString stringWithFormat:@"Target Score: %lu", targetScore];
     
     UIColor *textColor = [UIColor whiteColor];
+    UIColor *black = [UIColor blackColor];
     
     if (red > .7 && green > .7)
     {
-        textColor = [UIColor blackColor];
+        textColor = black;
     }
     
     for (UILabel *colorValueLabel in colorValueLabels)
@@ -222,7 +231,7 @@
     self.playerScoreLabel.text = [NSString stringWithFormat:@"Your Score: %lu", self.totalButtonTaps];
     self.gameLabel.text = @"Match the color!";
     
-    self.view.backgroundColor = [UIColor blackColor];
+    self.view.backgroundColor = black;
     
     [self setUpView];
 }
@@ -405,28 +414,6 @@
 
 - (BOOL)winningConditions
 {
-//    CGColorRef color1 = [self.colorGoalView.backgroundColor CGColor];
-//    CGColorRef color2 = [self.view.backgroundColor CGColor];
-    
-//    //the chunk of code below might be able to become a method in a new class: `- (BOOL)compareBackgroundColor:(UIColor *)color1 withGoal:(UIColor *)color2;`, with YES being COLORS MATCH and NO being THEY DON'T.
-    
-//    if (CGColorGetColorSpace(color1) == CGColorGetColorSpace(color2))
-//    {
-//        NSUInteger componentsNumber = CGColorGetNumberOfComponents(color1);
-//        CGFloat tolerance = 0.0001;
-//        
-//        const CGFloat *components1 = CGColorGetComponents(color1);
-//        const CGFloat *components2 = CGColorGetComponents(color2);
-//        
-//        for (NSUInteger i = 0; i < componentsNumber; i++)
-//        {
-//            CGFloat quotient = components1[i] / components2[i];
-//            if ((fabs(quotient) - 1) > tolerance)
-//            {
-//                return NO;
-//            }
-//        }
-//    }
     CGFloat red1, green1, blue1, alpha1;
     
     [self.view.backgroundColor getRed: &red1
@@ -440,7 +427,10 @@
                                          green: &green2
                                           blue: &blue2
                                          alpha: &alpha2];
-    if (red1 == red2 && green1 == green2 && blue1 == blue2 && alpha1 == alpha2)
+    if (red1 == red2     &&
+        green1 == green2 &&
+        blue1 == blue2   &&
+        alpha1 == alpha2)
     {
         return YES;
     }
@@ -528,14 +518,10 @@
  set up options for difficulty and hiding fields.  an options screen?
  randomize starter color--that can be another option (instead of default black background), maybe for a crRaaAAazY level!
  a slider to control increment value for higher levels
- possible multiple views, one for each difficulty, so that I can customize the appearance and spacing for what's pertinent on each
  fill arrays with colors!
- take away alpha button for easy and medium colors
- I can add an even more zen mode, where there is no target and you just press the buttons to make colors
  Make cool background for difficulty selection screen
  Make those buttons look nice
  Make everything look nice
- maybe the very easiest level should have an increment of .25, easy with .1, and then so on and on
  
  set this project up with multiple classes so it's not all on the VC--IS THIS POSSIBLE?
  */
@@ -553,19 +539,12 @@
  change difficulty
  start "light"--with white instead of black
  
- if I don't have the alpha buttons, then I don't need the labels saying what the alpha is supposed to be, either
- 
  when I do have alpha, it should be an increment of .25, so that it can only be .25, .5, .75, 1.  Maybe one day I can make an EXTREME mode that has alpha of harder values.
  */
 
 /*
- Maaaaaayyyybe the difficulty levels shouldn't be so cut and dry: maybe there can be an easy mode, where it still levels up, but the increment stays pretty high--.25--but you mix more and more of the colors together within those increments (0, .25, .5, .75, 1 are the only possible values)
     There can be a medium mode, which is more about mixing colors straightaway, now that you understand how the colors interact with each other.  This the increment value can change as you "level up", so it starts off at .1 and then goes to .05, meaning only .# values are possible at the start, and then .## values that are divisible by 5 by the end. //THIS MIGHT NEED TO BE SPLIT INTO TWO LEVELS, ONE FOR JUST .1, AND ONE FOR JUST .05
     The highest level can be the challenging setting, where you have a choice of your increment, from 1 all the way to .01.  This should be a slider, with set amounts--like it paginates to those values--and the amount listed above the slider so you're well aware of what you're incrementing by.  The colors start off easy here as well, to get you used to changing the increment yourself, so I can basically reuse the colors from the earlier settings, although I'll probably smush all of the colors from the easy one into the first difficulty level, then from the medium ones into the next few, and then a brand new amount of colors with .## values of ANY number.
-    THESE SHOULD ALL BE CALLED COMPLEXITY SETTINGS, or COMPLEXITY LEVELS or something.  Complexity mode?
-    There can ALSO be a zen mode!!!  This doesn't score and doesn't give you a goal, but you're able to play around and make colors just to see what it can do.
- 
- You can make any setting or mode or whatever zen by hiding your score/target score.  Those options are exclusively togglable, since you might only want to hide the target but keep your own score.
  */
 
 @end
