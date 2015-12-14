@@ -92,13 +92,10 @@
         [self hideAlpha];
         self.multiplier = 0.05;
     }
-    else
+    else    //hard
     {
         self.multiplier = 0.01;
     }
-    
-    
-    
     
     
     
@@ -127,7 +124,7 @@
     self.hardColors = arrayOfColorArrays[3];
     self.masterColors = arrayOfColorArrays[4];
     
-    UIColor *white  = [UIColor whiteColor];     // 1|1|1|1
+    UIColor *white  = [UIColor whiteColor];
     self.currentColor = white;
 }
 
@@ -195,7 +192,6 @@
     self.blueGoalValueLabel.text = [NSString stringWithFormat:@"B: %.2f", blue];
     self.alphaGoalValueLabel.text = [NSString stringWithFormat:@"A: %.2f", alpha];
     
-    //SCORE NO LONGER ACCURATE
     NSUInteger targetScore = (red + green + blue) * (1/self.multiplier);
     // once there are options of switching between multiple increments, the score gets a lot harder to calculate
     // I would hate to have to figure them out for every single color and plug them in based on that color :(
@@ -502,11 +498,16 @@
         self.redBackgroundValueLabel.hidden = NO;
         self.greenBackgroundValueLabel.hidden = NO;
         self.blueBackgroundValueLabel.hidden = NO;
-        self.alphaBackgroundValueLabel.hidden = NO;
+        
         self.redGoalValueLabel.hidden = NO;
         self.greenGoalValueLabel.hidden = NO;
         self.blueGoalValueLabel.hidden = NO;
-        self.alphaGoalValueLabel.hidden = NO;
+        
+        if (self.store.mode > 2)
+        {
+            self.alphaBackgroundValueLabel.hidden = NO;
+            self.alphaGoalValueLabel.hidden = NO;
+        }
         
         [self.hideFeatureButton setTitle:@"⚪️" forState:UIControlStateNormal];
     }

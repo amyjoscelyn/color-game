@@ -21,7 +21,6 @@
 		3D990A0E1C18B664000A775D /* AMYSharedDataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D990A0D1C18B664000A775D /* AMYSharedDataStore.m */; };
 		3D990A111C18B943000A775D /* AMYGameModeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D990A101C18B943000A775D /* AMYGameModeViewController.m */; };
 		3DD7FE871C1F23E40017046C /* AMYZenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD7FE861C1F23E40017046C /* AMYZenViewController.m */; };
-		3DE4AE121C1B629200903059 /* AMYGameSetup.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DE4AE111C1B629200903059 /* AMYGameSetup.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,8 +69,6 @@
 		3D990A101C18B943000A775D /* AMYGameModeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMYGameModeViewController.m; sourceTree = "<group>"; };
 		3DD7FE851C1F23E40017046C /* AMYZenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMYZenViewController.h; sourceTree = "<group>"; };
 		3DD7FE861C1F23E40017046C /* AMYZenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMYZenViewController.m; sourceTree = "<group>"; };
-		3DE4AE101C1B629200903059 /* AMYGameSetup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMYGameSetup.h; sourceTree = "<group>"; };
-		3DE4AE111C1B629200903059 /* AMYGameSetup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMYGameSetup.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,8 +123,6 @@
 				3D4154EB1C1797CA009B2EBA /* AppDelegate.m */,
 				3D4155201C179971009B2EBA /* AMYColorSetup.h */,
 				3D4155211C179971009B2EBA /* AMYColorSetup.m */,
-				3DE4AE101C1B629200903059 /* AMYGameSetup.h */,
-				3DE4AE111C1B629200903059 /* AMYGameSetup.m */,
 				3D990A0C1C18B664000A775D /* AMYSharedDataStore.h */,
 				3D990A0D1C18B664000A775D /* AMYSharedDataStore.m */,
 				3D4154F01C1797CA009B2EBA /* Main.storyboard */,
@@ -317,7 +312,6 @@
 				3D41551E1C179818009B2EBA /* AMYColorGameViewController.m in Sources */,
 				3D4154E91C1797CA009B2EBA /* main.m in Sources */,
 				3D4155221C179971009B2EBA /* AMYColorSetup.m in Sources */,
-				3DE4AE121C1B629200903059 /* AMYGameSetup.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
