@@ -123,7 +123,7 @@
         green = [self randomValueFromArray:arrayWithDifficulty];
         blue = [self randomValueFromArray:arrayWithDifficulty];
     }
-    NSLog(@"r: %f, g: %f, b: %f", red, green, blue);
+//    NSLog(@"r: %f, g: %f, b: %f", red, green, blue);
     
     UIColor *color = [UIColor colorWithRed:red green:green blue:blue alpha:alpha];
     
@@ -148,10 +148,10 @@
 
 - (NSString *)rgbChosenFromArray:(NSArray *)valuesArray
 {
-    for (NSNumber *value in valuesArray)
-    {
-        NSLog(@"value: %@", value);
-    }
+//    for (NSNumber *value in valuesArray)
+//    {
+//        NSLog(@"value: %@", value);
+//    }
     NSString *rgb = @"";
     NSUInteger rgbOption = arc4random_uniform(3);
     if (rgbOption == 0)
@@ -166,7 +166,7 @@
     {
         rgb = @"Blue";
     }
-    NSLog(@"rgb? %@", rgb);
+//    NSLog(@"rgb? %@", rgb);
     
     return rgb;
 }

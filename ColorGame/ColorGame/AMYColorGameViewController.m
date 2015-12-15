@@ -386,7 +386,7 @@
                                          green: &green2
                                           blue: &blue2
                                          alpha: &alpha2];
-    NSLog(@"\n reds: %f vs %f \n greens: %f vs %f \n blues %f vs %f \n alphas %f vs %f", red1, red2, green1, green2, blue1, blue2, alpha1, alpha2);
+//    NSLog(@"\n reds: %f vs %f \n greens: %f vs %f \n blues %f vs %f \n alphas %f vs %f", red1, red2, green1, green2, blue1, blue2, alpha1, alpha2);
     //show comparison of within margin of 0.000001
     
     CGFloat a = red1 - red2;
@@ -419,7 +419,7 @@
 {
     if (boolean)
     {
-        NSLog(@"-------HAS WON!!!!!!!!!!!------------");
+//        NSLog(@"-------HAS WON!!!!!!!!!!!------------");
         self.gameLabel.text = @"Winner!";
         self.refreshGameButton.hidden = NO;
         
