@@ -74,7 +74,6 @@
 {
     [super viewDidLoad];
     self.store = [AMYSharedDataStore sharedDataStore];
-    [self setGoalColors];
     
     //set up mode
     if (self.store.mode == 0) //simple
@@ -111,55 +110,16 @@
     self.alphaFloat = 1;
 }
 
-- (void)setGoalColors
+- (void)chooseGoalColor
 {
-    NSArray *arrayOfColorArrays = [AMYColorSetup setColorArraysWithMode:self.store.mode difficulty:self.store.difficulty];
-    
-    self.veryEasyColors = arrayOfColorArrays[0];
-    self.easyColors = arrayOfColorArrays[1];
-    self.mediumColors = arrayOfColorArrays[2];
-    self.hardColors = arrayOfColorArrays[3];
-    self.masterColors = arrayOfColorArrays[4];
+    AMYColorSetup *setup = [[AMYColorSetup alloc] init];
+    UIColor *colorChosen = [setup setColorArrayWithMode:self.store.mode difficulty:self.store.difficulty];
     
     UIColor *white  = [UIColor whiteColor];
     self.currentColor = white;
-}
 
-- (void)chooseGoalColor
-{
-    NSMutableArray *colorsArray = [[NSMutableArray alloc] init];
-    
-    if (self.store.difficulty == 0)
-    {
-        colorsArray = [self.veryEasyColors mutableCopy];
-    }
-    else if (self.store.difficulty == 1)
-    {
-        colorsArray = [self.easyColors mutableCopy];
-    }
-    else if (self.store.difficulty == 2)
-    {
-        colorsArray = [self.mediumColors mutableCopy];
-    }
-    else if (self.store.difficulty == 3)
-    {
-        colorsArray = [self.hardColors mutableCopy];
-    }
-    else
-    {
-        colorsArray = [self.masterColors mutableCopy];
-    }
-    
-    NSUInteger i = 0;
-    do
-    {
-        i = arc4random_uniform((int)colorsArray.count);
-    }
-    while (colorsArray[i] == self.currentColor);
-    
-    NSLog(@"difficulty in store: %lu", self.store.difficulty);
     self.currentDifficulty = self.store.difficulty;
-    [self setUpGameWithGoalColor:colorsArray[i]];
+    [self setUpGameWithGoalColor:colorChosen];
 }
 
 - (void)setUpGameWithGoalColor:(UIColor *)color

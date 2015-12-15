@@ -57,7 +57,7 @@
     {
         self.store.mode = 4;
     }
-    NSLog(@"mode chosen: %lu", self.store.mode);
+//    NSLog(@"mode chosen: %lu", self.store.mode);
 }
 
 @end

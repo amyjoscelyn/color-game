@@ -16,6 +16,8 @@
 @property (nonatomic, strong) NSArray *hardColors;
 @property (nonatomic, strong) NSArray *masterColors;
 
-+ (NSArray *)setColorArraysWithMode:(NSUInteger)mode difficulty:(NSUInteger)difficulty;
+- (UIColor *)setColorArrayWithMode:(NSUInteger)mode difficulty:(NSUInteger)difficulty;
+
+- (NSString *)rgbChosenFromArray:(NSArray *)valuesArray;
 
 @end

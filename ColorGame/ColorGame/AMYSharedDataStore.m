@@ -17,7 +17,7 @@
     {
         _mode = 0;
         _difficulty = 0;
-        NSLog(@"setting the mode and difficulty!\n Mode: %lu, diff: %lu", self.mode, self.difficulty);
+//        NSLog(@"setting the mode and difficulty!\n Mode: %lu, diff: %lu", self.mode, self.difficulty);
     }
     return self;
 }

@@ -53,7 +53,7 @@
     {
         self.store.difficulty = 4;
     }
-    NSLog(@"difficulty chosen: %lu", self.store.difficulty);
+//    NSLog(@"difficulty chosen: %lu", self.store.difficulty);
     AMYColorGameViewController *gameDVC = segue.destinationViewController;
     gameDVC.delegate = self;
 }
