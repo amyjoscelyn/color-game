@@ -55,14 +55,8 @@
 @property (nonatomic) CGFloat multiplier;
 
 @property (nonatomic, strong) UIColor *currentColor;
-@property (nonatomic) NSUInteger currentDifficulty;
+@property (nonatomic) NSUInteger currentDifficulty; //is this important?
 @property (nonatomic) NSUInteger totalButtonTaps;
-
-@property (nonatomic, strong) NSArray *veryEasyColors;
-@property (nonatomic, strong) NSArray *easyColors;
-@property (nonatomic, strong) NSArray *mediumColors;
-@property (nonatomic, strong) NSArray *hardColors;
-@property (nonatomic, strong) NSArray *masterColors;
 
 @property (nonatomic, strong) AMYSharedDataStore *store;
 
@@ -91,7 +85,7 @@
         [self hideAlpha];
         self.multiplier = 0.05;
     }
-    else                            //hard
+    else                            //challenging
     {
         self.multiplier = 0.01;
     }
@@ -113,12 +107,12 @@
 - (void)chooseGoalColor
 {
     AMYColorSetup *setup = [[AMYColorSetup alloc] init];
-    UIColor *colorChosen = [setup setColorArrayWithMode:self.store.mode difficulty:self.store.difficulty];
+    UIColor *colorChosen = [setup setColorWithMode:self.store.mode difficulty:self.store.difficulty];
     
     UIColor *white  = [UIColor whiteColor];
     self.currentColor = white;
 
-    self.currentDifficulty = self.store.difficulty;
+    self.currentDifficulty = self.store.difficulty; //is this important?
     [self setUpGameWithGoalColor:colorChosen];
 }
 
@@ -372,7 +366,7 @@
     [self hasWon:([self winningConditions])];
 }
 
-- (BOOL)winningConditions
+- (BOOL)winningConditions //for some reason, the color fails to win as a match for moderate: medium and up.  The score can be perfect, but it won't match.
 {
     CGFloat red1, green1, blue1, alpha1;
     
@@ -381,16 +375,37 @@
                                  blue: &blue1
                                 alpha: &alpha1];
     
+//    red1 = self.colorWithRedFloat;
+//    green1 = self.colorWithGreenFloat;
+//    blue1 = self.colorWithBlueFloat;
+//    alpha1 = self.alphaFloat;
+    
     CGFloat red2, green2, blue2, alpha2;
     
     [self.colorGoalView.backgroundColor getRed: &red2
                                          green: &green2
                                           blue: &blue2
                                          alpha: &alpha2];
-    if (red1 == red2     &&
-        green1 == green2 &&
-        blue1 == blue2   &&
-        alpha1 == alpha2)
+    NSLog(@"\n reds: %f vs %f \n greens: %f vs %f \n blues %f vs %f \n alphas %f vs %f", red1, red2, green1, green2, blue1, blue2, alpha1, alpha2);
+    //show comparison of within margin of 0.000001
+    
+    CGFloat a = red1 - red2;
+    CGFloat aDifference = fabs(a) - 0;
+    BOOL aOK = aDifference < 0.000001;
+    
+    CGFloat b = green1 - green2;
+    CGFloat bDifference = fabs(b) - 0;
+    BOOL bOK = bDifference < 0.000001;
+    
+    CGFloat c = blue1 - blue2;
+    CGFloat cDifference = fabs(c) - 0;
+    BOOL cOK = cDifference < 0.000001;
+    
+    CGFloat d = alpha1 - alpha2;
+    CGFloat dDifference = fabs(d) - 0;
+    BOOL dOK = dDifference < 0.000001;
+    
+    if (aOK && bOK && cOK && dOK)
     {
         return YES;
     }
@@ -404,6 +419,7 @@
 {
     if (boolean)
     {
+        NSLog(@"-------HAS WON!!!!!!!!!!!------------");
         self.gameLabel.text = @"Winner!";
         self.refreshGameButton.hidden = NO;
         
@@ -458,7 +474,6 @@
             self.alphaBackgroundValueLabel.hidden = NO;
             self.alphaGoalValueLabel.hidden = NO;
         }
-        
         [self.hideFeatureButton setTitle:@"⚪️" forState:UIControlStateNormal];
     }
 }
@@ -472,6 +487,7 @@
  Things I want to implement:
  round out the stacks so they look prettier... can stacks be rounded?
  disable difficulties that are 'coming soon!' so I don't need to focus on them yet
+ make button for "go back" prettier, maybe just an arrow?  it can be the same color as the goal color at first, and then it can change to white or black, depending on how light the goal/background color is, once they match; make it "appear" just like the 'new color' button does
  
  more advanced stuff/issues:
  check out how it looks on other devices
@@ -482,6 +498,7 @@
  Make cool background for difficulty selection screen
  Make those buttons look nice
  Make everything look nice
+ maybe the color buttons can change text based on mode.  text can say, "Red +/- incrementValue", eg "Red +.25" or "Blue -.05".  This means I can include a slider somewhere on there to control the increment value, and the increment can show up on the button text.  This can be a change in Basic mode, as compared to Simple.  By Moderate, there should be the ability to change it from 0.1 to 0.25, and in Complex they can change it from 0.05 to 0.1 to 0.25.
  
  set this project up with multiple classes so it's not all on the VC--IS THIS POSSIBLE?
  */

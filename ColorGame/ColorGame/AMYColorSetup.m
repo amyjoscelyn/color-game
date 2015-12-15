@@ -11,7 +11,7 @@
 
 @implementation AMYColorSetup
 
-- (NSArray *)setColorArrayWithMode:(NSUInteger)mode difficulty:(NSUInteger)difficulty
+- (UIColor *)setColorWithMode:(NSUInteger)mode difficulty:(NSUInteger)difficulty
 {
     NSMutableArray *veryEasyArray = [[NSMutableArray alloc] init];
     NSMutableArray *easyArray = [[NSMutableArray alloc] init];

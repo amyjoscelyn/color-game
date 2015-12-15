@@ -28,8 +28,6 @@
     
     self.store = [[AMYSharedDataStore alloc] init];
     
-    self.basicModeButton.enabled = NO;
-    self.moderateModeButton.enabled = NO;
     self.challengingModeButton.enabled = NO;
 }
 
@@ -57,7 +55,6 @@
     {
         self.store.mode = 4;
     }
-//    NSLog(@"mode chosen: %lu", self.store.mode);
 }
 
 @end
