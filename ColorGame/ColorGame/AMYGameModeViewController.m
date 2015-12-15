@@ -14,6 +14,10 @@
 
 @property (strong, nonatomic) AMYSharedDataStore *store;
 
+@property (weak, nonatomic) IBOutlet UIButton *basicModeButton;
+@property (weak, nonatomic) IBOutlet UIButton *moderateModeButton;
+@property (weak, nonatomic) IBOutlet UIButton *challengingModeButton;
+
 @end
 
 @implementation AMYGameModeViewController
@@ -23,6 +27,10 @@
     [super viewDidLoad];
     
     self.store = [[AMYSharedDataStore alloc] init];
+    
+    self.basicModeButton.enabled = NO;
+    self.moderateModeButton.enabled = NO;
+    self.challengingModeButton.enabled = NO;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(UIButton *)sender
