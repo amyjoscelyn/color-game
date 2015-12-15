@@ -113,7 +113,7 @@
 
 - (void)setGoalColors
 {
-    NSArray *arrayOfColorArrays = [AMYColorSetup setColorArraysWithMode:self.store.mode];
+    NSArray *arrayOfColorArrays = [AMYColorSetup setColorArraysWithMode:self.store.mode difficulty:self.store.difficulty];
     
     self.veryEasyColors = arrayOfColorArrays[0];
     self.easyColors = arrayOfColorArrays[1];
