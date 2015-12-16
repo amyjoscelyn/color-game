@@ -483,6 +483,8 @@
                         <outlet property="basicModeButton" destination="Ohf-Oy-iA6" id="RRN-53-rCV"/>
                         <outlet property="challengingModeButton" destination="hgZ-Nv-ijP" id="OYY-Wt-geI"/>
                         <outlet property="moderateModeButton" destination="Hz0-Ib-DXg" id="WTI-yb-h76"/>
+                        <outlet property="simpleModeButton" destination="LmI-sK-SKj" id="efP-3F-iGA"/>
+                        <outlet property="zenModeButton" destination="seh-GZ-qwy" id="nVc-wR-m8Y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="42f-b5-rqS" userLabel="First Responder" sceneMemberID="firstResponder"/>

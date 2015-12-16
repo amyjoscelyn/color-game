@@ -14,9 +14,11 @@
 
 @property (strong, nonatomic) AMYSharedDataStore *store;
 
+@property (weak, nonatomic) IBOutlet UIButton *simpleModeButton;
 @property (weak, nonatomic) IBOutlet UIButton *basicModeButton;
 @property (weak, nonatomic) IBOutlet UIButton *moderateModeButton;
 @property (weak, nonatomic) IBOutlet UIButton *challengingModeButton;
+@property (weak, nonatomic) IBOutlet UIButton *zenModeButton;
 
 @end
 
@@ -31,24 +33,27 @@
     self.challengingModeButton.enabled = NO;
     
     
-    NSArray *buttons = [NSArray arrayWithObjects:self.basicModeButton, self.moderateModeButton, self.challengingModeButton, nil];
+    NSArray *buttons = [NSArray arrayWithObjects:self.simpleModeButton, self.basicModeButton, self.moderateModeButton, self.challengingModeButton, self.zenModeButton, nil];
     
     NSArray *colors = [NSArray arrayWithObjects:
+                       [UIColor colorWithRed:153.0f /255.0f green:38.25f / 255.0f blue:25.5f / 255.0f alpha:1.0f],
+                       [UIColor colorWithRed:216.75f /255.0f green:0.0f / 255.0f blue:0.0f / 255.0f alpha:1.0f],
                        [UIColor colorWithRed:178.5f /255.0f green:0.0f / 255.0f blue:76.5f / 255.0f alpha:1.0f],
                        [UIColor colorWithRed:140.25f / 255.0f green:0.0f / 255.0f blue:63.75f / 255.0f alpha:1.0f],
-                       [UIColor colorWithRed:140.25f / 255.0f green:0.0f / 255.0f blue:63.75f / 255.0f alpha:1.0f],
-                       [UIColor colorWithRed:140.25f / 255.0f green:0.0f / 255.0f blue:63.75f / 255.0f alpha:1.0f],
-                       [UIColor colorWithRed:140.25f / 255.0f green:0.0f / 255.0f blue:63.75f / 255.0f alpha:1.0f],
-                       [UIColor colorWithRed:140.25f / 255.0f green:0.0f / 255.0f blue:63.75f / 255.0f alpha:1.0f],
-                       [UIColor colorWithRed:140.25f / 255.0f green:0.0f / 255.0f blue:63.75f / 255.0f alpha:1.0f],
-                       [UIColor colorWithRed:140.25f / 255.0f green:0.0f / 255.0f blue:63.75f / 255.0f alpha:1.0f],
-                       [UIColor colorWithRed:140.25f / 255.0f green:0.0f / 255.0f blue:63.75f / 255.0f alpha:1.0f],
-                       [UIColor colorWithRed:140.25f / 255.0f green:0.0f / 255.0f blue:63.75f / 255.0f alpha:1.0f], nil];
+                       [UIColor colorWithRed:150.0f /255.0f green:0.0f / 255.0f blue:101.0f / 255.0f alpha:1.0f],
+                       [UIColor colorWithRed:102.5f /255.0f green:12.75f / 255.0f blue:89.25f / 255.0f alpha:1.0f],
+                       
+                       [UIColor colorWithRed:0.0f /255.0f green:0.0f / 255.0f blue:0.0f / 255.0f alpha:1.0f],
+                       [UIColor colorWithRed:0.0f /255.0f green:0.0f / 255.0f blue:0.0f / 255.0f alpha:1.0f],
+                       [UIColor colorWithRed:0.0f /255.0f green:0.0f / 255.0f blue:0.0f / 255.0f alpha:1.0f],
+                       [UIColor colorWithRed:0.0f /255.0f green:0.0f / 255.0f blue:0.0f / 255.0f alpha:1.0f],
+                       [UIColor colorWithRed:0.0f /255.0f green:0.0f / 255.0f blue:0.0f / 255.0f alpha:1.0f],
+                       [UIColor colorWithRed:0.0f /255.0f green:0.0f / 255.0f blue:0.0f / 255.0f alpha:1.0f], nil];
+    
+    NSUInteger i = 0;
     
     for (UIButton *button in buttons)
     {
-        NSUInteger i = 0;
-        
         [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [button setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
         
