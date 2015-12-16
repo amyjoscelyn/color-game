@@ -29,10 +29,50 @@
     self.store = [[AMYSharedDataStore alloc] init];
     
     self.challengingModeButton.enabled = NO;
+    
+    
+    NSArray *buttons = [NSArray arrayWithObjects:self.basicModeButton, self.moderateModeButton, self.challengingModeButton, nil];
+    
+    NSArray *colors = [NSArray arrayWithObjects:
+                       [UIColor colorWithRed:178.5f /255.0f green:0.0f / 255.0f blue:76.5f / 255.0f alpha:1.0f],
+                       [UIColor colorWithRed:140.25f / 255.0f green:0.0f / 255.0f blue:63.75f / 255.0f alpha:1.0f],
+                       [UIColor colorWithRed:140.25f / 255.0f green:0.0f / 255.0f blue:63.75f / 255.0f alpha:1.0f],
+                       [UIColor colorWithRed:140.25f / 255.0f green:0.0f / 255.0f blue:63.75f / 255.0f alpha:1.0f],
+                       [UIColor colorWithRed:140.25f / 255.0f green:0.0f / 255.0f blue:63.75f / 255.0f alpha:1.0f],
+                       [UIColor colorWithRed:140.25f / 255.0f green:0.0f / 255.0f blue:63.75f / 255.0f alpha:1.0f],
+                       [UIColor colorWithRed:140.25f / 255.0f green:0.0f / 255.0f blue:63.75f / 255.0f alpha:1.0f],
+                       [UIColor colorWithRed:140.25f / 255.0f green:0.0f / 255.0f blue:63.75f / 255.0f alpha:1.0f],
+                       [UIColor colorWithRed:140.25f / 255.0f green:0.0f / 255.0f blue:63.75f / 255.0f alpha:1.0f],
+                       [UIColor colorWithRed:140.25f / 255.0f green:0.0f / 255.0f blue:63.75f / 255.0f alpha:1.0f], nil];
+    
+    for (UIButton *button in buttons)
+    {
+        NSUInteger i = 0;
+        
+        [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [button setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
+        
+        CAGradientLayer *buttonGradient = [CAGradientLayer layer];
+        buttonGradient.frame = button.bounds;
+        buttonGradient.colors = [NSArray arrayWithObjects:
+                              (id)[colors[i] CGColor],
+                              (id)[colors[i+1] CGColor],
+                              nil];
+        [button.layer insertSublayer:buttonGradient atIndex:0];
+
+        CALayer *buttonLayer = [button layer];
+        [buttonLayer setMasksToBounds:YES];
+        [buttonLayer setCornerRadius:5.0f];
+        
+        [buttonLayer setBorderWidth:1.0f];
+        [buttonLayer setBorderColor:[[UIColor blackColor] CGColor]];
+        i++;
+    }
+    
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(UIButton *)sender
-{    
+{
     self.store = [AMYSharedDataStore sharedDataStore];
     
     if ([sender.titleLabel.text isEqualToString:@"Simple"])
