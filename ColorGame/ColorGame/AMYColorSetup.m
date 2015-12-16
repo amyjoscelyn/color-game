@@ -62,15 +62,12 @@
         arrayOfArrays = [ @[ veryEasyArray, easyArray, mediumArray, hardArray, masterArray ] mutableCopy];
     }
     NSMutableArray *arrayWithDifficulty = [arrayOfArrays[difficulty] mutableCopy];
-    //now i know the exact array that is going to be worked with
-    
     NSString *rgb = [self rgbChosenFromArray:arrayWithDifficulty];
     
     CGFloat red = 1;
     CGFloat green = 1;
     CGFloat blue = 1;
     CGFloat alpha = 1;
-    //now i have red, green, or blue chosen...
     
     NSString *numberOfValuesThatWillBeZero = arrayWithDifficulty.lastObject;
     [arrayWithDifficulty removeLastObject];
@@ -123,8 +120,6 @@
         green = [self randomValueFromArray:arrayWithDifficulty];
         blue = [self randomValueFromArray:arrayWithDifficulty];
     }
-//    NSLog(@"r: %f, g: %f, b: %f", red, green, blue);
-    
     UIColor *color = [UIColor colorWithRed:red green:green blue:blue alpha:alpha];
     
     /*
@@ -148,10 +143,6 @@
 
 - (NSString *)rgbChosenFromArray:(NSArray *)valuesArray
 {
-//    for (NSNumber *value in valuesArray)
-//    {
-//        NSLog(@"value: %@", value);
-//    }
     NSString *rgb = @"";
     NSUInteger rgbOption = arc4random_uniform(3);
     if (rgbOption == 0)
@@ -166,7 +157,6 @@
     {
         rgb = @"Blue";
     }
-//    NSLog(@"rgb? %@", rgb);
     
     return rgb;
 }
@@ -203,6 +193,11 @@
  
  Challenging:
  Forthcoming!
+ */
+
+
+/*
+ I can make a sort of "colors that had just been played" array, keep track of the last three or four colors.  The array gets set up in the dataStore, and refreshed in ColorSetup when the difficulty is chosen.  The current color gets added in the ColorGameVC to that array.  The color being chosen cannot be the same as any in that array, and must be re-cast from arc4random until it's a new color.  When the current color is being added, the array is also checked: should it have more than three or four in the array.count, the first object is removed.  This way it's a rotating list.  If that still feels like too much, the array can be made a lot longer before the first object comes off.
  */
 
 @end

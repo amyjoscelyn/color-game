@@ -157,7 +157,7 @@
      and so on, adding the dividens together to get the score
      }
      */
-    self.targetScoreLabel.text = [NSString stringWithFormat:@"Target Score: %lu", targetScore];
+    self.targetScoreLabel.text = [NSString stringWithFormat:@"Target Score: %lu", (unsigned long)targetScore];
     
     UIColor *textColor = [UIColor whiteColor];
     UIColor *black = [UIColor blackColor];
@@ -182,7 +182,7 @@
     self.targetScoreLabel.textColor = textColor;
     
     self.totalButtonTaps = 0;
-    self.playerScoreLabel.text = [NSString stringWithFormat:@"Your Score: %lu", self.totalButtonTaps];
+    self.playerScoreLabel.text = [NSString stringWithFormat:@"Your Score: %lu", (unsigned long)self.totalButtonTaps];
     self.gameLabel.text = @"Match the color!";
     
     self.view.backgroundColor = black;
@@ -236,7 +236,7 @@
     self.blueBackgroundValueLabel.text = [NSString stringWithFormat:@"B: %.2f", blueBG];
     self.alphaBackgroundValueLabel.text = [NSString stringWithFormat:@"A: %.2f", alphaBG];
     
-    self.playerScoreLabel.text = [NSString stringWithFormat:@"Your Score: %lu", self.totalButtonTaps];
+    self.playerScoreLabel.text = [NSString stringWithFormat:@"Your Score: %lu", (unsigned long)self.totalButtonTaps];
 }
 
 - (IBAction)makeBackgroundMoreRedButtonTapped:(UIButton *)sender
@@ -366,7 +366,7 @@
     [self hasWon:([self winningConditions])];
 }
 
-- (BOOL)winningConditions //for some reason, the color fails to win as a match for moderate: medium and up.  The score can be perfect, but it won't match.
+- (BOOL)winningConditions
 {
     CGFloat red1, green1, blue1, alpha1;
     
@@ -375,19 +375,12 @@
                                  blue: &blue1
                                 alpha: &alpha1];
     
-//    red1 = self.colorWithRedFloat;
-//    green1 = self.colorWithGreenFloat;
-//    blue1 = self.colorWithBlueFloat;
-//    alpha1 = self.alphaFloat;
-    
     CGFloat red2, green2, blue2, alpha2;
     
     [self.colorGoalView.backgroundColor getRed: &red2
                                          green: &green2
                                           blue: &blue2
                                          alpha: &alpha2];
-//    NSLog(@"\n reds: %f vs %f \n greens: %f vs %f \n blues %f vs %f \n alphas %f vs %f", red1, red2, green1, green2, blue1, blue2, alpha1, alpha2);
-    //show comparison of within margin of 0.000001
     
     CGFloat a = red1 - red2;
     CGFloat aDifference = fabs(a) - 0;
@@ -419,7 +412,6 @@
 {
     if (boolean)
     {
-//        NSLog(@"-------HAS WON!!!!!!!!!!!------------");
         self.gameLabel.text = @"Winner!";
         self.refreshGameButton.hidden = NO;
         
@@ -459,7 +451,7 @@
         
         [self.hideFeatureButton setTitle:@"⚫️" forState:UIControlStateNormal];
     }
-    else //I need to make sure alpha is no longer hidden only for the modes that show alpha.  otherwise, it stays hidden!
+    else
     {
         self.redBackgroundValueLabel.hidden = NO;
         self.greenBackgroundValueLabel.hidden = NO;
