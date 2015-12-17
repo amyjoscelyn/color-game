@@ -101,13 +101,13 @@
     
     NSArray *buttons = [NSArray arrayWithObjects:self.lessRedButton, self.moreRedButton, self.lessGreenButton, self.moreGreenButton, self.lessBlueButton, self.moreBlueButton, self.lessAlphaButton, self.moreAlphaButton, nil];
     NSArray *colors = self.store.colorsForGameButtons;
-    
+        
     NSUInteger i = 0;
     NSUInteger j = 1;
     
     for (UIButton *button in buttons)
     {
-        [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [button setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
         
         CAGradientLayer *buttonGradient = [CAGradientLayer layer];
@@ -156,6 +156,7 @@
     self.gameLabel.backgroundColor = color;
     self.playerScoreLabel.backgroundColor = color;
     self.targetScoreLabel.backgroundColor = color;
+    self.dismissModalButton.backgroundColor = color;
     self.currentColor = color;
     
     NSArray *colorValueLabels = @[ self.redGoalValueLabel,
@@ -193,33 +194,36 @@
      */
     self.targetScoreLabel.text = [NSString stringWithFormat:@"Target Score: %lu", (unsigned long)targetScore];
     
-    UIColor *textColor = [UIColor whiteColor];
-    UIColor *black = [UIColor blackColor];
+    UIColor *lightTextColor = [UIColor whiteColor];
+    UIColor *darkTextColor = [UIColor colorWithRed:0.05 green:0.15 blue:0.05 alpha:1.0];
     
     if (red > .7 && green > .7)
     {
-        textColor = black;
+        lightTextColor = darkTextColor;
     }
     
     for (UILabel *colorValueLabel in colorValueLabels)
     {
         colorValueLabel.backgroundColor = color;
-        [colorValueLabel setTextColor:textColor];
+        [colorValueLabel setTextColor:lightTextColor];
     }
-    [self.refreshGameButton setTitleColor:textColor forState:UIControlStateNormal];
+    [self.refreshGameButton setTitleColor:lightTextColor forState:UIControlStateNormal];
     self.refreshGameButton.layer.borderWidth = 2.0f;
-    self.refreshGameButton.layer.borderColor = textColor.CGColor;
+    self.refreshGameButton.layer.borderColor = lightTextColor.CGColor;
     self.refreshGameButton.hidden = YES;
     
-    self.gameLabel.textColor = textColor;
-    self.playerScoreLabel.textColor = textColor;
-    self.targetScoreLabel.textColor = textColor;
+    self.gameLabel.textColor = lightTextColor;
+    self.playerScoreLabel.textColor = lightTextColor;
+    self.targetScoreLabel.textColor = lightTextColor;
+    self.dismissModalButton.titleLabel.textColor = lightTextColor;
+    
+    self.dismissModalButton.layer.cornerRadius = 5;
     
     self.totalButtonTaps = 0;
     self.playerScoreLabel.text = [NSString stringWithFormat:@"Your Score: %lu", (unsigned long)self.totalButtonTaps];
     self.gameLabel.text = @"Match the color!";
     
-    self.view.backgroundColor = black;
+    self.view.backgroundColor = darkTextColor;
     
     [self setUpView];
 }
