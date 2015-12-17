@@ -7,12 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+
 
 @interface AMYSharedDataStore : NSObject
 
 @property (nonatomic) NSUInteger mode;
 @property (nonatomic) NSUInteger difficulty;
+@property (nonatomic, strong) NSMutableArray *colorsForGradient;
 
 + (instancetype)sharedDataStore;
+
+- (void)rotateColorsInArray;
 
 @end

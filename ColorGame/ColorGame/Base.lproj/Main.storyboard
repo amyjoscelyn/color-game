@@ -587,6 +587,13 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Game" id="YX2-6z-I8U"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="easyButton" destination="Pzh-cV-W1I" id="EFE-eL-QIW"/>
+                        <outlet property="hardButton" destination="gXT-Nj-o6D" id="Ohf-G2-RzQ"/>
+                        <outlet property="masterButton" destination="P8y-vD-6Fc" id="jXG-4X-CT6"/>
+                        <outlet property="mediumButton" destination="0iI-sN-xnY" id="V9D-XU-lwf"/>
+                        <outlet property="veryEasyButton" destination="JbE-2J-pLD" id="PVa-do-X5Z"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YXC-eG-HUz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
