@@ -31,6 +31,11 @@
     self.store = [[AMYSharedDataStore alloc] init];
     
     self.challengingModeButton.enabled = NO;
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
     
     NSArray *buttons = [NSArray arrayWithObjects:self.simpleModeButton, self.basicModeButton, self.moderateModeButton, self.challengingModeButton, self.zenModeButton, nil];
     NSArray *colors = self.store.colorsForGradient;
@@ -45,11 +50,11 @@
         CAGradientLayer *buttonGradient = [CAGradientLayer layer];
         buttonGradient.frame = button.bounds;
         buttonGradient.colors = [NSArray arrayWithObjects:
-                              (id)[colors[i] CGColor],
-                              (id)[colors[i+1] CGColor],
-                              nil];
+                                 (id)[colors[i] CGColor],
+                                 (id)[colors[i+1] CGColor],
+                                 nil];
         [button.layer insertSublayer:buttonGradient atIndex:0];
-
+        
         CALayer *buttonLayer = [button layer];
         [buttonLayer setMasksToBounds:YES];
         [buttonLayer setCornerRadius:5.0f];

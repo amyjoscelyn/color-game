@@ -15,6 +15,7 @@
 @property (nonatomic) NSUInteger mode;
 @property (nonatomic) NSUInteger difficulty;
 @property (nonatomic, strong) NSMutableArray *colorsForGradient;
+@property (nonatomic, strong) NSArray *colorsForGameButtons;
 
 + (instancetype)sharedDataStore;
 

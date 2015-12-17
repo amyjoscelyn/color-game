@@ -95,6 +95,40 @@
     self.colorGoalView.clipsToBounds = YES;
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    NSArray *buttons = [NSArray arrayWithObjects:self.lessRedButton, self.moreRedButton, self.lessGreenButton, self.moreGreenButton, self.lessBlueButton, self.moreBlueButton, self.lessAlphaButton, self.moreAlphaButton, nil];
+    NSArray *colors = self.store.colorsForGameButtons;
+    
+    NSUInteger i = 0;
+    NSUInteger j = 1;
+    
+    for (UIButton *button in buttons)
+    {
+        [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [button setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
+        
+        CAGradientLayer *buttonGradient = [CAGradientLayer layer];
+        buttonGradient.frame = button.bounds;
+        buttonGradient.colors = [NSArray arrayWithObjects:
+                                 (id)[colors[i] CGColor],
+                                 (id)[colors[j] CGColor],
+                                 nil];
+        [button.layer insertSublayer:buttonGradient atIndex:0];
+        
+        CALayer *buttonLayer = [button layer];
+        [buttonLayer setMasksToBounds:YES];
+        [buttonLayer setCornerRadius:5.0f];
+        
+        [buttonLayer setBorderWidth:1.0f];
+        [buttonLayer setBorderColor:[[UIColor blackColor] CGColor]];
+        i += 2;
+        j += 2;
+    }
+}
+
 - (void)hideAlpha
 {
     self.lessAlphaButton.hidden = YES;

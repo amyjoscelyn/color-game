@@ -33,6 +33,8 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
+    
     NSArray *buttons = [NSArray arrayWithObjects:self.veryEasyButton, self.easyButton, self.mediumButton, self.hardButton, self.masterButton, nil];
     NSArray *colors = self.store.colorsForGradient;
     

@@ -18,6 +18,7 @@
         _mode = 0;
         _difficulty = 0;
         _colorsForGradient = [[self arrayOfGradientColors] mutableCopy];
+        _colorsForGameButtons = [self arrayOfGameButtonGradientColors];
     }
     return self;
 }
@@ -73,19 +74,52 @@
                        [UIColor colorWithRed:153.0f /255.0f green:0.0f / 255.0f blue:89.0f / 255.0f alpha:1.0f],
                        [UIColor colorWithRed:166.0f /255.0f green:0.0f / 255.0f blue:64.0f / 255.0f alpha:1.0f],
                        [UIColor colorWithRed:166.0f /255.0f green:0.0f / 255.0f blue:38.0f / 255.0f alpha:1.0f], nil];
-    
-    //it would be really neat to do this in a rotating way.  like, after it's presented (maybe in viewWillDisappear), the six gradients used can be added to the end and then deleted from the front.  Or maybe I can do something a little more subtle, which is to just delete the first one and add that to the end, and it slowly rotates that way.  It would take a long time for you to see the exact same gradient pattern on the buttons.  I like it!  Good prep too for my subtle background changes.
     return colors;
 }
 
 - (void)rotateColorsInArray
 {
-    NSLog(@"there are %lu colors before we change anything", self.colorsForGradient.count);
     UIColor *firstColor = self.colorsForGradient[0];
     [self.colorsForGradient removeObjectAtIndex:0];
-    NSLog(@"we took one away, leaving %lu colors", self.colorsForGradient.count);
     [self.colorsForGradient addObject:firstColor];
-    NSLog(@"we put it back in! there are %lu colors now", self.colorsForGradient.count);
+}
+
+- (NSArray *)arrayOfGameButtonGradientColors
+{
+    NSArray *colors = [NSArray arrayWithObjects:
+                       //less red button
+                       [UIColor colorWithRed:178.5f /255.0f green:0.0f / 255.0f blue:0.0f / 255.0f alpha:1.0f],
+                       [UIColor colorWithRed:102.0f /255.0f green:0.0f / 255.0f blue:0.0f / 255.0f alpha:1.0f],
+                       
+                       //more red button
+                       [UIColor colorWithRed:255.0f /255.0f green:0.0f / 255.0f blue:0.0f / 255.0f alpha:1.0f],
+                       [UIColor colorWithRed:178.5f /255.0f green:0.0f / 255.0f blue:0.0f / 255.0f alpha:1.0f],
+                       
+                       //less green button
+                       [UIColor colorWithRed:0.0f /255.0f green:178.5f / 255.0f blue:0.0f / 255.0f alpha:1.0f],
+                       [UIColor colorWithRed:0.0f /255.0f green:102.0f / 255.0f blue:0.0f / 255.0f alpha:1.0f],
+                       
+                       //more green button
+                       [UIColor colorWithRed:0.0f / 255.0f green:255.0f / 255.0f blue:0.0f / 255.0f alpha:1.0f],
+                       [UIColor colorWithRed:0.0f /255.0f green:178.5f / 255.0f blue:0.0f / 255.0f alpha:1.0f],
+                       
+                       //less blue button
+                       [UIColor colorWithRed:0.0f /255.0f green:0.0f / 255.0f blue:178.5f / 255.0f alpha:1.0f],
+                       [UIColor colorWithRed:0.0f /255.0f green:0.0f / 255.0f blue:102.0f / 255.0f alpha:1.0f],
+                       
+                       //more blue button
+                       [UIColor colorWithRed:0.0f /255.0f green:0.0f / 255.0f blue:255.0f / 255.0f alpha:1.0f],
+                       [UIColor colorWithRed:0.0f /255.0f green:0.0f / 255.0f blue:178.5f / 255.0f alpha:1.0f],
+                       
+                       //more translucent
+                       [UIColor colorWithRed:255.0f /255.0f green:255.0f / 255.0f blue:255.0f / 255.0f alpha:.35f],
+                       [UIColor colorWithRed:255.0f /255.0f green:255.0f / 255.0f blue:255.0f / 255.0f alpha:.65f],
+                       
+                       //more opaque
+                       [UIColor colorWithRed:255.0f /255.0f green:255.0f / 255.0f blue:255.0f / 255.0f alpha:.65f],
+                       [UIColor colorWithRed:255.0f /255.0f green:255.0f / 255.0f blue:255.0f / 255.0f alpha:1.0f], nil];
+    
+    return colors;
 }
 
 @end
