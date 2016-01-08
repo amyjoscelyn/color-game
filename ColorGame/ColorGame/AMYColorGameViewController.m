@@ -19,12 +19,12 @@
 @property (weak, nonatomic) IBOutlet UILabel *redGoalValueLabel;
 @property (weak, nonatomic) IBOutlet UILabel *greenGoalValueLabel;
 @property (weak, nonatomic) IBOutlet UILabel *blueGoalValueLabel;
-@property (weak, nonatomic) IBOutlet UILabel *alphaGoalValueLabel;
+//@property (weak, nonatomic) IBOutlet UILabel *alphaGoalValueLabel;
 
 @property (weak, nonatomic) IBOutlet UILabel *redBackgroundValueLabel;
 @property (weak, nonatomic) IBOutlet UILabel *greenBackgroundValueLabel;
 @property (weak, nonatomic) IBOutlet UILabel *blueBackgroundValueLabel;
-@property (weak, nonatomic) IBOutlet UILabel *alphaBackgroundValueLabel;
+//@property (weak, nonatomic) IBOutlet UILabel *alphaBackgroundValueLabel;
 
 @property (weak, nonatomic) IBOutlet UIButton *lessRedButton;
 @property (weak, nonatomic) IBOutlet UIButton *moreRedButton;
@@ -32,8 +32,11 @@
 @property (weak, nonatomic) IBOutlet UIButton *moreGreenButton;
 @property (weak, nonatomic) IBOutlet UIButton *lessBlueButton;
 @property (weak, nonatomic) IBOutlet UIButton *moreBlueButton;
-@property (weak, nonatomic) IBOutlet UIButton *lessAlphaButton;
-@property (weak, nonatomic) IBOutlet UIButton *moreAlphaButton;
+
+@property (weak, nonatomic) IBOutlet UISlider *incrementSlider;
+@property (weak, nonatomic) IBOutlet UILabel *minimumIncrementLabel
+;
+@property (weak, nonatomic) IBOutlet UILabel *maximumIncrementLabel;
 
 @property (weak, nonatomic) IBOutlet UILabel *playerScoreLabel;
 @property (weak, nonatomic) IBOutlet UILabel *targetScoreLabel;
@@ -99,7 +102,7 @@
 {
     [super viewWillAppear:animated];
     
-    NSArray *buttons = [NSArray arrayWithObjects:self.lessRedButton, self.moreRedButton, self.lessGreenButton, self.moreGreenButton, self.lessBlueButton, self.moreBlueButton, self.lessAlphaButton, self.moreAlphaButton, nil];
+    NSArray *buttons = [NSArray arrayWithObjects:self.lessRedButton, self.moreRedButton, self.lessGreenButton, self.moreGreenButton, self.lessBlueButton, self.moreBlueButton, /*self.lessAlphaButton, self.moreAlphaButton,*/ nil];
     NSArray *colors = self.store.colorsForGameButtons;
         
     NSUInteger i = 0;
@@ -131,10 +134,10 @@
 
 - (void)hideAlpha
 {
-    self.lessAlphaButton.hidden = YES;
-    self.moreAlphaButton.hidden = YES;
-    self.alphaGoalValueLabel.hidden = YES;
-    self.alphaBackgroundValueLabel.hidden = YES;
+//    self.lessAlphaButton.hidden = YES;
+//    self.moreAlphaButton.hidden = YES;
+//    self.alphaGoalValueLabel.hidden = YES;
+//    self.alphaBackgroundValueLabel.hidden = YES;
     self.alphaFloat = 1;
 }
 
@@ -162,11 +165,11 @@
     NSArray *colorValueLabels = @[ self.redGoalValueLabel,
                                    self.greenGoalValueLabel,
                                    self.blueGoalValueLabel,
-                                   self.alphaGoalValueLabel,
+//                                   self.alphaGoalValueLabel,
                                    self.redBackgroundValueLabel,
                                    self.greenBackgroundValueLabel,
                                    self.blueBackgroundValueLabel,
-                                   self.alphaBackgroundValueLabel];
+                                   /*self.alphaBackgroundValueLabel*/];
     CGFloat red, green, blue, alpha;
     [color    getRed: &red
                green: &green
@@ -176,7 +179,7 @@
     self.redGoalValueLabel.text = [NSString stringWithFormat:@"R: %.2f", red];
     self.greenGoalValueLabel.text = [NSString stringWithFormat:@"G: %.2f", green];
     self.blueGoalValueLabel.text = [NSString stringWithFormat:@"B: %.2f", blue];
-    self.alphaGoalValueLabel.text = [NSString stringWithFormat:@"A: %.2f", alpha];
+//    self.alphaGoalValueLabel.text = [NSString stringWithFormat:@"A: %.2f", alpha];
     
     NSUInteger targetScore = (red + green + blue) * (1/self.multiplier);
     // once there are options of switching between multiple increments, the score gets a lot harder to calculate
@@ -247,7 +250,7 @@
     self.redBackgroundValueLabel.text = [NSString stringWithFormat:@"R:"];
     self.greenBackgroundValueLabel.text = [NSString stringWithFormat:@"G:"];
     self.blueBackgroundValueLabel.text = [NSString stringWithFormat:@"B:"];
-    self.alphaBackgroundValueLabel.text = [NSString stringWithFormat:@"A:"];
+//    self.alphaBackgroundValueLabel.text = [NSString stringWithFormat:@"A:"];
     
     self.lessRedButton.enabled = YES;
     self.moreRedButton.enabled = YES;
@@ -255,8 +258,8 @@
     self.moreGreenButton.enabled = YES;
     self.lessBlueButton.enabled = YES;
     self.moreBlueButton.enabled = YES;
-    self.lessAlphaButton.enabled = YES;
-    self.moreAlphaButton.enabled = YES;
+//    self.lessAlphaButton.enabled = YES;
+//    self.moreAlphaButton.enabled = YES;
 }
 
 - (void)changeBackgroundColor
@@ -272,7 +275,7 @@
     self.redBackgroundValueLabel.text = [NSString stringWithFormat:@"R: %.2f", redBG];
     self.greenBackgroundValueLabel.text = [NSString stringWithFormat:@"G: %.2f", greenBG];
     self.blueBackgroundValueLabel.text = [NSString stringWithFormat:@"B: %.2f", blueBG];
-    self.alphaBackgroundValueLabel.text = [NSString stringWithFormat:@"A: %.2f", alphaBG];
+//    self.alphaBackgroundValueLabel.text = [NSString stringWithFormat:@"A: %.2f", alphaBG];
     
     self.playerScoreLabel.text = [NSString stringWithFormat:@"Your Score: %lu", (unsigned long)self.totalButtonTaps];
 }
@@ -367,35 +370,35 @@
     [self postButtonActions];
 }
 
-- (IBAction)addAlphaToBackgroundButtonTapped:(UIButton *)sender
-{
-    if (self.numberOfTimesAlphaButtonTapped == self.tapCapMax)
-    {
-        sender.enabled = NO;
-        return;
-    }
-    self.numberOfTimesAlphaButtonTapped++;
-    self.lessAlphaButton.enabled = YES;
-    
-    self.alphaFloat = self.numberOfTimesAlphaButtonTapped * self.multiplier;
-    
-    [self postButtonActions];
-}
-
-- (IBAction)takeAwayAlphaFromBackgroundButtonTapped:(UIButton *)sender
-{
-    if (self.numberOfTimesAlphaButtonTapped == self.tapCapMin)
-    {
-        sender.enabled = NO;
-        return;
-    }
-    self.numberOfTimesAlphaButtonTapped--;
-    self.moreAlphaButton.enabled = YES;
-    
-    self.alphaFloat = self.numberOfTimesAlphaButtonTapped * self.multiplier;
-    
-    [self postButtonActions];
-}
+//- (IBAction)addAlphaToBackgroundButtonTapped:(UIButton *)sender
+//{
+//    if (self.numberOfTimesAlphaButtonTapped == self.tapCapMax)
+//    {
+//        sender.enabled = NO;
+//        return;
+//    }
+//    self.numberOfTimesAlphaButtonTapped++;
+//    self.lessAlphaButton.enabled = YES;
+//    
+//    self.alphaFloat = self.numberOfTimesAlphaButtonTapped * self.multiplier;
+//    
+//    [self postButtonActions];
+//}
+//
+//- (IBAction)takeAwayAlphaFromBackgroundButtonTapped:(UIButton *)sender
+//{
+//    if (self.numberOfTimesAlphaButtonTapped == self.tapCapMin)
+//    {
+//        sender.enabled = NO;
+//        return;
+//    }
+//    self.numberOfTimesAlphaButtonTapped--;
+//    self.moreAlphaButton.enabled = YES;
+//    
+//    self.alphaFloat = self.numberOfTimesAlphaButtonTapped * self.multiplier;
+//    
+//    [self postButtonActions];
+//}
 
 - (void)postButtonActions
 {
@@ -459,8 +462,8 @@
         self.moreGreenButton.enabled = NO;
         self.lessBlueButton.enabled = NO;
         self.moreBlueButton.enabled = NO;
-        self.lessAlphaButton.enabled = NO;
-        self.moreAlphaButton.enabled = NO;
+//        self.lessAlphaButton.enabled = NO;
+//        self.moreAlphaButton.enabled = NO;
     }
 }
 
@@ -476,7 +479,7 @@
         self.redBackgroundValueLabel.hidden = YES;
         self.greenBackgroundValueLabel.hidden = YES;
         self.blueBackgroundValueLabel.hidden = YES;
-        self.alphaBackgroundValueLabel.hidden = YES;
+//        self.alphaBackgroundValueLabel.hidden = YES;
         
         [self.hideFeatureButton setTitle:@"🔘" forState:UIControlStateNormal];
     }
@@ -485,7 +488,7 @@
         self.redGoalValueLabel.hidden = YES;
         self.greenGoalValueLabel.hidden = YES;
         self.blueGoalValueLabel.hidden = YES;
-        self.alphaGoalValueLabel.hidden = YES;
+//        self.alphaGoalValueLabel.hidden = YES;
         
         [self.hideFeatureButton setTitle:@"⚫️" forState:UIControlStateNormal];
     }
@@ -499,11 +502,11 @@
         self.greenGoalValueLabel.hidden = NO;
         self.blueGoalValueLabel.hidden = NO;
         
-        if (self.store.mode > 2)
-        {
-            self.alphaBackgroundValueLabel.hidden = NO;
-            self.alphaGoalValueLabel.hidden = NO;
-        }
+//        if (self.store.mode > 2)
+//        {
+//            self.alphaBackgroundValueLabel.hidden = NO;
+//            self.alphaGoalValueLabel.hidden = NO;
+//        }
         [self.hideFeatureButton setTitle:@"⚪️" forState:UIControlStateNormal];
     }
 }

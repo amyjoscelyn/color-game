@@ -114,14 +114,14 @@
                        //more blue button
                        [UIColor colorWithRed:0.0f /255.0f green:0.0f / 255.0f blue:255.0f / 255.0f alpha:1.0f],
                        [UIColor colorWithRed:0.0f /255.0f green:0.0f / 255.0f blue:178.5f / 255.0f alpha:1.0f],
-                       
+                       /*
                        //more translucent
                        [UIColor colorWithRed:255.0f /255.0f green:255.0f / 255.0f blue:255.0f / 255.0f alpha:.35f],
                        [UIColor colorWithRed:255.0f /255.0f green:255.0f / 255.0f blue:255.0f / 255.0f alpha:.65f],
                        
                        //more opaque
                        [UIColor colorWithRed:255.0f /255.0f green:255.0f / 255.0f blue:255.0f / 255.0f alpha:.65f],
-                       [UIColor colorWithRed:255.0f /255.0f green:255.0f / 255.0f blue:255.0f / 255.0f alpha:1.0f], nil];
+                       [UIColor colorWithRed:255.0f /255.0f green:255.0f / 255.0f blue:255.0f / 255.0f alpha:1.0f],*/ nil];
     
     return colors;
 }
