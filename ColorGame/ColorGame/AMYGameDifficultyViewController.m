@@ -102,6 +102,7 @@
     
     AMYColorGameViewController *gameDVC = segue.destinationViewController;
     gameDVC.delegate = self;
+    //it is no longer the AMYColorGameVC that it's going to... so this is probably why this crashes.
 }
 
 @end

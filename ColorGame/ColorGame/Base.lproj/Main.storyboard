@@ -168,6 +168,42 @@
             </objects>
             <point key="canvasLocation" x="1214" y="2084"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="ucO-yP-18S">
+            <objects>
+                <viewController id="M39-s5-FU6" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="PCv-QL-uaO"/>
+                        <viewControllerLayoutGuide type="bottom" id="qH6-Vv-gsP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="OXy-35-AK2">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="srC-ww-bRb">
+                                <rect key="frame" x="0.0" y="0.0" width="131" height="568"/>
+                                <animations/>
+                                <connections>
+                                    <segue destination="fYi-AD-s2t" kind="embed" id="a3K-QD-3QF"/>
+                                </connections>
+                            </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Qd-Ev-bVW">
+                                <rect key="frame" x="133" y="0.0" width="187" height="568"/>
+                                <animations/>
+                                <connections>
+                                    <segue destination="bfI-jO-KW3" kind="embed" id="fhS-DV-3Sf"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5Na-fh-PMA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1644" y="2130"/>
+        </scene>
         <!--Game-->
         <scene sceneID="Gjf-fz-Qra">
             <objects>
@@ -640,7 +676,7 @@
                                         </constraints>
                                         <state key="normal" title="Very Easy"/>
                                         <connections>
-                                            <segue destination="bfI-jO-KW3" kind="presentation" id="yv3-1p-Won"/>
+                                            <segue destination="M39-s5-FU6" kind="presentation" id="dgR-yk-KgP"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pzh-cV-W1I">
@@ -648,7 +684,7 @@
                                         <animations/>
                                         <state key="normal" title="Easy"/>
                                         <connections>
-                                            <segue destination="bfI-jO-KW3" kind="presentation" id="75k-4C-c3S"/>
+                                            <segue destination="M39-s5-FU6" kind="presentation" id="lDg-V5-qu6"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0iI-sN-xnY">
@@ -656,7 +692,7 @@
                                         <animations/>
                                         <state key="normal" title="Medium"/>
                                         <connections>
-                                            <segue destination="bfI-jO-KW3" kind="presentation" id="Gy9-C9-0dv"/>
+                                            <segue destination="M39-s5-FU6" kind="presentation" id="qVA-MB-kYP"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gXT-Nj-o6D">
@@ -664,7 +700,7 @@
                                         <animations/>
                                         <state key="normal" title="Hard"/>
                                         <connections>
-                                            <segue destination="bfI-jO-KW3" kind="presentation" id="OFN-16-wIQ"/>
+                                            <segue destination="M39-s5-FU6" kind="presentation" id="XMA-di-nS3"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P8y-vD-6Fc">
@@ -672,7 +708,7 @@
                                         <animations/>
                                         <state key="normal" title="Master"/>
                                         <connections>
-                                            <segue destination="bfI-jO-KW3" kind="presentation" id="NBx-Oc-n2d"/>
+                                            <segue destination="M39-s5-FU6" kind="presentation" id="ZaW-V5-LZL"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -989,7 +1025,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="BWa-Vv-UCu"/>
-        <segue reference="yv3-1p-Won"/>
+        <segue reference="6gF-jW-9CJ"/>
+        <segue reference="qVA-MB-kYP"/>
     </inferredMetricsTieBreakers>
 </document>
