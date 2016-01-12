@@ -223,7 +223,7 @@
     self.playerScoreLabel.text = [NSString stringWithFormat:@"Your Score: %lu", (unsigned long)self.totalButtonTaps];
     self.gameLabel.text = @"Match the color!";
     
-    self.view.backgroundColor = darkTextColor;
+    self.view.backgroundColor = [UIColor blackColor];
     
     [self setUpView];
 }
