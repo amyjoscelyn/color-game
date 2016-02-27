@@ -143,11 +143,11 @@
 - (void)setUpGameWithGoalColor:(UIColor *)color
 {
     self.colorGoalView.backgroundColor = color;
-    self.gameLabel.backgroundColor = color;
-    self.playerScoreLabel.backgroundColor = color;
-    self.targetScoreLabel.backgroundColor = color;
-    self.dismissModalButton.backgroundColor = color;
     self.currentColor = color;
+//    self.gameLabel.backgroundColor = color;
+//    self.playerScoreLabel.backgroundColor = color;
+//    self.targetScoreLabel.backgroundColor = color;
+    
     
     NSArray *colorValueLabels = @[ self.redGoalValueLabel,
                                    self.greenGoalValueLabel,
@@ -181,33 +181,60 @@
      */
     self.targetScoreLabel.text = [NSString stringWithFormat:@"Target Score: %lu", (unsigned long)targetScore];
     
-    UIColor *lightTextColor = [UIColor whiteColor];
-    UIColor *darkTextColor = [UIColor colorWithRed:0.05 green:0.15 blue:0.05 alpha:1.0];
+    UIColor *textColor = [UIColor whiteColor];
     
     if (red > .7 && green > .7)
     {
-        lightTextColor = darkTextColor;
+        textColor = [UIColor colorWithRed:0.05 green:0.15 blue:0.05 alpha:1.0];
     }
     
     for (UILabel *colorValueLabel in colorValueLabels)
     {
-        colorValueLabel.backgroundColor = color;
-        [colorValueLabel setTextColor:lightTextColor];
+//        colorValueLabel.backgroundColor = color;
+//        [colorValueLabel setTextColor:textColor];
+        colorValueLabel.textColor = textColor;
+        colorValueLabel.layer.shadowColor = textColor.CGColor;
+        colorValueLabel.layer.shadowRadius = 4.0f;
+        colorValueLabel.layer.shadowOpacity = .9;
+        colorValueLabel.layer.shadowOffset = CGSizeZero;
+        colorValueLabel.layer.masksToBounds = NO;
     }
-    [self.refreshGameButton setTitleColor:lightTextColor forState:UIControlStateNormal];
+    [self.refreshGameButton setTitleColor:textColor forState:UIControlStateNormal];
     self.refreshGameButton.layer.borderWidth = 2.0f;
-    self.refreshGameButton.layer.borderColor = lightTextColor.CGColor;
+    self.refreshGameButton.layer.borderColor = textColor.CGColor;
     self.refreshGameButton.hidden = YES;
     
-    self.gameLabel.textColor = lightTextColor;
-    self.playerScoreLabel.textColor = lightTextColor;
-    self.targetScoreLabel.textColor = lightTextColor;
-    self.dismissModalButton.titleLabel.textColor = lightTextColor;
-    self.minimumIncrementLabel.textColor = lightTextColor;
-    self.maximumIncrementLabel.textColor = lightTextColor;
-    self.currentIncrementLabel.textColor = lightTextColor;
+    NSArray *gameLabels = @[ self.gameLabel, self.playerScoreLabel, self.targetScoreLabel, self.minimumIncrementLabel, self.maximumIncrementLabel, self.currentIncrementLabel ];
     
+    for (UILabel *label in gameLabels)
+    {
+        label.textColor = textColor;
+        label.layer.shadowColor = textColor.CGColor;
+        label.layer.shadowRadius = 4.0f;
+        label.layer.shadowOpacity = .9;
+        label.layer.shadowOffset = CGSizeZero;
+        label.layer.masksToBounds = NO;
+    }
+    
+//    self.gameLabel.textColor = textColor;
+//    self.playerScoreLabel.textColor = textColor;
+//    self.targetScoreLabel.textColor = textColor;
+    
+//    self.minimumIncrementLabel.textColor = textColor;
+//    self.maximumIncrementLabel.textColor = textColor;
+    
+//    self.currentIncrementLabel.textColor = textColor;
+//    self.currentIncrementLabel.layer.shadowColor = [textColor CGColor];
+//    self.currentIncrementLabel.layer.shadowRadius = 4.0f;
+//    self.currentIncrementLabel.layer.shadowOpacity = .9;
+//    self.currentIncrementLabel.layer.shadowOffset = CGSizeZero;
+//    self.currentIncrementLabel.layer.masksToBounds = NO;
+    
+    self.dismissModalButton.backgroundColor = color;
+    self.dismissModalButton.titleLabel.textColor = textColor;
     self.dismissModalButton.layer.cornerRadius = 5;
+    self.dismissModalButton.layer.borderWidth = 2.0f;
+    self.dismissModalButton.layer.borderColor = textColor.CGColor;
     
     self.totalButtonTaps = 0;
     self.playerScoreLabel.text = [NSString stringWithFormat:@"Your Score: %lu", (unsigned long)self.totalButtonTaps];
@@ -256,7 +283,7 @@
         self.minimumIncrementLabel.hidden = NO;
         self.maximumIncrementLabel.hidden = NO;
         
-        self.minimumIncrementLabel.text = @"0.1";
+        self.minimumIncrementLabel.text = @"0.10";
         self.maximumIncrementLabel.text = @"1.0";
     }
     else if (self.store.mode == 2)
@@ -515,7 +542,6 @@
     
     if (self.store.mode == 1)
     {
-        //if mode is 1, we should have an increment counter between .1 and 1.0 (.1, .25, .5, 1) (4)
         if (slider.value > slider.minimumValue && slider.value < slider.maximumValue / 2)
         {
             increment = 0.25;
@@ -529,18 +555,52 @@
     }
     else if (self.store.mode == 2)
     {
-//        if (slider.value > slider.minimumValue && slider.value < ) {
-            //
-//        }
-        //if diff is 2, we should have an increment counter between 0.05 and 1.0 (.05, .1, .25, .5, 1) (5)
+        if (slider.value > slider.minimumValue && slider.value < slider.maximumValue / 3)
+        {
+            increment = 0.1;
+            self.multiplier = increment;
+        }
+        else if (slider.value > slider.maximumValue / 3 && slider.value < slider.maximumValue * 2 / 3)
+        {
+            increment = 0.25;
+            self.multiplier = increment;
+        }
+        else if (slider.value > slider.maximumValue * 2 / 3 && slider.value < slider.maximumValue)
+        {
+            increment = 0.5;
+            self.multiplier = increment;
+        }
     }
     else
     {
-        //if diff is 3, increment counter should be between 0.01 and 1.0
-        //increments: 0.01, 0.02, 0.05, 0.1, 0.25, 0.5, 1.0 (7)
+        if (slider.value > slider.minimumValue && slider.value < slider.maximumValue / 4)
+        {
+            increment = 0.05;
+            self.multiplier = increment;
+        }
+        else if (slider.value > slider.maximumValue / 4 && slider.value < slider.maximumValue / 2)
+        {
+            increment = 0.1;
+            self.multiplier = increment;
+        }
+        else if (slider.value > slider.maximumValue / 2 && slider.value < slider.maximumValue * 3 / 4)
+        {
+            increment = 0.25;
+            self.multiplier = increment;
+        }
+        else if (slider.value > slider.maximumValue * 3 / 4 && slider.value < slider.maximumValue)
+        {
+            increment = 0.5;
+            self.multiplier = increment;
+        }
     }
     self.currentIncrementLabel.text = [NSString stringWithFormat:@"Increment: %.2f", increment];
 }
+
+/*
+ So something I noticed: whenever I increase by a 1.0 increment, and then try to decrease it by something less, it decreases it by the entire 1.0 amount.
+ I THINK I need to adjust the way the increment counts--it should subtract straight from the current amount stated on the label--the valueLabel--and not on the current multiplier or increment.
+ */
 
 /*
  Things I want to implement:
