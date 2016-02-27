@@ -514,7 +514,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="kaG-Ku-Oah" userLabel="Choices Stack View">
-                                <rect key="frame" x="110" y="151.5" width="100" height="345"/>
+                                <rect key="frame" x="110" y="112" width="100" height="345"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JbE-2J-pLD">
                                         <rect key="frame" x="0.0" y="0.0" width="100" height="45"/>
@@ -556,11 +556,11 @@
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="bGp-wK-QIM"/>
+                                    <constraint firstAttribute="width" constant="100" id="Fcy-V2-aKW"/>
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Nji-fL-qFL" userLabel="Difficulty Stack View">
-                                <rect key="frame" x="64.5" y="87" width="191" height="48.5"/>
+                                <rect key="frame" x="65" y="47.5" width="191" height="48.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Match the Color!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="suy-7D-aqk">
                                         <rect key="frame" x="0.0" y="0.0" width="191" height="29"/>
@@ -579,10 +579,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="kaG-Ku-Oah" firstAttribute="top" secondItem="Nji-fL-qFL" secondAttribute="bottom" constant="16" id="Bw3-wF-sj8"/>
-                            <constraint firstItem="Nji-fL-qFL" firstAttribute="centerX" secondItem="kaG-Ku-Oah" secondAttribute="centerX" id="IO7-E3-I3S"/>
-                            <constraint firstItem="kaG-Ku-Oah" firstAttribute="centerX" secondItem="oQN-TW-9f6" secondAttribute="centerX" id="f4z-Sh-F65"/>
-                            <constraint firstItem="kaG-Ku-Oah" firstAttribute="centerY" secondItem="oQN-TW-9f6" secondAttribute="centerY" constant="40" id="ydj-r4-1Kp"/>
+                            <constraint firstItem="kaG-Ku-Oah" firstAttribute="centerX" secondItem="oQN-TW-9f6" secondAttribute="centerX" id="91e-Ex-DhN"/>
+                            <constraint firstItem="Nji-fL-qFL" firstAttribute="centerX" secondItem="kaG-Ku-Oah" secondAttribute="centerX" id="BBS-FY-tOK"/>
+                            <constraint firstItem="kaG-Ku-Oah" firstAttribute="top" secondItem="Nji-fL-qFL" secondAttribute="bottom" constant="16" id="SMX-gL-AeC"/>
+                            <constraint firstItem="kaG-Ku-Oah" firstAttribute="centerY" secondItem="oQN-TW-9f6" secondAttribute="centerY" id="ab8-0c-WVF"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Game" id="YX2-6z-I8U"/>

@@ -49,6 +49,8 @@
 
 - (void)setEmbeddedViewController:(UIViewController *)controller
 {
+    
+    
     if([self.childViewControllers containsObject:controller])
     {
         return;
@@ -74,10 +76,14 @@
     [self addChildViewController:controller];
     
     [self.containerView addSubview:controller.view];
-    [self.containerView.topAnchor constraintEqualToAnchor:controller.view.topAnchor].active = YES;
-    [self.containerView.bottomAnchor constraintEqualToAnchor:controller.view.bottomAnchor].active = YES;
-    [self.containerView.leadingAnchor constraintEqualToAnchor:controller.view.leadingAnchor].active = YES;
-    [self.containerView.trailingAnchor constraintEqualToAnchor:controller.view.trailingAnchor].active = YES;
+    
+    self.containerView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    self.containerView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
+    
+//    [self.containerView.topAnchor constraintEqualToAnchor:controller.view.topAnchor].active = YES;
+//    [self.containerView.bottomAnchor constraintEqualToAnchor:controller.view.bottomAnchor].active = YES;
+//    [self.containerView.leadingAnchor constraintEqualToAnchor:controller.view.leadingAnchor].active = YES;
+//    [self.containerView.trailingAnchor constraintEqualToAnchor:controller.view.trailingAnchor].active = YES;
     
     [controller didMoveToParentViewController:self];
 }
