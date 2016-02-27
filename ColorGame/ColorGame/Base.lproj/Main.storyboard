@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="r5W-yz-TSY">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="r5W-yz-TSY">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -22,10 +22,8 @@
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RiH-rA-NQY">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <animations/>
                             </containerView>
                         </subviews>
-                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="RiH-rA-NQY" firstAttribute="width" secondItem="uhu-Eo-FC6" secondAttribute="width" id="Pbr-TI-b85"/>
@@ -57,7 +55,6 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Wb2-AU-JBg">
                                 <rect key="frame" x="0.0" y="80" width="320" height="290"/>
-                                <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="AVz-VP-y6h">
@@ -66,9 +63,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="AVz-VP-y6h" id="Zpy-fl-AUr">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <animations/>
                                         </tableViewCellContentView>
-                                        <animations/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="E5O-LR-PpA">
                                         <rect key="frame" x="0.0" y="72" width="320" height="44"/>
@@ -76,9 +71,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="E5O-LR-PpA" id="aEh-VW-WeL">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <animations/>
                                         </tableViewCellContentView>
-                                        <animations/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="PGa-we-CSL">
                                         <rect key="frame" x="0.0" y="116" width="320" height="44"/>
@@ -86,9 +79,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PGa-we-CSL" id="Etf-QH-Rjz">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <animations/>
                                         </tableViewCellContentView>
-                                        <animations/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="dCB-ad-i0A">
                                         <rect key="frame" x="0.0" y="160" width="320" height="44"/>
@@ -96,14 +87,11 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dCB-ad-i0A" id="aIu-J3-Day">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <animations/>
                                         </tableViewCellContentView>
-                                        <animations/>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
@@ -129,14 +117,12 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x0k-rs-ia8">
                                         <rect key="frame" x="4" y="35" width="92" height="30"/>
-                                        <animations/>
                                         <state key="normal" title="  New Color!  "/>
                                         <connections>
                                             <action selector="refreshGameButtonTapped:" destination="bfI-jO-KW3" eventType="touchUpInside" id="sCZ-pK-iIz"/>
                                         </connections>
                                     </button>
                                 </subviews>
-                                <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="n8I-0U-xGT"/>
@@ -146,12 +132,17 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="uEp-DN-qqI">
                                 <rect key="frame" x="0.0" y="230" width="320" height="284"/>
                                 <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Increment: %.2f" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mHJ-Yt-SHB">
+                                        <rect key="frame" x="101" y="0.0" width="120" height="57"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="WP4-ck-pD8">
-                                        <rect key="frame" x="45" y="0.0" width="230" height="71"/>
+                                        <rect key="frame" x="45" y="57" width="230" height="57"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X7u-5E-61L">
-                                                <rect key="frame" x="0.0" y="21" width="95" height="30"/>
-                                                <animations/>
+                                                <rect key="frame" x="0.0" y="13" width="95" height="30"/>
                                                 <color key="backgroundColor" red="0.3921568627" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <state key="normal" title="   Less Red!   ">
                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
@@ -164,8 +155,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4OT-vB-jwZ">
-                                                <rect key="frame" x="135" y="21" width="95" height="30"/>
-                                                <animations/>
+                                                <rect key="frame" x="135" y="13" width="95" height="30"/>
                                                 <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <state key="normal" title="   More Red!   ">
                                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -178,14 +168,12 @@
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <animations/>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="FrY-OP-qBZ">
-                                        <rect key="frame" x="31" y="71" width="258" height="71"/>
+                                        <rect key="frame" x="31" y="114" width="258" height="57"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gSY-Ni-5b2">
-                                                <rect key="frame" x="0.0" y="21" width="109" height="30"/>
-                                                <animations/>
+                                                <rect key="frame" x="0.0" y="14" width="109" height="30"/>
                                                 <color key="backgroundColor" red="0.0" green="0.3921568627" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <state key="normal" title="   Less Green!   ">
                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
@@ -198,8 +186,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jpx-32-FIb">
-                                                <rect key="frame" x="149" y="21" width="109" height="30"/>
-                                                <animations/>
+                                                <rect key="frame" x="149" y="14" width="109" height="30"/>
                                                 <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <state key="normal" title="   More Green!   ">
                                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -212,14 +199,12 @@
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <animations/>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="egT-vX-zXN">
-                                        <rect key="frame" x="42" y="142" width="236" height="71"/>
+                                        <rect key="frame" x="42" y="171" width="236" height="57"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JXE-90-X61">
-                                                <rect key="frame" x="0.0" y="21" width="98" height="30"/>
-                                                <animations/>
+                                                <rect key="frame" x="0.0" y="14" width="98" height="30"/>
                                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
                                                 <state key="normal" title="   Less Blue!   ">
                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
@@ -232,8 +217,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TbM-Ca-7JX">
-                                                <rect key="frame" x="138" y="21" width="98" height="30"/>
-                                                <animations/>
+                                                <rect key="frame" x="138" y="14" width="98" height="30"/>
                                                 <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <state key="normal" title="   More Blue!   ">
                                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -246,116 +230,88 @@
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <animations/>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="1W8-xJ-eTc">
-                                        <rect key="frame" x="59" y="213" width="202" height="71"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="q4B-xp-meC">
+                                        <rect key="frame" x="16" y="227" width="288" height="57"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vpc-1c-v1y">
-                                                <rect key="frame" x="0.0" y="21" width="81" height="30"/>
-                                                <animations/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <state key="normal" title="Opaque">
-                                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                </state>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="10"/>
-                                                </userDefinedRuntimeAttributes>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jSA-F2-4LF">
+                                                <rect key="frame" x="0.0" y="19" width="38" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="rGx-m0-xIa">
+                                                <rect key="frame" x="41" y="14" width="206" height="31"/>
                                                 <connections>
-                                                    <action selector="addAlphaToBackgroundButtonTapped:" destination="bfI-jO-KW3" eventType="touchUpInside" id="CdL-F4-qdz"/>
+                                                    <action selector="incrementSliderValueChanged:" destination="bfI-jO-KW3" eventType="valueChanged" id="Zxh-Ak-g70"/>
                                                 </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rRN-Ac-MVK">
-                                                <rect key="frame" x="121" y="21" width="81" height="30"/>
-                                                <animations/>
-                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                                <state key="normal" title="Translucent">
-                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
-                                                </state>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="10"/>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <action selector="takeAwayAlphaFromBackgroundButtonTapped:" destination="bfI-jO-KW3" eventType="touchUpInside" id="QxD-Ec-POh"/>
-                                                </connections>
-                                            </button>
+                                            </slider>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V7m-WU-GJc">
+                                                <rect key="frame" x="250" y="19" width="38" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
-                                        <animations/>
+                                        <constraints>
+                                            <constraint firstItem="rGx-m0-xIa" firstAttribute="centerX" secondItem="q4B-xp-meC" secondAttribute="centerX" id="Ajc-Xy-Hdo"/>
+                                            <constraint firstItem="rGx-m0-xIa" firstAttribute="width" secondItem="q4B-xp-meC" secondAttribute="width" multiplier="0.7" id="DcO-zf-IcJ"/>
+                                        </constraints>
                                     </stackView>
                                 </subviews>
-                                <animations/>
+                                <constraints>
+                                    <constraint firstItem="q4B-xp-meC" firstAttribute="centerX" secondItem="uEp-DN-qqI" secondAttribute="centerX" id="MHN-n2-dyC"/>
+                                    <constraint firstItem="q4B-xp-meC" firstAttribute="width" secondItem="uEp-DN-qqI" secondAttribute="width" multiplier="0.9" id="eFQ-kS-t2T"/>
+                                </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="j5K-2p-Pno" userLabel="RGBA Goal Value Stack">
                                 <rect key="frame" x="24" y="75" width="17" height="100"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="R:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4EA-4D-vnK">
-                                        <rect key="frame" x="0.0" y="0.0" width="17" height="25"/>
-                                        <animations/>
+                                        <rect key="frame" x="0.0" y="0.0" width="17" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="G:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZVG-GC-1iJ">
-                                        <rect key="frame" x="0.0" y="25" width="17" height="25"/>
-                                        <animations/>
+                                        <rect key="frame" x="0.0" y="34" width="17" height="33"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="B:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7QA-q3-piI">
-                                        <rect key="frame" x="0.0" y="50" width="17" height="25"/>
-                                        <animations/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="alL-hr-dXa">
-                                        <rect key="frame" x="0.0" y="75" width="17" height="25"/>
-                                        <animations/>
+                                        <rect key="frame" x="0.0" y="67" width="17" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <animations/>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="dGj-ID-7VQ" userLabel="RGBA Background Value Stack">
                                 <rect key="frame" x="279" y="75" width="17" height="100"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="R:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s56-c7-s0L">
-                                        <rect key="frame" x="0.0" y="0.0" width="17" height="25"/>
-                                        <animations/>
+                                        <rect key="frame" x="0.0" y="0.0" width="17" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="G:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PLk-k2-1i7">
-                                        <rect key="frame" x="0.0" y="25" width="17" height="25"/>
-                                        <animations/>
+                                        <rect key="frame" x="0.0" y="34" width="17" height="33"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="B:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ka1-ch-akd">
-                                        <rect key="frame" x="0.0" y="50" width="17" height="25"/>
-                                        <animations/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uUA-vL-cIz">
-                                        <rect key="frame" x="0.0" y="75" width="17" height="25"/>
-                                        <animations/>
+                                        <rect key="frame" x="0.0" y="67" width="17" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <animations/>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eTj-sc-lHG">
                                 <rect key="frame" x="264" y="188" width="46" height="30"/>
-                                <animations/>
                                 <state key="normal" title="⚪️"/>
                                 <connections>
                                     <action selector="hideFeatureButtonTapped:" destination="bfI-jO-KW3" eventType="touchUpInside" id="zbh-KH-gkh"/>
@@ -363,7 +319,6 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7OY-QF-70h">
                                 <rect key="frame" x="145" y="518" width="30" height="41"/>
-                                <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="🔙"/>
                                 <connections>
@@ -373,32 +328,27 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="LUM-M0-OVe">
                                 <rect key="frame" x="93" y="24" width="134" height="45"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Your Score: %lu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C5c-sc-5Z8">
-                                        <rect key="frame" x="7" y="0.0" width="119" height="21"/>
-                                        <animations/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Score: %lu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C5c-sc-5Z8">
+                                        <rect key="frame" x="8" y="0.0" width="119" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Target Score: %lu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7bo-CO-HC3">
                                         <rect key="frame" x="0.0" y="25" width="134" height="21"/>
-                                        <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <animations/>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Match the Color!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vtL-cI-ESf">
                                 <rect key="frame" x="96" y="192" width="128" height="20.5"/>
-                                <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="j5K-2p-Pno" firstAttribute="leading" secondItem="VaB-0U-rCy" secondAttribute="leadingMargin" constant="8" id="2pt-kW-esJ"/>
@@ -424,21 +374,21 @@
                     <tabBarItem key="tabBarItem" title="Game" id="N6U-o5-bIM"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <outlet property="alphaBackgroundValueLabel" destination="uUA-vL-cIz" id="jge-5Q-0qV"/>
-                        <outlet property="alphaGoalValueLabel" destination="alL-hr-dXa" id="vcy-8r-v3t"/>
                         <outlet property="blueBackgroundValueLabel" destination="ka1-ch-akd" id="QhC-Iw-HXd"/>
                         <outlet property="blueGoalValueLabel" destination="7QA-q3-piI" id="NMj-2f-HEa"/>
                         <outlet property="colorGoalView" destination="AyX-R3-6om" id="s2j-cj-jYY"/>
+                        <outlet property="currentIncrementLabel" destination="mHJ-Yt-SHB" id="6OT-af-xgf"/>
                         <outlet property="dismissModalButton" destination="7OY-QF-70h" id="INO-Nz-kQ5"/>
                         <outlet property="gameLabel" destination="vtL-cI-ESf" id="hMo-hv-jc7"/>
                         <outlet property="greenBackgroundValueLabel" destination="PLk-k2-1i7" id="D3W-us-El1"/>
                         <outlet property="greenGoalValueLabel" destination="ZVG-GC-1iJ" id="ibL-qq-6a2"/>
                         <outlet property="hideFeatureButton" destination="eTj-sc-lHG" id="XR6-CM-ffX"/>
-                        <outlet property="lessAlphaButton" destination="rRN-Ac-MVK" id="qYD-0N-LqD"/>
+                        <outlet property="incrementSlider" destination="rGx-m0-xIa" id="Iqm-Yz-GIw"/>
                         <outlet property="lessBlueButton" destination="JXE-90-X61" id="C8v-kt-TqW"/>
                         <outlet property="lessGreenButton" destination="gSY-Ni-5b2" id="3Wh-OA-Ttx"/>
                         <outlet property="lessRedButton" destination="X7u-5E-61L" id="kDt-T5-zye"/>
-                        <outlet property="moreAlphaButton" destination="Vpc-1c-v1y" id="3AY-g2-nSI"/>
+                        <outlet property="maximumIncrementLabel" destination="V7m-WU-GJc" id="mKH-dU-rPr"/>
+                        <outlet property="minimumIncrementLabel" destination="jSA-F2-4LF" id="V9V-up-9GQ"/>
                         <outlet property="moreBlueButton" destination="TbM-Ca-7JX" id="KYu-2h-7l1"/>
                         <outlet property="moreGreenButton" destination="Jpx-32-FIb" id="Zk6-8v-VPB"/>
                         <outlet property="moreRedButton" destination="4OT-vB-jwZ" id="59X-XU-bcz"/>
@@ -453,10 +403,10 @@
             </objects>
             <point key="canvasLocation" x="2049" y="2682"/>
         </scene>
-        <!--Game Mode View Controller-->
+        <!--Mode View Controller-->
         <scene sceneID="bnf-pb-lkF">
             <objects>
-                <viewController id="SHY-TW-nAZ" customClass="AMYGameModeViewController" sceneMemberID="viewController">
+                <viewController id="SHY-TW-nAZ" userLabel="Mode View Controller" customClass="AMYGameModeViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="TFn-xn-ynZ"/>
                         <viewControllerLayoutGuide type="bottom" id="HXR-8a-pvn"/>
@@ -470,27 +420,23 @@
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Match the Color!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZUb-xu-LHy">
                                         <rect key="frame" x="0.0" y="0.0" width="191" height="29"/>
-                                        <animations/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose mode:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aWY-6F-h2z">
                                         <rect key="frame" x="43" y="29" width="105.5" height="19.5"/>
-                                        <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <animations/>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Eoq-mF-Dct" userLabel="Choices Stack View">
                                 <rect key="frame" x="110" y="151.5" width="100" height="345"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LmI-sK-SKj">
                                         <rect key="frame" x="0.0" y="0.0" width="100" height="45"/>
-                                        <animations/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="6Qb-SJ-NYt"/>
                                         </constraints>
@@ -501,7 +447,6 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ohf-Oy-iA6">
                                         <rect key="frame" x="0.0" y="75" width="100" height="45"/>
-                                        <animations/>
                                         <state key="normal" title="Basic"/>
                                         <connections>
                                             <segue destination="C7K-Ck-FOb" kind="show" id="GOq-16-kjf"/>
@@ -509,7 +454,6 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hz0-Ib-DXg">
                                         <rect key="frame" x="0.0" y="150" width="100" height="45"/>
-                                        <animations/>
                                         <state key="normal" title="Moderate"/>
                                         <connections>
                                             <segue destination="C7K-Ck-FOb" kind="show" id="1Oe-PU-GBv"/>
@@ -517,7 +461,6 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hgZ-Nv-ijP">
                                         <rect key="frame" x="0.0" y="225" width="100" height="45"/>
-                                        <animations/>
                                         <state key="normal" title="Challenging"/>
                                         <connections>
                                             <segue destination="C7K-Ck-FOb" kind="show" id="BWa-Vv-UCu"/>
@@ -525,20 +468,17 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="seh-GZ-qwy">
                                         <rect key="frame" x="0.0" y="300" width="100" height="45"/>
-                                        <animations/>
                                         <state key="normal" title="Zen"/>
                                         <connections>
                                             <segue destination="C7K-Ck-FOb" kind="show" id="NFv-ak-RWs"/>
                                         </connections>
                                     </button>
                                 </subviews>
-                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="oDV-fr-8sL"/>
                                 </constraints>
                             </stackView>
                         </subviews>
-                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Eoq-mF-Dct" firstAttribute="centerX" secondItem="2KF-ab-D2z" secondAttribute="centerX" id="0T6-id-SLZ"/>
@@ -561,10 +501,10 @@
             </objects>
             <point key="canvasLocation" x="992" y="1428"/>
         </scene>
-        <!--Game-->
+        <!--Difficulty View Controller-->
         <scene sceneID="gNk-qn-fey">
             <objects>
-                <viewController storyboardIdentifier="DifficultyViewController" id="CJZ-L7-Ptk" customClass="AMYGameDifficultyViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DifficultyViewController" id="CJZ-L7-Ptk" userLabel="Difficulty View Controller" customClass="AMYGameDifficultyViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ztS-z6-dfT"/>
                         <viewControllerLayoutGuide type="bottom" id="jop-OZ-7ih"/>
@@ -578,7 +518,6 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JbE-2J-pLD">
                                         <rect key="frame" x="0.0" y="0.0" width="100" height="45"/>
-                                        <animations/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="cF3-iZ-W17"/>
                                         </constraints>
@@ -589,7 +528,6 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pzh-cV-W1I">
                                         <rect key="frame" x="0.0" y="75" width="100" height="45"/>
-                                        <animations/>
                                         <state key="normal" title="Easy"/>
                                         <connections>
                                             <segue destination="bfI-jO-KW3" kind="presentation" id="75k-4C-c3S"/>
@@ -597,7 +535,6 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0iI-sN-xnY">
                                         <rect key="frame" x="0.0" y="150" width="100" height="45"/>
-                                        <animations/>
                                         <state key="normal" title="Medium"/>
                                         <connections>
                                             <segue destination="bfI-jO-KW3" kind="presentation" id="Gy9-C9-0dv"/>
@@ -605,7 +542,6 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gXT-Nj-o6D">
                                         <rect key="frame" x="0.0" y="225" width="100" height="45"/>
-                                        <animations/>
                                         <state key="normal" title="Hard"/>
                                         <connections>
                                             <segue destination="bfI-jO-KW3" kind="presentation" id="OFN-16-wIQ"/>
@@ -613,14 +549,12 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P8y-vD-6Fc">
                                         <rect key="frame" x="0.0" y="300" width="100" height="45"/>
-                                        <animations/>
                                         <state key="normal" title="Master"/>
                                         <connections>
                                             <segue destination="bfI-jO-KW3" kind="presentation" id="NBx-Oc-n2d"/>
                                         </connections>
                                     </button>
                                 </subviews>
-                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="bGp-wK-QIM"/>
                                 </constraints>
@@ -630,23 +564,19 @@
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Match the Color!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="suy-7D-aqk">
                                         <rect key="frame" x="0.0" y="0.0" width="191" height="29"/>
-                                        <animations/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose difficulty:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Pj-jB-AyO">
                                         <rect key="frame" x="32" y="29" width="127.5" height="19.5"/>
-                                        <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <animations/>
                             </stackView>
                         </subviews>
-                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="kaG-Ku-Oah" firstAttribute="top" secondItem="Nji-fL-qFL" secondAttribute="bottom" constant="16" id="Bw3-wF-sj8"/>
@@ -678,7 +608,6 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="jhS-MS-N8C">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <animations/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -709,7 +638,6 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Alw-Lx-rEX">
                                                 <rect key="frame" x="0.0" y="20" width="95" height="30"/>
-                                                <animations/>
                                                 <color key="backgroundColor" red="0.3921568627" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <state key="normal" title="   Less Red!   ">
                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
@@ -723,7 +651,6 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mSO-n1-EMr">
                                                 <rect key="frame" x="135" y="20" width="95" height="30"/>
-                                                <animations/>
                                                 <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <state key="normal" title="   More Red!   ">
                                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -736,14 +663,12 @@
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <animations/>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="o8e-1F-ZOL">
                                         <rect key="frame" x="0.0" y="90" width="256" height="70"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I3z-KE-Osi">
                                                 <rect key="frame" x="0.0" y="20" width="108" height="30"/>
-                                                <animations/>
                                                 <color key="backgroundColor" red="0.0" green="0.3921568627" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <state key="normal" title="   Less Green!   ">
                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
@@ -757,7 +682,6 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hg6-77-Q6T">
                                                 <rect key="frame" x="148" y="20" width="108" height="30"/>
-                                                <animations/>
                                                 <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <state key="normal" title="   More Green!   ">
                                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -770,14 +694,12 @@
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <animations/>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="M8d-5v-NDu">
                                         <rect key="frame" x="10" y="180" width="236" height="70.5"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zdw-V5-VsD">
                                                 <rect key="frame" x="0.0" y="20" width="98" height="30"/>
-                                                <animations/>
                                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
                                                 <state key="normal" title="   Less Blue!   ">
                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
@@ -791,7 +713,6 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="er5-IW-Gl1">
                                                 <rect key="frame" x="138" y="20" width="98" height="30"/>
-                                                <animations/>
                                                 <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <state key="normal" title="   More Blue!   ">
                                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -804,14 +725,12 @@
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <animations/>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="pbC-Ay-giw">
                                         <rect key="frame" x="27" y="271" width="202" height="70"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dKU-Md-uyJ">
                                                 <rect key="frame" x="0.0" y="20" width="81" height="30"/>
-                                                <animations/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <state key="normal" title="Opaque">
                                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -825,7 +744,6 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="izz-16-44f">
                                                 <rect key="frame" x="121" y="20" width="81" height="30"/>
-                                                <animations/>
                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                 <state key="normal" title="Translucent">
                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
@@ -838,14 +756,11 @@
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <animations/>
                                     </stackView>
                                 </subviews>
-                                <animations/>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hxP-pL-NzP">
                                 <rect key="frame" x="268" y="28" width="30" height="30"/>
-                                <animations/>
                                 <state key="normal" title="⚪️"/>
                                 <connections>
                                     <action selector="hideFeatureButtonTapped:" destination="8GX-E2-Nsh" eventType="touchUpInside" id="8E9-m9-8Md"/>
@@ -856,45 +771,38 @@
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="R:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="661-cN-CeH">
                                         <rect key="frame" x="0.0" y="0.0" width="17" height="20.5"/>
-                                        <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="G:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q4y-Nt-9aj">
                                         <rect key="frame" x="0.0" y="20" width="17" height="20.5"/>
-                                        <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="B:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DjS-eO-2KN">
                                         <rect key="frame" x="0.0" y="41" width="17" height="20.5"/>
-                                        <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XlC-3y-ZCC">
                                         <rect key="frame" x="0.0" y="61" width="17" height="20.5"/>
-                                        <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <animations/>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QTB-K1-Cps">
                                 <rect key="frame" x="268" y="92" width="30" height="30"/>
-                                <animations/>
                                 <state key="normal" title="🔄"/>
                                 <connections>
                                     <action selector="refreshViewButtonTapped:" destination="8GX-E2-Nsh" eventType="touchUpInside" id="8Bu-xA-thR"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="QAQ-OU-4tB" firstAttribute="centerY" secondItem="5Cc-Lv-3pH" secondAttribute="centerY" constant="50" id="0Ww-D1-ZTp"/>

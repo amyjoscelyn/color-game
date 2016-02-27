@@ -19,12 +19,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *redGoalValueLabel;
 @property (weak, nonatomic) IBOutlet UILabel *greenGoalValueLabel;
 @property (weak, nonatomic) IBOutlet UILabel *blueGoalValueLabel;
-@property (weak, nonatomic) IBOutlet UILabel *alphaGoalValueLabel;
 
 @property (weak, nonatomic) IBOutlet UILabel *redBackgroundValueLabel;
 @property (weak, nonatomic) IBOutlet UILabel *greenBackgroundValueLabel;
 @property (weak, nonatomic) IBOutlet UILabel *blueBackgroundValueLabel;
-@property (weak, nonatomic) IBOutlet UILabel *alphaBackgroundValueLabel;
 
 @property (weak, nonatomic) IBOutlet UIButton *lessRedButton;
 @property (weak, nonatomic) IBOutlet UIButton *moreRedButton;
@@ -32,8 +30,11 @@
 @property (weak, nonatomic) IBOutlet UIButton *moreGreenButton;
 @property (weak, nonatomic) IBOutlet UIButton *lessBlueButton;
 @property (weak, nonatomic) IBOutlet UIButton *moreBlueButton;
-@property (weak, nonatomic) IBOutlet UIButton *lessAlphaButton;
-@property (weak, nonatomic) IBOutlet UIButton *moreAlphaButton;
+
+@property (weak, nonatomic) IBOutlet UISlider *incrementSlider;
+@property (weak, nonatomic) IBOutlet UILabel *minimumIncrementLabel;
+@property (weak, nonatomic) IBOutlet UILabel *maximumIncrementLabel;
+@property (weak, nonatomic) IBOutlet UILabel *currentIncrementLabel;
 
 @property (weak, nonatomic) IBOutlet UILabel *playerScoreLabel;
 @property (weak, nonatomic) IBOutlet UILabel *targetScoreLabel;
@@ -43,12 +44,10 @@
 @property (nonatomic) NSUInteger numberOfTimesRedButtonTapped;
 @property (nonatomic) NSUInteger numberOfTimesGreenButtonTapped;
 @property (nonatomic) NSUInteger numberOfTimesBlueButtonTapped;
-@property (nonatomic) NSUInteger numberOfTimesAlphaButtonTapped;
 
 @property (nonatomic) CGFloat colorWithRedFloat;
 @property (nonatomic) CGFloat colorWithGreenFloat;
 @property (nonatomic) CGFloat colorWithBlueFloat;
-@property (nonatomic) CGFloat alphaFloat;
 
 @property (nonatomic) NSUInteger tapCapMax;
 @property (nonatomic) NSUInteger tapCapMin;
@@ -72,23 +71,23 @@
     //set up mode
     if (self.store.mode == 0) //simple
     {
-        [self hideAlpha];
         self.multiplier = 0.25;
     }
     else if (self.store.mode == 1) //basic
     {
-        [self hideAlpha];
         self.multiplier = 0.1;
     }
     else if (self.store.mode == 2) //moderate
     {
-        [self hideAlpha];
         self.multiplier = 0.05;
     }
     else                            //challenging
     {
         self.multiplier = 0.01;
     }
+    self.currentIncrementLabel.text = [NSString stringWithFormat:@"Increment: %.2f", self.multiplier];
+    self.incrementSlider.value = self.incrementSlider.minimumValue;
+    
     [self chooseGoalColor];
     
     self.colorGoalView.layer.cornerRadius = self.colorGoalView.frame.size.height/2;
@@ -99,7 +98,7 @@
 {
     [super viewWillAppear:animated];
     
-    NSArray *buttons = [NSArray arrayWithObjects:self.lessRedButton, self.moreRedButton, self.lessGreenButton, self.moreGreenButton, self.lessBlueButton, self.moreBlueButton, self.lessAlphaButton, self.moreAlphaButton, nil];
+    NSArray *buttons = [NSArray arrayWithObjects:self.lessRedButton, self.moreRedButton, self.lessGreenButton, self.moreGreenButton, self.lessBlueButton, self.moreBlueButton, nil];
     NSArray *colors = self.store.colorsForGameButtons;
         
     NSUInteger i = 0;
@@ -129,15 +128,6 @@
     }
 }
 
-- (void)hideAlpha
-{
-    self.lessAlphaButton.hidden = YES;
-    self.moreAlphaButton.hidden = YES;
-    self.alphaGoalValueLabel.hidden = YES;
-    self.alphaBackgroundValueLabel.hidden = YES;
-    self.alphaFloat = 1;
-}
-
 - (void)chooseGoalColor
 {
     AMYColorSetup *setup = [[AMYColorSetup alloc] init];
@@ -162,11 +152,9 @@
     NSArray *colorValueLabels = @[ self.redGoalValueLabel,
                                    self.greenGoalValueLabel,
                                    self.blueGoalValueLabel,
-                                   self.alphaGoalValueLabel,
                                    self.redBackgroundValueLabel,
                                    self.greenBackgroundValueLabel,
-                                   self.blueBackgroundValueLabel,
-                                   self.alphaBackgroundValueLabel];
+                                   self.blueBackgroundValueLabel];
     CGFloat red, green, blue, alpha;
     [color    getRed: &red
                green: &green
@@ -176,7 +164,6 @@
     self.redGoalValueLabel.text = [NSString stringWithFormat:@"R: %.2f", red];
     self.greenGoalValueLabel.text = [NSString stringWithFormat:@"G: %.2f", green];
     self.blueGoalValueLabel.text = [NSString stringWithFormat:@"B: %.2f", blue];
-    self.alphaGoalValueLabel.text = [NSString stringWithFormat:@"A: %.2f", alpha];
     
     NSUInteger targetScore = (red + green + blue) * (1/self.multiplier);
     // once there are options of switching between multiple increments, the score gets a lot harder to calculate
@@ -216,6 +203,9 @@
     self.playerScoreLabel.textColor = lightTextColor;
     self.targetScoreLabel.textColor = lightTextColor;
     self.dismissModalButton.titleLabel.textColor = lightTextColor;
+    self.minimumIncrementLabel.textColor = lightTextColor;
+    self.maximumIncrementLabel.textColor = lightTextColor;
+    self.currentIncrementLabel.textColor = lightTextColor;
     
     self.dismissModalButton.layer.cornerRadius = 5;
     
@@ -239,7 +229,6 @@
     self.numberOfTimesRedButtonTapped = self.colorWithRedFloat;
     self.numberOfTimesGreenButtonTapped = self.colorWithGreenFloat;
     self.numberOfTimesBlueButtonTapped = self.colorWithBlueFloat;
-    self.numberOfTimesAlphaButtonTapped = self.alphaFloat * x;
     
     self.tapCapMax = x;
     self.tapCapMin = 0;
@@ -247,7 +236,6 @@
     self.redBackgroundValueLabel.text = [NSString stringWithFormat:@"R:"];
     self.greenBackgroundValueLabel.text = [NSString stringWithFormat:@"G:"];
     self.blueBackgroundValueLabel.text = [NSString stringWithFormat:@"B:"];
-    self.alphaBackgroundValueLabel.text = [NSString stringWithFormat:@"A:"];
     
     self.lessRedButton.enabled = YES;
     self.moreRedButton.enabled = YES;
@@ -255,13 +243,49 @@
     self.moreGreenButton.enabled = YES;
     self.lessBlueButton.enabled = YES;
     self.moreBlueButton.enabled = YES;
-    self.lessAlphaButton.enabled = YES;
-    self.moreAlphaButton.enabled = YES;
+    
+    if (self.store.mode == 0)
+    {
+        self.incrementSlider.hidden = YES;
+        self.minimumIncrementLabel.hidden = YES;
+        self.maximumIncrementLabel.hidden = YES;
+    }
+    else if (self.store.mode == 1)
+    {
+        self.incrementSlider.hidden = NO;
+        self.minimumIncrementLabel.hidden = NO;
+        self.maximumIncrementLabel.hidden = NO;
+        
+        self.minimumIncrementLabel.text = @"0.1";
+        self.maximumIncrementLabel.text = @"1.0";
+    }
+    else if (self.store.mode == 2)
+    {
+        self.incrementSlider.hidden = NO;
+        self.minimumIncrementLabel.hidden = NO;
+        self.maximumIncrementLabel.hidden = NO;
+        
+        self.minimumIncrementLabel.text = @"0.05";
+        self.maximumIncrementLabel.text = @"1.0";
+    }
+    else if (self.store.mode == 3)
+    {
+        self.incrementSlider.hidden = NO;
+        self.minimumIncrementLabel.hidden = NO;
+        self.maximumIncrementLabel.hidden = NO;
+        
+        self.minimumIncrementLabel.text = @"0.01";
+        self.maximumIncrementLabel.text = @"1.0";
+    }
+    else
+    {
+        NSLog(@"Somehow you've gotten off the rails. Pick an existing difficulty.");
+    }
 }
 
 - (void)changeBackgroundColor
 {
-    self.view.backgroundColor = [UIColor colorWithRed:self.colorWithRedFloat green:self.colorWithGreenFloat blue:self.colorWithBlueFloat alpha:self.alphaFloat];
+    self.view.backgroundColor = [UIColor colorWithRed:self.colorWithRedFloat green:self.colorWithGreenFloat blue:self.colorWithBlueFloat alpha:1.0];
     
     CGFloat redBG, greenBG, blueBG, alphaBG;
     
@@ -272,7 +296,6 @@
     self.redBackgroundValueLabel.text = [NSString stringWithFormat:@"R: %.2f", redBG];
     self.greenBackgroundValueLabel.text = [NSString stringWithFormat:@"G: %.2f", greenBG];
     self.blueBackgroundValueLabel.text = [NSString stringWithFormat:@"B: %.2f", blueBG];
-    self.alphaBackgroundValueLabel.text = [NSString stringWithFormat:@"A: %.2f", alphaBG];
     
     self.playerScoreLabel.text = [NSString stringWithFormat:@"Your Score: %lu", (unsigned long)self.totalButtonTaps];
 }
@@ -367,36 +390,6 @@
     [self postButtonActions];
 }
 
-- (IBAction)addAlphaToBackgroundButtonTapped:(UIButton *)sender
-{
-    if (self.numberOfTimesAlphaButtonTapped == self.tapCapMax)
-    {
-        sender.enabled = NO;
-        return;
-    }
-    self.numberOfTimesAlphaButtonTapped++;
-    self.lessAlphaButton.enabled = YES;
-    
-    self.alphaFloat = self.numberOfTimesAlphaButtonTapped * self.multiplier;
-    
-    [self postButtonActions];
-}
-
-- (IBAction)takeAwayAlphaFromBackgroundButtonTapped:(UIButton *)sender
-{
-    if (self.numberOfTimesAlphaButtonTapped == self.tapCapMin)
-    {
-        sender.enabled = NO;
-        return;
-    }
-    self.numberOfTimesAlphaButtonTapped--;
-    self.moreAlphaButton.enabled = YES;
-    
-    self.alphaFloat = self.numberOfTimesAlphaButtonTapped * self.multiplier;
-    
-    [self postButtonActions];
-}
-
 - (void)postButtonActions
 {
     self.totalButtonTaps++;
@@ -459,8 +452,6 @@
         self.moreGreenButton.enabled = NO;
         self.lessBlueButton.enabled = NO;
         self.moreBlueButton.enabled = NO;
-        self.lessAlphaButton.enabled = NO;
-        self.moreAlphaButton.enabled = NO;
     }
 }
 
@@ -476,7 +467,6 @@
         self.redBackgroundValueLabel.hidden = YES;
         self.greenBackgroundValueLabel.hidden = YES;
         self.blueBackgroundValueLabel.hidden = YES;
-        self.alphaBackgroundValueLabel.hidden = YES;
         
         [self.hideFeatureButton setTitle:@"🔘" forState:UIControlStateNormal];
     }
@@ -485,7 +475,6 @@
         self.redGoalValueLabel.hidden = YES;
         self.greenGoalValueLabel.hidden = YES;
         self.blueGoalValueLabel.hidden = YES;
-        self.alphaGoalValueLabel.hidden = YES;
         
         [self.hideFeatureButton setTitle:@"⚫️" forState:UIControlStateNormal];
     }
@@ -499,11 +488,6 @@
         self.greenGoalValueLabel.hidden = NO;
         self.blueGoalValueLabel.hidden = NO;
         
-        if (self.store.mode > 2)
-        {
-            self.alphaBackgroundValueLabel.hidden = NO;
-            self.alphaGoalValueLabel.hidden = NO;
-        }
         [self.hideFeatureButton setTitle:@"⚪️" forState:UIControlStateNormal];
     }
 }
@@ -511,6 +495,51 @@
 - (IBAction)dismissModalButtonTapped:(id)sender
 {
     [self.delegate AMYColorGameViewControllerDidCancel:self];
+}
+
+- (IBAction)incrementSliderValueChanged:(UISlider *)slider
+{
+    CGFloat increment = self.multiplier;
+    
+    if (slider.value == slider.minimumValue)
+    {
+        increment = self.minimumIncrementLabel.text.floatValue;
+        self.multiplier = increment;
+    }
+    
+    if (slider.value == slider.maximumValue)
+    {
+        increment = self.maximumIncrementLabel.text.floatValue;
+        self.multiplier = increment;
+    }
+    
+    if (self.store.mode == 1)
+    {
+        //if mode is 1, we should have an increment counter between .1 and 1.0 (.1, .25, .5, 1) (4)
+        if (slider.value > slider.minimumValue && slider.value < slider.maximumValue / 2)
+        {
+            increment = 0.25;
+            self.multiplier = increment;
+        }
+        else if (slider.value > slider.maximumValue / 2 && slider.value < slider.maximumValue)
+        {
+            increment = 0.5;
+            self.multiplier = increment;
+        }
+    }
+    else if (self.store.mode == 2)
+    {
+//        if (slider.value > slider.minimumValue && slider.value < ) {
+            //
+//        }
+        //if diff is 2, we should have an increment counter between 0.05 and 1.0 (.05, .1, .25, .5, 1) (5)
+    }
+    else
+    {
+        //if diff is 3, increment counter should be between 0.01 and 1.0
+        //increments: 0.01, 0.02, 0.05, 0.1, 0.25, 0.5, 1.0 (7)
+    }
+    self.currentIncrementLabel.text = [NSString stringWithFormat:@"Increment: %.2f", increment];
 }
 
 /*
@@ -545,8 +574,6 @@
  hide things
  change difficulty
  start "light"--with white instead of black
- 
- when I do have alpha, it should be an increment of .25, so that it can only be .25, .5, .75, 1.  Maybe one day I can make an EXTREME mode that has alpha of harder values.
  */
 
 /*
