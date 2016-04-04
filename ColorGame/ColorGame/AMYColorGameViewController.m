@@ -69,9 +69,10 @@
     self.store = [AMYSharedDataStore sharedDataStore];
     
     //set up mode
+    //MULTIPLIER SYSTEM MUST CHANGE!!!!!!  ###s MUST NOW EQUAL 1, 4, 16, 64!!!!  FIGURE THIS OUT
     if (self.store.mode == 0) //simple
     {
-        self.multiplier = 0.25;
+        self.multiplier = 0.64;
     }
     else if (self.store.mode == 1) //basic
     {

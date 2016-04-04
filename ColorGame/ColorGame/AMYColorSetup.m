@@ -195,6 +195,50 @@
  Forthcoming!
  */
 
+/*
+Let's try this again, shall we?
+ THE STANDARD STRUCTURE I'M USING GOES
+ -----------------------------------------------------------
+ VE-it's basically following this pattern, with an exception for Simple Mode
+ E- 1/2 values
+ M- full values
+ H- 1/2 values, more mix
+ M- full values, more mix
+ 
+ Simple: (.64, 1.28, 1.92, 2.56)
+ -----------------------------------------------------------
+ VE-single color:   1.28, 2.56              :)
+ E-single color:    .64, 1.28, 1.92, 2.56   :)
+ M-mix two:         1.28, 2.56              :)
+ H-mix two:         .64, 1.28, 1.92, 2.56   :)
+ M-mix three:       .64, 1.28, 1.92, 2.56   :)
+ 
+ Basic: (.32, .64, .96, 1.28, 1.6, 1.92, 2.24, 2.56)
+ -----------------------------------------------------------
+ VE-mix one:    .32, .64, .96, 1.28, 1.6, 1.92, 2.24, 2.56
+ E-mix two:     .64, 1.28, 1.92, 2.56   same as Simple-E
+ M-mix two:     .32, .64, .96, 1.28, 1.6, 1.92, 2.24, 2.56
+ H-mix three:   .64, 1.28, 1.92, 2.56   same as Simple-Ma
+ M-mix three:   .32, .64, .96, 1.28, 1.6, 1.92, 2.24, 2.56
+ 
+ Moderate: (.16, .32, .48, .64, .8, .96, 1.12, 1.28, 1.44, 1.6, 1.76, 1.92, 2.08, 2.24, 2.4, 2.56)
+ -----------------------------------------------------------
+ VE-mix one:    .16, .32, .48, .64, .8, .96, 1.12, 1.28, 1.44, 1.6, 1.76, 1.92, 2.08, 2.24, 2.4, 2.56
+ E-mix two:     .32, .64, .96, 1.28, 1.6, 1.92, 2.24, 2.56  same as Basic-Me
+ M-mix two:     .16, .32, .48, .64, .8, .96, 1.12, 1.28, 1.44, 1.6, 1.76, 1.92, 2.08, 2.24, 2.4, 2.56
+ H-mix three:   .32, .64, .96, 1.28, 1.6, 1.92, 2.24, 2.56  same as Basic-Ma
+ M-mix three:   .16, .32, .48, .64, .8, .96, 1.12, 1.28, 1.44, 1.6, 1.76, 1.92, 2.08, 2.24, 2.4, 2.56
+ 
+ ****(Theoretically I'm missing a difficulty between here, with an increment value of .8.  Challenging Mode compensates for this, which is why it is an exception as well to the basic structure)************************
+ 
+ Challenging: (.4, .8, .12, .16, .2, .24, .28, .32, .36, .4, .44, .48, .52, .56, .6, .64, .68, .72, .76, .8, .84, .88, .92, .96, 1, 1.04, 1.08, 1.12, 1.16, 1.2, 1.24, 1.28, 1.32, 1.36, 1.4, 1.44, 1.48, 1.52, 1.56, 1.6, 1.64, 1.68, 1.72, 1.76, 1.8, 1.84, 1.88, 1.92, 1.96, 2, 2.04, 2.08, 2.12, 2.16, 2.2, 2.24, 2.28, 2.32, 2.36, 2.4, 2.44, 2.48, 2.52, 2.56)
+ -----------------------------------------------------------
+ VE-mix two:    .8, .16, .24, .32, .4, .48, .56, .64, .72, .8, .88, .96, 1.04, 1.12, 1.2, 1.28, 1.36, 1.44, 1.52, 1.6, 1.68, 1.76, 1.84, 1.92, 2, 2.08, 2.16, 2.24, 2.32, 2.4, 2.48, 2.56
+ E-mix two:     .4, .8, .12, .16, .2, .24, .28, .32, .36, .4, .44, .48, .52, .56, .6, .64, .68, .72, .76, .8, .84, .88, .92, .96, 1, 1.04, 1.08, 1.12, 1.16, 1.2, 1.24, 1.28, 1.32, 1.36, 1.4, 1.44, 1.48, 1.52, 1.56, 1.6, 1.64, 1.68, 1.72, 1.76, 1.8, 1.84, 1.88, 1.92, 1.96, 2, 2.04, 2.08, 2.12, 2.16, 2.2, 2.24, 2.28, 2.32, 2.36, 2.4, 2.44, 2.48, 2.52, 2.56
+ M-mix three:   .16, .32, .48, .64, .8, .96, 1.12, 1.28, 1.44, 1.6, 1.76, 1.92, 2.08, 2.24, 2.4, 2.56    same as Moderate-Ma
+ H-mix three:   .8, .16, .24, .32, .4, .48, .56, .64, .72, .8, .88, .96, 1.04, 1.12, 1.2, 1.28, 1.36, 1.44, 1.52, 1.6, 1.68, 1.76, 1.84, 1.92, 2, 2.08, 2.16, 2.24, 2.32, 2.4, 2.48, 2.56
+ M-mix three:   .4, .8, .12, .16, .2, .24, .28, .32, .36, .4, .44, .48, .52, .56, .6, .64, .68, .72, .76, .8, .84, .88, .92, .96, 1, 1.04, 1.08, 1.12, 1.16, 1.2, 1.24, 1.28, 1.32, 1.36, 1.4, 1.44, 1.48, 1.52, 1.56, 1.6, 1.64, 1.68, 1.72, 1.76, 1.8, 1.84, 1.88, 1.92, 1.96, 2, 2.04, 2.08, 2.12, 2.16, 2.2, 2.24, 2.28, 2.32, 2.36, 2.4, 2.44, 2.48, 2.52, 2.56
+ */
 
 /*
  I can make a sort of "colors that had just been played" array, keep track of the last three or four colors.  The array gets set up in the dataStore, and refreshed in ColorSetup when the difficulty is chosen.  The current color gets added in the ColorGameVC to that array.  The color being chosen cannot be the same as any in that array, and must be re-cast from arc4random until it's a new color.  When the current color is being added, the array is also checked: should it have more than three or four in the array.count, the first object is removed.  This way it's a rotating list.  If that still feels like too much, the array can be made a lot longer before the first object comes off.
