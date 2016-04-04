@@ -161,10 +161,15 @@
                green: &green
                 blue: &blue
                alpha: &alpha ];
+    //Okay.  So here we have red, green, blue, and alpha all coming off of the target color.  It's coming to us in a format out of 1.0, not 256 like we're incrementing in.
+    //What I need to do is turn that ##/1.0 value back into one out of 256.0
+    //We should just be able to multiply it by 256, and it should be with us instantly!
+    //Of course, floats are awful at math.  Rounding problems, remember?  Ugh...
+    //Let's just try it anyway.  I do compensate later for rounding errors, and this is just a label anyway.  Besides, we shouldn't have any decimal places once we're finished.
     
-    self.redGoalValueLabel.text = [NSString stringWithFormat:@"R: %.2f", red];
-    self.greenGoalValueLabel.text = [NSString stringWithFormat:@"G: %.2f", green];
-    self.blueGoalValueLabel.text = [NSString stringWithFormat:@"B: %.2f", blue];
+    self.redGoalValueLabel.text = [NSString stringWithFormat:@"R: %.0f", red*256];
+    self.greenGoalValueLabel.text = [NSString stringWithFormat:@"G: %.0f", green*256];
+    self.blueGoalValueLabel.text = [NSString stringWithFormat:@"B: %.0f", blue*256];
     
     NSUInteger targetScore = (red + green + blue) * (1/self.multiplier);
     // once there are options of switching between multiple increments, the score gets a lot harder to calculate
@@ -184,10 +189,11 @@
     
     UIColor *textColor = [UIColor whiteColor];
     
-    if (red > .7 && green > .7)
+    if (red > 180/256.0 && green > 180/256.0)
     {
         textColor = [UIColor colorWithRed:0.05 green:0.15 blue:0.05 alpha:1.0];
-    }
+    } //So... this is working correctly, but the background of the label is too dark to be able to see the contrast against the black background.
+    //BACKGROUND COLOR OF LABELS NEEDS TO BE CHECKED AND ADJUSTED!!!!!!!!!!!
     
     for (UILabel *colorValueLabel in colorValueLabels)
     {
@@ -321,9 +327,9 @@
                                 green: &greenBG
                                  blue: &blueBG
                                 alpha: &alphaBG];
-    self.redBackgroundValueLabel.text = [NSString stringWithFormat:@"R: %.2f", redBG];
-    self.greenBackgroundValueLabel.text = [NSString stringWithFormat:@"G: %.2f", greenBG];
-    self.blueBackgroundValueLabel.text = [NSString stringWithFormat:@"B: %.2f", blueBG];
+    self.redBackgroundValueLabel.text = [NSString stringWithFormat:@"R: %.0f", redBG*256];
+    self.greenBackgroundValueLabel.text = [NSString stringWithFormat:@"G: %.0f", greenBG*256];
+    self.blueBackgroundValueLabel.text = [NSString stringWithFormat:@"B: %.0f", blueBG*256];
     
     self.playerScoreLabel.text = [NSString stringWithFormat:@"Your Score: %lu", (unsigned long)self.totalButtonTaps];
 }
