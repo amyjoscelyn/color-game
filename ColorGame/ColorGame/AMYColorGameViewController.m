@@ -69,22 +69,22 @@
     self.store = [AMYSharedDataStore sharedDataStore];
     
     //set up mode
-    //MULTIPLIER SYSTEM MUST CHANGE!!!!!!  ###s MUST NOW EQUAL 1, 4, 16, 64!!!!  FIGURE THIS OUT
+    //MULTIPLIER SYSTEM HAS CHANGED!!!!!!
     if (self.store.mode == 0) //simple
     {
-        self.multiplier = 0.64;
+        self.multiplier = 64/256.0;
     }
     else if (self.store.mode == 1) //basic
     {
-        self.multiplier = 0.1;
+        self.multiplier = 32/256.0;
     }
     else if (self.store.mode == 2) //moderate
     {
-        self.multiplier = 0.05;
+        self.multiplier = 16/256.0;
     }
     else                            //challenging
     {
-        self.multiplier = 0.01;
+        self.multiplier = 4/256.0;
     }
     self.currentIncrementLabel.text = [NSString stringWithFormat:@"Increment: %.2f", self.multiplier];
     self.incrementSlider.value = self.incrementSlider.minimumValue;
@@ -248,7 +248,7 @@
 
 - (void)setUpView
 {
-    CGFloat x = 1 / self.multiplier;
+    CGFloat x = 2.56 / self.multiplier; //I HAVE CHANGED THIS AS WELL
     
     self.colorWithRedFloat = 0.0;
     self.colorWithGreenFloat = 0.0;
@@ -283,7 +283,7 @@
         self.incrementSlider.hidden = NO;
         self.minimumIncrementLabel.hidden = NO;
         self.maximumIncrementLabel.hidden = NO;
-        
+        //I NEED TO CHANGE THESE AT SOME POINT... WE'RE ON A .4 SCALE NOW!
         self.minimumIncrementLabel.text = @"0.10";
         self.maximumIncrementLabel.text = @"1.0";
     }

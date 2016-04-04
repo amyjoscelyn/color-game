@@ -23,11 +23,11 @@
     
     if (mode == 0)
     {
-        veryEasyArray = [ @[ @.5, @.75, @1, @"2" ] mutableCopy];
-        easyArray = [ @[ @.5, @1, @"1" ] mutableCopy];
-        mediumArray = [ @[ @.25, @.5, @.75, @1, @"1" ] mutableCopy];
-        hardArray = [ @[ @.5, @.75, @1, @"0" ] mutableCopy];
-        masterArray = [ @[ @.25, @.5, @.75, @1, @"0" ] mutableCopy];
+        veryEasyArray = [ @[ @128, @256, @"2" ] mutableCopy];
+        easyArray = [ @[ @64, @128, @192, @256, @"2" ] mutableCopy];
+        mediumArray = [ @[ @128, @256, @"1" ] mutableCopy];
+        hardArray = [ @[ @64, @128, @192, @256, @"1" ] mutableCopy];
+        masterArray = [ @[ @64, @128, @192, @256, @"0" ] mutableCopy];
         
         arrayOfArrays = [ @[ veryEasyArray, easyArray, mediumArray, hardArray, masterArray ] mutableCopy];
     }
@@ -119,8 +119,8 @@
         red = [self randomValueFromArray:arrayWithDifficulty];
         green = [self randomValueFromArray:arrayWithDifficulty];
         blue = [self randomValueFromArray:arrayWithDifficulty];
-    }
-    UIColor *color = [UIColor colorWithRed:red green:green blue:blue alpha:alpha];
+    } //I CHANGED THIS AS WELL
+    UIColor *color = [UIColor colorWithRed:red/256.0 green:green/256.0 blue:blue/256.0 alpha:alpha];
     
     /*
      If mode is 0, and difficulty is 0, arc4_random 0-2 for an array containing red, green, blue.  The one chosen gets to be the one with a number.  This means the ones not chosen become value of 0.  The chosen one goes through arc4_random again to determine which number from the difficulty array (in this case, veryEasy, or easier: arrayWithDifficulty) becomes that value.  Then it goes through the dance to turn it from NSNumber to CGFloat, and it's added, with the other 0 values, to the chosen color method.  This color is returned, and the method returns a single color.
@@ -216,17 +216,17 @@ Let's try this again, shall we?
  Basic: (.32, .64, .96, 1.28, 1.6, 1.92, 2.24, 2.56)
  -----------------------------------------------------------
  VE-mix one:    .32, .64, .96, 1.28, 1.6, 1.92, 2.24, 2.56
- E-mix two:     .64, 1.28, 1.92, 2.56   same as Simple-E
+ E-mix two:     .64, 1.28, 1.92, 2.56
  M-mix two:     .32, .64, .96, 1.28, 1.6, 1.92, 2.24, 2.56
- H-mix three:   .64, 1.28, 1.92, 2.56   same as Simple-Ma
+ H-mix three:   .64, 1.28, 1.92, 2.56
  M-mix three:   .32, .64, .96, 1.28, 1.6, 1.92, 2.24, 2.56
  
  Moderate: (.16, .32, .48, .64, .8, .96, 1.12, 1.28, 1.44, 1.6, 1.76, 1.92, 2.08, 2.24, 2.4, 2.56)
  -----------------------------------------------------------
  VE-mix one:    .16, .32, .48, .64, .8, .96, 1.12, 1.28, 1.44, 1.6, 1.76, 1.92, 2.08, 2.24, 2.4, 2.56
- E-mix two:     .32, .64, .96, 1.28, 1.6, 1.92, 2.24, 2.56  same as Basic-Me
+ E-mix two:     .32, .64, .96, 1.28, 1.6, 1.92, 2.24, 2.56
  M-mix two:     .16, .32, .48, .64, .8, .96, 1.12, 1.28, 1.44, 1.6, 1.76, 1.92, 2.08, 2.24, 2.4, 2.56
- H-mix three:   .32, .64, .96, 1.28, 1.6, 1.92, 2.24, 2.56  same as Basic-Ma
+ H-mix three:   .32, .64, .96, 1.28, 1.6, 1.92, 2.24, 2.56
  M-mix three:   .16, .32, .48, .64, .8, .96, 1.12, 1.28, 1.44, 1.6, 1.76, 1.92, 2.08, 2.24, 2.4, 2.56
  
  ****(Theoretically I'm missing a difficulty between here, with an increment value of .8.  Challenging Mode compensates for this, which is why it is an exception as well to the basic structure)************************
@@ -235,7 +235,7 @@ Let's try this again, shall we?
  -----------------------------------------------------------
  VE-mix two:    .8, .16, .24, .32, .4, .48, .56, .64, .72, .8, .88, .96, 1.04, 1.12, 1.2, 1.28, 1.36, 1.44, 1.52, 1.6, 1.68, 1.76, 1.84, 1.92, 2, 2.08, 2.16, 2.24, 2.32, 2.4, 2.48, 2.56
  E-mix two:     .4, .8, .12, .16, .2, .24, .28, .32, .36, .4, .44, .48, .52, .56, .6, .64, .68, .72, .76, .8, .84, .88, .92, .96, 1, 1.04, 1.08, 1.12, 1.16, 1.2, 1.24, 1.28, 1.32, 1.36, 1.4, 1.44, 1.48, 1.52, 1.56, 1.6, 1.64, 1.68, 1.72, 1.76, 1.8, 1.84, 1.88, 1.92, 1.96, 2, 2.04, 2.08, 2.12, 2.16, 2.2, 2.24, 2.28, 2.32, 2.36, 2.4, 2.44, 2.48, 2.52, 2.56
- M-mix three:   .16, .32, .48, .64, .8, .96, 1.12, 1.28, 1.44, 1.6, 1.76, 1.92, 2.08, 2.24, 2.4, 2.56    same as Moderate-Ma
+ M-mix three:   .16, .32, .48, .64, .8, .96, 1.12, 1.28, 1.44, 1.6, 1.76, 1.92, 2.08, 2.24, 2.4, 2.56
  H-mix three:   .8, .16, .24, .32, .4, .48, .56, .64, .72, .8, .88, .96, 1.04, 1.12, 1.2, 1.28, 1.36, 1.44, 1.52, 1.6, 1.68, 1.76, 1.84, 1.92, 2, 2.08, 2.16, 2.24, 2.32, 2.4, 2.48, 2.56
  M-mix three:   .4, .8, .12, .16, .2, .24, .28, .32, .36, .4, .44, .48, .52, .56, .6, .64, .68, .72, .76, .8, .84, .88, .92, .96, 1, 1.04, 1.08, 1.12, 1.16, 1.2, 1.24, 1.28, 1.32, 1.36, 1.4, 1.44, 1.48, 1.52, 1.56, 1.6, 1.64, 1.68, 1.72, 1.76, 1.8, 1.84, 1.88, 1.92, 1.96, 2, 2.04, 2.08, 2.12, 2.16, 2.2, 2.24, 2.28, 2.32, 2.36, 2.4, 2.44, 2.48, 2.52, 2.56
  */
