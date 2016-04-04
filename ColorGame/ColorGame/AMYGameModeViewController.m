@@ -29,8 +29,6 @@
     [super viewDidLoad];
     
     self.store = [[AMYSharedDataStore alloc] init];
-    
-    self.challengingModeButton.enabled = NO;
 }
 
 - (void)viewWillAppear:(BOOL)animated

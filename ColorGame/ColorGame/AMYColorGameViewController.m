@@ -254,7 +254,7 @@
 
 - (void)setUpView
 {
-    CGFloat x = 2.56 / self.multiplier; //I HAVE CHANGED THIS AS WELL
+    CGFloat x = 1 / self.multiplier;
     
     self.colorWithRedFloat = 0.0;
     self.colorWithGreenFloat = 0.0;
