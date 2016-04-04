@@ -11,8 +11,11 @@
 
 @implementation AMYColorSetup
 
-- (UIColor *)setColorWithMode:(NSUInteger)mode difficulty:(NSUInteger)difficulty
-{
+- (UIColor *)setColorWithMode:(NSUInteger)mode difficulty:(NSUInteger)difficulty currentColor:(UIColor *)priorColor
+{ //THIS CAN BE REFACTORED INTO THREE SEPARATE METHODS:
+    // one to get the arrays, and read just one
+    // one to pick the actual color
+    // maybe another, if i see fit
     NSMutableArray *veryEasyArray = [[NSMutableArray alloc] init];
     NSMutableArray *easyArray = [[NSMutableArray alloc] init];
     NSMutableArray *mediumArray = [[NSMutableArray alloc] init];
@@ -63,7 +66,7 @@
     }
     NSMutableArray *arrayWithDifficulty = [arrayOfArrays[difficulty] mutableCopy];
     NSString *rgb = [self rgbChosenFromArray:arrayWithDifficulty];
-    
+    //these can probably just have a comma next to them, and not be set to anything right now.  Except Alpha, of course.
     CGFloat red = 1;
     CGFloat green = 1;
     CGFloat blue = 1;
@@ -72,55 +75,60 @@
     NSString *numberOfValuesThatWillBeZero = arrayWithDifficulty.lastObject;
     [arrayWithDifficulty removeLastObject];
     
-    if ([numberOfValuesThatWillBeZero isEqualToString:@"2"])
+    UIColor *color;
+    
+    do
     {
-        if ([rgb isEqualToString:@"Red"])
+        if ([numberOfValuesThatWillBeZero isEqualToString:@"2"])
         {
-            red = [self randomValueFromArray:arrayWithDifficulty];
-            green = 0;
-            blue = 0;
+            if ([rgb isEqualToString:@"Red"])
+            {
+                red = [self randomValueFromArray:arrayWithDifficulty];
+                green = 0;
+                blue = 0;
+            }
+            else if ([rgb isEqualToString:@"Green"])
+            {
+                red = 0;
+                green = [self randomValueFromArray:arrayWithDifficulty];
+                blue = 0;
+            }
+            else
+            {
+                red = 0;
+                green = 0;
+                blue = [self randomValueFromArray:arrayWithDifficulty];
+            }
         }
-        else if ([rgb isEqualToString:@"Green"])
+        else if ([numberOfValuesThatWillBeZero isEqualToString:@"1"])
         {
-            red = 0;
-            green = [self randomValueFromArray:arrayWithDifficulty];
-            blue = 0;
+            if ([rgb isEqualToString:@"Red"])
+            {
+                red = 0;
+                green = [self randomValueFromArray:arrayWithDifficulty];
+                blue = [self randomValueFromArray:arrayWithDifficulty];
+            }
+            else if ([rgb isEqualToString:@"Green"])
+            {
+                red = [self randomValueFromArray:arrayWithDifficulty];
+                green = 0;
+                blue = [self randomValueFromArray:arrayWithDifficulty];
+            }
+            else
+            {
+                red = [self randomValueFromArray:arrayWithDifficulty];
+                green = [self randomValueFromArray:arrayWithDifficulty];
+                blue = 0;
+            }
         }
         else
         {
-            red = 0;
-            green = 0;
-            blue = [self randomValueFromArray:arrayWithDifficulty];
-        }
-    }
-    else if ([numberOfValuesThatWillBeZero isEqualToString:@"1"])
-    {
-        if ([rgb isEqualToString:@"Red"])
-        {
-            red = 0;
-            green = [self randomValueFromArray:arrayWithDifficulty];
-            blue = [self randomValueFromArray:arrayWithDifficulty];
-        }
-        else if ([rgb isEqualToString:@"Green"])
-        {
-            red = [self randomValueFromArray:arrayWithDifficulty];
-            green = 0;
-            blue = [self randomValueFromArray:arrayWithDifficulty];
-        }
-        else
-        {
             red = [self randomValueFromArray:arrayWithDifficulty];
             green = [self randomValueFromArray:arrayWithDifficulty];
-            blue = 0;
+            blue = [self randomValueFromArray:arrayWithDifficulty];
         }
-    }
-    else
-    {
-        red = [self randomValueFromArray:arrayWithDifficulty];
-        green = [self randomValueFromArray:arrayWithDifficulty];
-        blue = [self randomValueFromArray:arrayWithDifficulty];
-    } //I CHANGED THIS AS WELL
-    UIColor *color = [UIColor colorWithRed:red/256.0 green:green/256.0 blue:blue/256.0 alpha:alpha];
+        color = [UIColor colorWithRed:red/256.0 green:green/256.0 blue:blue/256.0 alpha:alpha];
+    } while (color == priorColor); //this isn't working!!
     
     /*
      If mode is 0, and difficulty is 0, arc4_random 0-2 for an array containing red, green, blue.  The one chosen gets to be the one with a number.  This means the ones not chosen become value of 0.  The chosen one goes through arc4_random again to determine which number from the difficulty array (in this case, veryEasy, or easier: arrayWithDifficulty) becomes that value.  Then it goes through the dance to turn it from NSNumber to CGFloat, and it's added, with the other 0 values, to the chosen color method.  This color is returned, and the method returns a single color.
@@ -129,7 +137,7 @@
      
      If the mode is 1, difficulty < 2, arc4_random RGB for a single 0, then arc4random twice the difficultyArray to get values for method.
      If mode is 1, diff > 1 (else), arc4_random all three for color method.
-    
+     
      If mode is 2, diff = 0, you need one zero, and two true values.
      Else, get all three values randomly.
      
@@ -196,7 +204,7 @@
  */
 
 /*
-Let's try this again, shall we?
+ Let's try this again, shall we?
  THE STANDARD STRUCTURE I'M USING GOES
  -----------------------------------------------------------
  VE-it's basically following this pattern, with an exception for Simple Mode

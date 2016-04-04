@@ -28,7 +28,7 @@
 {
     [super viewDidLoad];
     
-    self.store = [[AMYSharedDataStore alloc] init];
+    self.store = [AMYSharedDataStore sharedDataStore];
 }
 
 - (void)viewWillAppear:(BOOL)animated

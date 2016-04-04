@@ -89,6 +89,8 @@
     self.currentIncrementLabel.text = [NSString stringWithFormat:@"Increment: %.2f", self.multiplier];
     self.incrementSlider.value = self.incrementSlider.minimumValue;
     
+    self.currentColor = [UIColor whiteColor];
+    
     [self chooseGoalColor];
     
     self.colorGoalView.layer.cornerRadius = self.colorGoalView.frame.size.height/2;
@@ -132,10 +134,8 @@
 - (void)chooseGoalColor
 {
     AMYColorSetup *setup = [[AMYColorSetup alloc] init];
-    UIColor *colorChosen = [setup setColorWithMode:self.store.mode difficulty:self.store.difficulty];
     
-    UIColor *white  = [UIColor whiteColor];
-    self.currentColor = white;
+    UIColor *colorChosen = [setup setColorWithMode:self.store.mode difficulty:self.store.difficulty currentColor:self.currentColor];
 
     self.currentDifficulty = self.store.difficulty; //is this important?
     [self setUpGameWithGoalColor:colorChosen];

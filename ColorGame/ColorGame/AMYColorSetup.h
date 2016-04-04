@@ -16,7 +16,7 @@
 @property (nonatomic, strong) NSArray *hardColors;
 @property (nonatomic, strong) NSArray *masterColors;
 
-- (UIColor *)setColorWithMode:(NSUInteger)mode difficulty:(NSUInteger)difficulty;
+- (UIColor *)setColorWithMode:(NSUInteger)mode difficulty:(NSUInteger)difficulty currentColor:(UIColor *)priorColor; //maybe this method can have an added parameter of previous/currentColor, which can be compared to the color it's setting to make sure it's not a repeat
 
 - (NSString *)rgbChosenFromArray:(NSArray *)valuesArray;
 
