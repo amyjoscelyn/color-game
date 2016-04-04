@@ -42,12 +42,12 @@
         arrayOfArrays = [ @[ veryEasyArray, easyArray, mediumArray, hardArray, masterArray ] mutableCopy];
     }
     else if (mode == 2)
-    {
-        veryEasyArray = [ @[ @.25, @.5, @.75, @1, @"1" ] mutableCopy];
-        easyArray = [ @[ @.25, @.5, @.75, @1, @"0" ] mutableCopy];
-        mediumArray = [ @[ @.1, @.25, @.4, @.5, @.6, @.75, @.9, @1, @"0" ] mutableCopy];
-        hardArray = [ @[ @.1, @.2, @.25, @.3, @.4, @.5, @.6, @.7, @.75, @.8, @.9, @1, @"0" ] mutableCopy];
-        masterArray = [ @[ @.05, @.1, @.15, @.2, @.25, @.3, @.35, @.4, @.45, @.5, @.55, @.6, @.65, @.7, @.75, @.8, @.85, @.9, @.95, @1, @"0" ] mutableCopy];
+    { //.16 COLORS FOR SINGLE ARE REEEAAALLLLY DIFFICULT TO SEE THE DIFFERENCE FROM BLACK
+        veryEasyArray = [ @[ @16, @32, @48, @64, @80, @96, @112, @128, @144, @160, @176, @192, @208, @224, @240, @256, @"2" ] mutableCopy];
+        easyArray = [ @[ @32, @64, @96, @128, @160, @192, @224, @256, @"1" ] mutableCopy];
+        mediumArray = [ @[ @16, @32, @48, @64, @80, @96, @112, @128, @144, @160, @176, @192, @208, @224, @240, @256, @"1" ] mutableCopy];
+        hardArray = [ @[ @32, @64, @96, @128, @160, @192, @224, @256, @"0" ] mutableCopy];
+        masterArray = [ @[ @16, @32, @48, @64, @80, @96, @112, @128, @144, @160, @176, @192, @208, @224, @240, @256, @"0" ] mutableCopy];
         
         arrayOfArrays = [ @[ veryEasyArray, easyArray, mediumArray, hardArray, masterArray ] mutableCopy];
     }
