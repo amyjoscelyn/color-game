@@ -33,11 +33,11 @@
     }
     else if (mode == 1)
     {
-        veryEasyArray = [ @[ @.5, @1, @"1" ] mutableCopy];
-        easyArray = [ @[ @.2, @.5, @.7, @1, @"1" ] mutableCopy];
-        mediumArray = [ @[ @.2, @.5, @.7, @1, @"0" ] mutableCopy];
-        hardArray = [ @[ @.2, @.4, @.5, @.6, @.8, @1, @"0" ] mutableCopy];
-        masterArray = [ @[ @.1, @.2, @.3, @.4, @.5, @.6, @.7, @.8, @.9, @1, @"0" ] mutableCopy];
+        veryEasyArray = [ @[ @32, @64, @96, @128, @160, @192, @224, @256, @"2" ] mutableCopy];
+        easyArray = [ @[ @64, @128, @192, @256, @"1" ] mutableCopy];
+        mediumArray = [ @[ @32, @64, @96, @128, @160, @192, @224, @256, @"1" ] mutableCopy];
+        hardArray = [ @[ @64, @128, @192, @256, @"0" ] mutableCopy];
+        masterArray = [ @[ @32, @64, @96, @128, @160, @192, @224, @256, @"0" ] mutableCopy];
         
         arrayOfArrays = [ @[ veryEasyArray, easyArray, mediumArray, hardArray, masterArray ] mutableCopy];
     }
