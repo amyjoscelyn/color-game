@@ -347,6 +347,11 @@
     
     self.redInteger += self.incrementValue;
     self.colorWithRedFloat = self.redInteger/256.0;
+    
+    if (self.redInteger >= 256)
+    {
+        self.redInteger = 256;
+    }
     /*
      okay.  here's my inherent problem with the way this is already set up:
      to set the background color, the method is inputting the .colorWith%@Float for each colorValue
@@ -399,6 +404,11 @@
     self.redInteger -= self.incrementValue;
     self.colorWithRedFloat = self.redInteger/256.0;
     
+    if (self.redInteger <= 0)
+    {
+        self.redInteger = 0;
+    }
+    
     [self postButtonActions];
 }
 
@@ -414,6 +424,11 @@
     
     self.greenInteger += self.incrementValue;
     self.colorWithGreenFloat = self.greenInteger/256.0;
+    
+    if (self.greenInteger >= 256)
+    {
+        self.greenInteger = 256;
+    }
     
     [self postButtonActions];
 }
@@ -431,6 +446,11 @@
     self.greenInteger -= self.incrementValue;
     self.colorWithGreenFloat = self.greenInteger/256.0;
     
+    if (self.greenInteger <= 0)
+    {
+        self.greenInteger = 0;
+    }
+    
     [self postButtonActions];
 }
 
@@ -447,6 +467,11 @@
     self.blueInteger += self.incrementValue;
     self.colorWithBlueFloat = self.blueInteger/256.0;
     
+    if (self.blueInteger >= 256)
+    {
+        self.blueInteger = 256;
+    }
+    
     [self postButtonActions];
 }
 
@@ -462,6 +487,11 @@
     
     self.blueInteger -= self.incrementValue;
     self.colorWithBlueFloat = self.blueInteger/256.0;
+    
+    if (self.blueInteger <= 0)
+    {
+        self.blueInteger = 0;
+    }
     
     [self postButtonActions];
 }
