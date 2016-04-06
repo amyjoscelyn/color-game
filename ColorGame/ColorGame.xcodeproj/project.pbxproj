@@ -1,569 +1,1442 @@
-// !$*UTF8*$!
-{
-	archiveVersion = 1;
-	classes = {
-	};
-	objectVersion = 46;
-	objects = {
-
-/* Begin PBXBuildFile section */
-		3D4154E91C1797CA009B2EBA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4154E81C1797CA009B2EBA /* main.m */; };
-		3D4154EC1C1797CA009B2EBA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4154EB1C1797CA009B2EBA /* AppDelegate.m */; };
-		3D4154F21C1797CA009B2EBA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D4154F01C1797CA009B2EBA /* Main.storyboard */; };
-		3D4154F41C1797CA009B2EBA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D4154F31C1797CA009B2EBA /* Assets.xcassets */; };
-		3D4154F71C1797CA009B2EBA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D4154F51C1797CA009B2EBA /* LaunchScreen.storyboard */; };
-		3D4155021C1797CA009B2EBA /* ColorGameTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4155011C1797CA009B2EBA /* ColorGameTests.m */; };
-		3D41550D1C1797CA009B2EBA /* ColorGameUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D41550C1C1797CA009B2EBA /* ColorGameUITests.m */; };
-		3D41551E1C179818009B2EBA /* AMYColorGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D41551B1C179818009B2EBA /* AMYColorGameViewController.m */; };
-		3D41551F1C179818009B2EBA /* AMYGameDifficultyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D41551D1C179818009B2EBA /* AMYGameDifficultyViewController.m */; };
-		3D4155221C179971009B2EBA /* AMYColorSetup.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4155211C179971009B2EBA /* AMYColorSetup.m */; };
-		3D990A081C1883FA000A775D /* AMYAppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D990A071C1883FA000A775D /* AMYAppViewController.m */; };
-		3D990A0E1C18B664000A775D /* AMYSharedDataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D990A0D1C18B664000A775D /* AMYSharedDataStore.m */; };
-		3D990A111C18B943000A775D /* AMYGameModeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D990A101C18B943000A775D /* AMYGameModeViewController.m */; };
-		3DD7FE871C1F23E40017046C /* AMYZenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD7FE861C1F23E40017046C /* AMYZenViewController.m */; };
-		3DF815841C457FAC00059565 /* AMYSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF815831C457FAC00059565 /* AMYSettingsViewController.m */; };
-/* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		3D4154FE1C1797CA009B2EBA /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3D4154DC1C1797CA009B2EBA /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 3D4154E31C1797CA009B2EBA;
-			remoteInfo = ColorGame;
-		};
-		3D4155091C1797CA009B2EBA /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3D4154DC1C1797CA009B2EBA /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 3D4154E31C1797CA009B2EBA;
-			remoteInfo = ColorGame;
-		};
-/* End PBXContainerItemProxy section */
-
-/* Begin PBXFileReference section */
-		3D4154E41C1797CA009B2EBA /* ColorGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColorGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		3D4154E81C1797CA009B2EBA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		3D4154EA1C1797CA009B2EBA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		3D4154EB1C1797CA009B2EBA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		3D4154F11C1797CA009B2EBA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		3D4154F31C1797CA009B2EBA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		3D4154F61C1797CA009B2EBA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		3D4154F81C1797CA009B2EBA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3D4154FD1C1797CA009B2EBA /* ColorGameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ColorGameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		3D4155011C1797CA009B2EBA /* ColorGameTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ColorGameTests.m; sourceTree = "<group>"; };
-		3D4155031C1797CA009B2EBA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3D4155081C1797CA009B2EBA /* ColorGameUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ColorGameUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		3D41550C1C1797CA009B2EBA /* ColorGameUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ColorGameUITests.m; sourceTree = "<group>"; };
-		3D41550E1C1797CA009B2EBA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3D41551A1C179818009B2EBA /* AMYColorGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMYColorGameViewController.h; sourceTree = "<group>"; };
-		3D41551B1C179818009B2EBA /* AMYColorGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMYColorGameViewController.m; sourceTree = "<group>"; };
-		3D41551C1C179818009B2EBA /* AMYGameDifficultyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMYGameDifficultyViewController.h; sourceTree = "<group>"; };
-		3D41551D1C179818009B2EBA /* AMYGameDifficultyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMYGameDifficultyViewController.m; sourceTree = "<group>"; };
-		3D4155201C179971009B2EBA /* AMYColorSetup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMYColorSetup.h; sourceTree = "<group>"; };
-		3D4155211C179971009B2EBA /* AMYColorSetup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMYColorSetup.m; sourceTree = "<group>"; };
-		3D990A061C1883FA000A775D /* AMYAppViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMYAppViewController.h; sourceTree = "<group>"; };
-		3D990A071C1883FA000A775D /* AMYAppViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMYAppViewController.m; sourceTree = "<group>"; };
-		3D990A0C1C18B664000A775D /* AMYSharedDataStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMYSharedDataStore.h; sourceTree = "<group>"; };
-		3D990A0D1C18B664000A775D /* AMYSharedDataStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMYSharedDataStore.m; sourceTree = "<group>"; };
-		3D990A0F1C18B943000A775D /* AMYGameModeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMYGameModeViewController.h; sourceTree = "<group>"; };
-		3D990A101C18B943000A775D /* AMYGameModeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMYGameModeViewController.m; sourceTree = "<group>"; };
-		3DD7FE851C1F23E40017046C /* AMYZenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMYZenViewController.h; sourceTree = "<group>"; };
-		3DD7FE861C1F23E40017046C /* AMYZenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMYZenViewController.m; sourceTree = "<group>"; };
-		3DF815821C457FAC00059565 /* AMYSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMYSettingsViewController.h; sourceTree = "<group>"; };
-		3DF815831C457FAC00059565 /* AMYSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMYSettingsViewController.m; sourceTree = "<group>"; };
-/* End PBXFileReference section */
-
-/* Begin PBXFrameworksBuildPhase section */
-		3D4154E11C1797CA009B2EBA /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3D4154FA1C1797CA009B2EBA /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3D4155051C1797CA009B2EBA /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXFrameworksBuildPhase section */
-
-/* Begin PBXGroup section */
-		3D4154DB1C1797CA009B2EBA = {
-			isa = PBXGroup;
-			children = (
-				3D4154E61C1797CA009B2EBA /* ColorGame */,
-				3D4155001C1797CA009B2EBA /* ColorGameTests */,
-				3D41550B1C1797CA009B2EBA /* ColorGameUITests */,
-				3D4154E51C1797CA009B2EBA /* Products */,
-			);
-			sourceTree = "<group>";
-		};
-		3D4154E51C1797CA009B2EBA /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				3D4154E41C1797CA009B2EBA /* ColorGame.app */,
-				3D4154FD1C1797CA009B2EBA /* ColorGameTests.xctest */,
-				3D4155081C1797CA009B2EBA /* ColorGameUITests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		3D4154E61C1797CA009B2EBA /* ColorGame */ = {
-			isa = PBXGroup;
-			children = (
-				3D4154EA1C1797CA009B2EBA /* AppDelegate.h */,
-				3D4154EB1C1797CA009B2EBA /* AppDelegate.m */,
-				3D4155201C179971009B2EBA /* AMYColorSetup.h */,
-				3D4155211C179971009B2EBA /* AMYColorSetup.m */,
-				3D990A0C1C18B664000A775D /* AMYSharedDataStore.h */,
-				3D990A0D1C18B664000A775D /* AMYSharedDataStore.m */,
-				3D4154F01C1797CA009B2EBA /* Main.storyboard */,
-				3D990A061C1883FA000A775D /* AMYAppViewController.h */,
-				3D990A071C1883FA000A775D /* AMYAppViewController.m */,
-				3D990A0F1C18B943000A775D /* AMYGameModeViewController.h */,
-				3D990A101C18B943000A775D /* AMYGameModeViewController.m */,
-				3D41551A1C179818009B2EBA /* AMYColorGameViewController.h */,
-				3D41551B1C179818009B2EBA /* AMYColorGameViewController.m */,
-				3D41551C1C179818009B2EBA /* AMYGameDifficultyViewController.h */,
-				3D41551D1C179818009B2EBA /* AMYGameDifficultyViewController.m */,
-				3DF815821C457FAC00059565 /* AMYSettingsViewController.h */,
-				3DF815831C457FAC00059565 /* AMYSettingsViewController.m */,
-				3DD7FE851C1F23E40017046C /* AMYZenViewController.h */,
-				3DD7FE861C1F23E40017046C /* AMYZenViewController.m */,
-				3D4154F31C1797CA009B2EBA /* Assets.xcassets */,
-				3D4154F51C1797CA009B2EBA /* LaunchScreen.storyboard */,
-				3D4154F81C1797CA009B2EBA /* Info.plist */,
-				3D4154E71C1797CA009B2EBA /* Supporting Files */,
-			);
-			path = ColorGame;
-			sourceTree = "<group>";
-		};
-		3D4154E71C1797CA009B2EBA /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				3D4154E81C1797CA009B2EBA /* main.m */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		3D4155001C1797CA009B2EBA /* ColorGameTests */ = {
-			isa = PBXGroup;
-			children = (
-				3D4155011C1797CA009B2EBA /* ColorGameTests.m */,
-				3D4155031C1797CA009B2EBA /* Info.plist */,
-			);
-			path = ColorGameTests;
-			sourceTree = "<group>";
-		};
-		3D41550B1C1797CA009B2EBA /* ColorGameUITests */ = {
-			isa = PBXGroup;
-			children = (
-				3D41550C1C1797CA009B2EBA /* ColorGameUITests.m */,
-				3D41550E1C1797CA009B2EBA /* Info.plist */,
-			);
-			path = ColorGameUITests;
-			sourceTree = "<group>";
-		};
-/* End PBXGroup section */
-
-/* Begin PBXNativeTarget section */
-		3D4154E31C1797CA009B2EBA /* ColorGame */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 3D4155111C1797CA009B2EBA /* Build configuration list for PBXNativeTarget "ColorGame" */;
-			buildPhases = (
-				3D4154E01C1797CA009B2EBA /* Sources */,
-				3D4154E11C1797CA009B2EBA /* Frameworks */,
-				3D4154E21C1797CA009B2EBA /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = ColorGame;
-			productName = ColorGame;
-			productReference = 3D4154E41C1797CA009B2EBA /* ColorGame.app */;
-			productType = "com.apple.product-type.application";
-		};
-		3D4154FC1C1797CA009B2EBA /* ColorGameTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 3D4155141C1797CA009B2EBA /* Build configuration list for PBXNativeTarget "ColorGameTests" */;
-			buildPhases = (
-				3D4154F91C1797CA009B2EBA /* Sources */,
-				3D4154FA1C1797CA009B2EBA /* Frameworks */,
-				3D4154FB1C1797CA009B2EBA /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				3D4154FF1C1797CA009B2EBA /* PBXTargetDependency */,
-			);
-			name = ColorGameTests;
-			productName = ColorGameTests;
-			productReference = 3D4154FD1C1797CA009B2EBA /* ColorGameTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		3D4155071C1797CA009B2EBA /* ColorGameUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 3D4155171C1797CA009B2EBA /* Build configuration list for PBXNativeTarget "ColorGameUITests" */;
-			buildPhases = (
-				3D4155041C1797CA009B2EBA /* Sources */,
-				3D4155051C1797CA009B2EBA /* Frameworks */,
-				3D4155061C1797CA009B2EBA /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				3D41550A1C1797CA009B2EBA /* PBXTargetDependency */,
-			);
-			name = ColorGameUITests;
-			productName = ColorGameUITests;
-			productReference = 3D4155081C1797CA009B2EBA /* ColorGameUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
-/* End PBXNativeTarget section */
-
-/* Begin PBXProject section */
-		3D4154DC1C1797CA009B2EBA /* Project object */ = {
-			isa = PBXProject;
-			attributes = {
-				LastUpgradeCheck = 0710;
-				ORGANIZATIONNAME = "Amy Joscelyn";
-				TargetAttributes = {
-					3D4154E31C1797CA009B2EBA = {
-						CreatedOnToolsVersion = 7.1.1;
-						DevelopmentTeam = SYR2PUL4D4;
-					};
-					3D4154FC1C1797CA009B2EBA = {
-						CreatedOnToolsVersion = 7.1.1;
-						DevelopmentTeam = SYR2PUL4D4;
-						TestTargetID = 3D4154E31C1797CA009B2EBA;
-					};
-					3D4155071C1797CA009B2EBA = {
-						CreatedOnToolsVersion = 7.1.1;
-						DevelopmentTeam = SYR2PUL4D4;
-						TestTargetID = 3D4154E31C1797CA009B2EBA;
-					};
-				};
-			};
-			buildConfigurationList = 3D4154DF1C1797CA009B2EBA /* Build configuration list for PBXProject "ColorGame" */;
-			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
-			hasScannedForEncodings = 0;
-			knownRegions = (
-				en,
-				Base,
-			);
-			mainGroup = 3D4154DB1C1797CA009B2EBA;
-			productRefGroup = 3D4154E51C1797CA009B2EBA /* Products */;
-			projectDirPath = "";
-			projectRoot = "";
-			targets = (
-				3D4154E31C1797CA009B2EBA /* ColorGame */,
-				3D4154FC1C1797CA009B2EBA /* ColorGameTests */,
-				3D4155071C1797CA009B2EBA /* ColorGameUITests */,
-			);
-		};
-/* End PBXProject section */
-
-/* Begin PBXResourcesBuildPhase section */
-		3D4154E21C1797CA009B2EBA /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3D4154F71C1797CA009B2EBA /* LaunchScreen.storyboard in Resources */,
-				3D4154F41C1797CA009B2EBA /* Assets.xcassets in Resources */,
-				3D4154F21C1797CA009B2EBA /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3D4154FB1C1797CA009B2EBA /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3D4155061C1797CA009B2EBA /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXResourcesBuildPhase section */
-
-/* Begin PBXSourcesBuildPhase section */
-		3D4154E01C1797CA009B2EBA /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3D990A081C1883FA000A775D /* AMYAppViewController.m in Sources */,
-				3DF815841C457FAC00059565 /* AMYSettingsViewController.m in Sources */,
-				3D990A0E1C18B664000A775D /* AMYSharedDataStore.m in Sources */,
-				3DD7FE871C1F23E40017046C /* AMYZenViewController.m in Sources */,
-				3D4154EC1C1797CA009B2EBA /* AppDelegate.m in Sources */,
-				3D990A111C18B943000A775D /* AMYGameModeViewController.m in Sources */,
-				3D41551F1C179818009B2EBA /* AMYGameDifficultyViewController.m in Sources */,
-				3D41551E1C179818009B2EBA /* AMYColorGameViewController.m in Sources */,
-				3D4154E91C1797CA009B2EBA /* main.m in Sources */,
-				3D4155221C179971009B2EBA /* AMYColorSetup.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3D4154F91C1797CA009B2EBA /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3D4155021C1797CA009B2EBA /* ColorGameTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3D4155041C1797CA009B2EBA /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3D41550D1C1797CA009B2EBA /* ColorGameUITests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		3D4154FF1C1797CA009B2EBA /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 3D4154E31C1797CA009B2EBA /* ColorGame */;
-			targetProxy = 3D4154FE1C1797CA009B2EBA /* PBXContainerItemProxy */;
-		};
-		3D41550A1C1797CA009B2EBA /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 3D4154E31C1797CA009B2EBA /* ColorGame */;
-			targetProxy = 3D4155091C1797CA009B2EBA /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		3D4154F01C1797CA009B2EBA /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3D4154F11C1797CA009B2EBA /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		3D4154F51C1797CA009B2EBA /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3D4154F61C1797CA009B2EBA /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
-/* Begin XCBuildConfiguration section */
-		3D41550F1C1797CA009B2EBA /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		3D4155101C1797CA009B2EBA /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		3D4155121C1797CA009B2EBA /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = ColorGame/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = AMY.ColorGame;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		3D4155131C1797CA009B2EBA /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = ColorGame/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = AMY.ColorGame;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
-		3D4155151C1797CA009B2EBA /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = ColorGameTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = AMY.ColorGameTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ColorGame.app/ColorGame";
-			};
-			name = Debug;
-		};
-		3D4155161C1797CA009B2EBA /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = ColorGameTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = AMY.ColorGameTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ColorGame.app/ColorGame";
-			};
-			name = Release;
-		};
-		3D4155181C1797CA009B2EBA /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = ColorGameUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = AMY.ColorGameUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = ColorGame;
-				USES_XCTRUNNER = YES;
-			};
-			name = Debug;
-		};
-		3D4155191C1797CA009B2EBA /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = ColorGameUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = AMY.ColorGameUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = ColorGame;
-				USES_XCTRUNNER = YES;
-			};
-			name = Release;
-		};
-/* End XCBuildConfiguration section */
-
-/* Begin XCConfigurationList section */
-		3D4154DF1C1797CA009B2EBA /* Build configuration list for PBXProject "ColorGame" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				3D41550F1C1797CA009B2EBA /* Debug */,
-				3D4155101C1797CA009B2EBA /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		3D4155111C1797CA009B2EBA /* Build configuration list for PBXNativeTarget "ColorGame" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				3D4155121C1797CA009B2EBA /* Debug */,
-				3D4155131C1797CA009B2EBA /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		3D4155141C1797CA009B2EBA /* Build configuration list for PBXNativeTarget "ColorGameTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				3D4155151C1797CA009B2EBA /* Debug */,
-				3D4155161C1797CA009B2EBA /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		3D4155171C1797CA009B2EBA /* Build configuration list for PBXNativeTarget "ColorGameUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				3D4155181C1797CA009B2EBA /* Debug */,
-				3D4155191C1797CA009B2EBA /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-/* End XCConfigurationList section */
-	};
-	rootObject = 3D4154DC1C1797CA009B2EBA /* Project object */;
-}
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>archiveVersion</key>
+	<string>1</string>
+	<key>classes</key>
+	<dict/>
+	<key>objectVersion</key>
+	<string>46</string>
+	<key>objects</key>
+	<dict>
+		<key>045EAAC8491C076F7817E90E</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>Copy Pods Resources</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Target Support Files/Pods-ColorGame/Pods-ColorGame-resources.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>324D794575DA7EDA13D90A16</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods-ColorGame.debug.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Target Support Files/Pods-ColorGame/Pods-ColorGame.debug.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3D4154DB1C1797CA009B2EBA</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>3D4154E61C1797CA009B2EBA</string>
+				<string>3D4155001C1797CA009B2EBA</string>
+				<string>3D41550B1C1797CA009B2EBA</string>
+				<string>3D4154E51C1797CA009B2EBA</string>
+				<string>5C6EE7FC31DDE53F2AF43ECF</string>
+				<string>DC459FE8B5E2AA4ADC1579B5</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3D4154DC1C1797CA009B2EBA</key>
+		<dict>
+			<key>attributes</key>
+			<dict>
+				<key>LastUpgradeCheck</key>
+				<string>0710</string>
+				<key>ORGANIZATIONNAME</key>
+				<string>Amy Joscelyn</string>
+				<key>TargetAttributes</key>
+				<dict>
+					<key>3D4154E31C1797CA009B2EBA</key>
+					<dict>
+						<key>CreatedOnToolsVersion</key>
+						<string>7.1.1</string>
+						<key>DevelopmentTeam</key>
+						<string>SYR2PUL4D4</string>
+					</dict>
+					<key>3D4154FC1C1797CA009B2EBA</key>
+					<dict>
+						<key>CreatedOnToolsVersion</key>
+						<string>7.1.1</string>
+						<key>DevelopmentTeam</key>
+						<string>SYR2PUL4D4</string>
+						<key>TestTargetID</key>
+						<string>3D4154E31C1797CA009B2EBA</string>
+					</dict>
+					<key>3D4155071C1797CA009B2EBA</key>
+					<dict>
+						<key>CreatedOnToolsVersion</key>
+						<string>7.1.1</string>
+						<key>DevelopmentTeam</key>
+						<string>SYR2PUL4D4</string>
+						<key>TestTargetID</key>
+						<string>3D4154E31C1797CA009B2EBA</string>
+					</dict>
+				</dict>
+			</dict>
+			<key>buildConfigurationList</key>
+			<string>3D4154DF1C1797CA009B2EBA</string>
+			<key>compatibilityVersion</key>
+			<string>Xcode 3.2</string>
+			<key>developmentRegion</key>
+			<string>English</string>
+			<key>hasScannedForEncodings</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXProject</string>
+			<key>knownRegions</key>
+			<array>
+				<string>en</string>
+				<string>Base</string>
+			</array>
+			<key>mainGroup</key>
+			<string>3D4154DB1C1797CA009B2EBA</string>
+			<key>productRefGroup</key>
+			<string>3D4154E51C1797CA009B2EBA</string>
+			<key>projectDirPath</key>
+			<string></string>
+			<key>projectReferences</key>
+			<array/>
+			<key>projectRoot</key>
+			<string></string>
+			<key>targets</key>
+			<array>
+				<string>3D4154E31C1797CA009B2EBA</string>
+				<string>3D4154FC1C1797CA009B2EBA</string>
+				<string>3D4155071C1797CA009B2EBA</string>
+			</array>
+		</dict>
+		<key>3D4154DF1C1797CA009B2EBA</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>3D41550F1C1797CA009B2EBA</string>
+				<string>3D4155101C1797CA009B2EBA</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>3D4154E01C1797CA009B2EBA</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>3D990A081C1883FA000A775D</string>
+				<string>3DF815841C457FAC00059565</string>
+				<string>3D990A0E1C18B664000A775D</string>
+				<string>3DD7FE871C1F23E40017046C</string>
+				<string>3D4154EC1C1797CA009B2EBA</string>
+				<string>3D990A111C18B943000A775D</string>
+				<string>3D41551F1C179818009B2EBA</string>
+				<string>3D41551E1C179818009B2EBA</string>
+				<string>3D4154E91C1797CA009B2EBA</string>
+				<string>3D4155221C179971009B2EBA</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>3D4154E11C1797CA009B2EBA</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>FC86C1149B07906571FB745B</string>
+			</array>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>3D4154E21C1797CA009B2EBA</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>3D4154F71C1797CA009B2EBA</string>
+				<string>3D4154F41C1797CA009B2EBA</string>
+				<string>3D4154F21C1797CA009B2EBA</string>
+			</array>
+			<key>isa</key>
+			<string>PBXResourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>3D4154E31C1797CA009B2EBA</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>3D4155111C1797CA009B2EBA</string>
+			<key>buildPhases</key>
+			<array>
+				<string>BE14FE35383A8E3888D4EFCF</string>
+				<string>3D4154E01C1797CA009B2EBA</string>
+				<string>3D4154E11C1797CA009B2EBA</string>
+				<string>3D4154E21C1797CA009B2EBA</string>
+				<string>90D0C39D0A369AAF433A5EF7</string>
+				<string>045EAAC8491C076F7817E90E</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>ColorGame</string>
+			<key>productName</key>
+			<string>ColorGame</string>
+			<key>productReference</key>
+			<string>3D4154E41C1797CA009B2EBA</string>
+			<key>productType</key>
+			<string>com.apple.product-type.application</string>
+		</dict>
+		<key>3D4154E41C1797CA009B2EBA</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.application</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>ColorGame.app</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>3D4154E51C1797CA009B2EBA</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>3D4154E41C1797CA009B2EBA</string>
+				<string>3D4154FD1C1797CA009B2EBA</string>
+				<string>3D4155081C1797CA009B2EBA</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Products</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3D4154E61C1797CA009B2EBA</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>3D4154EA1C1797CA009B2EBA</string>
+				<string>3D4154EB1C1797CA009B2EBA</string>
+				<string>3D4155201C179971009B2EBA</string>
+				<string>3D4155211C179971009B2EBA</string>
+				<string>3D990A0C1C18B664000A775D</string>
+				<string>3D990A0D1C18B664000A775D</string>
+				<string>3D4154F01C1797CA009B2EBA</string>
+				<string>3D990A061C1883FA000A775D</string>
+				<string>3D990A071C1883FA000A775D</string>
+				<string>3D990A0F1C18B943000A775D</string>
+				<string>3D990A101C18B943000A775D</string>
+				<string>3D41551A1C179818009B2EBA</string>
+				<string>3D41551B1C179818009B2EBA</string>
+				<string>3D41551C1C179818009B2EBA</string>
+				<string>3D41551D1C179818009B2EBA</string>
+				<string>3DF815821C457FAC00059565</string>
+				<string>3DF815831C457FAC00059565</string>
+				<string>3DD7FE851C1F23E40017046C</string>
+				<string>3DD7FE861C1F23E40017046C</string>
+				<string>3D4154F31C1797CA009B2EBA</string>
+				<string>3D4154F51C1797CA009B2EBA</string>
+				<string>3D4154F81C1797CA009B2EBA</string>
+				<string>3D4154E71C1797CA009B2EBA</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>ColorGame</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3D4154E71C1797CA009B2EBA</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>3D4154E81C1797CA009B2EBA</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Supporting Files</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3D4154E81C1797CA009B2EBA</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>main.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3D4154E91C1797CA009B2EBA</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3D4154E81C1797CA009B2EBA</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>3D4154EA1C1797CA009B2EBA</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>AppDelegate.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3D4154EB1C1797CA009B2EBA</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>AppDelegate.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3D4154EC1C1797CA009B2EBA</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3D4154EB1C1797CA009B2EBA</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>3D4154F01C1797CA009B2EBA</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>3D4154F11C1797CA009B2EBA</string>
+			</array>
+			<key>isa</key>
+			<string>PBXVariantGroup</string>
+			<key>name</key>
+			<string>Main.storyboard</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3D4154F11C1797CA009B2EBA</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>file.storyboard</string>
+			<key>name</key>
+			<string>Base</string>
+			<key>path</key>
+			<string>Base.lproj/Main.storyboard</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3D4154F21C1797CA009B2EBA</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3D4154F01C1797CA009B2EBA</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>3D4154F31C1797CA009B2EBA</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>folder.assetcatalog</string>
+			<key>path</key>
+			<string>Assets.xcassets</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3D4154F41C1797CA009B2EBA</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3D4154F31C1797CA009B2EBA</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>3D4154F51C1797CA009B2EBA</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>3D4154F61C1797CA009B2EBA</string>
+			</array>
+			<key>isa</key>
+			<string>PBXVariantGroup</string>
+			<key>name</key>
+			<string>LaunchScreen.storyboard</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3D4154F61C1797CA009B2EBA</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>file.storyboard</string>
+			<key>name</key>
+			<string>Base</string>
+			<key>path</key>
+			<string>Base.lproj/LaunchScreen.storyboard</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3D4154F71C1797CA009B2EBA</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3D4154F51C1797CA009B2EBA</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>3D4154F81C1797CA009B2EBA</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>Info.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3D4154F91C1797CA009B2EBA</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>3D4155021C1797CA009B2EBA</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>3D4154FA1C1797CA009B2EBA</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>3D4154FB1C1797CA009B2EBA</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXResourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>3D4154FC1C1797CA009B2EBA</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>3D4155141C1797CA009B2EBA</string>
+			<key>buildPhases</key>
+			<array>
+				<string>3D4154F91C1797CA009B2EBA</string>
+				<string>3D4154FA1C1797CA009B2EBA</string>
+				<string>3D4154FB1C1797CA009B2EBA</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array>
+				<string>3D4154FF1C1797CA009B2EBA</string>
+			</array>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>ColorGameTests</string>
+			<key>productName</key>
+			<string>ColorGameTests</string>
+			<key>productReference</key>
+			<string>3D4154FD1C1797CA009B2EBA</string>
+			<key>productType</key>
+			<string>com.apple.product-type.bundle.unit-test</string>
+		</dict>
+		<key>3D4154FD1C1797CA009B2EBA</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.cfbundle</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>ColorGameTests.xctest</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>3D4154FE1C1797CA009B2EBA</key>
+		<dict>
+			<key>containerPortal</key>
+			<string>3D4154DC1C1797CA009B2EBA</string>
+			<key>isa</key>
+			<string>PBXContainerItemProxy</string>
+			<key>proxyType</key>
+			<string>1</string>
+			<key>remoteGlobalIDString</key>
+			<string>3D4154E31C1797CA009B2EBA</string>
+			<key>remoteInfo</key>
+			<string>ColorGame</string>
+		</dict>
+		<key>3D4154FF1C1797CA009B2EBA</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXTargetDependency</string>
+			<key>target</key>
+			<string>3D4154E31C1797CA009B2EBA</string>
+			<key>targetProxy</key>
+			<string>3D4154FE1C1797CA009B2EBA</string>
+		</dict>
+		<key>3D4155001C1797CA009B2EBA</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>3D4155011C1797CA009B2EBA</string>
+				<string>3D4155031C1797CA009B2EBA</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>ColorGameTests</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3D4155011C1797CA009B2EBA</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>ColorGameTests.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3D4155021C1797CA009B2EBA</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3D4155011C1797CA009B2EBA</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>3D4155031C1797CA009B2EBA</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>Info.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3D4155041C1797CA009B2EBA</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>3D41550D1C1797CA009B2EBA</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>3D4155051C1797CA009B2EBA</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>3D4155061C1797CA009B2EBA</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXResourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>3D4155071C1797CA009B2EBA</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>3D4155171C1797CA009B2EBA</string>
+			<key>buildPhases</key>
+			<array>
+				<string>3D4155041C1797CA009B2EBA</string>
+				<string>3D4155051C1797CA009B2EBA</string>
+				<string>3D4155061C1797CA009B2EBA</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array>
+				<string>3D41550A1C1797CA009B2EBA</string>
+			</array>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>ColorGameUITests</string>
+			<key>productName</key>
+			<string>ColorGameUITests</string>
+			<key>productReference</key>
+			<string>3D4155081C1797CA009B2EBA</string>
+			<key>productType</key>
+			<string>com.apple.product-type.bundle.ui-testing</string>
+		</dict>
+		<key>3D4155081C1797CA009B2EBA</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.cfbundle</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>ColorGameUITests.xctest</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>3D4155091C1797CA009B2EBA</key>
+		<dict>
+			<key>containerPortal</key>
+			<string>3D4154DC1C1797CA009B2EBA</string>
+			<key>isa</key>
+			<string>PBXContainerItemProxy</string>
+			<key>proxyType</key>
+			<string>1</string>
+			<key>remoteGlobalIDString</key>
+			<string>3D4154E31C1797CA009B2EBA</string>
+			<key>remoteInfo</key>
+			<string>ColorGame</string>
+		</dict>
+		<key>3D41550A1C1797CA009B2EBA</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXTargetDependency</string>
+			<key>target</key>
+			<string>3D4154E31C1797CA009B2EBA</string>
+			<key>targetProxy</key>
+			<string>3D4155091C1797CA009B2EBA</string>
+		</dict>
+		<key>3D41550B1C1797CA009B2EBA</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>3D41550C1C1797CA009B2EBA</string>
+				<string>3D41550E1C1797CA009B2EBA</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>ColorGameUITests</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3D41550C1C1797CA009B2EBA</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>ColorGameUITests.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3D41550D1C1797CA009B2EBA</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3D41550C1C1797CA009B2EBA</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>3D41550E1C1797CA009B2EBA</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>Info.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3D41550F1C1797CA009B2EBA</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
+				<string>gnu++0x</string>
+				<key>CLANG_CXX_LIBRARY</key>
+				<string>libc++</string>
+				<key>CLANG_ENABLE_MODULES</key>
+				<string>YES</string>
+				<key>CLANG_ENABLE_OBJC_ARC</key>
+				<string>YES</string>
+				<key>CLANG_WARN_BOOL_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_EMPTY_BODY</key>
+				<string>YES</string>
+				<key>CLANG_WARN_ENUM_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_INT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_UNREACHABLE_CODE</key>
+				<string>YES</string>
+				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
+				<string>YES</string>
+				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
+				<string>iPhone Developer</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>NO</string>
+				<key>DEBUG_INFORMATION_FORMAT</key>
+				<string>dwarf</string>
+				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
+				<string>YES</string>
+				<key>ENABLE_TESTABILITY</key>
+				<string>YES</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_DYNAMIC_NO_PIC</key>
+				<string>NO</string>
+				<key>GCC_NO_COMMON_BLOCKS</key>
+				<string>YES</string>
+				<key>GCC_OPTIMIZATION_LEVEL</key>
+				<string>0</string>
+				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
+				<array>
+					<string>DEBUG=1</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
+				<string>YES</string>
+				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
+				<string>YES_ERROR</string>
+				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
+				<string>YES_AGGRESSIVE</string>
+				<key>GCC_WARN_UNUSED_FUNCTION</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_VARIABLE</key>
+				<string>YES</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>9.1</string>
+				<key>MTL_ENABLE_DEBUG_INFO</key>
+				<string>YES</string>
+				<key>ONLY_ACTIVE_ARCH</key>
+				<string>YES</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>TARGETED_DEVICE_FAMILY</key>
+				<string>1,2</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>3D4155101C1797CA009B2EBA</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
+				<string>gnu++0x</string>
+				<key>CLANG_CXX_LIBRARY</key>
+				<string>libc++</string>
+				<key>CLANG_ENABLE_MODULES</key>
+				<string>YES</string>
+				<key>CLANG_ENABLE_OBJC_ARC</key>
+				<string>YES</string>
+				<key>CLANG_WARN_BOOL_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_EMPTY_BODY</key>
+				<string>YES</string>
+				<key>CLANG_WARN_ENUM_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_INT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_UNREACHABLE_CODE</key>
+				<string>YES</string>
+				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
+				<string>YES</string>
+				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
+				<string>iPhone Developer</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>NO</string>
+				<key>DEBUG_INFORMATION_FORMAT</key>
+				<string>dwarf-with-dsym</string>
+				<key>ENABLE_NS_ASSERTIONS</key>
+				<string>NO</string>
+				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
+				<string>YES</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_NO_COMMON_BLOCKS</key>
+				<string>YES</string>
+				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
+				<string>YES</string>
+				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
+				<string>YES_ERROR</string>
+				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
+				<string>YES_AGGRESSIVE</string>
+				<key>GCC_WARN_UNUSED_FUNCTION</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_VARIABLE</key>
+				<string>YES</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>9.1</string>
+				<key>MTL_ENABLE_DEBUG_INFO</key>
+				<string>NO</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>TARGETED_DEVICE_FAMILY</key>
+				<string>1,2</string>
+				<key>VALIDATE_PRODUCT</key>
+				<string>YES</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>3D4155111C1797CA009B2EBA</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>3D4155121C1797CA009B2EBA</string>
+				<string>3D4155131C1797CA009B2EBA</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>3D4155121C1797CA009B2EBA</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>324D794575DA7EDA13D90A16</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
+				<string>AppIcon</string>
+				<key>INFOPLIST_FILE</key>
+				<string>ColorGame/Info.plist</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks</string>
+				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
+				<string>AMY.ColorGame</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>3D4155131C1797CA009B2EBA</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>5DCAAF46077AF945307C5945</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
+				<string>AppIcon</string>
+				<key>INFOPLIST_FILE</key>
+				<string>ColorGame/Info.plist</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks</string>
+				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
+				<string>AMY.ColorGame</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>3D4155141C1797CA009B2EBA</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>3D4155151C1797CA009B2EBA</string>
+				<string>3D4155161C1797CA009B2EBA</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>3D4155151C1797CA009B2EBA</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>BUNDLE_LOADER</key>
+				<string>$(TEST_HOST)</string>
+				<key>INFOPLIST_FILE</key>
+				<string>ColorGameTests/Info.plist</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
+				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
+				<string>AMY.ColorGameTests</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>TEST_HOST</key>
+				<string>$(BUILT_PRODUCTS_DIR)/ColorGame.app/ColorGame</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>3D4155161C1797CA009B2EBA</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>BUNDLE_LOADER</key>
+				<string>$(TEST_HOST)</string>
+				<key>INFOPLIST_FILE</key>
+				<string>ColorGameTests/Info.plist</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
+				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
+				<string>AMY.ColorGameTests</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>TEST_HOST</key>
+				<string>$(BUILT_PRODUCTS_DIR)/ColorGame.app/ColorGame</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>3D4155171C1797CA009B2EBA</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>3D4155181C1797CA009B2EBA</string>
+				<string>3D4155191C1797CA009B2EBA</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>3D4155181C1797CA009B2EBA</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>INFOPLIST_FILE</key>
+				<string>ColorGameUITests/Info.plist</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
+				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
+				<string>AMY.ColorGameUITests</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>TEST_TARGET_NAME</key>
+				<string>ColorGame</string>
+				<key>USES_XCTRUNNER</key>
+				<string>YES</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>3D4155191C1797CA009B2EBA</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>INFOPLIST_FILE</key>
+				<string>ColorGameUITests/Info.plist</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
+				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
+				<string>AMY.ColorGameUITests</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>TEST_TARGET_NAME</key>
+				<string>ColorGame</string>
+				<key>USES_XCTRUNNER</key>
+				<string>YES</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>3D41551A1C179818009B2EBA</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>AMYColorGameViewController.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3D41551B1C179818009B2EBA</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>AMYColorGameViewController.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3D41551C1C179818009B2EBA</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>AMYGameDifficultyViewController.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3D41551D1C179818009B2EBA</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>AMYGameDifficultyViewController.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3D41551E1C179818009B2EBA</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3D41551B1C179818009B2EBA</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>3D41551F1C179818009B2EBA</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3D41551D1C179818009B2EBA</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>3D4155201C179971009B2EBA</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>AMYColorSetup.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3D4155211C179971009B2EBA</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>AMYColorSetup.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3D4155221C179971009B2EBA</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3D4155211C179971009B2EBA</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>3D990A061C1883FA000A775D</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>AMYAppViewController.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3D990A071C1883FA000A775D</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>AMYAppViewController.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3D990A081C1883FA000A775D</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3D990A071C1883FA000A775D</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>3D990A0C1C18B664000A775D</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>AMYSharedDataStore.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3D990A0D1C18B664000A775D</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>AMYSharedDataStore.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3D990A0E1C18B664000A775D</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3D990A0D1C18B664000A775D</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>3D990A0F1C18B943000A775D</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>AMYGameModeViewController.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3D990A101C18B943000A775D</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>AMYGameModeViewController.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3D990A111C18B943000A775D</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3D990A101C18B943000A775D</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>3DD7FE851C1F23E40017046C</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>AMYZenViewController.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3DD7FE861C1F23E40017046C</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>AMYZenViewController.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3DD7FE871C1F23E40017046C</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3DD7FE861C1F23E40017046C</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>3DF815821C457FAC00059565</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>AMYSettingsViewController.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3DF815831C457FAC00059565</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>AMYSettingsViewController.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3DF815841C457FAC00059565</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3DF815831C457FAC00059565</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>5C6EE7FC31DDE53F2AF43ECF</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>324D794575DA7EDA13D90A16</string>
+				<string>5DCAAF46077AF945307C5945</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Pods</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>5DCAAF46077AF945307C5945</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods-ColorGame.release.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Target Support Files/Pods-ColorGame/Pods-ColorGame.release.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>90D0C39D0A369AAF433A5EF7</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>Embed Pods Frameworks</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Target Support Files/Pods-ColorGame/Pods-ColorGame-frameworks.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>A96515C6BCD76129D4935689</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>archive.ar</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>libPods-ColorGame.a</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>BE14FE35383A8E3888D4EFCF</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>Check Pods Manifest.lock</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
+if [[ $? != 0 ]] ; then
+    cat &lt;&lt; EOM
+error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
+EOM
+    exit 1
+fi
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>DC459FE8B5E2AA4ADC1579B5</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>A96515C6BCD76129D4935689</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Frameworks</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>FC86C1149B07906571FB745B</key>
+		<dict>
+			<key>fileRef</key>
+			<string>A96515C6BCD76129D4935689</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+	</dict>
+	<key>rootObject</key>
+	<string>3D4154DC1C1797CA009B2EBA</string>
+</dict>
+</plist>
