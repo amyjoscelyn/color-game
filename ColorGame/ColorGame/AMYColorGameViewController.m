@@ -31,10 +31,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *lessBlueButton;
 @property (weak, nonatomic) IBOutlet UIButton *moreBlueButton;
 
-@property (weak, nonatomic) IBOutlet UISlider *incrementSlider;
-@property (weak, nonatomic) IBOutlet UILabel *minimumIncrementLabel;
-@property (weak, nonatomic) IBOutlet UILabel *maximumIncrementLabel;
-@property (weak, nonatomic) IBOutlet UILabel *currentIncrementLabel;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *incrementSegmentedControl;
 
 @property (weak, nonatomic) IBOutlet UILabel *playerScoreLabel;
 @property (weak, nonatomic) IBOutlet UILabel *targetScoreLabel;
@@ -49,9 +46,14 @@
 @property (nonatomic) CGFloat colorWithGreenFloat;
 @property (nonatomic) CGFloat colorWithBlueFloat;
 
+@property (nonatomic) NSInteger redInteger;
+@property (nonatomic) NSInteger greenInteger;
+@property (nonatomic) NSInteger blueInteger;
+
 @property (nonatomic) NSUInteger tapCapMax;
 @property (nonatomic) NSUInteger tapCapMin;
 @property (nonatomic) CGFloat multiplier;
+@property (nonatomic) NSInteger incrementValue;
 
 @property (nonatomic, strong) UIColor *currentColor;
 @property (nonatomic) NSUInteger currentDifficulty; //is this important?
@@ -86,8 +88,7 @@
     {
         self.multiplier = 4/256.0;
     }
-//    self.currentIncrementLabel.text = [NSString stringWithFormat:@"Increment: %.2f", self.multiplier];
-//    self.incrementSlider.value = self.incrementSlider.minimumValue;
+    self.incrementValue = self.multiplier * 256;
     
     self.currentColor = [UIColor whiteColor];
     
@@ -102,6 +103,7 @@
     [super viewWillAppear:animated];
     
     NSArray *buttons = [NSArray arrayWithObjects:self.lessRedButton, self.moreRedButton, self.lessGreenButton, self.moreGreenButton, self.lessBlueButton, self.moreBlueButton, nil];
+    
     NSArray *colors = self.store.colorsForGameButtons;
         
     NSUInteger i = 0;
@@ -148,7 +150,6 @@
 //    self.gameLabel.backgroundColor = color;
 //    self.playerScoreLabel.backgroundColor = color;
 //    self.targetScoreLabel.backgroundColor = color;
-    
     
     NSArray *colorValueLabels = @[ self.redGoalValueLabel,
                                    self.greenGoalValueLabel,
@@ -206,7 +207,9 @@
     self.refreshGameButton.layer.borderColor = textColor.CGColor;
     self.refreshGameButton.hidden = YES;
     
-    NSArray *gameLabels = @[ self.gameLabel, self.playerScoreLabel, self.targetScoreLabel/*, self.minimumIncrementLabel, self.maximumIncrementLabel, self.currentIncrementLabel*/ ];
+    self.incrementSegmentedControl.tintColor = textColor;
+    
+    NSArray *gameLabels = @[ self.gameLabel, self.playerScoreLabel, self.targetScoreLabel ];
     
     for (UILabel *label in gameLabels)
     {
@@ -222,21 +225,12 @@
 //    self.playerScoreLabel.textColor = textColor;
 //    self.targetScoreLabel.textColor = textColor;
     
-//    self.minimumIncrementLabel.textColor = textColor;
-//    self.maximumIncrementLabel.textColor = textColor;
-    
-//    self.currentIncrementLabel.textColor = textColor;
-//    self.currentIncrementLabel.layer.shadowColor = [textColor CGColor];
-//    self.currentIncrementLabel.layer.shadowRadius = 4.0f;
-//    self.currentIncrementLabel.layer.shadowOpacity = .9;
-//    self.currentIncrementLabel.layer.shadowOffset = CGSizeZero;
-//    self.currentIncrementLabel.layer.masksToBounds = NO;
-    
     self.dismissModalButton.backgroundColor = color;
     self.dismissModalButton.titleLabel.textColor = textColor;
     self.dismissModalButton.layer.cornerRadius = 5;
     self.dismissModalButton.layer.borderWidth = 2.0f;
     self.dismissModalButton.layer.borderColor = textColor.CGColor;
+//    self.dismissModalButton.tintColor = textColor;
     
     self.totalButtonTaps = 0;
     self.playerScoreLabel.text = [NSString stringWithFormat:@"Your Score: %lu", (unsigned long)self.totalButtonTaps];
@@ -248,18 +242,20 @@
 }
 
 - (void)setUpView
-{
-    CGFloat x = 1 / self.multiplier;
-    
+{    
     self.colorWithRedFloat = 0.0;
     self.colorWithGreenFloat = 0.0;
     self.colorWithBlueFloat = 0.0;
+    
+    self.redInteger = 0;
+    self.greenInteger = 0;
+    self.blueInteger = 0;
     
     self.numberOfTimesRedButtonTapped = self.colorWithRedFloat;
     self.numberOfTimesGreenButtonTapped = self.colorWithGreenFloat;
     self.numberOfTimesBlueButtonTapped = self.colorWithBlueFloat;
     
-    self.tapCapMax = x;
+    self.tapCapMax = 256;
     self.tapCapMin = 0;
     
     self.redBackgroundValueLabel.text = [NSString stringWithFormat:@"R:"];
@@ -273,47 +269,56 @@
     self.lessBlueButton.enabled = YES;
     self.moreBlueButton.enabled = YES;
     
-//    if (self.store.mode == 0)
-//    {
-//        self.incrementSlider.hidden = YES;
-//        self.minimumIncrementLabel.hidden = YES;
-//        self.maximumIncrementLabel.hidden = YES;
-//    }
-//    else if (self.store.mode == 1)
-//    {
-//        self.incrementSlider.hidden = NO;
-//        self.minimumIncrementLabel.hidden = NO;
-//        self.maximumIncrementLabel.hidden = NO;
-//        //I NEED TO CHANGE THESE AT SOME POINT... WE'RE ON A .4 SCALE NOW!
-//        self.minimumIncrementLabel.text = @"0.10";
-//        self.maximumIncrementLabel.text = @"1.0";
-//    }
-//    else if (self.store.mode == 2)
-//    {
-//        self.incrementSlider.hidden = NO;
-//        self.minimumIncrementLabel.hidden = NO;
-//        self.maximumIncrementLabel.hidden = NO;
-//        
-//        self.minimumIncrementLabel.text = @"0.05";
-//        self.maximumIncrementLabel.text = @"1.0";
-//    }
-//    else if (self.store.mode == 3)
-//    {
-//        self.incrementSlider.hidden = NO;
-//        self.minimumIncrementLabel.hidden = NO;
-//        self.maximumIncrementLabel.hidden = NO;
-//        
-//        self.minimumIncrementLabel.text = @"0.01";
-//        self.maximumIncrementLabel.text = @"1.0";
-//    }
-//    else
-//    {
-//        NSLog(@"Somehow you've gotten off the rails. Pick an existing difficulty.");
-//    }
+    if (self.store.mode == 0 || self.store.mode == 1)
+    {
+        self.incrementSegmentedControl.hidden = YES;
+    }
+    else if (self.store.mode == 2)
+    {
+        self.incrementSegmentedControl.hidden = NO;
+        self.incrementSegmentedControl.selectedSegmentIndex = 1;
+    }
+    else if (self.store.mode == 3)
+    {
+        self.incrementSegmentedControl.hidden = NO;
+        self.incrementSegmentedControl.selectedSegmentIndex = 0;
+    }
+    //maybe one day I can have a separate segmentedControl for each mode--mode 1 can just have 32 and 64, mode 2 can have 3, and 3 can have all four, the current segmentedControl.  Then I can just hide them appropriately and only show the one that's called for.
+    else
+    {
+        NSLog(@"Somehow you've gotten off the rails. Pick an existing difficulty.");
+    }
+}
+
+- (IBAction)incrementSegmentedControlValueChanged:(id)sender
+{
+    if (self.incrementSegmentedControl.selectedSegmentIndex == 0)
+    {
+        //this means increment == 4
+        self.multiplier = 4/256.0;
+    }
+    else if (self.incrementSegmentedControl.selectedSegmentIndex == 1)
+    {
+        //this means increment == 16
+        self.multiplier = 16/256.0;
+    }
+    else if (self.incrementSegmentedControl.selectedSegmentIndex == 2)
+    {
+        //this means increment == 32
+        self.multiplier = 32/256.0;
+    }
+    else
+    {
+        //increment == 64
+        self.multiplier = 64/256.0;
+    }
+    self.incrementValue = self.multiplier * 256;
+    NSLog(@"incrementValue: %li || multiplier: %f", self.incrementValue, self.multiplier);
 }
 
 - (void)changeBackgroundColor
 {
+    NSLog(@"redFloat at changeBackgroundColor: %.2f", self.colorWithRedFloat);
     self.view.backgroundColor = [UIColor colorWithRed:self.colorWithRedFloat green:self.colorWithGreenFloat blue:self.colorWithBlueFloat alpha:1.0];
     
     CGFloat redBG, greenBG, blueBG, alphaBG;
@@ -322,6 +327,7 @@
                                 green: &greenBG
                                  blue: &blueBG
                                 alpha: &alphaBG];
+    NSLog(@"redBG at changeBackgroundColor: %.2f", redBG);
     self.redBackgroundValueLabel.text = [NSString stringWithFormat:@"R: %.0f", redBG*256];
     self.greenBackgroundValueLabel.text = [NSString stringWithFormat:@"G: %.0f", greenBG*256];
     self.blueBackgroundValueLabel.text = [NSString stringWithFormat:@"B: %.0f", blueBG*256];
@@ -331,7 +337,7 @@
 
 - (IBAction)makeBackgroundMoreRedButtonTapped:(UIButton *)sender
 {
-    if (self.numberOfTimesRedButtonTapped == self.tapCapMax)
+    if (self.redInteger >= self.tapCapMax)
     {
         sender.enabled = NO;
         return;
@@ -339,14 +345,50 @@
     self.numberOfTimesRedButtonTapped++;
     self.lessRedButton.enabled = YES;
     
-    self.colorWithRedFloat = self.numberOfTimesRedButtonTapped * self.multiplier;
+    self.redInteger += self.incrementValue;
+    self.colorWithRedFloat = self.redInteger/256.0;
+    /*
+     okay.  here's my inherent problem with the way this is already set up:
+     to set the background color, the method is inputting the .colorWith%@Float for each colorValue
+     that property is being set by multiplying the number of times that particular button has been tapped by the .multiplier
+     the multiplier is supposed to be variable
+     unfortunately, the number of times the button is able to be tapped is static
+     it is set to the multiplier in viewDidLoad (I'm pretty sure), once the difficulty is set for the game
+     if we change the multiplier halfway through, the button doesn't know and will still try to let the button be tapped, even though it theoretically should be past the tapCapMax
+     so if we try to increase or decrease the colorValue, even though the multiplier might be correct, the number of times the button has been tapped might be skewed off because of the adjusted increment/multiplier
+     this is probably why when i would max out the color to 1.0, when i tried to decrease at a different multiplier, the number would go down waaaay differently from what i expected it to
+     this is just a surmise, but it sounds like it's what it was
+     
+     so how to fix this?
+     well, i think there needs to be a new way to read each colorValue
+     if we have a colorValue property, we can do math off of that to adjust the values for the method
+     the maxCap can be whether it == or is > than 256, since that's the highest
+     in the same way, the minCap can be 0
+     instead of calculating the current value by the amount of taps on that specific button, we can do math directly on the .colorValue, based off the multiplier, which is set by the segmented control
+     if the max/minCap is reached, then it can turn interaction off until the other button is tapped
+     I'm going to need to find a new way to keep score anyway... wouldn't it make more sense to just have a general buttonTapped property that keeps track of ALL taps, and only use that in relation to score, and not the background color?
+     i think it does, anyway.
+     And that's what matters!
+     
+     So, in short:
+     I need to know .incrementValue (from segmentedControl)
+     .multiplier (from .incrementValue... they're really kind of the same thing)
+     .tapCapMax which should now be an integer value == 256
+     .tapCapMin which should be 0
+     new methods to turn off interaction if tapCap is reached or exceeded
+     redValue, greenValue, and blueValue for straight up calculating the backgroundColor.  these are the numbers the multiplier will add or subtract from
+     OOH.  okay, so .multiplier should be gotten straight from the incrementSegCon, and .increment should be .multipler * 10(0?) so that math can be done with .increment and .%@Value, no need for any more taps being tracked
+     a single .totalTaps for general taps taken in this current game.  It can only increase, and is read straight to the score label, nothing else.  it should be reset with each new color
+     
+     Everything?  Let's hope!  And let's do this!
+    */
 
     [self postButtonActions];
 }
 
 - (IBAction)makeBackgroundLessRedButtonTapped:(UIButton *)sender
 {
-    if (self.numberOfTimesRedButtonTapped == self.tapCapMin)
+    if (self.redInteger <= self.tapCapMin)
     {
         sender.enabled = NO;
         return;
@@ -354,14 +396,15 @@
     self.numberOfTimesRedButtonTapped--;
     self.moreRedButton.enabled = YES;
     
-    self.colorWithRedFloat = self.numberOfTimesRedButtonTapped * self.multiplier;
+    self.redInteger -= self.incrementValue;
+    self.colorWithRedFloat = self.redInteger/256.0;
     
     [self postButtonActions];
 }
 
 - (IBAction)makeBackgroundMoreGreenButtonTapped:(UIButton *)sender
 {
-    if (self.numberOfTimesGreenButtonTapped == self.tapCapMax)
+    if (self.greenInteger >= self.tapCapMax)
     {
         sender.enabled = NO;
         return;
@@ -369,14 +412,15 @@
     self.numberOfTimesGreenButtonTapped++;
     self.lessGreenButton.enabled = YES;
     
-    self.colorWithGreenFloat = self.numberOfTimesGreenButtonTapped * self.multiplier;
+    self.greenInteger += self.incrementValue;
+    self.colorWithGreenFloat = self.greenInteger/256.0;
     
     [self postButtonActions];
 }
 
 - (IBAction)makeBackgroundLessGreenButtonTapped:(UIButton *)sender
 {
-    if (self.numberOfTimesGreenButtonTapped == self.tapCapMin)
+    if (self.greenInteger <= self.tapCapMin)
     {
         sender.enabled = NO;
         return;
@@ -384,14 +428,15 @@
     self.numberOfTimesGreenButtonTapped--;
     self.moreGreenButton.enabled = YES;
     
-    self.colorWithGreenFloat = self.numberOfTimesGreenButtonTapped * self.multiplier;
+    self.greenInteger -= self.incrementValue;
+    self.colorWithGreenFloat = self.greenInteger/256.0;
     
     [self postButtonActions];
 }
 
 - (IBAction)makeBackgroundMoreBlueButtonTapped:(UIButton *)sender
 {
-    if (self.numberOfTimesBlueButtonTapped == self.tapCapMax)
+    if (self.blueInteger >= self.tapCapMax)
     {
         sender.enabled = NO;
         return;
@@ -399,14 +444,15 @@
     self.numberOfTimesBlueButtonTapped++;
     self.lessBlueButton.enabled = YES;
     
-    self.colorWithBlueFloat = self.numberOfTimesBlueButtonTapped * self.multiplier;
+    self.blueInteger += self.incrementValue;
+    self.colorWithBlueFloat = self.blueInteger/256.0;
     
     [self postButtonActions];
 }
 
 - (IBAction)makeBackgroundLessBlueButtonTapped:(UIButton *)sender
 {
-    if (self.numberOfTimesBlueButtonTapped == self.tapCapMin)
+    if (self.blueInteger <= self.tapCapMin)
     {
         sender.enabled = NO;
         return;
@@ -414,7 +460,8 @@
     self.numberOfTimesBlueButtonTapped--;
     self.moreBlueButton.enabled = YES;
     
-    self.colorWithBlueFloat = self.numberOfTimesBlueButtonTapped * self.multiplier;
+    self.blueInteger -= self.incrementValue;
+    self.colorWithBlueFloat = self.blueInteger/256.0;
     
     [self postButtonActions];
 }

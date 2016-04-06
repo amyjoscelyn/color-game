@@ -131,7 +131,6 @@
             blue = [self randomValueFromArray:arrayWithDifficulty];
         }
         color = [UIColor colorWithRed:red/256.0 green:green/256.0 blue:blue/256.0 alpha:alpha];
-        NSLog(@"new color: %@, old color: %@", color, priorColor);
         
         [color    getRed: &colorRed
                    green: &colorGreen

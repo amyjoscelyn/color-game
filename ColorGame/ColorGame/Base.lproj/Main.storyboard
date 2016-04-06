@@ -135,8 +135,11 @@
                                         <rect key="frame" x="40" y="0.0" width="240" height="71"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X7u-5E-61L">
-                                                <rect key="frame" x="0.0" y="20" width="100" height="32"/>
+                                                <rect key="frame" x="0.0" y="11" width="100" height="50"/>
                                                 <color key="backgroundColor" red="0.3921568627" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="avt-pF-z8r"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <state key="normal" title="   Less Red!   ">
                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
@@ -149,7 +152,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4OT-vB-jwZ">
-                                                <rect key="frame" x="140" y="20" width="100" height="32"/>
+                                                <rect key="frame" x="140" y="11" width="100" height="50"/>
                                                 <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <state key="normal" title="   More Red!   ">
@@ -163,12 +166,15 @@
                                                 </connections>
                                             </button>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstItem="4OT-vB-jwZ" firstAttribute="height" secondItem="X7u-5E-61L" secondAttribute="height" id="slS-Yn-NOe"/>
+                                        </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="FrY-OP-qBZ">
                                         <rect key="frame" x="24" y="71" width="272" height="71"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gSY-Ni-5b2">
-                                                <rect key="frame" x="0.0" y="20" width="116" height="32"/>
+                                                <rect key="frame" x="0.0" y="11" width="116" height="50"/>
                                                 <color key="backgroundColor" red="0.0" green="0.3921568627" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <state key="normal" title="   Less Green!   ">
@@ -182,7 +188,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jpx-32-FIb">
-                                                <rect key="frame" x="156" y="20" width="116" height="32"/>
+                                                <rect key="frame" x="156" y="11" width="116" height="50"/>
                                                 <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <state key="normal" title="   More Green!   ">
@@ -201,7 +207,7 @@
                                         <rect key="frame" x="36" y="142" width="248" height="71"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JXE-90-X61">
-                                                <rect key="frame" x="0.0" y="20" width="104" height="32"/>
+                                                <rect key="frame" x="0.0" y="11" width="104" height="50"/>
                                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <state key="normal" title="   Less Blue!   ">
@@ -215,7 +221,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TbM-Ca-7JX">
-                                                <rect key="frame" x="144" y="20" width="104" height="32"/>
+                                                <rect key="frame" x="144" y="11" width="104" height="50"/>
                                                 <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <state key="normal" title="   More Blue!   ">
@@ -238,10 +244,17 @@
                                             <segment title="32"/>
                                             <segment title="64"/>
                                         </segments>
+                                        <connections>
+                                            <action selector="incrementSegmentedControlValueChanged:" destination="bfI-jO-KW3" eventType="valueChanged" id="gzd-a5-8T6"/>
+                                        </connections>
                                     </segmentedControl>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="JXE-90-X61" firstAttribute="height" secondItem="gSY-Ni-5b2" secondAttribute="height" id="BL3-2E-09J"/>
+                                    <constraint firstItem="TbM-Ca-7JX" firstAttribute="height" secondItem="gSY-Ni-5b2" secondAttribute="height" id="Whl-cR-Q2a"/>
                                     <constraint firstItem="u1K-gO-cAn" firstAttribute="width" secondItem="uEp-DN-qqI" secondAttribute="width" multiplier="0.65" id="YC1-cC-gJi"/>
+                                    <constraint firstItem="Jpx-32-FIb" firstAttribute="height" secondItem="X7u-5E-61L" secondAttribute="height" id="YLO-az-MxG"/>
+                                    <constraint firstItem="gSY-Ni-5b2" firstAttribute="height" secondItem="X7u-5E-61L" secondAttribute="height" id="fqt-6G-vee"/>
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="j5K-2p-Pno" userLabel="RGBA Goal Value Stack">
@@ -362,6 +375,7 @@
                         <outlet property="greenBackgroundValueLabel" destination="PLk-k2-1i7" id="D3W-us-El1"/>
                         <outlet property="greenGoalValueLabel" destination="ZVG-GC-1iJ" id="ibL-qq-6a2"/>
                         <outlet property="hideFeatureButton" destination="eTj-sc-lHG" id="XR6-CM-ffX"/>
+                        <outlet property="incrementSegmentedControl" destination="u1K-gO-cAn" id="cC8-yJ-cJ8"/>
                         <outlet property="lessBlueButton" destination="JXE-90-X61" id="C8v-kt-TqW"/>
                         <outlet property="lessGreenButton" destination="gSY-Ni-5b2" id="3Wh-OA-Ttx"/>
                         <outlet property="lessRedButton" destination="X7u-5E-61L" id="kDt-T5-zye"/>
