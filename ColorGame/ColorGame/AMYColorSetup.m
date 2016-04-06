@@ -72,10 +72,13 @@
     CGFloat blue = 1;
     CGFloat alpha = 1;
     
-    NSString *numberOfValuesThatWillBeZero = arrayWithDifficulty.lastObject;
-    [arrayWithDifficulty removeLastObject];
+    CGFloat colorRed, colorGreen, colorBlue, colorAlpha;
+    CGFloat priorRed, priorGreen, priorBlue, priorAlpha;
     
     UIColor *color;
+    
+    NSString *numberOfValuesThatWillBeZero = arrayWithDifficulty.lastObject;
+    [arrayWithDifficulty removeLastObject];
     
     do
     {
@@ -128,23 +131,19 @@
             blue = [self randomValueFromArray:arrayWithDifficulty];
         }
         color = [UIColor colorWithRed:red/256.0 green:green/256.0 blue:blue/256.0 alpha:alpha];
-    } while (color == priorColor); //this isn't working!!
-    
-    /*
-     If mode is 0, and difficulty is 0, arc4_random 0-2 for an array containing red, green, blue.  The one chosen gets to be the one with a number.  This means the ones not chosen become value of 0.  The chosen one goes through arc4_random again to determine which number from the difficulty array (in this case, veryEasy, or easier: arrayWithDifficulty) becomes that value.  Then it goes through the dance to turn it from NSNumber to CGFloat, and it's added, with the other 0 values, to the chosen color method.  This color is returned, and the method returns a single color.
-     If the mode is 0, and difficulty is 1 or 2 (< 3), arc4_random on the RGB array to figure out which one is going to be 0.  Then the other two go through arc4_random to determine their values, go through the dance, and get added to the color method.
-     If the mode is 0, and difficulty is 3 or 4 (> 2), arc4_random all three with the difficultyArray and add to the method.
-     
-     If the mode is 1, difficulty < 2, arc4_random RGB for a single 0, then arc4random twice the difficultyArray to get values for method.
-     If mode is 1, diff > 1 (else), arc4_random all three for color method.
-     
-     If mode is 2, diff = 0, you need one zero, and two true values.
-     Else, get all three values randomly.
-     
-     And so on!
-     
-     Check should be put into place, so while color had just been chosen (currentColor, saved in dataStore?), do it all again!  (rather, do-while)
-     */
+        NSLog(@"new color: %@, old color: %@", color, priorColor);
+        
+        [color    getRed: &colorRed
+                   green: &colorGreen
+                    blue: &colorBlue
+                   alpha: &colorAlpha ];
+        
+        [priorColor    getRed: &priorRed
+                   green: &priorGreen
+                    blue: &priorBlue
+                   alpha: &priorAlpha ];
+        
+    } while (colorRed == priorRed && colorGreen == priorGreen && colorBlue == priorBlue);
     
     return color;
 }
