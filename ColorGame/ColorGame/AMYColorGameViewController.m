@@ -86,8 +86,8 @@
     {
         self.multiplier = 4/256.0;
     }
-    self.currentIncrementLabel.text = [NSString stringWithFormat:@"Increment: %.2f", self.multiplier];
-    self.incrementSlider.value = self.incrementSlider.minimumValue;
+//    self.currentIncrementLabel.text = [NSString stringWithFormat:@"Increment: %.2f", self.multiplier];
+//    self.incrementSlider.value = self.incrementSlider.minimumValue;
     
     self.currentColor = [UIColor whiteColor];
     
@@ -161,11 +161,6 @@
                green: &green
                 blue: &blue
                alpha: &alpha ];
-    //Okay.  So here we have red, green, blue, and alpha all coming off of the target color.  It's coming to us in a format out of 1.0, not 256 like we're incrementing in.
-    //What I need to do is turn that ##/1.0 value back into one out of 256.0
-    //We should just be able to multiply it by 256, and it should be with us instantly!
-    //Of course, floats are awful at math.  Rounding problems, remember?  Ugh...
-    //Let's just try it anyway.  I do compensate later for rounding errors, and this is just a label anyway.  Besides, we shouldn't have any decimal places once we're finished.
     
     self.redGoalValueLabel.text = [NSString stringWithFormat:@"R: %.0f", red*256];
     self.greenGoalValueLabel.text = [NSString stringWithFormat:@"G: %.0f", green*256];
@@ -211,7 +206,7 @@
     self.refreshGameButton.layer.borderColor = textColor.CGColor;
     self.refreshGameButton.hidden = YES;
     
-    NSArray *gameLabels = @[ self.gameLabel, self.playerScoreLabel, self.targetScoreLabel, self.minimumIncrementLabel, self.maximumIncrementLabel, self.currentIncrementLabel ];
+    NSArray *gameLabels = @[ self.gameLabel, self.playerScoreLabel, self.targetScoreLabel/*, self.minimumIncrementLabel, self.maximumIncrementLabel, self.currentIncrementLabel*/ ];
     
     for (UILabel *label in gameLabels)
     {
@@ -278,43 +273,43 @@
     self.lessBlueButton.enabled = YES;
     self.moreBlueButton.enabled = YES;
     
-    if (self.store.mode == 0)
-    {
-        self.incrementSlider.hidden = YES;
-        self.minimumIncrementLabel.hidden = YES;
-        self.maximumIncrementLabel.hidden = YES;
-    }
-    else if (self.store.mode == 1)
-    {
-        self.incrementSlider.hidden = NO;
-        self.minimumIncrementLabel.hidden = NO;
-        self.maximumIncrementLabel.hidden = NO;
-        //I NEED TO CHANGE THESE AT SOME POINT... WE'RE ON A .4 SCALE NOW!
-        self.minimumIncrementLabel.text = @"0.10";
-        self.maximumIncrementLabel.text = @"1.0";
-    }
-    else if (self.store.mode == 2)
-    {
-        self.incrementSlider.hidden = NO;
-        self.minimumIncrementLabel.hidden = NO;
-        self.maximumIncrementLabel.hidden = NO;
-        
-        self.minimumIncrementLabel.text = @"0.05";
-        self.maximumIncrementLabel.text = @"1.0";
-    }
-    else if (self.store.mode == 3)
-    {
-        self.incrementSlider.hidden = NO;
-        self.minimumIncrementLabel.hidden = NO;
-        self.maximumIncrementLabel.hidden = NO;
-        
-        self.minimumIncrementLabel.text = @"0.01";
-        self.maximumIncrementLabel.text = @"1.0";
-    }
-    else
-    {
-        NSLog(@"Somehow you've gotten off the rails. Pick an existing difficulty.");
-    }
+//    if (self.store.mode == 0)
+//    {
+//        self.incrementSlider.hidden = YES;
+//        self.minimumIncrementLabel.hidden = YES;
+//        self.maximumIncrementLabel.hidden = YES;
+//    }
+//    else if (self.store.mode == 1)
+//    {
+//        self.incrementSlider.hidden = NO;
+//        self.minimumIncrementLabel.hidden = NO;
+//        self.maximumIncrementLabel.hidden = NO;
+//        //I NEED TO CHANGE THESE AT SOME POINT... WE'RE ON A .4 SCALE NOW!
+//        self.minimumIncrementLabel.text = @"0.10";
+//        self.maximumIncrementLabel.text = @"1.0";
+//    }
+//    else if (self.store.mode == 2)
+//    {
+//        self.incrementSlider.hidden = NO;
+//        self.minimumIncrementLabel.hidden = NO;
+//        self.maximumIncrementLabel.hidden = NO;
+//        
+//        self.minimumIncrementLabel.text = @"0.05";
+//        self.maximumIncrementLabel.text = @"1.0";
+//    }
+//    else if (self.store.mode == 3)
+//    {
+//        self.incrementSlider.hidden = NO;
+//        self.minimumIncrementLabel.hidden = NO;
+//        self.maximumIncrementLabel.hidden = NO;
+//        
+//        self.minimumIncrementLabel.text = @"0.01";
+//        self.maximumIncrementLabel.text = @"1.0";
+//    }
+//    else
+//    {
+//        NSLog(@"Somehow you've gotten off the rails. Pick an existing difficulty.");
+//    }
 }
 
 - (void)changeBackgroundColor
@@ -532,7 +527,7 @@
 }
 
 - (IBAction)incrementSliderValueChanged:(UISlider *)slider
-{
+{/*
     CGFloat increment = self.multiplier;
     
     if (slider.value == slider.minimumValue)
@@ -601,7 +596,7 @@
             self.multiplier = increment;
         }
     }
-    self.currentIncrementLabel.text = [NSString stringWithFormat:@"Increment: %.2f", increment];
+    self.currentIncrementLabel.text = [NSString stringWithFormat:@"Increment: %.2f", increment];*/
 }
 
 /*

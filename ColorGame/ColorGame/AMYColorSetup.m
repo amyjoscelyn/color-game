@@ -12,7 +12,7 @@
 @implementation AMYColorSetup
 
 - (UIColor *)setColorWithMode:(NSUInteger)mode difficulty:(NSUInteger)difficulty currentColor:(UIColor *)priorColor
-{ //THIS CAN BE REFACTORED INTO THREE SEPARATE METHODS:
+{ //THIS CAN BE REFACTORED INTO AT LEAST TWO SEPARATE METHODS:
     // one to get the arrays, and read just one
     // one to pick the actual color
     // maybe another, if i see fit
@@ -176,34 +176,6 @@
 }
 
 /*
- Okay--so colors should now be set up by mode.
- Simple:
- VE-single color, .5, .75, 1    :)
- E-mix two, .5, 1               :)
- M-mix two, .25, .5, .75, 1     :)
- H-mix three, .5, .75, 1             :0 this doesn't seem like enough
- M-mix three, .25, .5, .75, 1   :)
- 
- Basic:
- VE-mix two, .5, 1              :) reused from Simple-E
- E-mix two, .2, .5, .7, 1
- M-mix three, .2, .5, .7, 1
- H-mix three, .2, .4, .5, .6, .8, 1
- M-mix three, .1, .2, .3, .4, .5, .6, .7, .8, .9, 1
- 
- Moderate:
- VE-mix two, .25, .5, .75, 1    :) reused from Simple-Me
- E-mix three, .25, .5, .75, 1   :) reused from Simple-Ma
- M-mix three, .1, .25, .4, .5, .6, .75, .9, 1
- H-mix three, .1, .2, .25, .3, .4, .5, .6, .7, .75, .8, .9, 1
- M-mix three, .05, .1, .15, .2, .25, .3, .35, .4, .45, .5, .55, .6, .65, .7, .75, .8, .85, .9, .95, 1
- 
- Challenging:
- Forthcoming!
- */
-
-/*
- Let's try this again, shall we?
  THE STANDARD STRUCTURE I'M USING GOES
  -----------------------------------------------------------
  VE-it's basically following this pattern, with an exception for Simple Mode
