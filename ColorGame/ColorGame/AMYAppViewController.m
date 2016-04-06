@@ -8,6 +8,7 @@
 
 #import "AMYAppViewController.h"
 #import "AMYSharedDataStore.h"
+#import <Masonry/Masonry.h>
 
 @interface AMYAppViewController ()
 
@@ -77,8 +78,12 @@
     
     [self.containerView addSubview:controller.view];
     
-    self.containerView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-    self.containerView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
+    [controller.view mas_updateConstraints:^(MASConstraintMaker *make)
+    {
+        make.edges.equalTo(@0);
+    }];
+//    self.containerView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+//    self.containerView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
     
 //    [self.containerView.topAnchor constraintEqualToAnchor:controller.view.topAnchor].active = YES;
 //    [self.containerView.bottomAnchor constraintEqualToAnchor:controller.view.bottomAnchor].active = YES;
