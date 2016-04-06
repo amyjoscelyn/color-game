@@ -46,14 +46,10 @@
 @property (nonatomic) NSInteger greenInteger;
 @property (nonatomic) NSInteger blueInteger;
 
-@property (nonatomic) NSUInteger tapCapMax;
-@property (nonatomic) NSUInteger tapCapMin;
 @property (nonatomic) CGFloat multiplier;
 @property (nonatomic) NSInteger incrementValue;
-
-@property (nonatomic, strong) UIColor *currentColor;
-@property (nonatomic) NSUInteger currentDifficulty; //is this important?
 @property (nonatomic) NSUInteger totalButtonTaps;
+@property (nonatomic, strong) UIColor *currentColor;
 
 @property (nonatomic, strong) AMYSharedDataStore *store;
 
@@ -135,7 +131,6 @@
     
     UIColor *colorChosen = [setup setColorWithMode:self.store.mode difficulty:self.store.difficulty currentColor:self.currentColor];
 
-    self.currentDifficulty = self.store.difficulty; //is this important?
     [self setUpGameWithGoalColor:colorChosen];
 }
 
@@ -246,9 +241,6 @@
     self.redInteger = 0;
     self.greenInteger = 0;
     self.blueInteger = 0;
-    
-    self.tapCapMax = 256;
-    self.tapCapMin = 0;
     
     self.redBackgroundValueLabel.text = [NSString stringWithFormat:@"R:"];
     self.greenBackgroundValueLabel.text = [NSString stringWithFormat:@"G:"];
