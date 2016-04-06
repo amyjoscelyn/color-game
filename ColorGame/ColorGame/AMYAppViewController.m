@@ -80,15 +80,17 @@
     
     [controller.view mas_updateConstraints:^(MASConstraintMaker *make)
     {
-        make.edges.equalTo(@0);
+//        make.edges.equalTo(@0);
+        
+        make.left.right.and.bottom.equalTo(self.containerView);
+        make.top.equalTo(@(self.navigationController.navigationBar.frame.size.height + 35));
+        
+        //is there a way to make the top edge equal to the bottom of the nav bar?
+        /* perhaps
+         make.left.right.and.bottom.equalTo(superview);
+         make.top.equalTo(otherView);
+         */
     }];
-//    self.containerView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-//    self.containerView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
-    
-//    [self.containerView.topAnchor constraintEqualToAnchor:controller.view.topAnchor].active = YES;
-//    [self.containerView.bottomAnchor constraintEqualToAnchor:controller.view.bottomAnchor].active = YES;
-//    [self.containerView.leadingAnchor constraintEqualToAnchor:controller.view.leadingAnchor].active = YES;
-//    [self.containerView.trailingAnchor constraintEqualToAnchor:controller.view.trailingAnchor].active = YES;
     
     [controller didMoveToParentViewController:self];
 }
