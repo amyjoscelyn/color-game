@@ -178,9 +178,8 @@
     
     if (red > 180/256.0 && green > 180/256.0)
     {
-        textColor = [UIColor colorWithRed:0.05 green:0.15 blue:0.05 alpha:1.0];
-    } //So... this is working correctly, but the background of the label is too dark to be able to see the contrast against the black background.
-    //BACKGROUND COLOR OF LABELS NEEDS TO BE CHECKED AND ADJUSTED!!!!!!!!!!!
+        textColor = [UIColor colorWithRed:0.35 green:0.35 blue:0.35 alpha:1.0];
+    }
     
     for (UILabel *colorValueLabel in colorValueLabels)
     {
@@ -216,12 +215,84 @@
 //    self.playerScoreLabel.textColor = textColor;
 //    self.targetScoreLabel.textColor = textColor;
     
-    self.dismissModalButton.backgroundColor = color;
-    self.dismissModalButton.titleLabel.textColor = textColor;
     self.dismissModalButton.layer.cornerRadius = 5;
     self.dismissModalButton.layer.borderWidth = 2.0f;
-    self.dismissModalButton.layer.borderColor = textColor.CGColor;
-//    self.dismissModalButton.tintColor = textColor;
+    //maybe if the color is too dark, i can set the background as the textColor and the border as the color instead; inverse what's above
+    
+    BOOL inverse;
+    
+//    if (red + green + blue <= 64/256.0) //1
+//    { //this one might be covered by 2 and 4
+//        inverse = YES;
+//    }
+    if (red == 0 && green == 0 && blue <= 192/256.0) //2
+    {
+        inverse = YES;
+    }
+    else if (red + green <= 64/256.0 && blue <= 192/256.0) //3
+    {
+        inverse = YES;
+    }
+    else if (red <= 64/256.0 && green <= 64/256.0 && blue == 0) //4
+    {
+        inverse = YES;
+    }
+    else
+    {
+        inverse = NO;
+    }
+    
+    /*
+     if red, green, or blue are by themselves and below 64, make inverse
+     if blue is by itself and less than 192, inverse
+     if blue is with green or red (which are less than 64), and blue is 192 or less, inverse
+     if red and green are together and 64 or less, inverse
+     the rest are normal
+     */
+    
+    if (inverse)
+    {
+        self.dismissModalButton.backgroundColor = textColor;
+        self.dismissModalButton.layer.borderColor = color.CGColor;
+    }
+    else
+    {
+        self.dismissModalButton.backgroundColor = color;
+        self.dismissModalButton.layer.borderColor = textColor.CGColor;
+    }
+    /* NORMAL
+     self.dismissModalButton.backgroundColor = color;
+     self.dismissModalButton.layer.borderColor = textColor.CGColor;
+     */
+    
+    /* INVERSE
+     self.dismissModalButton.backgroundColor = textColor;
+     self.dismissModalButton.layer.borderColor = color.CGColor;
+     */
+    
+    /*
+     too dark when:
+     R/B are 64
+     R is 64, B is 192
+     B is 192, 128, 64
+     G is 64
+     
+     borderline when:
+     G is 64, B is 192
+     R/G are 64
+     R is 128
+     
+     ok when:
+     G is 64, B is 256
+     R is 256, B is 64
+     G is 128, B is 64
+     R is 192, B is 64
+     R is 192, B is 192
+     G is 128
+     R is 128, B is 128
+     G is 128, B is 128
+     R is 128, G is 128
+     */
     
     self.totalButtonTaps = 0;
     self.playerScoreLabel.text = [NSString stringWithFormat:@"Your Score: %lu", (unsigned long)self.totalButtonTaps];
