@@ -297,12 +297,12 @@
         self.multiplier = 64/256.0;
     }
     self.incrementValue = self.multiplier * 256;
-    NSLog(@"incrementValue: %li || multiplier: %f", self.incrementValue, self.multiplier);
+//    NSLog(@"incrementValue: %li || multiplier: %f", self.incrementValue, self.multiplier);
 }
 
 - (void)changeBackgroundColor
 {
-    NSLog(@"redFloat at changeBackgroundColor: %.2f", self.colorWithRedFloat);
+//    NSLog(@"redFloat at changeBackgroundColor: %.2f", self.colorWithRedFloat);
     self.view.backgroundColor = [UIColor colorWithRed:self.colorWithRedFloat green:self.colorWithGreenFloat blue:self.colorWithBlueFloat alpha:1.0];
     
     CGFloat redBG, greenBG, blueBG, alphaBG;
@@ -311,7 +311,7 @@
                                 green: &greenBG
                                  blue: &blueBG
                                 alpha: &alphaBG];
-    NSLog(@"redBG at changeBackgroundColor: %.2f", redBG);
+//    NSLog(@"redBG at changeBackgroundColor: %.2f", redBG);
     self.redBackgroundValueLabel.text = [NSString stringWithFormat:@"R: %.0f", redBG*256];
     self.greenBackgroundValueLabel.text = [NSString stringWithFormat:@"G: %.0f", greenBG*256];
     self.blueBackgroundValueLabel.text = [NSString stringWithFormat:@"B: %.0f", blueBG*256];
