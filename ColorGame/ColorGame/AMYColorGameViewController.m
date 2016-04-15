@@ -346,7 +346,7 @@
 - (NSInteger)calculateScoreOfMinimumTapsForColor:(CGFloat)redGreenOrBlue
 {
     CGFloat color = redGreenOrBlue * 256;
-    NSLog(@"color: %.2f", color);
+//    NSLog(@"color: %.2f", color);
 //    NSUInteger sixtyFour = 64/256.0;
 //    NSUInteger thirtyTwo = 32/356.0;
 //    NSUInteger sixteen = 16/256.0;
