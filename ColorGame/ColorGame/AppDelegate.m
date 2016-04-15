@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "UILabel+Helper.h"
 
 @interface AppDelegate ()
 
@@ -15,8 +16,15 @@
 @implementation AppDelegate
 
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+//    NSString *fontName = @"GurmukhiMN"; //i like it, but it makes the buttons look weird
+//    NSString *fontName = @"IowanOldStyle-Bold"; //hmm... too big, but nice. I think it's my favorite so far.
+//    NSString *fontName = @"Palatino-Bold"; //not bad, but not spectacular
+//    NSString *fontName = @"AvenirNextCondensed-Bold"; //growing on me
+    
+//    [[UILabel appearance] setSubstituteFontName:fontName];
+    
     return YES;
 }
 
