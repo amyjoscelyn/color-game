@@ -9,6 +9,7 @@
 #import "AMYColorGameViewController.h"
 #import "AMYSharedDataStore.h"
 #import "AMYColorSetup.h"
+#import <tgmath.h>
 
 @interface AMYColorGameViewController ()
 
@@ -86,7 +87,7 @@
     
     self.currentColor = [UIColor whiteColor];
     self.firstColor = YES;
-    NSLog(@"(VIEW DID LOAD) firstColor? %d", self.firstColor);
+//    NSLog(@"(VIEW DID LOAD) firstColor? %d", self.firstColor);
     
     [self chooseGoalColor];
     
@@ -162,7 +163,42 @@
     self.greenGoalValueLabel.text = [NSString stringWithFormat:@"G: %.0f", green*256];
     self.blueGoalValueLabel.text = [NSString stringWithFormat:@"B: %.0f", blue*256];
     
-    NSUInteger targetScore = (red + green + blue) * (1/self.multiplier);
+    NSUInteger targetScore;
+    
+    if (self.store.mode == 0 || self.store.mode == 1)
+    {
+        targetScore = (red + green + blue) * (1/self.multiplier);
+    }
+    else
+    {
+        //maybe i can set up different NSUInt objects for 64/256.0 and each other, so i don't have to have those ugly ##s and it will be tab-completed for me
+//        NSUInteger sixtyFour = 64/256.0;
+//        NSUInteger thirtyTwo = 32/356.0;
+//        NSUInteger sixteen = 16/256.0;
+//        NSUInteger four = 4/256.0;
+        
+        NSInteger redScore = 0;
+        NSInteger greenScore = 0;
+        NSInteger blueScore = 0;
+        
+        if (red != 0) //if red is a color at all, then we need to figure out the score
+        {
+            redScore = [self calculateScoreOfMinimumTapsForColor:red];
+        }
+        if (green != 0)
+        {
+            greenScore = [self calculateScoreOfMinimumTapsForColor:green];
+        }
+        if (blue != 0)
+        {
+            blueScore = [self calculateScoreOfMinimumTapsForColor:blue];
+        }
+        
+        targetScore = redScore + greenScore + blueScore;
+        
+        //it needs to be made clear that score is the minimum amount of taps needed
+    }
+    
     // once there are options of switching between multiple increments, the score gets a lot harder to calculate
     // I would hate to have to figure them out for every single color, optimized, and plug them in based on that color :(
     // unless I can make an algorithm based on comparable division:
@@ -307,8 +343,60 @@
     [self setUpView];
 }
 
+- (NSInteger)calculateScoreOfMinimumTapsForColor:(CGFloat)redGreenOrBlue
+{
+    CGFloat color = redGreenOrBlue * 256;
+    NSLog(@"color: %.2f", color);
+//    NSUInteger sixtyFour = 64/256.0;
+//    NSUInteger thirtyTwo = 32/356.0;
+//    NSUInteger sixteen = 16/256.0;
+//    NSUInteger four = 4/256.0;
+    NSUInteger sixtyFour = 64;
+    NSUInteger thirtyTwo = 32;
+    NSUInteger sixteen = 16;
+    NSUInteger four = 4;
+    
+    NSInteger remainderOne = 0;
+    NSInteger remainderTwo = 0;
+    NSInteger remainderThree = 0;
+    NSInteger remainderFour = 0;
+    
+    NSInteger moduloOne;
+    NSInteger moduloTwo;
+    NSInteger moduloThree;
+//    NSInteger moduloFour;
+//    NSInteger modulo;
+    //start with 64
+    remainderOne = color / sixtyFour;
+    moduloOne = fmodf(color, sixtyFour);
+//    NSLog(@"remainderOne: %li, modulo: %li", remainderOne, moduloOne);
+    if (!(moduloOne == 0))
+    {
+        //now 32
+        remainderTwo = moduloOne / thirtyTwo;
+        moduloTwo = fmodf(moduloOne, thirtyTwo);
+//        NSLog(@"remainderTwo: %li, modulo: %li", remainderTwo, moduloTwo);
+        if (!(moduloTwo == 0))
+        {
+            //now 16
+            remainderThree = moduloTwo / sixteen;
+            moduloThree = fmodf(moduloTwo, sixteen);
+//            NSLog(@"remainderThree: %li, modulo: %li", remainderThree, moduloThree);
+            if (!(moduloThree == 0))
+            {
+                //now 4
+                remainderFour = moduloThree / four;
+//                modulo = fmodf(color, four); //don't need modulo for smallest multiplier value
+//                NSLog(@"remainderFour: %li", remainderFour);
+            }
+        }
+    }
+//    NSLog(@"total score: %li", remainderOne + remainderThree + remainderTwo + remainderFour);
+    return remainderOne + remainderTwo + remainderThree + remainderFour;
+}
+
 - (void)setUpView
-{    
+{
     self.colorWithRedFloat = 0.0;
     self.colorWithGreenFloat = 0.0;
     self.colorWithBlueFloat = 0.0;
@@ -328,8 +416,7 @@
     self.lessBlueButton.enabled = YES;
     self.moreBlueButton.enabled = YES;
     
-    //this here below should only happen once: when you're going to the gameVC for the first time.  if you're just getting a new color, then it should keep the same increment that you had before.  At least, it does in theory; the selected segmented control changes but the increment value doesn't.  the selected segmented control should change only if there isn't one already
-    NSLog(@"(BEFORE CHECK) firstColor? %d", self.firstColor);
+//    NSLog(@"(BEFORE CHECK) firstColor? %d", self.firstColor);
     if (self.firstColor)
     {
         if (self.store.mode == 0 || self.store.mode == 1)
