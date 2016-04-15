@@ -48,6 +48,8 @@
 
 @property (nonatomic) CGFloat multiplier;
 @property (nonatomic) NSInteger incrementValue;
+@property (nonatomic) BOOL firstColor;
+
 @property (nonatomic) NSUInteger totalButtonTaps;
 @property (nonatomic, strong) UIColor *currentColor;
 
@@ -83,6 +85,8 @@
     self.incrementValue = self.multiplier * 256;
     
     self.currentColor = [UIColor whiteColor];
+    self.firstColor = YES;
+    NSLog(@"(VIEW DID LOAD) firstColor? %d", self.firstColor);
     
     [self chooseGoalColor];
     
@@ -324,24 +328,29 @@
     self.lessBlueButton.enabled = YES;
     self.moreBlueButton.enabled = YES;
     
-    if (self.store.mode == 0 || self.store.mode == 1)
+    //this here below should only happen once: when you're going to the gameVC for the first time.  if you're just getting a new color, then it should keep the same increment that you had before.  At least, it does in theory; the selected segmented control changes but the increment value doesn't.  the selected segmented control should change only if there isn't one already
+    NSLog(@"(BEFORE CHECK) firstColor? %d", self.firstColor);
+    if (self.firstColor)
     {
-        self.incrementSegmentedControl.hidden = YES;
-    }
-    else if (self.store.mode == 2)
-    {
-        self.incrementSegmentedControl.hidden = NO;
-        self.incrementSegmentedControl.selectedSegmentIndex = 1;
-    }
-    else if (self.store.mode == 3)
-    {
-        self.incrementSegmentedControl.hidden = NO;
-        self.incrementSegmentedControl.selectedSegmentIndex = 0;
-    }
-    //maybe one day I can have a separate segmentedControl for each mode--mode 1 can just have 32 and 64, mode 2 can have 3, and 3 can have all four, the current segmentedControl.  Then I can just hide them appropriately and only show the one that's called for.
-    else
-    {
-        NSLog(@"Somehow you've gotten off the rails. Pick an existing difficulty.");
+        if (self.store.mode == 0 || self.store.mode == 1)
+        {
+            self.incrementSegmentedControl.hidden = YES;
+        }
+        else if (self.store.mode == 2)
+        {
+            self.incrementSegmentedControl.hidden = NO;
+            self.incrementSegmentedControl.selectedSegmentIndex = 1;
+        }
+        else if (self.store.mode == 3)
+        {
+            self.incrementSegmentedControl.hidden = NO;
+            self.incrementSegmentedControl.selectedSegmentIndex = 0;
+        }
+        else
+        {
+            NSLog(@"Somehow you've gotten off the rails. Pick an existing difficulty.");
+        }
+        //maybe one day I can have a separate segmentedControl for each mode--mode 1 can just have 32 and 64, mode 2 can have 3, and 3 can have all four, the current segmentedControl.  Then I can just hide them appropriately and only show the one that's called for.
     }
 }
 
@@ -351,6 +360,7 @@
     {
         //this means increment == 4
         self.multiplier = 4/256.0;
+//        self.selectedSegment = 0;
     }
     else if (self.incrementSegmentedControl.selectedSegmentIndex == 1)
     {
@@ -547,6 +557,7 @@
 
 - (IBAction)refreshGameButtonTapped:(id)sender
 {
+    self.firstColor = NO;
     [self chooseGoalColor];
 }
 
