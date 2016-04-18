@@ -173,23 +173,24 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="LUM-M0-OVe" userLabel="Score Label SV">
-                                        <rect key="frame" x="56" y="0.0" width="134" height="45"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AyX-R3-6om">
+                                        <rect key="frame" x="85" y="62" width="101.5" height="101.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Your Score: %lu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C5c-sc-5Z8">
-                                                <rect key="frame" x="8" y="0.0" width="119" height="21"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Target Score: %lu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7bo-CO-HC3">
-                                                <rect key="frame" x="0.0" y="25" width="134" height="21"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x0k-rs-ia8">
+                                                <rect key="frame" x="4" y="35" width="92" height="30"/>
+                                                <state key="normal" title="  New Color!  "/>
+                                                <connections>
+                                                    <action selector="refreshGameButtonTapped:" destination="bfI-jO-KW3" eventType="touchUpInside" id="sCZ-pK-iIz"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
-                                    </stackView>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="AyX-R3-6om" secondAttribute="height" multiplier="1:1" id="Vo8-OU-UgH"/>
+                                            <constraint firstItem="x0k-rs-ia8" firstAttribute="centerX" secondItem="AyX-R3-6om" secondAttribute="centerX" id="gwV-iP-lZ8"/>
+                                            <constraint firstItem="x0k-rs-ia8" firstAttribute="centerY" secondItem="AyX-R3-6om" secondAttribute="centerY" id="ue9-ao-eA1"/>
+                                        </constraints>
+                                    </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eTj-sc-lHG">
                                         <rect key="frame" x="226" y="16" width="30" height="30"/>
                                         <state key="normal" title="⚪️"/>
@@ -243,24 +244,23 @@
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AyX-R3-6om">
-                                        <rect key="frame" x="85" y="62" width="101.5" height="101.5"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" axis="vertical" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="LUM-M0-OVe" userLabel="Score Label SV">
+                                        <rect key="frame" x="66" y="9" width="134" height="45"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x0k-rs-ia8">
-                                                <rect key="frame" x="4" y="35" width="92" height="30"/>
-                                                <state key="normal" title="  New Color!  "/>
-                                                <connections>
-                                                    <action selector="refreshGameButtonTapped:" destination="bfI-jO-KW3" eventType="touchUpInside" id="sCZ-pK-iIz"/>
-                                                </connections>
-                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Your Score: %lu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C5c-sc-5Z8">
+                                                <rect key="frame" x="8" y="0.0" width="119" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Target Score: %lu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7bo-CO-HC3">
+                                                <rect key="frame" x="0.0" y="25" width="134" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="AyX-R3-6om" secondAttribute="height" multiplier="1:1" id="Vo8-OU-UgH"/>
-                                            <constraint firstItem="x0k-rs-ia8" firstAttribute="centerX" secondItem="AyX-R3-6om" secondAttribute="centerX" id="gwV-iP-lZ8"/>
-                                            <constraint firstItem="x0k-rs-ia8" firstAttribute="centerY" secondItem="AyX-R3-6om" secondAttribute="centerY" id="ue9-ao-eA1"/>
-                                        </constraints>
-                                    </view>
+                                    </stackView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -278,6 +278,7 @@
                                     <constraint firstItem="eTj-sc-lHG" firstAttribute="top" secondItem="JH2-RM-zcv" secondAttribute="top" constant="16" id="Rha-Pv-soB"/>
                                     <constraint firstAttribute="trailing" secondItem="eTj-sc-lHG" secondAttribute="trailing" constant="16" id="XuO-s2-YBp"/>
                                     <constraint firstItem="j5K-2p-Pno" firstAttribute="height" secondItem="AyX-R3-6om" secondAttribute="height" id="bY6-C5-1g9"/>
+                                    <constraint firstItem="LUM-M0-OVe" firstAttribute="top" secondItem="JH2-RM-zcv" secondAttribute="top" constant="8" id="hqd-cF-Sm1"/>
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="uEp-DN-qqI" userLabel="Color Button SVs">

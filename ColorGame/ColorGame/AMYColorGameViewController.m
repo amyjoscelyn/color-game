@@ -167,7 +167,7 @@
     
     NSUInteger targetScore;
     
-    if (self.store.mode == 0 || self.store.mode == 1)
+    if (self.store.mode == 0)
     {
         targetScore = (red + green + blue) * (1/self.multiplier);
     }
