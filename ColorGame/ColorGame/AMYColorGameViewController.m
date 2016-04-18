@@ -56,6 +56,7 @@
 
 @property (nonatomic) NSUInteger totalButtonTaps;
 @property (nonatomic, strong) UIColor *currentColor;
+@property (nonatomic) NSUInteger hintButtonTaps;
 
 @property (nonatomic, strong) AMYSharedDataStore *store;
 
@@ -234,6 +235,14 @@
         colorValueLabel.layer.shadowOffset = CGSizeZero;
         colorValueLabel.layer.masksToBounds = NO;
     }
+    self.redGoalValueLabel.hidden = YES;
+    self.greenGoalValueLabel.hidden = YES;
+    self.blueGoalValueLabel.hidden = YES;
+    
+    self.redBackgroundValueLabel.hidden = YES;
+    self.greenBackgroundValueLabel.hidden = YES;
+    self.blueBackgroundValueLabel.hidden = YES;
+    
     [self.refreshGameButton setTitleColor:textColor forState:UIControlStateNormal];
     self.refreshGameButton.layer.borderWidth = 2.0f;
     self.refreshGameButton.layer.borderColor = textColor.CGColor;
@@ -338,9 +347,12 @@
      R is 128, G is 128
      */
     
+    self.hintButtonTaps = 0;
     self.totalButtonTaps = 0;
     self.playerScoreLabel.text = [NSString stringWithFormat:@"Your Score: %lu", (unsigned long)self.totalButtonTaps];
     self.gameLabel.text = @"Match the color!";
+    
+    [self.hideFeatureButton setTitle:@"❔" forState:UIControlStateNormal];
     
     self.view.backgroundColor = [UIColor blackColor];
 }
@@ -407,9 +419,9 @@
     self.greenInteger = 0;
     self.blueInteger = 0;
     
-    self.redBackgroundValueLabel.text = [NSString stringWithFormat:@"R:"];
-    self.greenBackgroundValueLabel.text = [NSString stringWithFormat:@"G:"];
-    self.blueBackgroundValueLabel.text = [NSString stringWithFormat:@"B:"];
+    self.redBackgroundValueLabel.text = [NSString stringWithFormat:@"R: 0"];
+    self.greenBackgroundValueLabel.text = [NSString stringWithFormat:@"G: 0"];
+    self.blueBackgroundValueLabel.text = [NSString stringWithFormat:@"B: 0"];
     
     self.lessRedButton.enabled = YES;
     self.moreRedButton.enabled = YES;
@@ -707,34 +719,68 @@
 
 - (IBAction)hideFeatureButtonTapped:(id)sender
 {
-    if ([self.hideFeatureButton.titleLabel.text isEqualToString:@"⚪️"])
+    //if this button is tapped at all, this method will trigger
+    //if it has not been tapped yet, reveal the goal color values
+    //if it has been tapped once, reveal the background color values
+    //if it is tapped again, hide all value labels
+    
+    if (self.hintButtonTaps == 0)
     {
-        self.redBackgroundValueLabel.hidden = YES;
-        self.greenBackgroundValueLabel.hidden = YES;
-        self.blueBackgroundValueLabel.hidden = YES;
+        self.redGoalValueLabel.hidden = NO;
+        self.greenGoalValueLabel.hidden = NO;
+        self.blueGoalValueLabel.hidden = NO;
         
-        [self.hideFeatureButton setTitle:@"🔘" forState:UIControlStateNormal];
+        self.hintButtonTaps++;
     }
-    else if ([self.hideFeatureButton.titleLabel.text isEqualToString:@"🔘"])
-    {
-        self.redGoalValueLabel.hidden = YES;
-        self.greenGoalValueLabel.hidden = YES;
-        self.blueGoalValueLabel.hidden = YES;
-        
-        [self.hideFeatureButton setTitle:@"⚫️" forState:UIControlStateNormal];
-    }
-    else
+    else if (self.hintButtonTaps == 1)
     {
         self.redBackgroundValueLabel.hidden = NO;
         self.greenBackgroundValueLabel.hidden = NO;
         self.blueBackgroundValueLabel.hidden = NO;
         
-        self.redGoalValueLabel.hidden = NO;
-        self.greenGoalValueLabel.hidden = NO;
-        self.blueGoalValueLabel.hidden = NO;
-        
-        [self.hideFeatureButton setTitle:@"⚪️" forState:UIControlStateNormal];
+        self.hintButtonTaps++;
     }
+    else
+    {
+        self.redGoalValueLabel.hidden = YES;
+        self.greenGoalValueLabel.hidden = YES;
+        self.blueGoalValueLabel.hidden = YES;
+        
+        self.redBackgroundValueLabel.hidden = YES;
+        self.greenBackgroundValueLabel.hidden = YES;
+        self.blueBackgroundValueLabel.hidden = YES;
+        
+        self.hintButtonTaps = 0;
+    }
+    
+//    if ([self.hideFeatureButton.titleLabel.text isEqualToString:@"⚪️"]) //❔❓❕❗️
+//    {
+//        self.redBackgroundValueLabel.hidden = YES;
+//        self.greenBackgroundValueLabel.hidden = YES;
+//        self.blueBackgroundValueLabel.hidden = YES;
+//        
+//        [self.hideFeatureButton setTitle:@"🔘" forState:UIControlStateNormal];
+//    }
+//    else if ([self.hideFeatureButton.titleLabel.text isEqualToString:@"🔘"])
+//    {
+//        self.redGoalValueLabel.hidden = YES;
+//        self.greenGoalValueLabel.hidden = YES;
+//        self.blueGoalValueLabel.hidden = YES;
+//        
+//        [self.hideFeatureButton setTitle:@"⚫️" forState:UIControlStateNormal];
+//    }
+//    else
+//    {
+//        self.redBackgroundValueLabel.hidden = NO;
+//        self.greenBackgroundValueLabel.hidden = NO;
+//        self.blueBackgroundValueLabel.hidden = NO;
+//        
+//        self.redGoalValueLabel.hidden = NO;
+//        self.greenGoalValueLabel.hidden = NO;
+//        self.blueGoalValueLabel.hidden = NO;
+//        
+//        [self.hideFeatureButton setTitle:@"⚪️" forState:UIControlStateNormal];
+//    }
 }
 
 - (IBAction)dismissModalButtonTapped:(id)sender
