@@ -32,7 +32,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *lessBlueButton;
 @property (weak, nonatomic) IBOutlet UIButton *moreBlueButton;
 
-@property (weak, nonatomic) IBOutlet UISegmentedControl *incrementSegmentedControl;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *basicIncrementSegmentedControl;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *moderateIncrementSegmentedControl;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *challengingIncrementSegmentedControl;
 
 @property (weak, nonatomic) IBOutlet UILabel *playerScoreLabel;
 @property (weak, nonatomic) IBOutlet UILabel *targetScoreLabel;
@@ -49,6 +51,7 @@
 
 @property (nonatomic) CGFloat multiplier;
 @property (nonatomic) NSInteger incrementValue;
+@property (nonatomic) UISegmentedControl *currentSegmentedControl;
 @property (nonatomic) BOOL firstColor;
 
 @property (nonatomic) NSUInteger totalButtonTaps;
@@ -237,7 +240,7 @@
     self.refreshGameButton.layer.borderColor = textColor.CGColor;
     self.refreshGameButton.hidden = YES;
     
-    self.incrementSegmentedControl.tintColor = textColor;
+    self.currentSegmentedControl.tintColor = textColor;
     
     NSArray *gameLabels = @[ self.gameLabel, self.playerScoreLabel, self.targetScoreLabel ];
     
@@ -419,51 +422,83 @@
 //    NSLog(@"(BEFORE CHECK) firstColor? %d", self.firstColor);
     if (self.firstColor)
     {
-        if (self.store.mode == 0 || self.store.mode == 1)
+        if (self.store.mode == 0)
         {
-            self.incrementSegmentedControl.hidden = YES;
+            self.basicIncrementSegmentedControl.hidden = YES;
+            self.moderateIncrementSegmentedControl.hidden = YES;
+            self.challengingIncrementSegmentedControl.hidden = YES;
+        }
+        else if (self.store.mode == 1)
+        {
+            self.basicIncrementSegmentedControl.hidden = NO;
+            self.moderateIncrementSegmentedControl.hidden = YES;
+            self.challengingIncrementSegmentedControl.hidden = YES;
+            
+            self.basicIncrementSegmentedControl.selectedSegmentIndex = 0;
         }
         else if (self.store.mode == 2)
         {
-            self.incrementSegmentedControl.hidden = NO;
-            self.incrementSegmentedControl.selectedSegmentIndex = 1;
+            self.basicIncrementSegmentedControl.hidden = YES;
+            self.moderateIncrementSegmentedControl.hidden = NO;
+            self.challengingIncrementSegmentedControl.hidden = YES;
+            
+            self.moderateIncrementSegmentedControl.selectedSegmentIndex = 0;
         }
         else if (self.store.mode == 3)
         {
-            self.incrementSegmentedControl.hidden = NO;
-            self.incrementSegmentedControl.selectedSegmentIndex = 0;
+            self.basicIncrementSegmentedControl.hidden = YES;
+            self.moderateIncrementSegmentedControl.hidden = YES;
+            self.challengingIncrementSegmentedControl.hidden = NO;
+            
+            self.challengingIncrementSegmentedControl.selectedSegmentIndex = 0;
         }
         else
         {
             NSLog(@"Somehow you've gotten off the rails. Pick an existing difficulty.");
         }
-        //maybe one day I can have a separate segmentedControl for each mode--mode 1 can just have 32 and 64, mode 2 can have 3, and 3 can have all four, the current segmentedControl.  Then I can just hide them appropriately and only show the one that's called for.
     }
 }
 
-- (IBAction)incrementSegmentedControlValueChanged:(id)sender
+- (IBAction)incrementSegmentedControlValueChanged:(UISegmentedControl *)sender
 {
-    if (self.incrementSegmentedControl.selectedSegmentIndex == 0)
+    if (sender == self.basicIncrementSegmentedControl)
     {
-        //this means increment == 4
-        self.multiplier = 4/256.0;
-//        self.selectedSegment = 0;
+        //this means there are two segments, increments of 32 and 64
+        
     }
-    else if (self.incrementSegmentedControl.selectedSegmentIndex == 1)
+    else if (sender == self.moderateIncrementSegmentedControl)
     {
-        //this means increment == 16
-        self.multiplier = 16/256.0;
+        //this means there are three segments, increments of 16, 32, and 64
     }
-    else if (self.incrementSegmentedControl.selectedSegmentIndex == 2)
+    else if (sender == self.challengingIncrementSegmentedControl)
     {
-        //this means increment == 32
-        self.multiplier = 32/256.0;
+        if (sender.selectedSegmentIndex == 0)
+        {
+            //this means increment == 4
+            self.multiplier = 4/256.0;
+            //        self.selectedSegment = 0;
+        }
+        else if (sender.selectedSegmentIndex == 1)
+        {
+            //this means increment == 16
+            self.multiplier = 16/256.0;
+        }
+        else if (sender.selectedSegmentIndex == 2)
+        {
+            //this means increment == 32
+            self.multiplier = 32/256.0;
+        }
+        else
+        {
+            //increment == 64
+            self.multiplier = 64/256.0;
+        }
     }
     else
     {
-        //increment == 64
-        self.multiplier = 64/256.0;
+        NSLog(@"We have a segment out of control here!");
     }
+    
     self.incrementValue = self.multiplier * 256;
 //    NSLog(@"incrementValue: %li || multiplier: %f", self.incrementValue, self.multiplier);
 }
@@ -727,6 +762,30 @@
 /*
     There can be a medium mode, which is more about mixing colors straightaway, now that you understand how the colors interact with each other.  This the increment value can change as you "level up", so it starts off at .1 and then goes to .05, meaning only .# values are possible at the start, and then .## values that are divisible by 5 by the end. //THIS MIGHT NEED TO BE SPLIT INTO TWO LEVELS, ONE FOR JUST .1, AND ONE FOR JUST .05
     The highest level can be the challenging setting, where you have a choice of your increment, from 1 all the way to .01.  This should be a slider, with set amounts--like it paginates to those values--and the amount listed above the slider so you're well aware of what you're incrementing by.  The colors start off easy here as well, to get you used to changing the increment yourself, so I can basically reuse the colors from the earlier settings, although I'll probably smush all of the colors from the easy one into the first difficulty level, then from the medium ones into the next few, and then a brand new amount of colors with .## values of ANY number.
+ */
+
+/*
+ Future stuff to work on (2.0?):
+ 
+ Make the menu screens into one menu: one column for complexity, one for difficulty.
+ I can still have them change colors, but it can be in a different way--maybe everytime the menu is returned to the button gradients change?
+ 
+ Change the way the hint/reveal values work.
+ ❔❓❕❗️   ‼️⁉️
+ It should be a grayed out question mark at the beginning.
+ If their total taps exceeds the minimum taps by like 5 or so, the gray ? should become the red one, to hint to them that they can get some help.
+ They can tap it once, to see the target color values.  The question mark can go gray again for some time... but if it takes them like ten more taps the question mark can go red again and show them this time the background color values as well.  It goes gray again and should show an ! instead.
+ When the ! is tapped, it should hide everything again.
+ This should reset with each new color.
+ The ? is always tappable and will always reveal what it's supposed to reveal.  Turning red only reminds them that they can get help before they get frustrated.
+ 
+ The amount of taps should differ base on difficulty.  The more difficult and complex, the more taps I should let them try out before I remind them of the ? because they might not always be using the most efficient increment value.  Gotta keep that in mind!
+ 
+ For the very future, the red ? can flash in an animated way to get their attention.
+ I might have to put the ? on a colored background in order to ensure it's always visible against the phone's background.
+ 
+ 
+ A settings menu should pop out, where they can toggle whether the score should show, whether the hints (color values) should be revealed in an inverse manner--always show unless the ? button is tapped.  It should also determine whether the colors are inverse all the way--that you start with a white screen and you need to take away color from the background in order to match the color.  This inverse of theme color should also turn the menu screens black.
  */
 
 @end
