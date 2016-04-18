@@ -69,7 +69,6 @@
     self.store = [AMYSharedDataStore sharedDataStore];
     
     //set up mode
-    //MULTIPLIER SYSTEM HAS CHANGED!!!!!!
     if (self.store.mode == 0) //simple
     {
         self.multiplier = 64/256.0;
@@ -240,6 +239,8 @@
     self.refreshGameButton.layer.borderColor = textColor.CGColor;
     self.refreshGameButton.hidden = YES;
     
+    [self setUpView];
+    
     self.currentSegmentedControl.tintColor = textColor;
     
     NSArray *gameLabels = @[ self.gameLabel, self.playerScoreLabel, self.targetScoreLabel ];
@@ -342,8 +343,6 @@
     self.gameLabel.text = @"Match the color!";
     
     self.view.backgroundColor = [UIColor blackColor];
-    
-    [self setUpView];
 }
 
 - (NSInteger)calculateScoreOfMinimumTapsForColor:(CGFloat)redGreenOrBlue
@@ -434,7 +433,7 @@
             self.moderateIncrementSegmentedControl.hidden = YES;
             self.challengingIncrementSegmentedControl.hidden = YES;
             
-            self.basicIncrementSegmentedControl.selectedSegmentIndex = 0;
+            self.currentSegmentedControl = self.basicIncrementSegmentedControl;
         }
         else if (self.store.mode == 2)
         {
@@ -442,7 +441,7 @@
             self.moderateIncrementSegmentedControl.hidden = NO;
             self.challengingIncrementSegmentedControl.hidden = YES;
             
-            self.moderateIncrementSegmentedControl.selectedSegmentIndex = 0;
+            self.currentSegmentedControl = self.moderateIncrementSegmentedControl;
         }
         else if (self.store.mode == 3)
         {
@@ -450,12 +449,13 @@
             self.moderateIncrementSegmentedControl.hidden = YES;
             self.challengingIncrementSegmentedControl.hidden = NO;
             
-            self.challengingIncrementSegmentedControl.selectedSegmentIndex = 0;
+            self.currentSegmentedControl = self.challengingIncrementSegmentedControl;
         }
         else
         {
             NSLog(@"Somehow you've gotten off the rails. Pick an existing difficulty.");
         }
+        self.currentSegmentedControl.selectedSegmentIndex = 0;
     }
 }
 
@@ -463,12 +463,34 @@
 {
     if (sender == self.basicIncrementSegmentedControl)
     {
-        //this means there are two segments, increments of 32 and 64
-        
+        if (sender.selectedSegmentIndex == 0)
+        {
+            //this means increment == 32
+            self.multiplier = 32/256.0;
+        }
+        else
+        {
+            //increment == 64
+            self.multiplier = 64/256.0;
+        }
     }
     else if (sender == self.moderateIncrementSegmentedControl)
     {
-        //this means there are three segments, increments of 16, 32, and 64
+        if (sender.selectedSegmentIndex == 0)
+        {
+            //this means increment == 16
+            self.multiplier = 16/256.0;
+        }
+        else if (sender.selectedSegmentIndex == 1)
+        {
+            //this means increment == 32
+            self.multiplier = 32/256.0;
+        }
+        else
+        {
+            //increment == 64
+            self.multiplier = 64/256.0;
+        }
     }
     else if (sender == self.challengingIncrementSegmentedControl)
     {

@@ -146,6 +146,9 @@
                                     <segment title="32"/>
                                     <segment title="64"/>
                                 </segments>
+                                <connections>
+                                    <action selector="incrementSegmentedControlValueChanged:" destination="bfI-jO-KW3" eventType="valueChanged" id="OPq-Ua-C5h"/>
+                                </connections>
                             </segmentedControl>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="bu6-yC-Prq">
                                 <rect key="frame" x="84" y="261" width="153" height="46"/>
@@ -157,6 +160,9 @@
                                     <segment title="32"/>
                                     <segment title="64"/>
                                 </segments>
+                                <connections>
+                                    <action selector="incrementSegmentedControlValueChanged:" destination="bfI-jO-KW3" eventType="valueChanged" id="o1P-fN-Ikl"/>
+                                </connections>
                             </segmentedControl>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JH2-RM-zcv">
                                 <rect key="frame" x="31" y="20" width="248" height="231.5"/>
