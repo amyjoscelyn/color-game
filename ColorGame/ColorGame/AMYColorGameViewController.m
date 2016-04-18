@@ -52,7 +52,6 @@
 @property (nonatomic) CGFloat multiplier;
 @property (nonatomic) NSInteger incrementValue;
 @property (nonatomic) UISegmentedControl *currentSegmentedControl;
-//@property (nonatomic) BOOL firstColor;
 
 @property (nonatomic) NSUInteger totalButtonTaps;
 @property (nonatomic, strong) UIColor *currentColor;
@@ -70,14 +69,9 @@
     self.store = [AMYSharedDataStore sharedDataStore];
     
     self.currentColor = [UIColor whiteColor];
-//    self.firstColor = YES;
     
     [self setUpMultiplier];
     [self chooseGoalColor];
-    
-    self.colorGoalView.layer.cornerRadius = self.colorGoalView.frame.size.height/2;
-    self.colorGoalView.clipsToBounds = YES;
-    //do the above two need to go here? or can they go with the rest of the setupview method?
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -190,6 +184,7 @@
 {
     //-------------------------------------------
     //setting the color and breaking it down into components
+    //it uses color and returns red, green, and blue
     self.colorGoalView.backgroundColor = color;
     self.currentColor = color;
     
@@ -205,10 +200,12 @@
     //-------------------------------------------
     
     //this handles the minimum score for goal color
+    //it uses red, green, and blue
     NSUInteger targetScore = [self calculateTargetScoreWithRed:red green:green blue:blue];
     self.targetScoreLabel.text = [NSString stringWithFormat:@"Target Score: %lu", (unsigned long)targetScore];
     
     //this determines the textColor
+    //it uses red and green
     UIColor *textColor = [UIColor whiteColor];
     
     if (red > 180/256.0 && green > 180/256.0)
@@ -217,7 +214,8 @@
     }
     
     //...............................................
-    //maybe the below can be its own method, void, no param
+    //maybe the below can be its own method, void, textColor param... should this be called in this method, or in setUpView?
+    //it uses textColor
     NSArray *colorValueLabels = @[ self.redGoalValueLabel,
                                    self.greenGoalValueLabel,
                                    self.blueGoalValueLabel,
@@ -244,19 +242,26 @@
     //...............................................
     
     //this is all about the refreshGameButton, hidden in the goal color circle
+    //it uses textColor
+    //maybe the portions that do not need textColor can be in setUpView?
     [self.refreshGameButton setTitleColor:textColor forState:UIControlStateNormal];
     self.refreshGameButton.layer.borderWidth = 2.0f;
     self.refreshGameButton.layer.borderColor = textColor.CGColor;
     self.refreshGameButton.hidden = YES;
     
     //this sets the segmented control with the textColor
+    //uses textColor
     self.currentSegmentedControl.tintColor = textColor;
     
     //another method?  this time just for game labels?
-    NSArray *gameLabels = @[ self.gameLabel, self.playerScoreLabel, self.targetScoreLabel ];
+    //uses textColor
+    NSArray *gameLabels = @[ self.gameLabel,
+                             self.playerScoreLabel,
+                             self.targetScoreLabel ];
     
     for (UILabel *label in gameLabels)
     {
+        //THIS IS THE EXACT SAME AS THE ABOVE so i can make a method taking in the array and textColor.  no return needed
         label.textColor = textColor;
         label.layer.shadowColor = textColor.CGColor;
         label.layer.shadowRadius = 4.0f;
@@ -267,6 +272,9 @@
     
     //'''''''''''''''''''''''''''''''''''''''''''''''''
     //this is all for the backButton
+    //top part uses nothing, maybe good for setUpView?
+    //middle uses red, green, and blue, returns local BOOL
+    //bottom uses textColor and color
     self.dismissModalButton.layer.cornerRadius = 5;
     self.dismissModalButton.layer.borderWidth = 2.0f;
     
@@ -300,18 +308,6 @@
         self.dismissModalButton.layer.borderColor = textColor.CGColor;
     }
     //''''''''''''''''''''''''''''''''''''''''''''''''
-    
-    //.................................................
-    //this is the resetting of properties: text should be reverted to beginning-of-game state, taps need to be reset to 0, hintButton must be a gray ?, background must be black
-    self.hintButtonTaps = 0;
-    self.totalButtonTaps = 0;
-    self.playerScoreLabel.text = [NSString stringWithFormat:@"Your Score: %lu", (unsigned long)self.totalButtonTaps];
-    self.gameLabel.text = @"Match the color!";
-    
-    [self.hideFeatureButton setTitle:@"❔" forState:UIControlStateNormal];
-    
-    self.view.backgroundColor = [UIColor blackColor];
-    //.................................................
     
     [self setUpView];
 }
@@ -392,9 +388,25 @@
     return remainderOne + remainderTwo + remainderThree + remainderFour;
 }
 
-- (void)setUpView //for such a generic method name, i'd assume more of the setting up would happen here
+- (void)setUpView
 //set up view with what?  this should be where all the labels are populated, buttons hidden and properties reset...
 {
+    //this is about the goal circle
+    self.colorGoalView.layer.cornerRadius = self.colorGoalView.frame.size.height/2;
+    self.colorGoalView.clipsToBounds = YES;
+    
+    //.................................................
+    //this is the resetting of properties: text should be reverted to beginning-of-game state, taps need to be reset to 0, hintButton must be a gray ?, background must be black
+    self.hintButtonTaps = 0;
+    self.totalButtonTaps = 0;
+    self.playerScoreLabel.text = [NSString stringWithFormat:@"Your Score: %lu", (unsigned long)self.totalButtonTaps];
+    self.gameLabel.text = @"Match the color!";
+    
+    [self.hideFeatureButton setTitle:@"❔" forState:UIControlStateNormal];
+    
+    self.view.backgroundColor = [UIColor blackColor];
+    //.................................................
+    
     //-------------------------------------------
     //which outlets are these?? do i need to set them as 0?  do i need to do this here?
     self.colorWithRedFloat = 0.0;
@@ -406,7 +418,7 @@
     self.blueInteger = 0;
     //-------------------------------------------
     
-    //backgrounVLs set
+    //backgroundVLs set
     self.redBackgroundValueLabel.text = [NSString stringWithFormat:@"R: 0"];
     self.greenBackgroundValueLabel.text = [NSString stringWithFormat:@"G: 0"];
     self.blueBackgroundValueLabel.text = [NSString stringWithFormat:@"B: 0"];
