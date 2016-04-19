@@ -14,7 +14,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *redBackgroundValueLabel;
 @property (weak, nonatomic) IBOutlet UILabel *greenBackgroundValueLabel;
 @property (weak, nonatomic) IBOutlet UILabel *blueBackgroundValueLabel;
-@property (weak, nonatomic) IBOutlet UILabel *alphaBackgroundValueLabel;
 
 @property (weak, nonatomic) IBOutlet UIButton *lessRedButton;
 @property (weak, nonatomic) IBOutlet UIButton *moreRedButton;
@@ -22,25 +21,23 @@
 @property (weak, nonatomic) IBOutlet UIButton *moreGreenButton;
 @property (weak, nonatomic) IBOutlet UIButton *lessBlueButton;
 @property (weak, nonatomic) IBOutlet UIButton *moreBlueButton;
-@property (weak, nonatomic) IBOutlet UIButton *lessAlphaButton;
-@property (weak, nonatomic) IBOutlet UIButton *moreAlphaButton;
 
 @property (weak, nonatomic) IBOutlet UIButton *hideFeatureButton;
 @property (weak, nonatomic) IBOutlet UIButton *refreshViewButton;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *incrementSegmentedControl;
 
 @property (nonatomic) NSUInteger numberOfTimesRedButtonTapped;
 @property (nonatomic) NSUInteger numberOfTimesGreenButtonTapped;
 @property (nonatomic) NSUInteger numberOfTimesBlueButtonTapped;
-@property (nonatomic) NSUInteger numberOfTimesAlphaButtonTapped;
 
 @property (nonatomic) CGFloat colorWithRedFloat;
 @property (nonatomic) CGFloat colorWithGreenFloat;
 @property (nonatomic) CGFloat colorWithBlueFloat;
-@property (nonatomic) CGFloat alphaFloat;
 
 @property (nonatomic) NSUInteger tapCapMax;
 @property (nonatomic) NSUInteger tapCapMin;
 @property (nonatomic) CGFloat multiplier;
+@property (nonatomic) NSInteger incrementValue;
 
 @property (nonatomic, strong) AMYSharedDataStore *store;
 
@@ -60,7 +57,7 @@
 {
     [super viewWillAppear:animated];
     
-    NSArray *buttons = [NSArray arrayWithObjects:self.lessRedButton, self.moreRedButton, self.lessGreenButton, self.moreGreenButton, self.lessBlueButton, self.moreBlueButton, self.lessAlphaButton, self.moreAlphaButton, nil];
+    NSArray *buttons = [NSArray arrayWithObjects:self.lessRedButton, self.moreRedButton, self.lessGreenButton, self.moreGreenButton, self.lessBlueButton, self.moreBlueButton, nil];
     NSArray *colors = self.store.colorsForGameButtons;
     
     NSUInteger i = 0;
@@ -96,15 +93,33 @@
     
     NSArray *colorValueLabels = @[ self.redBackgroundValueLabel,
                                    self.greenBackgroundValueLabel,
-                                   self.blueBackgroundValueLabel,
-                                   self.alphaBackgroundValueLabel];
+                                   self.blueBackgroundValueLabel];
     UIColor *textColor = [UIColor whiteColor];
     
     for (UILabel *colorValueLabel in colorValueLabels)
     {
-        colorValueLabel.backgroundColor = [UIColor darkGrayColor];
-        [colorValueLabel setTextColor:textColor];
+        colorValueLabel.textColor = textColor;
+        colorValueLabel.layer.shadowColor = textColor.CGColor;
+        colorValueLabel.layer.shadowRadius = 4.0f;
+        colorValueLabel.layer.shadowOpacity = .9;
+        colorValueLabel.layer.shadowOffset = CGSizeZero;
+        colorValueLabel.layer.masksToBounds = NO;
+        
+//        colorValueLabel.backgroundColor = [UIColor darkGrayColor];
+//        [colorValueLabel setTextColor:textColor];
     }
+    
+    /*
+     for (UILabel *label in labels)
+     {
+     label.textColor = color;
+     label.layer.shadowColor = color.CGColor;
+     label.layer.shadowRadius = 4.0f;
+     label.layer.shadowOpacity = .9;
+     label.layer.shadowOffset = CGSizeZero;
+     label.layer.masksToBounds = NO;
+     }
+     */
     
     self.multiplier = .05;
     
@@ -113,12 +128,10 @@
     self.colorWithRedFloat = 0.0;
     self.colorWithGreenFloat = 0.0;
     self.colorWithBlueFloat = 0.0;
-    self.alphaFloat = 1.0;
     
     self.numberOfTimesRedButtonTapped = self.colorWithRedFloat;
     self.numberOfTimesGreenButtonTapped = self.colorWithGreenFloat;
     self.numberOfTimesBlueButtonTapped = self.colorWithBlueFloat;
-    self.numberOfTimesAlphaButtonTapped = self.alphaFloat * x;
     
     self.tapCapMax = x;
     self.tapCapMin = 0;
@@ -126,7 +139,6 @@
     self.redBackgroundValueLabel.text = [NSString stringWithFormat:@"R:"];
     self.greenBackgroundValueLabel.text = [NSString stringWithFormat:@"G:"];
     self.blueBackgroundValueLabel.text = [NSString stringWithFormat:@"B:"];
-    self.alphaBackgroundValueLabel.text = [NSString stringWithFormat:@"A:"];
     
     self.lessRedButton.enabled = YES;
     self.moreRedButton.enabled = YES;
@@ -134,13 +146,11 @@
     self.moreGreenButton.enabled = YES;
     self.lessBlueButton.enabled = YES;
     self.moreBlueButton.enabled = YES;
-    self.lessAlphaButton.enabled = YES;
-    self.moreAlphaButton.enabled = YES;
 }
 
 - (void)changeBackgroundColor
 {
-    self.view.backgroundColor = [UIColor colorWithRed:self.colorWithRedFloat green:self.colorWithGreenFloat blue:self.colorWithBlueFloat alpha:self.alphaFloat];
+    self.view.backgroundColor = [UIColor colorWithRed:self.colorWithRedFloat green:self.colorWithGreenFloat blue:self.colorWithBlueFloat alpha:1.0];
     
     CGFloat redBG, greenBG, blueBG, alphaBG;
     
@@ -151,7 +161,6 @@
     self.redBackgroundValueLabel.text = [NSString stringWithFormat:@"R: %.2f", redBG];
     self.greenBackgroundValueLabel.text = [NSString stringWithFormat:@"G: %.2f", greenBG];
     self.blueBackgroundValueLabel.text = [NSString stringWithFormat:@"B: %.2f", blueBG];
-    self.alphaBackgroundValueLabel.text = [NSString stringWithFormat:@"A: %.2f", alphaBG];
 }
 
 - (IBAction)refreshViewButtonTapped:(id)sender
@@ -249,36 +258,6 @@
     [self postButtonActions];
 }
 
-- (IBAction)addAlphaToBackgroundButtonTapped:(UIButton *)sender
-{
-    if (self.numberOfTimesAlphaButtonTapped == self.tapCapMax)
-    {
-        sender.enabled = NO;
-        return;
-    }
-    self.numberOfTimesAlphaButtonTapped++;
-    self.lessAlphaButton.enabled = YES;
-    
-    self.alphaFloat = self.numberOfTimesAlphaButtonTapped * self.multiplier;
-    
-    [self postButtonActions];
-}
-
-- (IBAction)takeAwayAlphaFromBackgroundButtonTapped:(UIButton *)sender
-{
-    if (self.numberOfTimesAlphaButtonTapped == self.tapCapMin)
-    {
-        sender.enabled = NO;
-        return;
-    }
-    self.numberOfTimesAlphaButtonTapped--;
-    self.moreAlphaButton.enabled = YES;
-    
-    self.alphaFloat = self.numberOfTimesAlphaButtonTapped * self.multiplier;
-    
-    [self postButtonActions];
-}
-
 - (IBAction)hideFeatureButtonTapped:(id)sender
 {
     if ([self.hideFeatureButton.titleLabel.text isEqualToString:@"⚪️"])
@@ -292,7 +271,6 @@
         self.redBackgroundValueLabel.hidden = YES;
         self.greenBackgroundValueLabel.hidden = YES;
         self.blueBackgroundValueLabel.hidden = YES;
-        self.alphaBackgroundValueLabel.hidden = YES;
         
         [self.hideFeatureButton setTitle:@"⚫️" forState:UIControlStateNormal];
     }
@@ -302,7 +280,6 @@
         self.redBackgroundValueLabel.hidden = NO;
         self.greenBackgroundValueLabel.hidden = NO;
         self.blueBackgroundValueLabel.hidden = NO;
-        self.alphaBackgroundValueLabel.hidden = NO;
         
         [self.hideFeatureButton setTitle:@"⚪️" forState:UIControlStateNormal];
     }
@@ -313,5 +290,19 @@
     [self changeBackgroundColor];
 }
 
+- (IBAction)incrementSegmentedControlValueChanged:(id)sender
+{
+    
+}
+
+/*
+ Use Masonry to constrain this view properly to the parent...
+ turn increments into base-64
+ hook up segmentedControl
+ adopt new Hide Feature system
+ solidify autolayout once and for all
+ refactor where possible
+ fix button width to preserve gradient integrity
+ */
 
 @end

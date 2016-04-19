@@ -39,19 +39,17 @@
 - (void)showDifficultyOptions
 {
     UIViewController *difficultyVC = [self.storyboard instantiateViewControllerWithIdentifier:@"DifficultyViewController"];
-    [self setEmbeddedViewController:difficultyVC];
+    [self setEmbeddedViewController:difficultyVC name:@"menu"];
 }
 
 - (void)showZenGame
 {
     UIViewController *zenVC = [self.storyboard instantiateViewControllerWithIdentifier:@"ZenViewController"];
-    [self setEmbeddedViewController:zenVC];
+    [self setEmbeddedViewController:zenVC name:@"zen"];
 }
 
-- (void)setEmbeddedViewController:(UIViewController *)controller
+- (void)setEmbeddedViewController:(UIViewController *)controller name:(NSString *)name
 {
-    
-    
     if([self.childViewControllers containsObject:controller])
     {
         return;
@@ -80,16 +78,16 @@
     
     [controller.view mas_updateConstraints:^(MASConstraintMaker *make)
     {
-//        make.edges.equalTo(@0);
-        
         make.left.right.and.bottom.equalTo(self.containerView);
-        make.top.equalTo(@(self.navigationController.navigationBar.frame.size.height + 35));
         
-        //is there a way to make the top edge equal to the bottom of the nav bar?
-        /* perhaps
-         make.left.right.and.bottom.equalTo(superview);
-         make.top.equalTo(otherView);
-         */
+        if ([name isEqualToString:@"menu"])
+        {
+            make.top.equalTo(@(self.navigationController.navigationBar.frame.size.height + 36));
+        }
+        else
+        {
+            make.top.equalTo(@(self.navigationController.navigationBar.frame.size.height));
+        }
     }];
     
     [controller didMoveToParentViewController:self];
