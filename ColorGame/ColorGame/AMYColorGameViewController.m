@@ -13,6 +13,8 @@
 
 @interface AMYColorGameViewController ()
 
+//make constants for border width (for both tapping buttons and game labels/buttons), corner radius (tapping buttons, goal circle), multipliers (4, 16, 32, 64, either out of 256.0 or not), store modes (0, 1, 2, 3), for 256 (the max amount of value RGorB can have), for 0 and 64 and 192 (when something is too dark or light enough or not involved in this current color target), for the .000001 difference or whatever in absolute value.  There are others, of course.  There are a lot of magic numbers in here... but a handful or two of constants should clear those right up!
+
 @property (weak, nonatomic) IBOutlet UIView *colorGoalView;
 @property (weak, nonatomic) IBOutlet UILabel *gameLabel;
 @property (weak, nonatomic) IBOutlet UIButton *refreshGameButton;
@@ -133,6 +135,7 @@
 
 - (void)setCurrentIncrementSegmentedControl
 {
+    //maybe this should be reworked so that mode 0 should be the else?
     if (self.store.mode == 0)
     {
         self.basicIncrementSegmentedControl.hidden = YES;
@@ -205,18 +208,6 @@
     //this determines the textColor
     UIColor *textColor = [self textColorBasedOnGoalColorRed:red green:green];
     
-    //...............................................
-    //valueLabels
-//    NSArray *colorValueLabels = @[ self.redGoalValueLabel,
-//                                   self.greenGoalValueLabel,
-//                                   self.blueGoalValueLabel,
-//                                   self.redBackgroundValueLabel,
-//                                   self.greenBackgroundValueLabel,
-//                                   self.blueBackgroundValueLabel];
-//    
-//    [self setLabelPropertiesWithArray:colorValueLabels textColor:textColor];
-    //...............................................
-    
     //this is all about the refreshGameButton, hidden in the goal color circle
     //it uses textColor
     //maybe the portions that do not need textColor can be in setUpView?
@@ -228,13 +219,6 @@
     //this sets the segmented control with the textColor
     //uses textColor
     self.currentSegmentedControl.tintColor = textColor;
-    
-    //gameLabels
-//    NSArray *gameLabels = @[ self.gameLabel,
-//                             self.playerScoreLabel,
-//                             self.targetScoreLabel ];
-//    
-//    [self setLabelPropertiesWithArray:gameLabels textColor:textColor];
     
     //'''''''''''''''''''''''''''''''''''''''''''''''''
     //this is all for the backButton
