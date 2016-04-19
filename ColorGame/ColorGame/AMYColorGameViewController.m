@@ -208,6 +208,8 @@
     //this determines the textColor
     UIColor *textColor = [self textColorBasedOnGoalColorRed:red green:green];
     
+    [self setLabelsWithTextColor:textColor];
+    
     //this is all about the refreshGameButton, hidden in the goal color circle
     //it uses textColor
     //maybe the portions that do not need textColor can be in setUpView?

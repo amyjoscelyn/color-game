@@ -22,8 +22,13 @@
 //    NSString *fontName = @"IowanOldStyle-Bold"; //hmm... too big, but nice. I think it's my favorite so far.
 //    NSString *fontName = @"Palatino-Bold"; //not bad, but not spectacular
 //    NSString *fontName = @"AvenirNextCondensed-Bold"; //growing on me
+    NSString *fontName = @"";
     
-//    [[UILabel appearance] setSubstituteFontName:fontName];
+    [[UILabel appearance] setSubstituteFontName:fontName];
+    
+    UINavigationBar *navBar = [UINavigationBar appearance];
+    navBar.tintColor = [UIColor colorWithRed:47/255.0 green:44/255.0 blue:39/255.0 alpha:1.0];
+//    navBar.barTintColor = [UIColor colorWithRed:47/255.0 green:44/255.0 blue:39/255.0 alpha:1.0];
     
     return YES;
 }
