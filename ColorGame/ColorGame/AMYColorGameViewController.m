@@ -20,7 +20,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *redGoalValueLabel;
 @property (weak, nonatomic) IBOutlet UILabel *greenGoalValueLabel;
 @property (weak, nonatomic) IBOutlet UILabel *blueGoalValueLabel;
-
 @property (weak, nonatomic) IBOutlet UILabel *redBackgroundValueLabel;
 @property (weak, nonatomic) IBOutlet UILabel *greenBackgroundValueLabel;
 @property (weak, nonatomic) IBOutlet UILabel *blueBackgroundValueLabel;
@@ -184,7 +183,7 @@
 {
     //-------------------------------------------
     //setting the color and breaking it down into components
-    //it uses color and returns red, green, and blue
+    //this belongs right here
     self.colorGoalView.backgroundColor = color;
     self.currentColor = color;
     
@@ -200,83 +199,48 @@
     //-------------------------------------------
     
     //this handles the minimum score for goal color
-    //it uses red, green, and blue
     NSUInteger targetScore = [self calculateTargetScoreWithRed:red green:green blue:blue];
     self.targetScoreLabel.text = [NSString stringWithFormat:@"Target Score: %lu", (unsigned long)targetScore];
     
     //this determines the textColor
-    //it uses red and green
-    UIColor *textColor = [UIColor whiteColor];
-    
-    if (red > 180/256.0 && green > 180/256.0)
-    {
-        textColor = [UIColor colorWithRed:0.35 green:0.35 blue:0.35 alpha:1.0];
-    }
+    UIColor *textColor = [self textColorBasedOnGoalColorRed:red green:green];
     
     //...............................................
-    //maybe the below can be its own method, void, textColor param... should this be called in this method, or in setUpView?
-    //it uses textColor
-    NSArray *colorValueLabels = @[ self.redGoalValueLabel,
-                                   self.greenGoalValueLabel,
-                                   self.blueGoalValueLabel,
-                                   self.redBackgroundValueLabel,
-                                   self.greenBackgroundValueLabel,
-                                   self.blueBackgroundValueLabel];
-    
-    for (UILabel *colorValueLabel in colorValueLabels)
-    {
-        colorValueLabel.textColor = textColor;
-        colorValueLabel.layer.shadowColor = textColor.CGColor;
-        colorValueLabel.layer.shadowRadius = 4.0f;
-        colorValueLabel.layer.shadowOpacity = .9;
-        colorValueLabel.layer.shadowOffset = CGSizeZero;
-        colorValueLabel.layer.masksToBounds = NO;
-    }
-    self.redGoalValueLabel.hidden = YES;
-    self.greenGoalValueLabel.hidden = YES;
-    self.blueGoalValueLabel.hidden = YES;
-    
-    self.redBackgroundValueLabel.hidden = YES;
-    self.greenBackgroundValueLabel.hidden = YES;
-    self.blueBackgroundValueLabel.hidden = YES;
+    //valueLabels
+//    NSArray *colorValueLabels = @[ self.redGoalValueLabel,
+//                                   self.greenGoalValueLabel,
+//                                   self.blueGoalValueLabel,
+//                                   self.redBackgroundValueLabel,
+//                                   self.greenBackgroundValueLabel,
+//                                   self.blueBackgroundValueLabel];
+//    
+//    [self setLabelPropertiesWithArray:colorValueLabels textColor:textColor];
     //...............................................
     
     //this is all about the refreshGameButton, hidden in the goal color circle
     //it uses textColor
     //maybe the portions that do not need textColor can be in setUpView?
     [self.refreshGameButton setTitleColor:textColor forState:UIControlStateNormal];
-    self.refreshGameButton.layer.borderWidth = 2.0f;
     self.refreshGameButton.layer.borderColor = textColor.CGColor;
+    self.refreshGameButton.layer.borderWidth = 2.0f;
     self.refreshGameButton.hidden = YES;
     
     //this sets the segmented control with the textColor
     //uses textColor
     self.currentSegmentedControl.tintColor = textColor;
     
-    //another method?  this time just for game labels?
-    //uses textColor
-    NSArray *gameLabels = @[ self.gameLabel,
-                             self.playerScoreLabel,
-                             self.targetScoreLabel ];
-    
-    for (UILabel *label in gameLabels)
-    {
-        //THIS IS THE EXACT SAME AS THE ABOVE so i can make a method taking in the array and textColor.  no return needed
-        label.textColor = textColor;
-        label.layer.shadowColor = textColor.CGColor;
-        label.layer.shadowRadius = 4.0f;
-        label.layer.shadowOpacity = .9;
-        label.layer.shadowOffset = CGSizeZero;
-        label.layer.masksToBounds = NO;
-    }
+    //gameLabels
+//    NSArray *gameLabels = @[ self.gameLabel,
+//                             self.playerScoreLabel,
+//                             self.targetScoreLabel ];
+//    
+//    [self setLabelPropertiesWithArray:gameLabels textColor:textColor];
     
     //'''''''''''''''''''''''''''''''''''''''''''''''''
     //this is all for the backButton
     //top part uses nothing, maybe good for setUpView?
     //middle uses red, green, and blue, returns local BOOL
     //bottom uses textColor and color
-    self.dismissModalButton.layer.cornerRadius = 5;
-    self.dismissModalButton.layer.borderWidth = 2.0f;
     
     BOOL inverse;
     
@@ -310,6 +274,48 @@
     //''''''''''''''''''''''''''''''''''''''''''''''''
     
     [self setUpView];
+}
+
+- (UIColor *)textColorBasedOnGoalColorRed:(CGFloat)red green:(CGFloat)green
+{
+    if (red > 180/256.0 && green > 180/256.0)
+    {
+        return [UIColor colorWithRed:0.35 green:0.35 blue:0.35 alpha:1.0];
+    }
+    else
+    {
+        return [UIColor whiteColor];
+    }
+}
+
+- (void)setLabelsWithTextColor:(UIColor *)color
+{
+    NSArray *colorValueLabels = @[ self.redGoalValueLabel,
+                                   self.greenGoalValueLabel,
+                                   self.blueGoalValueLabel,
+                                   self.redBackgroundValueLabel,
+                                   self.greenBackgroundValueLabel,
+                                   self.blueBackgroundValueLabel];
+    
+    NSArray *gameLabels = @[ self.gameLabel,
+                             self.playerScoreLabel,
+                             self.targetScoreLabel ];
+    
+    [self setLabelPropertiesWithArray:colorValueLabels color:color];
+    [self setLabelPropertiesWithArray:gameLabels color:color];
+}
+
+- (void)setLabelPropertiesWithArray:(NSArray *)labels color:(UIColor *)color
+{
+    for (UILabel *label in labels)
+    {
+        label.textColor = color;
+        label.layer.shadowColor = color.CGColor;
+        label.layer.shadowRadius = 4.0f;
+        label.layer.shadowOpacity = .9;
+        label.layer.shadowOffset = CGSizeZero;
+        label.layer.masksToBounds = NO;
+    }
 }
 
 - (NSUInteger)calculateTargetScoreWithRed:(CGFloat)red green:(CGFloat)green blue:(CGFloat)blue
@@ -357,71 +363,51 @@
     NSUInteger sixteen = 16;
     NSUInteger four = 4;
     
-    NSInteger remainderOne = 0;
-    NSInteger remainderTwo = 0;
-    NSInteger remainderThree = 0;
-    NSInteger remainderFour = 0;
+    NSInteger resultOne = 0;
+    NSInteger resultTwo = 0;
+    NSInteger resultThree = 0;
+    NSInteger resultFour = 0;
     
     NSInteger moduloOne;
     NSInteger moduloTwo;
     NSInteger moduloThree;
     
-    remainderOne = color / sixtyFour;
+    resultOne = color / sixtyFour;
     moduloOne = fmodf(color, sixtyFour);
     
     if (!(moduloOne == 0))
     {
-        remainderTwo = moduloOne / thirtyTwo;
+        resultTwo = moduloOne / thirtyTwo;
         moduloTwo = fmodf(moduloOne, thirtyTwo);
         
         if (!(moduloTwo == 0))
         {
-            remainderThree = moduloTwo / sixteen;
+            resultThree = moduloTwo / sixteen;
             moduloThree = fmodf(moduloTwo, sixteen);
             
             if (!(moduloThree == 0))
             {
-                remainderFour = moduloThree / four;
+                resultFour = moduloThree / four;
             }
         }
     }
-    return remainderOne + remainderTwo + remainderThree + remainderFour;
+    return resultOne + resultTwo + resultThree + resultFour;
 }
 
 - (void)setUpView
-//set up view with what?  this should be where all the labels are populated, buttons hidden and properties reset...
 {
     //this is about the goal circle
     self.colorGoalView.layer.cornerRadius = self.colorGoalView.frame.size.height/2;
     self.colorGoalView.clipsToBounds = YES;
     
-    //.................................................
-    //this is the resetting of properties: text should be reverted to beginning-of-game state, taps need to be reset to 0, hintButton must be a gray ?, background must be black
-    self.hintButtonTaps = 0;
-    self.totalButtonTaps = 0;
+    self.dismissModalButton.layer.cornerRadius = 5;
+    self.dismissModalButton.layer.borderWidth = 2.0f;
+    
+    [self resetGameProperties];
+    
     self.playerScoreLabel.text = [NSString stringWithFormat:@"Your Score: %lu", (unsigned long)self.totalButtonTaps];
     self.gameLabel.text = @"Match the color!";
-    
-    [self.hideFeatureButton setTitle:@"❔" forState:UIControlStateNormal];
-    
     self.view.backgroundColor = [UIColor blackColor];
-    //.................................................
-    
-    //-------------------------------------------
-    //which outlets are these?? do i need to set them as 0?  do i need to do this here?
-    self.colorWithRedFloat = 0.0;
-    self.colorWithGreenFloat = 0.0;
-    self.colorWithBlueFloat = 0.0;
-    
-    self.redInteger = 0;
-    self.greenInteger = 0;
-    self.blueInteger = 0;
-    //-------------------------------------------
-    
-    //backgroundVLs set
-    self.redBackgroundValueLabel.text = [NSString stringWithFormat:@"R: 0"];
-    self.greenBackgroundValueLabel.text = [NSString stringWithFormat:@"G: 0"];
-    self.blueBackgroundValueLabel.text = [NSString stringWithFormat:@"B: 0"];
     
     //color adjusting buttons enabled
     self.lessRedButton.enabled = YES;
@@ -496,6 +482,40 @@
     self.blueBackgroundValueLabel.text = [NSString stringWithFormat:@"B: %.0f", self.colorWithBlueFloat*256];
     
     self.playerScoreLabel.text = [NSString stringWithFormat:@"Your Score: %lu", (unsigned long)self.totalButtonTaps];
+}
+
+- (void)resetGameProperties
+{
+    self.colorWithRedFloat = 0.0;
+    self.colorWithGreenFloat = 0.0;
+    self.colorWithBlueFloat = 0.0;
+    
+    self.redInteger = 0;
+    self.greenInteger = 0;
+    self.blueInteger = 0;
+    
+    //backgroundVLs set
+    self.redBackgroundValueLabel.text = [NSString stringWithFormat:@"R: 0"];
+    self.greenBackgroundValueLabel.text = [NSString stringWithFormat:@"G: 0"];
+    self.blueBackgroundValueLabel.text = [NSString stringWithFormat:@"B: 0"];
+    
+    self.totalButtonTaps = 0;
+    
+    [self.hideFeatureButton setTitle:@"❔" forState:UIControlStateNormal];
+    
+    [self hideValueLabels];
+}
+
+- (void)hideValueLabels
+{
+    self.redGoalValueLabel.hidden = YES;
+    self.greenGoalValueLabel.hidden = YES;
+    self.blueGoalValueLabel.hidden = YES;
+    self.redBackgroundValueLabel.hidden = YES;
+    self.greenBackgroundValueLabel.hidden = YES;
+    self.blueBackgroundValueLabel.hidden = YES;
+    
+    self.hintButtonTaps = 0;
 }
 
 - (IBAction)makeBackgroundMoreRedButtonTapped:(UIButton *)sender
@@ -679,15 +699,7 @@
     }
     else
     {
-        self.redGoalValueLabel.hidden = YES;
-        self.greenGoalValueLabel.hidden = YES;
-        self.blueGoalValueLabel.hidden = YES;
-        
-        self.redBackgroundValueLabel.hidden = YES;
-        self.greenBackgroundValueLabel.hidden = YES;
-        self.blueBackgroundValueLabel.hidden = YES;
-        
-        self.hintButtonTaps = 0;
+        [self hideValueLabels];
     }
     
     //    if ([self.hideFeatureButton.titleLabel.text isEqualToString:@"⚪️"])
@@ -781,6 +793,8 @@
  How does that sound?  Totally do-able, but would it be appropriate for a game like this?  When the colors get reeaaally difficulty, it might be virtually impossible to get to the hardest levels.
  Score should have nothing to do with progression.  It's whether you can do it on your own, not how fast you can do it.
  If I do decide to keep track of score, the only ones that should "count" are the ones that were achieved without any hints.
+ 
+ I guess it's possible to change the amount of segments in segmentedControls.  So instead of having three separate ones that I reveal and hide, I can just change the number of segments and set them appropriately based on the mode.
  */
 
 @end
