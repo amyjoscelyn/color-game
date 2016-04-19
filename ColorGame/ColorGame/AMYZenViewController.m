@@ -34,6 +34,10 @@
 @property (nonatomic) CGFloat colorWithGreenFloat;
 @property (nonatomic) CGFloat colorWithBlueFloat;
 
+@property (nonatomic) NSInteger redInteger;
+@property (nonatomic) NSInteger greenInteger;
+@property (nonatomic) NSInteger blueInteger;
+
 @property (nonatomic) NSUInteger tapCapMax;
 @property (nonatomic) NSUInteger tapCapMin;
 @property (nonatomic) CGFloat multiplier;
@@ -104,26 +108,16 @@
         colorValueLabel.layer.shadowOpacity = .9;
         colorValueLabel.layer.shadowOffset = CGSizeZero;
         colorValueLabel.layer.masksToBounds = NO;
-        
-//        colorValueLabel.backgroundColor = [UIColor darkGrayColor];
-//        [colorValueLabel setTextColor:textColor];
     }
     
-    /*
-     for (UILabel *label in labels)
-     {
-     label.textColor = color;
-     label.layer.shadowColor = color.CGColor;
-     label.layer.shadowRadius = 4.0f;
-     label.layer.shadowOpacity = .9;
-     label.layer.shadowOffset = CGSizeZero;
-     label.layer.masksToBounds = NO;
-     }
-     */
-    
-    self.multiplier = .05;
+    self.multiplier = 64/256.0;
     
     CGFloat x = 1 / self.multiplier;
+    
+    self.redInteger = 0;
+    self.greenInteger = 0;
+    self.blueInteger = 0;
+
     
     self.colorWithRedFloat = 0.0;
     self.colorWithGreenFloat = 0.0;
@@ -136,9 +130,9 @@
     self.tapCapMax = x;
     self.tapCapMin = 0;
     
-    self.redBackgroundValueLabel.text = [NSString stringWithFormat:@"R:"];
-    self.greenBackgroundValueLabel.text = [NSString stringWithFormat:@"G:"];
-    self.blueBackgroundValueLabel.text = [NSString stringWithFormat:@"B:"];
+    self.redBackgroundValueLabel.text = [NSString stringWithFormat:@"R: 0"];
+    self.greenBackgroundValueLabel.text = [NSString stringWithFormat:@"G: 0"];
+    self.blueBackgroundValueLabel.text = [NSString stringWithFormat:@"B: 0"];
     
     self.lessRedButton.enabled = YES;
     self.moreRedButton.enabled = YES;
@@ -152,15 +146,9 @@
 {
     self.view.backgroundColor = [UIColor colorWithRed:self.colorWithRedFloat green:self.colorWithGreenFloat blue:self.colorWithBlueFloat alpha:1.0];
     
-    CGFloat redBG, greenBG, blueBG, alphaBG;
-    
-    [self.view.backgroundColor getRed: &redBG
-                                green: &greenBG
-                                 blue: &blueBG
-                                alpha: &alphaBG];
-    self.redBackgroundValueLabel.text = [NSString stringWithFormat:@"R: %.2f", redBG];
-    self.greenBackgroundValueLabel.text = [NSString stringWithFormat:@"G: %.2f", greenBG];
-    self.blueBackgroundValueLabel.text = [NSString stringWithFormat:@"B: %.2f", blueBG];
+    self.redBackgroundValueLabel.text = [NSString stringWithFormat:@"R: %.0f", self.colorWithRedFloat*256];
+    self.greenBackgroundValueLabel.text = [NSString stringWithFormat:@"G: %.0f", self.colorWithGreenFloat*256];
+    self.blueBackgroundValueLabel.text = [NSString stringWithFormat:@"B: %.0f", self.colorWithBlueFloat*256];
 }
 
 - (IBAction)refreshViewButtonTapped:(id)sender
@@ -181,6 +169,20 @@
     self.colorWithRedFloat = self.numberOfTimesRedButtonTapped * self.multiplier;
     
     [self postButtonActions];
+    
+    /*
+     self.lessRedButton.enabled = YES; √
+     
+     self.redInteger += self.incrementValue;
+     self.colorWithRedFloat = self.redInteger/256.0;
+     
+     if (self.redInteger >= 256)
+     {
+     self.redInteger = 256;
+     sender.enabled = NO;
+     }
+     [self postButtonActions]; √ (opt+v)
+     */
 }
 
 - (IBAction)makeBackgroundLessRedButtonTapped:(UIButton *)sender
@@ -290,9 +292,25 @@
     [self changeBackgroundColor];
 }
 
-- (IBAction)incrementSegmentedControlValueChanged:(id)sender
+- (IBAction)incrementSegmentedControlValueChanged:(UISegmentedControl *)sender
 {
-    
+    if (sender.selectedSegmentIndex == 0)
+    {
+        self.multiplier = 4/256.0;
+    }
+    else if (sender.selectedSegmentIndex == 1)
+    {
+        self.multiplier = 16/256.0;
+    }
+    else if (sender.selectedSegmentIndex == 2)
+    {
+        self.multiplier = 32/256.0;
+    }
+    else
+    {
+        self.multiplier = 64/256.0;
+    }
+    self.incrementValue = self.multiplier * 256;
 }
 
 /*
