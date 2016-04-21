@@ -757,6 +757,11 @@
  If I do decide to keep track of score, the only ones that should "count" are the ones that were achieved without any hints.
  
  I guess it's possible to change the amount of segments in segmentedControls.  So instead of having three separate ones that I reveal and hide, I can just change the number of segments and set them appropriately based on the mode.
+ 
+ It would be nice to have a custom color for the NavBar, because the default is kind of ugly.  Especially in Zen Mode.
+ Although theoretically, if I'm going to be placing the menus into a single screen, then I can have a delegate to dismiss the Zen Mode back to the menus requiring no NavBar.
+ 
+ It would be nice to have the in-game font reminiscent of the fun of the app icon.  It's a game, after all!
  */
 
 @end
