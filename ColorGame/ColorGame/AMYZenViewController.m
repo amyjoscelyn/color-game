@@ -26,10 +26,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *refreshViewButton;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *incrementSegmentedControl;
 
-//@property (nonatomic) NSUInteger numberOfTimesRedButtonTapped;
-//@property (nonatomic) NSUInteger numberOfTimesGreenButtonTapped;
-//@property (nonatomic) NSUInteger numberOfTimesBlueButtonTapped;
-
 @property (nonatomic) CGFloat colorWithRedFloat;
 @property (nonatomic) CGFloat colorWithGreenFloat;
 @property (nonatomic) CGFloat colorWithBlueFloat;
@@ -38,10 +34,9 @@
 @property (nonatomic) NSInteger greenInteger;
 @property (nonatomic) NSInteger blueInteger;
 
-//@property (nonatomic) NSUInteger tapCapMax;
-//@property (nonatomic) NSUInteger tapCapMin;
 @property (nonatomic) CGFloat multiplier;
 @property (nonatomic) NSInteger incrementValue;
+@property (nonatomic) NSUInteger hintButtonTaps;
 
 @property (nonatomic, strong) AMYSharedDataStore *store;
 
@@ -52,9 +47,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self setDefaultBackground];
-    
     self.store = [AMYSharedDataStore sharedDataStore];
+
+    [self setDefaultBackground];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -95,25 +90,13 @@
 {
     self.view.backgroundColor = [UIColor blackColor];
     
-    NSArray *colorValueLabels = @[ self.redBackgroundValueLabel,
-                                   self.greenBackgroundValueLabel,
-                                   self.blueBackgroundValueLabel];
     UIColor *textColor = [UIColor whiteColor];
     
-    for (UILabel *colorValueLabel in colorValueLabels)
-    {
-        colorValueLabel.textColor = textColor;
-        colorValueLabel.layer.shadowColor = textColor.CGColor;
-        colorValueLabel.layer.shadowRadius = 4.0f;
-        colorValueLabel.layer.shadowOpacity = .9;
-        colorValueLabel.layer.shadowOffset = CGSizeZero;
-        colorValueLabel.layer.masksToBounds = NO;
-    }
-    
+    [self setLabelsWithTextColor:textColor];
+        
+    self.incrementSegmentedControl.selectedSegmentIndex = 3;
     self.multiplier = 64/256.0;
     self.incrementValue = self.multiplier * 256;
-    
-    self.incrementSegmentedControl.selectedSegmentIndex = 3;
     
     self.colorWithRedFloat = 0.0;
     self.colorWithGreenFloat = 0.0;
@@ -127,12 +110,36 @@
     self.greenBackgroundValueLabel.text = [NSString stringWithFormat:@"G: 0"];
     self.blueBackgroundValueLabel.text = [NSString stringWithFormat:@"B: 0"];
     
+    [self.hideFeatureButton setTitle:@"❔" forState:UIControlStateNormal];
+    
+    [self hideValueLabels];
+    
     self.lessRedButton.enabled = YES;
     self.moreRedButton.enabled = YES;
     self.lessGreenButton.enabled = YES;
     self.moreGreenButton.enabled = YES;
     self.lessBlueButton.enabled = YES;
     self.moreBlueButton.enabled = YES;
+}
+
+- (void)setLabelsWithTextColor:(UIColor *)color
+{
+    NSArray *colorValueLabels = @[ self.redBackgroundValueLabel, self.greenBackgroundValueLabel, self.blueBackgroundValueLabel];
+    
+    [self setLabelPropertiesWithArray:colorValueLabels color:color];
+}
+
+- (void)setLabelPropertiesWithArray:(NSArray *)labels color:(UIColor *)color
+{
+    for (UILabel *label in labels)
+    {
+        label.textColor = color;
+        label.layer.shadowColor = color.CGColor;
+        label.layer.shadowRadius = 4.0f;
+        label.layer.shadowOpacity = .9;
+        label.layer.shadowOffset = CGSizeZero;
+        label.layer.masksToBounds = NO;
+    }
 }
 
 - (void)changeBackgroundColor
@@ -142,6 +149,25 @@
     self.redBackgroundValueLabel.text = [NSString stringWithFormat:@"R: %.0f", self.colorWithRedFloat*256];
     self.greenBackgroundValueLabel.text = [NSString stringWithFormat:@"G: %.0f", self.colorWithGreenFloat*256];
     self.blueBackgroundValueLabel.text = [NSString stringWithFormat:@"B: %.0f", self.colorWithBlueFloat*256];
+    
+    UIColor *textColor = [self textColorBasedOnGoalColorRed:self.colorWithRedFloat green:self.colorWithGreenFloat];
+    
+    if (![textColor isEqual:self.redBackgroundValueLabel.textColor])
+    {
+        [self setLabelsWithTextColor:textColor];
+    }
+}
+
+- (UIColor *)textColorBasedOnGoalColorRed:(CGFloat)red green:(CGFloat)green
+{
+    if (red > 180/256.0 && green > 180/256.0)
+    {
+        return [UIColor colorWithRed:0.35 green:0.35 blue:0.35 alpha:1.0];
+    }
+    else
+    {
+        return [UIColor whiteColor];
+    }
 }
 
 - (IBAction)refreshViewButtonTapped:(id)sender
@@ -247,29 +273,51 @@
 
 - (IBAction)hideFeatureButtonTapped:(id)sender
 {
-    if ([self.hideFeatureButton.titleLabel.text isEqualToString:@"⚪️"])
+    if (self.hintButtonTaps == 0)
     {
-        self.refreshViewButton.hidden = YES;
-        
-        [self.hideFeatureButton setTitle:@"🔘" forState:UIControlStateNormal];
-    }
-    else if ([self.hideFeatureButton.titleLabel.text isEqualToString:@"🔘"])
-    {
-        self.redBackgroundValueLabel.hidden = YES;
-        self.greenBackgroundValueLabel.hidden = YES;
-        self.blueBackgroundValueLabel.hidden = YES;
-        
-        [self.hideFeatureButton setTitle:@"⚫️" forState:UIControlStateNormal];
-    }
-    else
-    {
-        self.refreshViewButton.hidden = NO;
         self.redBackgroundValueLabel.hidden = NO;
         self.greenBackgroundValueLabel.hidden = NO;
         self.blueBackgroundValueLabel.hidden = NO;
         
-        [self.hideFeatureButton setTitle:@"⚪️" forState:UIControlStateNormal];
+        self.hintButtonTaps++;
     }
+    else
+    {
+        [self hideValueLabels];
+    }
+    
+//    if ([self.hideFeatureButton.titleLabel.text isEqualToString:@"⚪️"])
+//    {
+//        self.refreshViewButton.hidden = YES;
+//        
+//        [self.hideFeatureButton setTitle:@"🔘" forState:UIControlStateNormal];
+//    }
+//    else if ([self.hideFeatureButton.titleLabel.text isEqualToString:@"🔘"])
+//    {
+//        self.redBackgroundValueLabel.hidden = YES;
+//        self.greenBackgroundValueLabel.hidden = YES;
+//        self.blueBackgroundValueLabel.hidden = YES;
+//        
+//        [self.hideFeatureButton setTitle:@"⚫️" forState:UIControlStateNormal];
+//    }
+//    else
+//    {
+//        self.refreshViewButton.hidden = NO;
+//        self.redBackgroundValueLabel.hidden = NO;
+//        self.greenBackgroundValueLabel.hidden = NO;
+//        self.blueBackgroundValueLabel.hidden = NO;
+//        
+//        [self.hideFeatureButton setTitle:@"⚪️" forState:UIControlStateNormal];
+//    }
+}
+
+- (void)hideValueLabels
+{
+    self.redBackgroundValueLabel.hidden = YES;
+    self.greenBackgroundValueLabel.hidden = YES;
+    self.blueBackgroundValueLabel.hidden = YES;
+    
+    self.hintButtonTaps = 0;
 }
 
 - (void)postButtonActions
@@ -299,14 +347,10 @@
 }
 
 /*
- Use Masonry to constrain this view properly to the parent...
- turn increments into base-64
- hook up segmentedControl
- adopt new Hide Feature system
- solidify autolayout once and for all
  refactor where possible
  fix button width to preserve gradient integrity
- make hide feature button the ? or !
+ 
+ when color becomes too light, change text color to darker
  */
 
 @end

@@ -667,7 +667,6 @@
 
 - (IBAction)refreshGameButtonTapped:(id)sender
 {
-//    self.firstColor = NO;
     [self chooseGoalColor];
 }
 
@@ -693,35 +692,6 @@
     {
         [self hideValueLabels];
     }
-    
-    //    if ([self.hideFeatureButton.titleLabel.text isEqualToString:@"⚪️"])
-    //    {
-    //        self.redBackgroundValueLabel.hidden = YES;
-    //        self.greenBackgroundValueLabel.hidden = YES;
-    //        self.blueBackgroundValueLabel.hidden = YES;
-    //
-    //        [self.hideFeatureButton setTitle:@"🔘" forState:UIControlStateNormal];
-    //    }
-    //    else if ([self.hideFeatureButton.titleLabel.text isEqualToString:@"🔘"])
-    //    {
-    //        self.redGoalValueLabel.hidden = YES;
-    //        self.greenGoalValueLabel.hidden = YES;
-    //        self.blueGoalValueLabel.hidden = YES;
-    //
-    //        [self.hideFeatureButton setTitle:@"⚫️" forState:UIControlStateNormal];
-    //    }
-    //    else
-    //    {
-    //        self.redBackgroundValueLabel.hidden = NO;
-    //        self.greenBackgroundValueLabel.hidden = NO;
-    //        self.blueBackgroundValueLabel.hidden = NO;
-    //
-    //        self.redGoalValueLabel.hidden = NO;
-    //        self.greenGoalValueLabel.hidden = NO;
-    //        self.blueGoalValueLabel.hidden = NO;
-    //
-    //        [self.hideFeatureButton setTitle:@"⚪️" forState:UIControlStateNormal];
-    //    }
 }
 
 - (IBAction)dismissModalButtonTapped:(id)sender
