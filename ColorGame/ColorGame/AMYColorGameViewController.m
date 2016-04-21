@@ -509,13 +509,14 @@
     self.lessRedButton.enabled = YES;
     
     self.redInteger += self.incrementValue;
-    self.colorWithRedFloat = self.redInteger/256.0;
     
     if (self.redInteger >= 256)
     {
         self.redInteger = 256;
         sender.enabled = NO;
     }
+    self.colorWithRedFloat = self.redInteger/256.0;
+    
     [self postButtonActions];
 }
 
@@ -524,13 +525,14 @@
     self.moreRedButton.enabled = YES;
     
     self.redInteger -= self.incrementValue;
-    self.colorWithRedFloat = self.redInteger/256.0;
     
     if (self.redInteger <= 0)
     {
         self.redInteger = 0;
         sender.enabled = NO;
     }
+    self.colorWithRedFloat = self.redInteger/256.0;
+    
     [self postButtonActions];
 }
 
@@ -539,13 +541,14 @@
     self.lessGreenButton.enabled = YES;
     
     self.greenInteger += self.incrementValue;
-    self.colorWithGreenFloat = self.greenInteger/256.0;
     
     if (self.greenInteger >= 256)
     {
         self.greenInteger = 256;
         sender.enabled = NO;
     }
+    self.colorWithGreenFloat = self.greenInteger/256.0;
+    
     [self postButtonActions];
 }
 
@@ -554,13 +557,14 @@
     self.moreGreenButton.enabled = YES;
     
     self.greenInteger -= self.incrementValue;
-    self.colorWithGreenFloat = self.greenInteger/256.0;
     
     if (self.greenInteger <= 0)
     {
         self.greenInteger = 0;
         sender.enabled = NO;
     }
+    self.colorWithGreenFloat = self.greenInteger/256.0;
+    
     [self postButtonActions];
 }
 
@@ -569,13 +573,14 @@
     self.lessBlueButton.enabled = YES;
     
     self.blueInteger += self.incrementValue;
-    self.colorWithBlueFloat = self.blueInteger/256.0;
     
     if (self.blueInteger >= 256)
     {
         self.blueInteger = 256;
         sender.enabled = NO;
     }
+    self.colorWithBlueFloat = self.blueInteger/256.0;
+    
     [self postButtonActions];
 }
 
@@ -584,13 +589,14 @@
     self.moreBlueButton.enabled = YES;
     
     self.blueInteger -= self.incrementValue;
-    self.colorWithBlueFloat = self.blueInteger/256.0;
     
     if (self.blueInteger <= 0)
     {
         self.blueInteger = 0;
         sender.enabled = NO;
     }
+    self.colorWithBlueFloat = self.blueInteger/256.0;
+    
     [self postButtonActions];
 }
 

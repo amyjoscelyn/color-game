@@ -26,9 +26,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *refreshViewButton;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *incrementSegmentedControl;
 
-@property (nonatomic) NSUInteger numberOfTimesRedButtonTapped;
-@property (nonatomic) NSUInteger numberOfTimesGreenButtonTapped;
-@property (nonatomic) NSUInteger numberOfTimesBlueButtonTapped;
+//@property (nonatomic) NSUInteger numberOfTimesRedButtonTapped;
+//@property (nonatomic) NSUInteger numberOfTimesGreenButtonTapped;
+//@property (nonatomic) NSUInteger numberOfTimesBlueButtonTapped;
 
 @property (nonatomic) CGFloat colorWithRedFloat;
 @property (nonatomic) CGFloat colorWithGreenFloat;
@@ -38,8 +38,8 @@
 @property (nonatomic) NSInteger greenInteger;
 @property (nonatomic) NSInteger blueInteger;
 
-@property (nonatomic) NSUInteger tapCapMax;
-@property (nonatomic) NSUInteger tapCapMin;
+//@property (nonatomic) NSUInteger tapCapMax;
+//@property (nonatomic) NSUInteger tapCapMin;
 @property (nonatomic) CGFloat multiplier;
 @property (nonatomic) NSInteger incrementValue;
 
@@ -111,24 +111,17 @@
     }
     
     self.multiplier = 64/256.0;
+    self.incrementValue = self.multiplier * 256;
     
-    CGFloat x = 1 / self.multiplier;
-    
-    self.redInteger = 0;
-    self.greenInteger = 0;
-    self.blueInteger = 0;
-
+    self.incrementSegmentedControl.selectedSegmentIndex = 3;
     
     self.colorWithRedFloat = 0.0;
     self.colorWithGreenFloat = 0.0;
     self.colorWithBlueFloat = 0.0;
     
-    self.numberOfTimesRedButtonTapped = self.colorWithRedFloat;
-    self.numberOfTimesGreenButtonTapped = self.colorWithGreenFloat;
-    self.numberOfTimesBlueButtonTapped = self.colorWithBlueFloat;
-    
-    self.tapCapMax = x;
-    self.tapCapMin = 0;
+    self.redInteger = 0;
+    self.greenInteger = 0;
+    self.blueInteger = 0;
     
     self.redBackgroundValueLabel.text = [NSString stringWithFormat:@"R: 0"];
     self.greenBackgroundValueLabel.text = [NSString stringWithFormat:@"G: 0"];
@@ -158,104 +151,96 @@
 
 - (IBAction)makeBackgroundMoreRedButtonTapped:(UIButton *)sender
 {
-    if (self.numberOfTimesRedButtonTapped == self.tapCapMax)
-    {
-        sender.enabled = NO;
-        return;
-    }
-    self.numberOfTimesRedButtonTapped++;
     self.lessRedButton.enabled = YES;
     
-    self.colorWithRedFloat = self.numberOfTimesRedButtonTapped * self.multiplier;
+    self.redInteger += self.incrementValue;
+    
+    if (self.redInteger >= 256)
+    {
+        self.redInteger = 256;
+        sender.enabled = NO;
+    }
+    self.colorWithRedFloat = self.redInteger/256.0;
     
     [self postButtonActions];
-    
-    /*
-     self.lessRedButton.enabled = YES; √
-     
-     self.redInteger += self.incrementValue;
-     self.colorWithRedFloat = self.redInteger/256.0;
-     
-     if (self.redInteger >= 256)
-     {
-     self.redInteger = 256;
-     sender.enabled = NO;
-     }
-     [self postButtonActions]; √ (opt+v)
-     */
 }
 
 - (IBAction)makeBackgroundLessRedButtonTapped:(UIButton *)sender
 {
-    if (self.numberOfTimesRedButtonTapped == self.tapCapMin)
-    {
-        sender.enabled = NO;
-        return;
-    }
-    self.numberOfTimesRedButtonTapped--;
     self.moreRedButton.enabled = YES;
     
-    self.colorWithRedFloat = self.numberOfTimesRedButtonTapped * self.multiplier;
+    self.redInteger -= self.incrementValue;
+    
+    if (self.redInteger <= 0)
+    {
+        self.redInteger = 0;
+        sender.enabled = NO;
+    }
+    self.colorWithRedFloat = self.redInteger/256.0;
     
     [self postButtonActions];
 }
 
 - (IBAction)makeBackgroundMoreGreenButtonTapped:(UIButton *)sender
 {
-    if (self.numberOfTimesGreenButtonTapped == self.tapCapMax)
-    {
-        sender.enabled = NO;
-        return;
-    }
-    self.numberOfTimesGreenButtonTapped++;
     self.lessGreenButton.enabled = YES;
     
-    self.colorWithGreenFloat = self.numberOfTimesGreenButtonTapped * self.multiplier;
+    self.greenInteger += self.incrementValue;
+    
+    if (self.greenInteger >= 256)
+    {
+        self.greenInteger = 256;
+        sender.enabled = NO;
+    }
+    self.colorWithGreenFloat = self.greenInteger/256.0;
     
     [self postButtonActions];
 }
 
 - (IBAction)makeBackgroundLessGreenButtonTapped:(UIButton *)sender
 {
-    if (self.numberOfTimesGreenButtonTapped == self.tapCapMin)
-    {
-        sender.enabled = NO;
-        return;
-    }
-    self.numberOfTimesGreenButtonTapped--;
     self.moreGreenButton.enabled = YES;
     
-    self.colorWithGreenFloat = self.numberOfTimesGreenButtonTapped * self.multiplier;
+    self.greenInteger -= self.incrementValue;
+    
+    if (self.greenInteger <= 0)
+    {
+        self.greenInteger = 0;
+        sender.enabled = NO;
+    }
+    self.colorWithGreenFloat = self.greenInteger/256.0;
     
     [self postButtonActions];
 }
 
 - (IBAction)makeBackgroundMoreBlueButtonTapped:(UIButton *)sender
 {
-    if (self.numberOfTimesBlueButtonTapped == self.tapCapMax)
-    {
-        sender.enabled = NO;
-        return;
-    }
-    self.numberOfTimesBlueButtonTapped++;
     self.lessBlueButton.enabled = YES;
     
-    self.colorWithBlueFloat = self.numberOfTimesBlueButtonTapped * self.multiplier;
+    self.blueInteger += self.incrementValue;
+    
+    if (self.blueInteger >= 256)
+    {
+        self.blueInteger = 256;
+        sender.enabled = NO;
+    }
+    self.colorWithBlueFloat = self.blueInteger/256.0;
     
     [self postButtonActions];
 }
 
 - (IBAction)makeBackgroundLessBlueButtonTapped:(UIButton *)sender
 {
-    if (self.numberOfTimesBlueButtonTapped == self.tapCapMin)
-    {
-        sender.enabled = NO;
-        return;
-    }
-    self.numberOfTimesBlueButtonTapped--;
     self.moreBlueButton.enabled = YES;
     
-    self.colorWithBlueFloat = self.numberOfTimesBlueButtonTapped * self.multiplier;
+    self.blueInteger -= self.incrementValue;
+    
+    if (self.blueInteger <= 0)
+    {
+        self.blueInteger = 0;
+        sender.enabled = NO;
+    }
+    self.colorWithBlueFloat = self.blueInteger/256.0;
     
     [self postButtonActions];
 }
@@ -321,6 +306,7 @@
  solidify autolayout once and for all
  refactor where possible
  fix button width to preserve gradient integrity
+ make hide feature button the ? or !
  */
 
 @end
