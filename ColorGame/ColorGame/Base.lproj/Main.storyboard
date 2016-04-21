@@ -690,13 +690,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="Rs1-dS-PgU" userLabel="Color Button SVs">
-                                <rect key="frame" x="24" y="292" width="272" height="222"/>
+                                <rect key="frame" x="32" y="292" width="256" height="222"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="vG7-V8-bJs" userLabel="Red Button SV">
-                                        <rect key="frame" x="0.0" y="0.0" width="272" height="45"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="256" height="51"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k9q-Hn-dqR">
-                                                <rect key="frame" x="0.0" y="0.0" width="116" height="45"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="108" height="51"/>
                                                 <color key="backgroundColor" red="0.3921568627" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <state key="normal" title="   Less Red!   ">
@@ -711,7 +711,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yON-RF-r53">
-                                                <rect key="frame" x="156" y="0.0" width="116" height="45"/>
+                                                <rect key="frame" x="148" y="0.0" width="108" height="51"/>
                                                 <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <state key="normal" title="   More Red!   ">
@@ -731,10 +731,10 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="ZHU-4w-BJI" userLabel="Green Button SV">
-                                        <rect key="frame" x="0.0" y="88.5" width="272" height="45"/>
+                                        <rect key="frame" x="0.0" y="85.5" width="256" height="51"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vqg-Q4-B7g">
-                                                <rect key="frame" x="0.0" y="0.0" width="116" height="45"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="108" height="51"/>
                                                 <color key="backgroundColor" red="0.0" green="0.3921568627" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <state key="normal" title="   Less Green!   ">
@@ -749,7 +749,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aIc-GD-h8T">
-                                                <rect key="frame" x="156" y="0.0" width="116" height="45"/>
+                                                <rect key="frame" x="148" y="0.0" width="108" height="51"/>
                                                 <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <state key="normal" title="   More Green!   ">
@@ -766,10 +766,10 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="asl-to-kH2" userLabel="Blue Button SV">
-                                        <rect key="frame" x="0.0" y="177" width="272" height="45"/>
+                                        <rect key="frame" x="0.0" y="171" width="256" height="51"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wj2-Py-5gP">
-                                                <rect key="frame" x="0.0" y="0.0" width="116" height="45"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="108" height="51"/>
                                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <state key="normal" title="   Less Blue!   ">
@@ -784,7 +784,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GFk-ze-nAG">
-                                                <rect key="frame" x="156" y="0.0" width="116" height="45"/>
+                                                <rect key="frame" x="148" y="0.0" width="108" height="51"/>
                                                 <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <state key="normal" title="   More Blue!   ">
@@ -874,14 +874,14 @@
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="Ifa-nR-yTE" secondAttribute="trailing" constant="8" id="3VZ-mV-fY8"/>
                             <constraint firstItem="Rs1-dS-PgU" firstAttribute="top" secondItem="3Ip-bx-1e6" secondAttribute="bottom" constant="24" id="3jO-Lq-Nzk"/>
-                            <constraint firstItem="k9q-Hn-dqR" firstAttribute="height" secondItem="3Ip-bx-1e6" secondAttribute="height" id="6El-hN-H3d"/>
+                            <constraint firstItem="k9q-Hn-dqR" firstAttribute="height" secondItem="3Ip-bx-1e6" secondAttribute="height" constant="6" id="6El-hN-H3d"/>
                             <constraint firstItem="3Ip-bx-1e6" firstAttribute="height" secondItem="5Cc-Lv-3pH" secondAttribute="height" multiplier="0.08" id="AkA-PU-nNp"/>
                             <constraint firstItem="3Ip-bx-1e6" firstAttribute="centerX" secondItem="5Cc-Lv-3pH" secondAttribute="centerX" id="FGl-Wq-iWc"/>
                             <constraint firstItem="rQ7-D3-ddu" firstAttribute="top" secondItem="1Aa-8d-8o7" secondAttribute="bottom" constant="80" id="RSB-Gv-98N"/>
                             <constraint firstItem="3Ip-bx-1e6" firstAttribute="bottom" secondItem="5Cc-Lv-3pH" secondAttribute="centerY" constant="-16" id="TKa-GI-RU8"/>
                             <constraint firstItem="QTB-K1-Cps" firstAttribute="top" secondItem="Rs1-dS-PgU" secondAttribute="bottom" id="TyV-cb-eg4"/>
                             <constraint firstItem="Ifa-nR-yTE" firstAttribute="top" secondItem="1Aa-8d-8o7" secondAttribute="bottom" constant="24" id="bfJ-9h-5LA"/>
-                            <constraint firstItem="Rs1-dS-PgU" firstAttribute="width" secondItem="5Cc-Lv-3pH" secondAttribute="width" multiplier="0.85" id="cmJ-sR-jFk"/>
+                            <constraint firstItem="Rs1-dS-PgU" firstAttribute="width" secondItem="5Cc-Lv-3pH" secondAttribute="width" multiplier="0.8" id="cmJ-sR-jFk"/>
                             <constraint firstItem="Rs1-dS-PgU" firstAttribute="centerX" secondItem="5Cc-Lv-3pH" secondAttribute="centerX" id="jU3-1u-RkI"/>
                             <constraint firstItem="7wp-l1-kJH" firstAttribute="top" secondItem="QTB-K1-Cps" secondAttribute="bottom" constant="8" id="lBa-1o-Pba"/>
                             <constraint firstItem="rQ7-D3-ddu" firstAttribute="height" secondItem="5Cc-Lv-3pH" secondAttribute="height" multiplier="0.16" id="lTR-Ga-3kk"/>

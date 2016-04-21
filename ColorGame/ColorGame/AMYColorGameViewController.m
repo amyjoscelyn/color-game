@@ -262,48 +262,6 @@
     [self setUpView];
 }
 
-- (UIColor *)textColorBasedOnGoalColorRed:(CGFloat)red green:(CGFloat)green
-{
-    if (red > 180/256.0 && green > 180/256.0)
-    {
-        return [UIColor colorWithRed:0.35 green:0.35 blue:0.35 alpha:1.0];
-    }
-    else
-    {
-        return [UIColor whiteColor];
-    }
-}
-
-- (void)setLabelsWithTextColor:(UIColor *)color
-{
-    NSArray *colorValueLabels = @[ self.redGoalValueLabel,
-                                   self.greenGoalValueLabel,
-                                   self.blueGoalValueLabel,
-                                   self.redBackgroundValueLabel,
-                                   self.greenBackgroundValueLabel,
-                                   self.blueBackgroundValueLabel];
-    
-    NSArray *gameLabels = @[ self.gameLabel,
-                             self.playerScoreLabel,
-                             self.targetScoreLabel ];
-    
-    [self setLabelPropertiesWithArray:colorValueLabels color:color];
-    [self setLabelPropertiesWithArray:gameLabels color:color];
-}
-
-- (void)setLabelPropertiesWithArray:(NSArray *)labels color:(UIColor *)color
-{
-    for (UILabel *label in labels)
-    {
-        label.textColor = color;
-        label.layer.shadowColor = color.CGColor;
-        label.layer.shadowRadius = 4.0f;
-        label.layer.shadowOpacity = .9;
-        label.layer.shadowOffset = CGSizeZero;
-        label.layer.masksToBounds = NO;
-    }
-}
-
 - (NSUInteger)calculateTargetScoreWithRed:(CGFloat)red green:(CGFloat)green blue:(CGFloat)blue
 {
     NSUInteger targetScore;
@@ -380,6 +338,48 @@
     return resultOne + resultTwo + resultThree + resultFour;
 }
 
+- (UIColor *)textColorBasedOnGoalColorRed:(CGFloat)red green:(CGFloat)green
+{
+    if (red > 180/256.0 && green > 180/256.0)
+    {
+        return [UIColor colorWithRed:0.35 green:0.35 blue:0.35 alpha:1.0];
+    }
+    else
+    {
+        return [UIColor whiteColor];
+    }
+}
+
+- (void)setLabelsWithTextColor:(UIColor *)color
+{
+    NSArray *colorValueLabels = @[ self.redGoalValueLabel,
+                                   self.greenGoalValueLabel,
+                                   self.blueGoalValueLabel,
+                                   self.redBackgroundValueLabel,
+                                   self.greenBackgroundValueLabel,
+                                   self.blueBackgroundValueLabel];
+    
+    NSArray *gameLabels = @[ self.gameLabel,
+                             self.playerScoreLabel,
+                             self.targetScoreLabel ];
+    
+    [self setLabelPropertiesWithArray:colorValueLabels color:color];
+    [self setLabelPropertiesWithArray:gameLabels color:color];
+}
+
+- (void)setLabelPropertiesWithArray:(NSArray *)labels color:(UIColor *)color
+{
+    for (UILabel *label in labels)
+    {
+        label.textColor = color;
+        label.layer.shadowColor = color.CGColor;
+        label.layer.shadowRadius = 4.0f;
+        label.layer.shadowOpacity = .9;
+        label.layer.shadowOffset = CGSizeZero;
+        label.layer.masksToBounds = NO;
+    }
+}
+
 - (void)setUpView
 {
     //this is about the goal circle
@@ -402,6 +402,40 @@
     self.moreGreenButton.enabled = YES;
     self.lessBlueButton.enabled = YES;
     self.moreBlueButton.enabled = YES;
+}
+
+- (void)resetGameProperties
+{
+    self.colorWithRedFloat = 0.0;
+    self.colorWithGreenFloat = 0.0;
+    self.colorWithBlueFloat = 0.0;
+    
+    self.redInteger = 0;
+    self.greenInteger = 0;
+    self.blueInteger = 0;
+    
+    //backgroundVLs set
+    self.redBackgroundValueLabel.text = [NSString stringWithFormat:@"R: 0"];
+    self.greenBackgroundValueLabel.text = [NSString stringWithFormat:@"G: 0"];
+    self.blueBackgroundValueLabel.text = [NSString stringWithFormat:@"B: 0"];
+    
+    self.totalButtonTaps = 0;
+    
+    [self.hideFeatureButton setTitle:@"❔" forState:UIControlStateNormal];
+    
+    [self hideValueLabels];
+}
+
+- (void)hideValueLabels
+{
+    self.redGoalValueLabel.hidden = YES;
+    self.greenGoalValueLabel.hidden = YES;
+    self.blueGoalValueLabel.hidden = YES;
+    self.redBackgroundValueLabel.hidden = YES;
+    self.greenBackgroundValueLabel.hidden = YES;
+    self.blueBackgroundValueLabel.hidden = YES;
+    
+    self.hintButtonTaps = 0;
 }
 
 - (IBAction)incrementSegmentedControlValueChanged:(UISegmentedControl *)sender
@@ -457,51 +491,6 @@
     }
     
     self.incrementValue = self.multiplier * 256;
-}
-
-- (void)changeBackgroundColor
-{
-    self.view.backgroundColor = [UIColor colorWithRed:self.colorWithRedFloat green:self.colorWithGreenFloat blue:self.colorWithBlueFloat alpha:1.0];
-    
-    self.redBackgroundValueLabel.text = [NSString stringWithFormat:@"R: %.0f", self.colorWithRedFloat*256];
-    self.greenBackgroundValueLabel.text = [NSString stringWithFormat:@"G: %.0f", self.colorWithGreenFloat*256];
-    self.blueBackgroundValueLabel.text = [NSString stringWithFormat:@"B: %.0f", self.colorWithBlueFloat*256];
-    
-    self.playerScoreLabel.text = [NSString stringWithFormat:@"Your Score: %lu", (unsigned long)self.totalButtonTaps];
-}
-
-- (void)resetGameProperties
-{
-    self.colorWithRedFloat = 0.0;
-    self.colorWithGreenFloat = 0.0;
-    self.colorWithBlueFloat = 0.0;
-    
-    self.redInteger = 0;
-    self.greenInteger = 0;
-    self.blueInteger = 0;
-    
-    //backgroundVLs set
-    self.redBackgroundValueLabel.text = [NSString stringWithFormat:@"R: 0"];
-    self.greenBackgroundValueLabel.text = [NSString stringWithFormat:@"G: 0"];
-    self.blueBackgroundValueLabel.text = [NSString stringWithFormat:@"B: 0"];
-    
-    self.totalButtonTaps = 0;
-    
-    [self.hideFeatureButton setTitle:@"❔" forState:UIControlStateNormal];
-    
-    [self hideValueLabels];
-}
-
-- (void)hideValueLabels
-{
-    self.redGoalValueLabel.hidden = YES;
-    self.greenGoalValueLabel.hidden = YES;
-    self.blueGoalValueLabel.hidden = YES;
-    self.redBackgroundValueLabel.hidden = YES;
-    self.greenBackgroundValueLabel.hidden = YES;
-    self.blueBackgroundValueLabel.hidden = YES;
-    
-    self.hintButtonTaps = 0;
 }
 
 - (IBAction)makeBackgroundMoreRedButtonTapped:(UIButton *)sender
@@ -605,6 +594,17 @@
     self.totalButtonTaps++;
     [self changeBackgroundColor];
     [self hasWon:([self winningConditions])];
+}
+
+- (void)changeBackgroundColor
+{
+    self.view.backgroundColor = [UIColor colorWithRed:self.colorWithRedFloat green:self.colorWithGreenFloat blue:self.colorWithBlueFloat alpha:1.0];
+    
+    self.redBackgroundValueLabel.text = [NSString stringWithFormat:@"R: %.0f", self.colorWithRedFloat*256];
+    self.greenBackgroundValueLabel.text = [NSString stringWithFormat:@"G: %.0f", self.colorWithGreenFloat*256];
+    self.blueBackgroundValueLabel.text = [NSString stringWithFormat:@"B: %.0f", self.colorWithBlueFloat*256];
+    
+    self.playerScoreLabel.text = [NSString stringWithFormat:@"Your Score: %lu", (unsigned long)self.totalButtonTaps];
 }
 
 - (BOOL)winningConditions

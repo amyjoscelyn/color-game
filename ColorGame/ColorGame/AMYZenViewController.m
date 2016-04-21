@@ -93,10 +93,10 @@
     UIColor *textColor = [UIColor whiteColor];
     
     [self setLabelsWithTextColor:textColor];
-        
-    self.incrementSegmentedControl.selectedSegmentIndex = 3;
+    
     self.multiplier = 64/256.0;
     self.incrementValue = self.multiplier * 256;
+    self.incrementSegmentedControl.selectedSegmentIndex = 3;
     
     self.colorWithRedFloat = 0.0;
     self.colorWithGreenFloat = 0.0;
@@ -127,6 +127,8 @@
     NSArray *colorValueLabels = @[ self.redBackgroundValueLabel, self.greenBackgroundValueLabel, self.blueBackgroundValueLabel];
     
     [self setLabelPropertiesWithArray:colorValueLabels color:color];
+    
+    self.incrementSegmentedControl.tintColor = color;
 }
 
 - (void)setLabelPropertiesWithArray:(NSArray *)labels color:(UIColor *)color
@@ -142,20 +144,13 @@
     }
 }
 
-- (void)changeBackgroundColor
+- (void)hideValueLabels
 {
-    self.view.backgroundColor = [UIColor colorWithRed:self.colorWithRedFloat green:self.colorWithGreenFloat blue:self.colorWithBlueFloat alpha:1.0];
+    self.redBackgroundValueLabel.hidden = YES;
+    self.greenBackgroundValueLabel.hidden = YES;
+    self.blueBackgroundValueLabel.hidden = YES;
     
-    self.redBackgroundValueLabel.text = [NSString stringWithFormat:@"R: %.0f", self.colorWithRedFloat*256];
-    self.greenBackgroundValueLabel.text = [NSString stringWithFormat:@"G: %.0f", self.colorWithGreenFloat*256];
-    self.blueBackgroundValueLabel.text = [NSString stringWithFormat:@"B: %.0f", self.colorWithBlueFloat*256];
-    
-    UIColor *textColor = [self textColorBasedOnGoalColorRed:self.colorWithRedFloat green:self.colorWithGreenFloat];
-    
-    if (![textColor isEqual:self.redBackgroundValueLabel.textColor])
-    {
-        [self setLabelsWithTextColor:textColor];
-    }
+    self.hintButtonTaps = 0;
 }
 
 - (UIColor *)textColorBasedOnGoalColorRed:(CGFloat)red green:(CGFloat)green
@@ -271,6 +266,27 @@
     [self postButtonActions];
 }
 
+- (void)postButtonActions
+{
+    [self changeBackgroundColor];
+}
+
+- (void)changeBackgroundColor
+{
+    self.view.backgroundColor = [UIColor colorWithRed:self.colorWithRedFloat green:self.colorWithGreenFloat blue:self.colorWithBlueFloat alpha:1.0];
+    
+    self.redBackgroundValueLabel.text = [NSString stringWithFormat:@"R: %.0f", self.colorWithRedFloat*256];
+    self.greenBackgroundValueLabel.text = [NSString stringWithFormat:@"G: %.0f", self.colorWithGreenFloat*256];
+    self.blueBackgroundValueLabel.text = [NSString stringWithFormat:@"B: %.0f", self.colorWithBlueFloat*256];
+    
+    UIColor *textColor = [self textColorBasedOnGoalColorRed:self.colorWithRedFloat green:self.colorWithGreenFloat];
+    
+    if (![textColor isEqual:self.redBackgroundValueLabel.textColor])
+    {
+        [self setLabelsWithTextColor:textColor];
+    }
+}
+
 - (IBAction)hideFeatureButtonTapped:(id)sender
 {
     if (self.hintButtonTaps == 0)
@@ -311,20 +327,6 @@
 //    }
 }
 
-- (void)hideValueLabels
-{
-    self.redBackgroundValueLabel.hidden = YES;
-    self.greenBackgroundValueLabel.hidden = YES;
-    self.blueBackgroundValueLabel.hidden = YES;
-    
-    self.hintButtonTaps = 0;
-}
-
-- (void)postButtonActions
-{
-    [self changeBackgroundColor];
-}
-
 - (IBAction)incrementSegmentedControlValueChanged:(UISegmentedControl *)sender
 {
     if (sender.selectedSegmentIndex == 0)
@@ -347,10 +349,8 @@
 }
 
 /*
- refactor where possible
+ refactor where possible √ (for now)
  fix button width to preserve gradient integrity
- 
- when color becomes too light, change text color to darker
  */
 
 @end
